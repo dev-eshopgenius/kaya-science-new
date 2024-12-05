@@ -1,0 +1,15 @@
+/* .highlights-slider-wrap {
+    width: 300px;
+    overflow: hidden;
+    border: 2px solid #000;
+    position: relative;
+  }
+  .slider-text {
+    white-space: nowrap;
+    position: absolute;
+    animation: slide 5s linear infinite;
+  }
+  @keyframes slide {
+    0% { left: 100%; }
+    100% { left: -100%; }
+  } */

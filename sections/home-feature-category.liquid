@@ -1,0 +1,303 @@
+{% style %}
+      .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+  }
+  .shop_category--main {
+      display: flex;
+      width: 100%;
+      padding-bottom: 50px;
+  }
+
+  .shop_category--top.half-width {
+      display: flex;
+      justify-content: space-between;
+  }
+{% endstyle %}
+
+<div class="shop_category--wrapper section-{{ section.id }}-padding">
+  <div class="shop_category--main page-width-desktop">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'category' %}
+          <div class="shop_category--left-wrap">
+            {% if block.settings.cat_heading != blank %}
+              <h2 class="title">{{ block.settings.cat_heading }}</h2>
+            {% endif %}
+            {% if block.settings.cat_subheading != blank %}
+              <div class="cat_subheading">{{ block.settings.cat_subheading }}</div>
+            {% endif %}
+            <div class="shop_category--items">
+              {% for i in (1..3) %}
+                {% capture image %}block_image_{{ i }}{% endcapture %}
+                {% capture text %}block_text_{{ i }}{% endcapture %}
+                {% capture link %}block_link_{{ i }}{% endcapture %}
+
+                {% if block.settings[image] != blank %}
+                  {% if block.settings[link] != blank %}
+                    <a
+                      href="{{ block.settings[link] }}"
+
+                      class="category-block_{{ forloop.index }} category__block"
+                    >
+                  {% endif %}
+                  {{ block.settings[image] | image_url: width: 800 | image_tag: loading: 'lazy', class: 'first-img' }}
+                  {% if block.settings[text] != blank %}
+                    <span>
+                      {{ block.settings[text] }}
+                    </span>
+                  {% endif %}
+                  {% if block.settings[link] != blank %} </a>{% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% when 'target' %}
+          <div class="shop_category--right-wrap">
+            {% if block.settings.tar_heading != blank or block.settings.tar_text != blank %}
+              <div class="shop_category--heading">
+                {% if block.settings.tar_heading != blank %}
+                  <h2 class="title">{{ block.settings.tar_heading }}</h2>
+                {% endif %}
+                {% if block.settings.tar_text != blank %}
+                  <div class="rte">{{ block.settings.tar_text }}</div>
+                {% endif %}
+              </div>
+            {% endif %}
+            <div class="shop-cat-right--main">
+              {% if block.settings.image != blank %}
+                <div class="shopcat-targ-image">
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'targ-img' }}
+                </div>
+              {% endif %}
+              <div class="shop-right--items">
+                {% for i in (1..6) %}
+                  {% capture link %}link_{{ i }}{% endcapture %}
+                  {% capture text %}text_{{ i }}{% endcapture %}
+                  {% if block.settings[text] != blank %}
+                    <div class="shop_targ-item  target_item--{{ forloop.index }}">
+                      {% if block.settings[link] != blank %}
+                        <a href="{{ block.settings[link] }}">
+                      {% endif %}
+                      <h3>
+                        {{ block.settings[text] }}
+                      </h3>
+                      <div class="dots"></div>
+                      {% if block.settings[link] != blank %} </a> {% endif %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+"name": "Home Feature Category",
+"settings": [
+{
+    "type": "header",
+    "content": "t:sections.all.padding.section_padding_heading"
+},
+{
+    "type": "range",
+    "id": "padding_top",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "t:sections.all.padding.padding_top",
+    "default": 36
+},
+{
+    "type": "range",
+    "id": "padding_bottom",
+    "min": 0,
+    "max": 100,
+    "step": 4,
+    "unit": "px",
+    "label": "t:sections.all.padding.padding_bottom",
+    "default": 36
+}
+],
+"blocks": [
+{
+    "type": "category",
+    "name":"Cateorgy",
+    "limit": 1,
+    "settings": [
+    {
+        "type": "text",
+        "id": "cat_heading",
+        "label": "Heading"
+    },
+    {
+        "type": "text",
+        "id": "cat_subheading",
+        "label": "Sub-Heading",
+        "default":"Science-backed care for every part of you."
+    },
+    {
+        "type": "header",
+        "content": "Block Left"
+    },
+    {
+        "type": "image_picker",
+        "id": "block_image_1",
+        "label": "Block Image 1"
+    },
+    {
+        "type": "text",
+        "id": "block_text_1",
+        "label": "Block Text 1"
+    },
+    {
+        "type": "url",
+        "id": "block_link_1",
+        "label": "Link 1"
+    },
+    {
+        "type": "header",
+        "content": "Block Right"
+    },
+    {
+        "type": "image_picker",
+        "id": "block_image_2",
+        "label": "Block Image 2"
+    },
+    {
+        "type": "text",
+        "id": "block_text_2",
+        "label": "Block Text 2"
+    },
+    {
+        "type": "url",
+        "id": "block_link_2",
+        "label": "Link 2"
+    },
+    {
+        "type": "header",
+        "content": "Block Bottom"
+    },
+    {
+        "type": "image_picker",
+        "id": "block_image_3",
+        "label": "Block Image 3"
+    },
+    {
+        "type": "text",
+        "id": "block_text_3",
+        "label": "Block Text 3"
+    },
+    {
+        "type": "url",
+        "id": "block_link_3",
+        "label": "Link 3"
+    }
+    ]
+},
+{
+    "type": "target",
+    "name":"Target",
+    "limit": 1,
+    "settings": [
+        {
+        "type": "text",
+        "id": "tar_heading",
+        "label": "Target Heading"
+        },
+        {
+        "type": "text",
+        "id": "tar_text",
+        "label": "Target Text"
+        },
+        {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+        },
+        {
+        "type": "header",
+        "content": "Multiple Text"
+        },
+        {
+        "type": "text",
+        "id": "text_1",
+        "label": "Text 1"
+        },
+        {
+        "type":"url",
+        "id":"link_1",
+        "label":"Link 1"
+        },
+        {
+        "type": "text",
+        "id": "text_2",
+        "label": "Text 2"
+        },
+        {
+        "type":"url",
+        "id":"link_2",
+        "label":"Link 2"
+        },
+        {
+        "type": "text",
+        "id": "text_3",
+        "label": "Text 3"
+        },
+        {
+        "type":"url",
+        "id":"link_3",
+        "label":"Link 3"
+        },
+        {
+        "type": "text",
+        "id": "text_4",
+        "label": "Text 4"
+        },
+        {
+        "type":"url",
+        "id":"link_4",
+        "label":"Link 4"
+        },
+        {
+        "type": "text",
+        "id": "text_5",
+        "label": "Text 5"
+        },
+        {
+        "type":"url",
+        "id":"link_5",
+        "label":"Link 5"
+        },
+        {
+        "type": "text",
+        "id": "text_6",
+        "label": "Text 6"
+        },
+        {
+        "type":"url",
+        "id":"link_6",
+        "label":"Link 6"
+        },
+    ]
+}
+],
+"presets": [
+{
+    "name": "Home Feature Category"
+}
+]
+}
+{% endschema %}
