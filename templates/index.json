@@ -15,7 +15,7 @@
         "slide_pkkB3F": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/1080x566-META.jpg",
+            "image": "shopify://shop_images/kaya-banner.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -76,7 +76,7 @@
         "layout": "full_bleed",
         "slide_height": "adapt_image",
         "slider_visual": "dots",
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
@@ -438,6 +438,7 @@
         "button_eRGetB"
       ],
       "settings": {
+        "classname": "",
         "image": "shopify://shop_images/unbundldesign_Studio_Photography_of_an_beautiful_indian_beautif_72a29fc2-d63a-49b4-a654-8f5d18efa3de_1.png",
         "height": "small",
         "desktop_image_width": "medium",
@@ -468,6 +469,7 @@
         "text_eRcRam"
       ],
       "settings": {
+        "classname": "",
         "image": "shopify://shop_images/Rectangle_3379.png",
         "height": "adapt",
         "desktop_image_width": "medium",
