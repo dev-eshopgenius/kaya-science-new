@@ -1267,3 +1267,64 @@ class BulkAdd extends HTMLElement {
 if (!customElements.get('bulk-add')) {
   customElements.define('bulk-add', BulkAdd);
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const swiper = new Swiper('.swiper-container', {
+    loop: true, 
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3000, 
+      disableOnInteraction: false,
+    },
+  });
+});
+
+
+
+
+
+  let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+  console.log(items)
+  items.forEach(item => {
+    item.addEventListener("mouseover", () => {
+      item.setAttribute("open", true);
+      item.querySelector("ul").addEventListener("mouseleave", () => {
+        item.removeAttribute("open");
+      });
+    item.addEventListener("mouseleave", () => {
+      item.removeAttribute("open");
+    });
+  });
+  
+  });
+
+  var swiperContainer = document.querySelector('.highlights-slider-wrap');
+  if (swiperContainer) {
+    var swiper = new Swiper('.highlights-slider-wrap', {
+      loop: true,
+      slidesPerView: 3,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+    });
+  } else {
+    console.error('Swiper container not found!');
+  }

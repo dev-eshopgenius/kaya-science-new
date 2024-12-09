@@ -134,12 +134,36 @@
             "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
             "link": ""
           }
+        },
+        "icon_with_text_tPRNii": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_D6PePL": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_MN6eFN": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "icon_with_text_3A3aat",
         "icon_with_text_XNKBhC",
-        "icon_with_text_NaPp7A"
+        "icon_with_text_NaPp7A",
+        "icon_with_text_tPRNii",
+        "icon_with_text_D6PePL",
+        "icon_with_text_MN6eFN"
       ],
       "settings": {
         "color_scheme": "",
@@ -186,12 +210,36 @@
             "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
             "link": ""
           }
+        },
+        "icon_with_text_FRhBrX": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_6LmkNN": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_BXBU4x": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "icon_with_text_htEpb6",
         "icon_with_text_mVNDyM",
-        "icon_with_text_dMVXLf"
+        "icon_with_text_dMVXLf",
+        "icon_with_text_FRhBrX",
+        "icon_with_text_6LmkNN",
+        "icon_with_text_BXBU4x"
       ],
       "settings": {
         "color_scheme": "",
@@ -454,33 +502,35 @@
         "padding_bottom": 36
       }
     },
-    "image_with_text_bfCAqB": {
-      "type": "image-with-text",
+    "home_image_text_ntwGMg": {
+      "type": "home-image-text",
       "blocks": {
-        "text_eRcRam": {
-          "type": "text",
+        "icon_text_9V9eKz": {
+          "type": "icon_text",
           "settings": {
-            "text": "<p>“Our skincare blends nature with advanced ”science, using dermatologist-recommended, biotechnological actives for effective, skin-compatible solutions tailored for Indian skin.</p>",
-            "text_style": "subtitle"
+            "text1": "Made for <br>Indian Skin",
+            "text2": "Dermatologist <br>Recommended"
+          }
+        },
+        "icon_text_8rMgXP": {
+          "type": "icon_text",
+          "settings": {
+            "text1": "Science Backed <br>Formulas",
+            "text2": "Science Backed <br>Formulas"
           }
         }
       },
       "block_order": [
-        "text_eRcRam"
+        "icon_text_9V9eKz",
+        "icon_text_8rMgXP"
       ],
       "settings": {
-        "classname": "",
+        "heading": "",
         "image": "shopify://shop_images/Rectangle_3379.png",
-        "height": "adapt",
-        "desktop_image_width": "medium",
         "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "",
+        "content": "<p>Our skincare blends nature with advanced science, using dermatologist-recommended, biotechnological actives for effective, skin-compatible solutions tailored for Indian skin.</p>",
+        "label_text": "Stay Radiant<span>— Team Kaya</span>",
         "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -584,7 +634,7 @@
     "home_feature_category_6LJERP",
     "multicolumn_qhke97",
     "image_with_text_wwBeXj",
-    "image_with_text_bfCAqB",
+    "home_image_text_ntwGMg",
     "173339978942ea19b1",
     "featured_blog_GzhyWM",
     "home_shipping_contact_geT3ze"

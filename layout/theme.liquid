@@ -14,6 +14,7 @@
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
+    
 
     <title>
       {{ page_title }}
@@ -28,7 +29,9 @@
 
     {% render 'meta-tags' %}
 
+    
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
@@ -256,7 +259,7 @@
         }
       }
     {% endstyle %}
-
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
