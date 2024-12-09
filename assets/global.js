@@ -1306,10 +1306,12 @@ document.addEventListener('DOMContentLoaded', function () {
   
   });
 
-
-
-    var swiper = new Swiper('.swiper-container', {
+  var swiperContainer = document.querySelector('.highlights-slider-wrap');
+  if (swiperContainer) {
+    var swiper = new Swiper('.highlights-slider-wrap', {
       loop: true,
+      slidesPerView: 3,
+      spaceBetween: 10,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -1323,3 +1325,6 @@ document.addEventListener('DOMContentLoaded', function () {
         disableOnInteraction: false,
       },
     });
+  } else {
+    console.error('Swiper container not found!');
+  }

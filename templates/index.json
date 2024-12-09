@@ -134,12 +134,36 @@
             "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
             "link": ""
           }
+        },
+        "icon_with_text_tPRNii": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_D6PePL": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_MN6eFN": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "icon_with_text_3A3aat",
         "icon_with_text_XNKBhC",
-        "icon_with_text_NaPp7A"
+        "icon_with_text_NaPp7A",
+        "icon_with_text_tPRNii",
+        "icon_with_text_D6PePL",
+        "icon_with_text_MN6eFN"
       ],
       "settings": {
         "color_scheme": "",
@@ -186,12 +210,36 @@
             "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
             "link": ""
           }
+        },
+        "icon_with_text_FRhBrX": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_6LmkNN": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_BXBU4x": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "icon_with_text_htEpb6",
         "icon_with_text_mVNDyM",
-        "icon_with_text_dMVXLf"
+        "icon_with_text_dMVXLf",
+        "icon_with_text_FRhBrX",
+        "icon_with_text_6LmkNN",
+        "icon_with_text_BXBU4x"
       ],
       "settings": {
         "color_scheme": "",
