@@ -1324,7 +1324,7 @@ disableOnInteraction:false,
 loopAddBlankSlides:true,
 cssMode: true,
 slidesPerView: 4,
- speed: 5000,
+speed: 1000,
 grabCursor: true,
   });
 } else {
