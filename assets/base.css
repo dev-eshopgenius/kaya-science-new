@@ -344,7 +344,7 @@ h5,
 @media only screen and (min-width: 750px) {
   h5,
   .h5 {
-    font-size: calc(var(--font-heading-scale) * 1.3rem);
+    font-size: calc(var(--font-heading-scale) * 1.6rem);
   }
 }
 
@@ -1220,11 +1220,14 @@ button.shopify-payment-button__button--unbranded {
   font: inherit;
   font-size: 1.5rem;
   text-decoration: none;
-  color: rgb(var(--color-button-text));
+  /* color: rgb(var(--color-button-text)); */
   transition: box-shadow var(--duration-short) ease;
   -webkit-appearance: none;
   appearance: none;
-  background-color: rgba(var(--color-button), var(--alpha-button-background));
+  /* background-color: rgba(var(--color-button), var(--alpha-button-background)); */
+  background-color: #262626;
+  color:#fff;
+  border:none;
 }
 
 .button:before,
