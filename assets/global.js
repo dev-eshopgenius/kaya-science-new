@@ -1269,29 +1269,66 @@ if (!customElements.get('bulk-add')) {
 }
 
 
-var swiperContainer = document.querySelector('.swiper-slider-wrap');
-if (swiperContainer) {
-  var swiper = new Swiper('.swiper-slider-wrap', {
+// var swiperContainer = document.querySelector('.swiper-slider-wrap');
+// if (swiperContainer) {
+//   var swiper = new Swiper('.swiper-slider-wrap', {
+// loop: true,
+// freeMode: true,
+// autoplay: {
+//   delay: 0,
+//  pauseOnMouseEnter:true,
+//   disableOnInteraction:false,
+// },
+// loopAddBlankSlides:true,
+// cssMode:false,
+// slidesPerView: 2,
+// speed: 5000,
+// grabCursor: true,
+// loopAdditionalSlides: 2,
+//   });
+// } else {
+//   console.error('Swiper container not found!');
+// }
+
+
+const swiperContainers = document.querySelectorAll('.swiper-slider-wrap');
+
+swiperContainers.forEach((container) => {
+  new Swiper(container, {
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    loop: true,
+    slidesPerView: 2,
+    speed: 5000,
+    grabCursor: true,
+    loopAdditionalSlides: 2,
+  });
+});
+
+
+
+var colswiperContainer = document.querySelector('.home-collection-slider');
+if (colswiperContainer) {
+var col_swiper = new Swiper('.home-collection-slider', {
 loop: true,
-freeMode: true,
 autoplay: {
-  delay: 0,
+  delay: 2000,
  pauseOnMouseEnter:true,
-  disableOnInteraction:false,
+disableOnInteraction:false,
 },
 loopAddBlankSlides:true,
-cssMode:false,
-slidesPerView: 2,
+slidesPerView: 4,
 speed: 5000,
 grabCursor: true,
-loopAdditionalSlides: 2,
   });
 } else {
   console.error('Swiper container not found!');
 }
 
 let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
-  console.log(items)
   items.forEach(item => {
     item.addEventListener("mouseover", () => {
       item.setAttribute("open", true);
@@ -1302,7 +1339,6 @@ let items = document.querySelector(".header__inline-menu").querySelectorAll("det
       item.removeAttribute("open");
     });
   });
-  
-  });
+});
 
  
