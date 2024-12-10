@@ -1319,6 +1319,7 @@ autoplay: {
  pauseOnMouseEnter:true,
 disableOnInteraction:false,
 },
+cssMode: false,
 loopAddBlankSlides:true,
 slidesPerView: 4,
 speed: 5000,
