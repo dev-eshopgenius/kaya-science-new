@@ -1269,28 +1269,6 @@ if (!customElements.get('bulk-add')) {
 }
 
 
-// var swiperContainer = document.querySelector('.swiper-slider-wrap');
-// if (swiperContainer) {
-//   var swiper = new Swiper('.swiper-slider-wrap', {
-// loop: true,
-// freeMode: true,
-// autoplay: {
-//   delay: 0,
-//  pauseOnMouseEnter:true,
-//   disableOnInteraction:false,
-// },
-// loopAddBlankSlides:true,
-// cssMode:false,
-// slidesPerView: 2,
-// speed: 5000,
-// grabCursor: true,
-// loopAdditionalSlides: 2,
-//   });
-// } else {
-//   console.error('Swiper container not found!');
-// }
-
-
 const swiperContainers = document.querySelectorAll('.swiper-slider-wrap');
 
 swiperContainers.forEach((container) => {
@@ -1307,8 +1285,6 @@ swiperContainers.forEach((container) => {
     loopAdditionalSlides: 2,
   });
 });
-
-
 
 var colswiperContainer = document.querySelector('.home-collection-slider');
 if (colswiperContainer) {

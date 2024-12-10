@@ -123,6 +123,11 @@
                 {{ card_product.title | escape }}
               </a>
             </h3>
+            <!-- Start of Judge.me code -->
+            <div class='jdgm-widget jdgm-preview-badge'>
+              {{ card_product.metafields.judgeme.badge }}
+            </div>
+          <!-- End of Judge.me code -->
           </div>
           <div class="card__badge {{ settings.badge_position }}">
             {%- if card_product.available == false -%}
@@ -160,6 +165,11 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
+          <!-- Start of Judge.me code -->
+          <div class='jdgm-widget jdgm-preview-badge'>
+            {{ card_product.metafields.judgeme.badge }}
+          </div>
+        <!-- End of Judge.me code -->
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
@@ -337,6 +347,8 @@
                 </div>
               </quick-add-modal>
             {%- else -%}
+              <button aria-label="Add to Wishlist" data-with-epi="true" class="swym-button swym-add-to-wishlist-view-product product_{{card_product.id}}" data-swaction="addToWishlist" data-product-id="{{card_product.id | json}}" data-variant-id="{{card_product.variants[0].id}}" data-product-url="{{ shop.url }}{{ card_product.url }}">
+              </button>
               <product-form data-section-id="{{ section.id }}">
                 {%- form 'product',
                   card_product,
