@@ -1315,12 +1315,14 @@ if (colswiperContainer) {
 var col_swiper = new Swiper('.home-collection-slider', {
 loop: true,
 cssMode: true,
+spaceBetween: 24,
 autoplay: {
-  delay: 2000,
- pauseOnMouseEnter:true,
+delay: 3000,
+pauseOnMouseEnter:true,
 disableOnInteraction:false,
 },
 loopAddBlankSlides:true,
+cssMode: true,
 slidesPerView: 4,
 speed: 5000,
 grabCursor: true,
