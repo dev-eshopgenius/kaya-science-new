@@ -3597,3 +3597,8 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+
+.highlights-slider-wrap > .swiper-wrapper{
+  transition-timing-function : linear;
+}

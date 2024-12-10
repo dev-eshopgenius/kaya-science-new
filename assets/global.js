@@ -1269,24 +1269,28 @@ if (!customElements.get('bulk-add')) {
 }
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  const swiper = new Swiper('.swiper-container', {
-    loop: true, 
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    autoplay: {
-      delay: 3000, 
-      disableOnInteraction: false,
-    },
+var swiperContainer = document.querySelector('.highlights-slider-wrap');
+if (swiperContainer) {
+  var swiper = new Swiper('.highlights-slider-wrap', {
+loop: true,
+freeMode: true,
+autoplay: {
+  delay: 0,
+ pauseOnMouseEnter:true,
+  disableOnInteraction:false,
+},
+loopAddBlankSlides:true,
+cssMode:false,
+slidesPerView: 2,
+speed: 5000,
+grabCursor: true,
+loopAdditionalSlides: 2,
   });
-});
+} else {
+  console.error('Swiper container not found!');
+}
 
+<<<<<<< HEAD
 
 
 
@@ -1325,3 +1329,5 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     console.error('Swiper container not found!');
   }
+=======
+>>>>>>> d208a8d4966b4fcc9b77702c101c54ca6b195cf4
