@@ -1314,12 +1314,12 @@ var colswiperContainer = document.querySelector('.home-collection-slider');
 if (colswiperContainer) {
 var col_swiper = new Swiper('.home-collection-slider', {
 loop: true,
+cssMode: true,
 autoplay: {
   delay: 2000,
  pauseOnMouseEnter:true,
 disableOnInteraction:false,
 },
-cssMode: false,
 loopAddBlankSlides:true,
 slidesPerView: 4,
 speed: 5000,
