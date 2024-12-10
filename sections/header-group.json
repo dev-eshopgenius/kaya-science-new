@@ -7,32 +7,52 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
+    "new-announcement": {
+      "type": "new-announcement",
       "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
+        "icon_with_text_FNk3Ct": {
+          "type": "icon-with-text",
           "settings": {
-            "text": "Welcome to our store",
+            "icon-text": "Welcome to our store",
             "link": ""
+          }
+        },
+        "icon_with_text_fKPyLY": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Welcome to our store",
+            "link": ""
+          }
+        },
+        "icon_with_text_RmWmUt": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Welcome to our store",
+            "link": ""
+          }
+        },
+        "icon_with_text_BUy6KH": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "prepaid order only",
+            "link": "#"
           }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "icon_with_text_FNk3Ct",
+        "icon_with_text_fKPyLY",
+        "icon_with_text_RmWmUt",
+        "icon_with_text_BUy6KH"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "show_line_separator": true,
-        "show_social": false,
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "enable_country_selector": false,
-        "enable_language_selector": false
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "header": {
@@ -56,7 +76,7 @@
     }
   },
   "order": [
-    "announcement-bar",
+    "new-announcement",
     "header"
   ]
 }
