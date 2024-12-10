@@ -1290,12 +1290,7 @@ loopAdditionalSlides: 2,
   console.error('Swiper container not found!');
 }
 
-<<<<<<< HEAD
-
-
-
-
-  let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
   console.log(items)
   items.forEach(item => {
     item.addEventListener("mouseover", () => {
@@ -1310,24 +1305,4 @@ loopAdditionalSlides: 2,
   
   });
 
-  var swiperContainer = document.querySelector('.highlights-slider-wrap');
-  if (swiperContainer) {
-    var swiper = new Swiper('.highlights-slider-wrap', {
-      loop: true,
-      slidesPerView: 3,
-      spaceBetween: 10,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      autoplay: true,
-    });
-  } else {
-    console.error('Swiper container not found!');
-  }
-=======
->>>>>>> d208a8d4966b4fcc9b77702c101c54ca6b195cf4
+ 
