@@ -3599,6 +3599,6 @@ details-disclosure > details {
 }
 
 
-.swiper-slider-wrap > .swiper-wrapper{
-  transition-timing-function : linear;
+.swiper-wrapper{
+  transition-timing-function: linear 
 }
