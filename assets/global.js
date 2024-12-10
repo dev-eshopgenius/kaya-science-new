@@ -1320,10 +1320,7 @@ document.addEventListener('DOMContentLoaded', function () {
         el: '.swiper-pagination',
         clickable: true,
       },
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
+      autoplay: true,
     });
   } else {
     console.error('Swiper container not found!');
