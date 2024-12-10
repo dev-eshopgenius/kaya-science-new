@@ -1320,9 +1320,9 @@ delay: 3000,
 pauseOnMouseEnter:true,
 disableOnInteraction:false,
 },
-cssMode: true,
+cssMode: false,
 slidesPerView: 4,
-speed: 5000,
+speed: 1000,
 grabCursor: true,
   });
 } else {
