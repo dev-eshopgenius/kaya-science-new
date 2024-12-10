@@ -7,3 +7,15 @@
     width: auto;
 }
 }
+.highlights-section-wrap .icon-with-text-wrap {
+  background: linear-gradient(90deg, #E1EDF0 0%, #EADBE7 50%, #E1EDF0 100%);
+  border-radius: 12px;
+  padding: 24px 0;
+  overflow: hidden;
+}
+
+.highlights-section-wrap .icon-with-text-wrap .highlights-slider-wrap {
+  display: flex;
+  gap: 40px;
+  white-space: nowrap;
+}
