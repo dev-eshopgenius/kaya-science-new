@@ -1,7 +1,7 @@
 slideshow-component {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;background: #fafafa;
 }
 
 slideshow-component .slideshow.banner {
