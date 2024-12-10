@@ -3599,6 +3599,6 @@ details-disclosure > details {
 }
 
 
-.highlights-slider-wrap > .swiper-wrapper{
+.swiper-slider-wrap > .swiper-wrapper{
   transition-timing-function : linear;
 }
