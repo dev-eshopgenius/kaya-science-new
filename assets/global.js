@@ -1269,9 +1269,9 @@ if (!customElements.get('bulk-add')) {
 }
 
 
-var swiperContainer = document.querySelector('.highlights-slider-wrap');
+var swiperContainer = document.querySelector('.swiper-slider-wrap');
 if (swiperContainer) {
-  var swiper = new Swiper('.highlights-slider-wrap', {
+  var swiper = new Swiper('.swiper-slider-wrap', {
 loop: true,
 freeMode: true,
 autoplay: {
