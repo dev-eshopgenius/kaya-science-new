@@ -11,7 +11,7 @@
     }
   }
 {%- endstyle -%}
-<div class="highlights-section-wrap color-{{ section.settings.color_scheme }} gradient">
+{% comment %} <div class="highlights-section-wrap color-{{ section.settings.color_scheme }} gradient">
   <div class="section-{{ section.id }}-padding page-width">
     {% if section.blocks.size != 0 %}
       <div class="icon-with-text-wrap">
@@ -38,9 +38,43 @@
               </div>
             {% endfor %}
           </div>
-          <div class="swiper-button-next"></div>  
-          <div class="swiper-button-prev"></div>  
-          <div class="swiper-pagination"></div> 
+          
+          
+         
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div> {% endcomment %}
+
+<div class="highlights-section-wrap color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding page-width">
+    {% if section.blocks.size != 0 %}
+      <div class="icon-with-text-wrap">
+        <div class="swiper-slider-wrap highlights-slider-wrap swiper">
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              <div class="swiper-slide icon_text_loop slider-text">
+                <div class="icon_text_inner">
+                  {% if block.settings.link != blank %}
+                    <a href="{{ block.settings.link }}" class="icon_link">
+                  {% endif %}
+                  {% if block.settings.icon != blank %}
+                    <div class="icon">
+                      {{ block.settings.icon | image_url: width: 100 | image_tag: loading: 'lazy', class: 'icon' }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings['icon-text'] != blank %}
+                    <div class="icon_text">{{ block.settings['icon-text'] }}</div>
+                  {% endif %}
+                  {% if block.settings.link != blank %}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+      
         </div>
       </div>
     {% endif %}
