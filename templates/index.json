@@ -355,7 +355,6 @@
             "image": "shopify://shop_images/image_39_fac52310-5b13-4571-b4d4-21a59d37da63.png",
             "title": "Brightening Essential Kit",
             "text": "<p>This kit combines potent ingredients to give you a healthy, luminous glow.</p>",
-            "image_link": "",
             "link_label": "Shop Now",
             "link": "#"
           }
@@ -366,7 +365,6 @@
             "image": "shopify://shop_images/image_38_49124040-7ed7-4bf4-bf49-899cedc3c219.png",
             "title": "Brightening Essential Kit",
             "text": "<p>This kit combines potent ingredients to give you a healthy, luminous glow.</p>",
-            "image_link": "",
             "link_label": "Shop Now",
             "link": "#"
           }
@@ -377,7 +375,6 @@
             "image": "shopify://shop_images/image_37_bcdb1a93-1eb4-4503-8a07-5a4eeaff1753.png",
             "title": "Brightening Essential Kit",
             "text": "<p>This kit combines potent ingredients to give you a healthy, luminous glow.</p>",
-            "image_link": "",
             "link_label": "Shop Now",
             "link": "#"
           }
@@ -389,10 +386,9 @@
         "column_DTWDcf"
       ],
       "settings": {
-        "section_class": "",
         "title": "Routine Kits",
-        "heading_size": "h1",
         "sub_heading": "Curated kits for targeted skincare results.",
+        "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "square",
         "columns_desktop": 3,
@@ -400,11 +396,11 @@
         "background_style": "primary",
         "button_label": "",
         "button_link": "",
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-48ef665a-368c-4f1a-b853-d3862b22e100",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "home_feature_category_6LJERP": {
@@ -465,7 +461,6 @@
             "image": "shopify://shop_images/image_40.png",
             "title": "Salicylic Acid",
             "text": "<p>Clears pores, fights breakouts</p>",
-            "image_link": "",
             "link_label": "",
             "link": ""
           }
@@ -476,7 +471,6 @@
             "image": "shopify://shop_images/image_42.png",
             "title": "Niacinamide",
             "text": "<p>Calms, strengthens, brightens skin.</p>",
-            "image_link": "",
             "link_label": "",
             "link": ""
           }
@@ -487,7 +481,6 @@
             "image": "shopify://shop_images/image_40.png",
             "title": "Witch Hazel",
             "text": "<p>Soothes irritation, tightens pores.</p>",
-            "image_link": "",
             "link_label": "",
             "link": ""
           }
@@ -498,7 +491,6 @@
             "image": "shopify://shop_images/image_40.png",
             "title": "Witch Hazel",
             "text": "<p>Soothes irritation, tightens pores.</p>",
-            "image_link": "",
             "link_label": "",
             "link": ""
           }
@@ -509,7 +501,6 @@
             "image": "shopify://shop_images/image_40.png",
             "title": "Shea Butter",
             "text": "<p>Soothes irritation, tightens pores.</p>",
-            "image_link": "",
             "link_label": "",
             "link": ""
           }
@@ -520,7 +511,6 @@
             "image": "shopify://shop_images/image_40.png",
             "title": "Witch Hazel",
             "text": "<p>Soothes irritation, tightens pores.</p>",
-            "image_link": "",
             "link_label": "",
             "link": ""
           }
@@ -535,10 +525,9 @@
         "column_REkDFR"
       ],
       "settings": {
-        "section_class": "",
         "title": "Discover Key Ingredients",
-        "heading_size": "h1",
         "sub_heading": "Science-backed ingredients for maximum efficacy.",
+        "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 6,
