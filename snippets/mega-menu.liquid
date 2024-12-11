@@ -1,0 +1,48 @@
+<div class="megamenu-wrapper">
+    <div class="megamenu-container ">
+      <div class="page-width">
+        {% for block in section.blocks %}
+          {% if block.type == 'mega_linklist' %}
+            {% assign for_menu = block.settings.menufor %}
+  
+            {% if link.title == for_menu %}
+              <div class="mega_linklist_wrapper">
+                {% if block.settings.menu != blank %}
+                  <div class="megamenu-linklist-wrap">
+                    {%- for link in block.settings.menu.links -%}
+                      <div class="menu-item-wrap">
+                        {%- if link != blank -%}
+                          <a
+                            id="HeaderMenu-{{ link.handle }}"
+                            href="{{ link.url }}"
+                            class="header__menu-item list-menu__item link link--text focus-inset"
+                            {% if link.current %}
+                              aria-current="page"
+                            {% endif %}
+                            data-image-url="{% if link.object.featured_image != blank %}{{ link.object.featured_image | image_url: width: 600 }}{% endif %}"
+                          >
+                            <span
+                              {%- if link.current %}
+                                class="header__active-menu-item"
+                              {% endif %}
+                            >
+                              {{- link.title | escape -}}
+                            </span>
+                          </a>
+                        {% endif %}
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                {% endif %}
+  
+                <div class="linklist_image">
+                  <img src="" class="menu-img" loading="lazy" width="auto" height="auto">
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  

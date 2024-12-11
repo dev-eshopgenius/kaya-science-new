@@ -3605,10 +3605,3 @@ details-disclosure > details {
 .swiper-wrapper{
   transition-timing-function: linear 
 }
-.swiper-container {
-  overflow: hidden; 
-}
-
-.swiper-slide {
-  overflow: hidden;
-}
