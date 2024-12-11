@@ -182,6 +182,13 @@
             "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
             "link": ""
           }
+        },
+        "icon_with_text_xTHAUN": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -190,12 +197,85 @@
         "icon_with_text_NaPp7A",
         "icon_with_text_NQdp83",
         "icon_with_text_qKU3LK",
-        "icon_with_text_yRDWt8"
+        "icon_with_text_yRDWt8",
+        "icon_with_text_xTHAUN"
       ],
       "settings": {
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 52
+      }
+    },
+    "video_section_ptMYic": {
+      "type": "video-section",
+      "blocks": {
+        "vidoe_block_VfL6cG": {
+          "type": "vidoe_block",
+          "settings": {
+            "video": "shopify://files/videos/1105359_1080p_Stretch_1280x720.mp4",
+            "product": "kaya-10-niacinamide-1-azeloglycina-face-serum"
+          }
+        },
+        "vidoe_block_xFpxpz": {
+          "type": "vidoe_block",
+          "settings": {
+            "video": "shopify://files/videos/1105359_1080p_Stretch_1280x720.mp4",
+            "product": "kaya-10-niacinamide-1-azeloglycina-face-serum"
+          }
+        },
+        "vidoe_block_43663K": {
+          "type": "vidoe_block",
+          "settings": {
+            "video": "shopify://files/videos/1105359_1080p_Stretch_1280x720.mp4",
+            "product": "kaya-10-niacinamide-1-azeloglycina-face-serum"
+          }
+        },
+        "vidoe_block_YReDBt": {
+          "type": "vidoe_block",
+          "settings": {
+            "video": "shopify://files/videos/1105359_1080p_Stretch_1280x720.mp4",
+            "product": "kaya-10-niacinamide-1-azeloglycina-face-serum"
+          }
+        }
+      },
+      "block_order": [
+        "vidoe_block_VfL6cG",
+        "vidoe_block_xFpxpz",
+        "vidoe_block_43663K",
+        "vidoe_block_YReDBt"
+      ],
+      "settings": {
+        "title": "Sea & Shop",
+        "subtitle": "watch demos and shop instantly for what you need.",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "home_featured_collection_zPkr4D": {
+      "type": "home-featured-collection",
+      "settings": {
+        "title": "Just Launched",
+        "heading_size": "h1",
+        "description": "<p>Discover our most-loved, effective products</p>",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "acne-and-pimples-1",
+        "products_to_show": 18,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "image_banner_akMJ3V": {
@@ -648,6 +728,8 @@
     "featured_collection",
     "home_featured_collection_nP6Bmj",
     "highlights_je6D6P",
+    "video_section_ptMYic",
+    "home_featured_collection_zPkr4D",
     "image_banner_akMJ3V",
     "highlights_7JYMJx",
     "multicolumn_6HgaNV",
