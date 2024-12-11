@@ -1,12 +1,11 @@
 <div class="custom-megamenu-wrapper">
-<nav class="header__inline-menu">
-    <ul class="list-menu" role="list">
+
+    <ul class="list-menu list-menu--inline" role="list">
       {%- for link in section.settings.menu.links -%}
         <li>
           {%- if link.links != blank -%}
-            <header-menu>
-              <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
-                <summary
+             <div id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+                <div
                   id="HeaderMenu-{{ link.handle }}"
                   class="header__menu-item hhh list-menu__item link focus-inset"
                 >
@@ -28,7 +27,7 @@
                   </span>
                   </a>
                   {{- 'icon-caret.svg' | inline_asset_content -}}
-                </summary>
+                </div>
   
                 <div
                   id="MegaMenu-Content-{{ forloop.index }}"
@@ -79,11 +78,11 @@
                 <div class="linklist_image">
                     <img src="" class="menu-img" loading="lazy" width="auto" height="auto">
                   </div>
-              </details>
-            </header-menu>
+                </div>
+        
            {%- endif -%}
         </li>
       {%- endfor -%}
     </ul>
-  </nav>
+  
 </div>
