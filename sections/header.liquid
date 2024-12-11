@@ -166,6 +166,8 @@
           render 'header-dropdown-menu'
         elsif section.settings.menu_type_desktop != 'drawer'
           render 'header-mega-menu'
+         elsif section.settings.menu_type_desktop != 'custom_mega'
+          render 'header-custom-megaMenu'
         endif
       endif
     %}
@@ -486,6 +488,10 @@
         {
           "value": "mega",
           "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
+        },
+        {
+          "value": "custom_mega",
+          "label":"Custom Mega Menu"
         },
         {
           "value": "drawer",
