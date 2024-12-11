@@ -656,6 +656,7 @@
       "type": "featured-blog",
       "settings": {
         "heading": "Beauty Insights",
+        "subheading": "<p>Expert skin care tips here.</p>",
         "heading_size": "h1",
         "blog": "news",
         "post_limit": 4,
@@ -667,6 +668,28 @@
         "show_view_all": false,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "17339035336e675352": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_86b3Fq": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "Join our conversation",
+            "title_color": "",
+            "alignment": "left",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_86b3Fq"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "home_shipping_contact_geT3ze": {
@@ -739,6 +762,7 @@
     "home_image_text_ntwGMg",
     "173339978942ea19b1",
     "featured_blog_GzhyWM",
+    "17339035336e675352",
     "home_shipping_contact_geT3ze"
   ]
 }
