@@ -1294,7 +1294,6 @@ var colswiperContainer = document.querySelector('.home-collection-slider');
 if (colswiperContainer) {
 var col_swiper = new Swiper('.home-collection-slider', {
 loop: true,
-cssMode: true,
 spaceBetween: 24,
 autoplay: {
 delay: 1000,
@@ -1304,7 +1303,7 @@ disableOnInteraction:false,
 loopAddBlankSlides:true,
 cssMode: false,
 slidesPerView: 4,
-speed: 1000,
+speed: 2000,
 grabCursor: true,
   });
 } else {
