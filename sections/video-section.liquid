@@ -26,10 +26,10 @@
       </div>
     {% endif %}
     <div class="video-content-wrapper">
-      <div class="video-block-wrap">
+      <div class="video-block-wrap grid grid--4-col-desktop">
         {% for block in section.blocks %}
           {% if block.type == 'vidoe_block' %}
-            <div class="content-items">
+            <div class="content-items grid__item">
               <div class="video">
                 {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
               </div>
