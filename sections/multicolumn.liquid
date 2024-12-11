@@ -23,9 +23,9 @@
   endif
 -%}
 
-<div class="multicolumn color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}">
+<div class="page-width multicolumn color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %} {% if section.settings.section_class != blank %}section__{{ section.settings.section_class | handle }}"{% endif %}>
   <div
-    class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    class="page-width-desktop section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     {% if settings.animations_reveal_on_scroll %}
       data-cascade
     {% endif %}
@@ -42,6 +42,9 @@
         {%- endif -%}
       </div>
     {%- endunless -%}
+    {% if section.settings.sub_heading != blank %}
+      <div class="sub_heading">{{ section.settings.sub_heading }}</div>
+    {% endif %}
     <slider-component class="slider-mobile-gutter">
       <ul
         class="multicolumn-list contains-content-container grid grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop{% if show_mobile_slider %} slider slider--tablet grid--peek{% endif %}"
@@ -81,6 +84,9 @@
                   {% assign spaced_image = true %}
                 {% endif %}
                 <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
+                 {% if block.settings.image_link != blank %}
+                  <a href="{{ block.settings.image_link }}">
+                 {% endif %}   
                   <div
                     class="media media--transparent media--{{ section.settings.image_ratio }}"
                     {% if section.settings.image_ratio == 'adapt' %}
@@ -116,15 +122,24 @@
                         class: 'multicolumn-card__image'
                     }}
                   </div>
+                     {% if block.settings.image_link != blank %}
+                       </a>
+                     {% endif %}   
                 </div>
               {%- endif -%}
               <div class="multicolumn-card__info">
+                   {% if block.settings.image_link != blank %}
+                  <a href="{{ block.settings.image_link }}">
+                 {% endif %}  
                 {%- if block.settings.title != blank -%}
                   <h3 class="inline-richtext">{{ block.settings.title }}</h3>
                 {%- endif -%}
                 {%- if block.settings.text != blank -%}
                   <div class="rte">{{ block.settings.text }}</div>
                 {%- endif -%}
+                  {% if block.settings.image_link != blank %}
+                       </a>
+                     {% endif %}    
                 {%- if block.settings.link_label != blank -%}
                   <a
                     class="link animate-arrow"
@@ -135,10 +150,8 @@
                     {% endif %}
                   >
                     {{- block.settings.link_label | escape -}}
-                    <span class="svg-wrapper"
-                      ><span class="icon-wrap">&nbsp;{{ 'icon-arrow.svg' | inline_asset_content }}</span></span
-                    >
-                  </a>
+                    </a
+                  >
                 {%- endif -%}
               </div>
             </div>
@@ -154,7 +167,7 @@
             name="previous"
             aria-label="{{ 'general.slider.previous_slide' | t }}"
           >
-            <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
+            {% render 'icon-caret' %}
           </button>
           <div class="slider-counter caption">
             <span class="slider-counter--current">1</span>
@@ -168,7 +181,7 @@
             name="next"
             aria-label="{{ 'general.slider.next_slide' | t }}"
           >
-            <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
+            {% render 'icon-caret' %}
           </button>
         </div>
       {%- endif -%}
@@ -199,6 +212,11 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "text",
+      "id":"section_class",
+      "label": "Section Class"
+    },
     {
       "type": "inline_richtext",
       "id": "title",
@@ -232,6 +250,11 @@
       ],
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "sub_heading",
+      "label": "Sub Heading"
     },
     {
       "type": "select",
@@ -350,6 +373,14 @@
         {
           "value": "2",
           "label": "t:sections.multicolumn.settings.columns_mobile.options__2.label"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
         }
       ],
       "default": "1",
@@ -407,6 +438,11 @@
           "id": "text",
           "default": "t:sections.multicolumn.blocks.column.settings.text.default",
           "label": "t:sections.multicolumn.blocks.column.settings.text.label"
+        },
+        {
+          "type":"url",
+          "id":"image_link",
+          "label":"Image Link"
         },
         {
           "type": "text",
