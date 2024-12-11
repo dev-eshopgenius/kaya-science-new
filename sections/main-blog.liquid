@@ -18,10 +18,16 @@
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
+    <div class="title-wrapper">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
     </h1>
-
+    {% if section.settings.subheading != blank %}
+      <div class="subheading">
+          {{  section.settings.subheading }}
+      </div>
+    {% endif %}
+  </div>
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
         <div
@@ -56,6 +62,11 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "sub-Heading"
+    },
     {
       "type": "header",
       "content": "t:sections.main-blog.settings.header.content"

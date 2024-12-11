@@ -1391,7 +1391,14 @@
         "default": false,
         "label": "t:settings_schema.search_input.settings.predictive_search_show_price.label",
         "info": "t:settings_schema.search_input.settings.predictive_search_show_price.info"
-      }
+      },
+      {
+            "type": "text",
+            "id": "placeholder_texts",
+            "label": "Placeholder Texts (comma-separated)",
+            "default": "Search for products,Find your favorite items,Explore new categories,Discover amazing deals"
+     }
+        
     ]
   },
   {

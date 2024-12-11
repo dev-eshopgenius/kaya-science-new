@@ -378,5 +378,9 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <script>
+      window.placeholderTexts = "{{ settings.placeholder_texts }}".split(',');
+    </script>
   </body>
 </html>

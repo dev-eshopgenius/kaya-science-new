@@ -1269,28 +1269,7 @@ if (!customElements.get('bulk-add')) {
 }
 
 
-// var swiperContainer = document.querySelector('.swiper-slider-wrap');
-// if (swiperContainer) {
-//   var swiper = new Swiper('.swiper-slider-wrap', {
-// loop: true,
-// freeMode: true,
-// autoplay: {
-//   delay: 0,
-//  pauseOnMouseEnter:true,
-//   disableOnInteraction:false,
-// },
-// loopAddBlankSlides:true,
-// cssMode:false,
-// slidesPerView: 2,
-// speed: 5000,
-// grabCursor: true,
-// loopAdditionalSlides: 2,
-//   });
-// } else {
-//   console.error('Swiper container not found!');
-// }
-
-
+// announcemnet and text slider js start
 const swiperContainers = document.querySelectorAll('.swiper-slider-wrap');
 
 swiperContainers.forEach((container) => {
@@ -1307,21 +1286,22 @@ swiperContainers.forEach((container) => {
     loopAdditionalSlides: 2,
   });
 });
+// announcemnet and text slider js end
 
 
-
+// collection slider js start
 var colswiperContainer = document.querySelector('.home-collection-slider');
 if (colswiperContainer) {
 var col_swiper = new Swiper('.home-collection-slider', {
 loop: true,
 spaceBetween: 24,
 autoplay: {
-delay: 3000,
+delay: 1000,
 pauseOnMouseEnter:true,
 disableOnInteraction:false,
 },
 loopAddBlankSlides:true,
-cssMode: true,
+cssMode: false,
 slidesPerView: 4,
 speed: 2000,
 grabCursor: true,
@@ -1329,7 +1309,9 @@ grabCursor: true,
 } else {
   console.error('Swiper container not found!');
 }
+// collection slider js end
 
+// menu shows on hover js start
 let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
   items.forEach(item => {
     item.addEventListener("mouseover", () => {
@@ -1342,5 +1324,42 @@ let items = document.querySelector(".header__inline-menu").querySelectorAll("det
     });
   });
 });
-
+// menu shows on hover js end
  
+
+// search bar placeholder start
+window.onload = function () {
+  const searchBox = document.getElementById('search-box');
+  const placeholderTexts = window.placeholderTexts;
+  let currentIndex = 0;
+  let currentText = "";
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeEffect() {
+    const fullText = placeholderTexts[currentIndex];
+
+    if (isDeleting) {
+      currentText = fullText.substring(0, charIndex--);
+    } else {
+      currentText = fullText.substring(0, charIndex++);
+    }
+
+    searchBox.setAttribute("placeholder", currentText + "|");
+
+    if (!isDeleting && charIndex === fullText.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1000);
+      return;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      currentIndex = (currentIndex + 1) % placeholderTexts.length;
+    }
+
+    const speed = isDeleting ? 50 : 100;
+    setTimeout(typeEffect, speed);
+  }
+
+  typeEffect();
+};
+// search bar placeholder end
