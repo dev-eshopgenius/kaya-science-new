@@ -1,6 +1,6 @@
 <div class="custom-megamenu-wrapper">
 <nav class="header__inline-menu">
-    <ul class="list-menu list-menu--inline" role="list">
+    <ul class="list-menu" role="list">
       {%- for link in section.settings.menu.links -%}
         <li>
           {%- if link.links != blank -%}
@@ -10,6 +10,15 @@
                   id="HeaderMenu-{{ link.handle }}"
                   class="header__menu-item hhh list-menu__item link focus-inset"
                 >
+                    <a
+                        id="HeaderMenu-{{ link.handle }}"
+                        href="{{ link.url }}"
+                        class="header__menu-item list-menu__item link link--text focus-inset"
+                        {% if link.current %}
+                          aria-current="page"
+                        {% endif %}
+                        data-image-url="{% if link.object.featured_image != blank %}{{ link.object.featured_image | image_url: width: 600 }}{% endif %}"
+                      >
                   <span
                     {%- if link.child_active %}
                       class="header__active-menu-item {{ link.handle }}__link"
@@ -17,6 +26,7 @@
                   >
                     {{- link.title | escape -}}
                   </span>
+                  </a>
                   {{- 'icon-caret.svg' | inline_asset_content -}}
                 </summary>
   
@@ -38,6 +48,7 @@
                           {% if childlink.current %}
                             aria-current="page"
                           {% endif %}
+                          data-image-url="{% if childlink.object.featured_image != blank %}{{ childlink.object.featured_image | image_url: width: 600 }}{% endif %}"
                         >
                           {{ childlink.title | escape }}
                         </a>
@@ -52,6 +63,7 @@
                                   {% if grandchildlink.current %}
                                     aria-current="page"
                                   {% endif %}
+                                  data-image-url="{% if grandchildlink.object.featured_image != blank %}{{ grandchildlink.object.featured_image | image_url: width: 600 }}{% endif %}"
                                 >
                                   {{ grandchildlink.title | escape }}
                                 </a>
@@ -63,41 +75,13 @@
                     {%- endfor -%}
                   </ul>
                 </div>
+
+                <div class="linklist_image">
+                    <img src="" class="menu-img" loading="lazy" width="auto" height="auto">
+                  </div>
               </details>
             </header-menu>
-          {%- else -%}
-            <div class="mega-menu-wrapp">
-              <a
-                id="HeaderMenu-{{ link.handle }}"
-                href="{{ link.url }}"
-                class="header__menu-item ooo list-menu__item link link--text focus-inset {{ link.handle }}__link"
-                {% if link.current %}
-                  aria-current="page"
-                {% endif %}
-              >
-                <span
-                  {%- if link.current %}
-                    class="header__active-menu-item"
-                  {% endif %}
-                >
-                  {{- link.title | escape -}}
-                </span>
-              </a>
-              {% assign has_mega_menu = false %}
-              {% for block in section.blocks %}
-                {% if block.type == 'mega_linklist' %}
-                  {% assign for_menu = block.settings.menufor %}
-                  {% assign link_title = link.title %}
-                  {% if for_menu == link_title %}
-                    {% assign has_mega_menu = true %}
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-              {% if has_mega_menu == true %}
-                {% render 'mega-menu', block: block, link: link %}
-              {% endif %}
-            </div>
-          {%- endif -%}
+           {%- endif -%}
         </li>
       {%- endfor -%}
     </ul>
