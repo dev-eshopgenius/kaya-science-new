@@ -27,6 +27,110 @@
   padding-left: 13.5rem;
 }
 .home-collection-slider .swiper-slide .product-card-wrapper {border-radius: 16px; background: #fff;padding:10px; overflow: hidden;}
+.shop_category--main {
+  display: flex;
+  width: 100%;
+  padding-bottom: 50px;
+}
+.shop_category--main {
+  gap: 2.4rem;
+}
+.shop_category--left-wrap {
+  width: 50%;
+}
+.shop_category--right-wrap {
+  width: 50%;
+}
+.shop_category--items {
+  width: 100%;
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: 1fr 1fr;
+}
+.category-block_1, .category-block_2, .category-block_3 {
+  position: relative;
+}
+.shop_category--items a:last-child {
+  grid-column: 1 / span 2;
+}
+.shop_category--items img {
+  width: 100%;
+  display: flex
+;
+  align-items: stretch;
+  max-width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+.category__block span {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.category-block_1 span, .category-block_2 span {
+  position: absolute;
+  bottom: 7%;
+  left: 7%;
+  text-transform: capitalize;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  text-decoration: underline;
+}
+.category-block_3 span {
+  position: absolute;
+  bottom: 7%;
+  left: 3%;
+  text-transform: capitalize;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  text-decoration: underline;
+}
+.shop-cat-right--main {
+  background: linear-gradient(to bottom, #f0c6c4, #fbeeed);
+  position: relative;
+  border-radius: 12px;
+}
+.shop-cat-right--main .shopcat-targ-image {
+  display: flex;
+  justify-content: center;
+}
+.shop-cat-right--main img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.shop-cat-right--main .shop_targ-item {
+  position: absolute;
+}
+.shop-cat-right--main .shop_targ-item  a h3, .shop-cat-right--main .shop_targ-item  a{color:#fff;}
+.shop-cat-right--main .shop_targ-item:nth-child(1) {
+  top: 13%;
+  left: 4%;
+}
+.shop-cat-right--main .shop_targ-item:nth-child(2) {
+  top: 50%;
+  left: 4%;
+}
+.shop-cat-right--main .shop_targ-item:nth-child(3) {
+  top: 70%;
+  left: 4%;
+}
+.shop-cat-right--main .shop_targ-item:nth-child(4) {
+  top: 86%;
+  left: 4%;
+}
+.shop-cat-right--main .shop_targ-item:nth-child(5) {
+  top: 42%;
+  right: 4%;
+}
+.shop-cat-right--main .shop_targ-item:nth-child(6) {
+  top: 66%;
+  right: 4%;
+}
 @media(min-width:750px) {
   p.announcement-bar__message.h5{font-size: calc(var(--font-heading-scale)* 1.4rem); font-weight: 500;}
   .slider-button--prev {left:40px}
