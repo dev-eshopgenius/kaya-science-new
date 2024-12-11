@@ -28,12 +28,14 @@
       {% case block.type %}
         {% when 'category' %}
           <div class="shop_category--left-wrap">
+            <div class="title-wrapper">
             {% if block.settings.cat_heading != blank %}
               <h2 class="title">{{ block.settings.cat_heading }}</h2>
             {% endif %}
             {% if block.settings.cat_subheading != blank %}
               <div class="cat_subheading sub_heading">{{ block.settings.cat_subheading }}</div>
             {% endif %}
+          </div>
             <div class="shop_category--items">
               {% for i in (1..3) %}
                 {% capture image %}block_image_{{ i }}{% endcapture %}
@@ -62,7 +64,7 @@
         {% when 'target' %}
           <div class="shop_category--right-wrap">
             {% if block.settings.tar_heading != blank or block.settings.tar_text != blank %}
-              <div class="shop_category--heading">
+              <div class="shop_category--heading title-wrapper">
                 {% if block.settings.tar_heading != blank %}
                   <h2 class="title">{{ block.settings.tar_heading }}</h2>
                 {% endif %}
