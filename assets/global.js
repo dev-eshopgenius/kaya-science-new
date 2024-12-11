@@ -1308,7 +1308,7 @@ grabCursor: true,
   });
 } else {
   console.error('Swiper container not found!');
-}
+} 
 // collection slider js end
 
 // menu shows on hover js start
