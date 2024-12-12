@@ -2,6 +2,7 @@
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline main-link-wrapp" role="list">
     {%- for link in section.settings.menu.links -%}
+  
       <li class="main-link-item">
         {%- if link.links != blank -%}
           <div>
@@ -13,7 +14,6 @@
                 {% if link.current %}
                   aria-current="page"
                 {% endif %}
-                data-image-url="{% if link.object.custom.mega_menu_image != blank %}{{ link.object.custom.mega_menu_image | image_url: width: 600 }}{% endif %}"
               >
                 <span
                   {%- if link.child_active %}
@@ -23,7 +23,7 @@
                   {{- link.title | escape -}}
                 </span>
               </a>
-               <div
+              <div
                 id="MegaMenu-Content-{{ forloop.index }}"
                 class="child-mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
@@ -34,6 +34,11 @@
                   style="display:none;"
                 >
                   {%- for childlink in link.links -%}
+                    {%- capture data_image_url -%}
+                      {%- if childlink.object.metafields.custom.mega_menu_image != blank -%}
+                      {{- childlink.object.metafields.custom.mega_menu_image | image_url: width: 600 -}}
+                      {%- endif -%}
+                      {%- endcapture -%}
                     <li class="child-linklist child-link-item">
                       <a
                         id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
@@ -42,13 +47,19 @@
                         {% if childlink.current %}
                           aria-current="page"
                         {% endif %}
-                        data-image-url="{% if childlink.object.custom.mega_menu_image != blank %}{{ childlink.object.custom.mega_menu_image | image_url: width: 600 }}{% endif %}"
+                        data-image-url="{{ data_image_url }}"
                        >
                         {{ childlink.title | escape }}
                       </a>
                       {%- if childlink.links != blank -%}
+                        <div class="grandchild-mega-menu__content">
                         <ul class="list-unstyled grandchild-linklist" role="list" style="display:none;">
                           {%- for grandchildlink in childlink.links -%}
+                            {%- capture data_image_url -%}
+                              {%- if grandchildlink.object.metafields.custom.mega_menu_image != blank -%}
+                              {{- grandchildlink.object.metafields.custom.mega_menu_image | image_url: width: 600 -}}
+                              {%- endif -%}
+                              {%- endcapture -%}
                             <li class="grandchild-link-item">
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
@@ -57,23 +68,21 @@
                                 {% if grandchildlink.current %}
                                   aria-current="page"
                                 {% endif %}
-                                data-image-url="{% if grandchildlink.object.custom.mega_menu_image != blank %}{{ grandchildlink.object.custom.mega_menu_image | image_url: width: 600 }}{% endif %}"
-                              >
+                                 data-image-url="{{ data_image_url }}"
+                               >
                                 {{ grandchildlink.title | escape }}
                               </a>
                             </li>
                           {%- endfor -%}
                         </ul>
+                      </div>
                       {%- endif -%}
                     </li>
                   {%- endfor -%}
                 </ul>
               </div>
-           
             </div>
-            <div class="linklist_image">
-              <img src="" class="menu-img" loading="lazy" width="auto" height="auto"/>
-           </div>
+          
           </div>
         {%- else -%}
           <a
@@ -97,4 +106,7 @@
     {%- endfor -%}
   </ul>
 </nav>
+<div class="linklist_image" style="display:none;">
+  <img src="" class="menu-img" loading="lazy" width="auto" height="auto" alt="Menu Image"/>
+</div>
 </div>

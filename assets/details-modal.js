@@ -107,21 +107,32 @@ grand_items.forEach(item => {
 
 
 // megamenu hover image 
-document.querySelectorAll(".header__menu-item[data-image-url]").forEach(item => {
-  item.addEventListener("mouseenter", () => {
-    const wrapper = item.closest(".linklist_image");
-    const imageUrl = item.getAttribute("data-image-url");
- 
-    const img = wrapper.querySelector(".menu-img");
-     if (img) {
+document.querySelectorAll(".mega-menu__link[data-image-url]").forEach(item => {
+  item.addEventListener("mouseover", () => {
+    const imageUrl = item.getAttribute("data-image-url"),
+         img = document.querySelector(".menu-img"),
+         image_wrp = document.querySelector(".linklist_image");
+
+    if (img) {
       img.setAttribute("src", imageUrl);
       img.setAttribute("srcset", imageUrl);
+      image_wrp.style.display = "block"; 
     }
+  });
+  item.addEventListener("mouseleave",() => {
+     const img = document.querySelector(".menu-img"),
+           image_wrp = document.querySelector(".linklist_image");
 
+      if (img) {
+      img.setAttribute("src", '');
+      img.setAttribute("srcset", '');
+      image_wrp.style.display = "none"; 
+      }
   });
 });
 
-const firstItem = document.querySelector(".header__menu-item[data-image-url]");
-if (firstItem) {
-  firstItem.dispatchEvent(new MouseEvent("mouseenter"));
-}
+// Automatically trigger hover for the first menu item to set default image
+// const firstItem = document.querySelector(".mega-menu__link[data-image-url]");
+// if (firstItem) {
+//   firstItem.dispatchEvent(new MouseEvent("mouseenter"));
+// }
