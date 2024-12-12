@@ -399,8 +399,8 @@
         "color_scheme": "scheme-48ef665a-368c-4f1a-b853-d3862b22e100",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 100,
-        "padding_bottom": 100
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "home_feature_category_6LJERP": {
@@ -535,7 +535,7 @@
         "background_style": "none",
         "button_label": "",
         "button_link": "",
-        "color_scheme": "",
+        "color_scheme": "scheme-a24c0c28-8ffe-411d-9854-c829604e0bb5",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 36,

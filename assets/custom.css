@@ -147,7 +147,9 @@
 .video-content-wrapper .content-items {
   position: relative;
 }
-
+.home-collection-slider {
+  overflow: hidden;
+}
 .video-content-wrapper .content-items .product--items {
   position: absolute;
   bottom: 8px;

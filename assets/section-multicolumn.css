@@ -69,13 +69,13 @@
 }
 
 .multicolumn:not(.background-none) .multicolumn-card {
-  background: rgb(var(--color-background));
+  /* background: rgb(var(--color-background)); */
   height: 100%;
 }
 
 .multicolumn.background-primary .multicolumn-card {
-  background: rgb(var(--color-background))
-    linear-gradient(rgba(var(--color-foreground), 0.04), rgba(var(--color-foreground), 0.04));
+  /* background: rgb(var(--color-background))
+    linear-gradient(rgba(var(--color-foreground), 0.04), rgba(var(--color-foreground), 0.04)); */
 }
 
 .multicolumn-list h3 {
@@ -147,7 +147,7 @@
 }
 
 .multicolumn-card__info {
-  padding: 2.5rem;
+  padding: 2rem 0;
 }
 
 .background-none .multicolumn-card__info {
@@ -203,6 +203,8 @@
 .multicolumn-card {
   position: relative;
   box-sizing: border-box;
+  padding: 20px; border-radius: 24px;background: #fff;box-shadow: 2px 4px 4px 0px #0000001A;
+
 }
 
 .multicolumn-card > .multicolumn-card__image-wrapper--full-width:not(.multicolumn-card-spacing) {
