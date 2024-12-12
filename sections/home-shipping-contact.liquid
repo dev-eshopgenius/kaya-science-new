@@ -15,9 +15,9 @@
 
 <div class="color-{{ section.settings.color_scheme }} isolate gradient">
 <div class="free_shipping--wrapper section-{{ section.id }}-padding">
-  <div class="free_shipping--main page-width">
+  <div class="page-width"> <div class="free_shipping--main grid grid--1-col-tablet-down grid--3-col-desktop">
     {% for block in section.blocks %}
-      <div class="free_shipping--item image--alignment-{{ block.settings.image_align }}" style="background-color:{{ block.settings.bg_color }};{% if block.settings.linear_bg != blank %}background:linear-gradient({{ block.settings.linear_bg }}){% endif %}" >
+      <div class="free_shipping--item image--alignment-{{ block.settings.image_align }} grid__item" style="background-color:{{ block.settings.bg_color }};{% if block.settings.linear_bg != blank %}background:linear-gradient({{ block.settings.linear_bg }}){% endif %}" >
         {% if block.settings.image != blank %}
         <div class="free_shipping-img">
           {{ block.settings.image | image_url: width: 250 | image_tag: loading:'lazy',class:'img' }}
@@ -38,7 +38,7 @@
          </div>
       </div>
     {% endfor %}
-  </div>
+  </div></div>
 </div>
 </div>
 {% schema %}

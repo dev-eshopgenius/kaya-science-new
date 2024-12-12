@@ -694,12 +694,12 @@
           "type": "block",
           "settings": {
             "image_align": "left",
-            "image": "shopify://shop_images/delivery-truck.png",
+            "image": "shopify://shop_images/free_shipping.svg",
             "heading": "Free Shipping",
             "text": "On Orders Above Rs. 499",
             "button_label": "",
             "button_link": "",
-            "bg_color": "",
+            "bg_color": "#ffffff",
             "linear_bg": ""
           }
         },
@@ -707,12 +707,12 @@
           "type": "block",
           "settings": {
             "image_align": "left",
-            "image": "shopify://shop_images/delivery-truck_1.png",
+            "image": "shopify://shop_images/cod.svg",
             "heading": "COD Available",
             "text": "@ Rs. 50 Per Order",
             "button_label": "",
             "button_link": "",
-            "bg_color": "",
+            "bg_color": "#ffffff",
             "linear_bg": ""
           }
         },
@@ -720,12 +720,12 @@
           "type": "block",
           "settings": {
             "image_align": "left",
-            "image": "shopify://shop_images/delivery-truck_2.png",
+            "image": "shopify://shop_images/question.svg",
             "heading": "Have Questions?",
             "text": "We’re Here to Help.",
             "button_label": "Contact Us",
             "button_link": "shopify://pages/contact",
-            "bg_color": "rgba(0,0,0,0)",
+            "bg_color": "#ffffff",
             "linear_bg": ""
           }
         }
@@ -736,6 +736,7 @@
         "block_q8DAAb"
       ],
       "settings": {
+        "color_scheme": "scheme-2",
         "padding_top": 36,
         "padding_bottom": 36
       }

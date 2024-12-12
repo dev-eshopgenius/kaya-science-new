@@ -255,6 +255,37 @@
   margin: 0;line-height: 1;
 }
 .blog__posts.articles-wrapper {margin-top:0}
+.free_shipping--item {
+  display: flex;align-items:center;gap:20px; box-shadow: 0px 0px 12px 0px #0000000D;
+border-radius: 16px;padding:20px;
+}
+.free_shipping--item img {
+  width: 40px;
+  height: 40px;}
+.fre_Shipping-content .fre_Shipping-text h2 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20.8px;
+  margin: 0;
+}
+.fre_Shipping-content .fre_Shipping-text span {
+  font-size: 14px;
+  line-height: 18.2px;
+}
+.fre_Shipping-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.fre_Shipping-content .free_Shipping-btn {
+  padding: 0;
+  background: #C2E5B8;
+  color: #262626;
+  font-weight: 600;
+}
+.fre_Shipping-content .free_Shipping-btn:after {
+  content: none;
+}
 @media(min-width:750px) {
   .insights .image-with-text .image-with-text__heading{font-size: 32px;}
   p.announcement-bar__message.h5{font-size: calc(var(--font-heading-scale)* 1.4rem); font-weight: 500;}
