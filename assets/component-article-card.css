@@ -47,13 +47,13 @@
 }
 
 .article-card .card__heading {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.6rem;font-size: 20px; font-weight: 500; line-height: 26px;
 }
 
 .blog-articles .article-card .card__information,
 .blog__posts .article-card .card__information {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .article-card__info {

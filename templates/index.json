@@ -598,15 +598,19 @@
         "icon_text_9V9eKz": {
           "type": "icon_text",
           "settings": {
+            "icon1": "shopify://shop_images/indian-skin-icon.svg",
             "text1": "Made for <br>Indian Skin",
+            "icon2": "shopify://shop_images/dermo-icon.svg",
             "text2": "Dermatologist <br>Recommended"
           }
         },
         "icon_text_8rMgXP": {
           "type": "icon_text",
           "settings": {
+            "icon1": "shopify://shop_images/science-icon.svg",
             "text1": "Science Backed <br>Formulas",
-            "text2": "Science Backed <br>Formulas"
+            "icon2": "shopify://shop_images/experties-icon.svg",
+            "text2": "20+ years of <br>Expertise"
           }
         }
       },
@@ -652,7 +656,7 @@
         "blog": "news",
         "post_limit": 4,
         "columns_desktop": 4,
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "show_image": true,
         "show_date": true,
         "show_author": false,
