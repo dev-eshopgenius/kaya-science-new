@@ -2512,6 +2512,7 @@ input[type='checkbox'] {
   grid-area: icons;
   justify-self: end;
   padding-right: 0.8rem;
+  align-items: center;
 }
 
 .header__icons .shopify-app-block {
