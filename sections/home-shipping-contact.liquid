@@ -13,6 +13,7 @@
   }
 {%- endstyle -%}
 
+<div class="color-{{ section.settings.color_scheme }} isolate gradient">
 <div class="free_shipping--wrapper section-{{ section.id }}-padding">
   <div class="free_shipping--main page-width">
     {% for block in section.blocks %}
@@ -39,11 +40,18 @@
     {% endfor %}
   </div>
 </div>
-
+</div>
 {% schema %}
   {
     "name": "Home Shipping Contact",
     "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "info": "t:sections.all.colors.has_cards_info",
+        "default": "scheme-1"
+      },
        {
       "type": "header",
       "content": "Section Padding Heading"
