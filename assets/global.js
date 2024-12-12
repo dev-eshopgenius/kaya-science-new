@@ -1311,21 +1311,7 @@ grabCursor: true,
 } 
 // collection slider js end
 
-// menu shows on hover js start
-let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
-  items.forEach(item => {
-    item.addEventListener("mouseover", () => {
-      item.setAttribute("open", true);
-      item.querySelector("ul").addEventListener("mouseleave", () => {
-        item.removeAttribute("open");
-      });
-    item.addEventListener("mouseleave", () => {
-      item.removeAttribute("open");
-    });
-  });
-});
-// menu shows on hover js end
- 
+
 
 // search bar placeholder start
 window.onload = function () {
@@ -1366,28 +1352,3 @@ window.onload = function () {
 
 
 
-// megamenu hover image 
-document.querySelectorAll(".header__menu-item[data-image-url]").forEach(item => {
-  item.addEventListener("mouseenter", () => {
-    const wrapper = item.closest(".mega_linklist_wrapper");
-    const imageUrl = item.getAttribute("data-image-url");
-    const href = item.getAttribute("href");
-
-    const img = wrapper.querySelector(".menu-img");
-    const btn = wrapper.querySelector(".view_btn.btnlink");
-
-    if (img) {
-      img.setAttribute("src", imageUrl);
-      img.setAttribute("srcset", imageUrl);
-    }
-
-    if (btn) {
-      btn.setAttribute("href", href);
-    }
-  });
-});
-
-const firstItem = document.querySelector(".header__menu-item[data-image-url]");
-if (firstItem) {
-  firstItem.dispatchEvent(new MouseEvent("mouseenter"));
-}

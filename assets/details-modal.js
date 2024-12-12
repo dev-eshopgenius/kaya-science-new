@@ -45,3 +45,94 @@ class DetailsModal extends HTMLElement {
 }
 
 customElements.define('details-modal', DetailsModal);
+
+
+// menu shows on hover js start
+let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+let grand_items = document.querySelector(".childlink--menu-wrap").querySelectorAll(".child-linklist");
+let child_items = document.querySelector(".main-link-wrapp").querySelectorAll(".main-link-item");
+  items.forEach(item => {
+    item.addEventListener("mouseover", () => {
+      item.setAttribute("open", true);
+      item.querySelector("ul").addEventListener("mouseleave", () => {
+        item.removeAttribute("open");
+      });
+    item.addEventListener("mouseleave", () => {
+      item.removeAttribute("open");
+    });
+  });
+});
+
+child_items.forEach(item => {
+  item.addEventListener("mouseover", () => {
+    const menu = item.querySelector("ul");
+    if (menu) {
+      menu.style.display = "block"; 
+      menu.addEventListener("mouseleave", () => {
+        menu.style.display = "none"; 
+      });
+    }
+  });
+
+  item.addEventListener("mouseleave", () => {
+    const menu = item.querySelector("ul");
+    if (menu) {
+      menu.style.display = "none";
+    }
+  });
+});
+
+
+grand_items.forEach(item => {
+  item.addEventListener("mouseover", () => {
+    const menu = item.querySelector("ul");
+    if (menu) {
+      menu.style.display = "block"; 
+      menu.addEventListener("mouseleave", () => {
+        menu.style.display = "none"; 
+      });
+    }
+  });
+
+  item.addEventListener("mouseleave", () => {
+    const menu = item.querySelector("ul");
+    if (menu) {
+      menu.style.display = "none";
+    }
+  });
+});
+
+// menu shows on hover js end
+ 
+
+
+// megamenu hover image 
+document.querySelectorAll(".mega-menu__link[data-image-url]").forEach(item => {
+  item.addEventListener("mouseover", () => {
+    const imageUrl = item.getAttribute("data-image-url"),
+         img = document.querySelector(".menu-img"),
+         image_wrp = document.querySelector(".linklist_image");
+
+    if (img) {
+      img.setAttribute("src", imageUrl);
+      img.setAttribute("srcset", imageUrl);
+      image_wrp.style.display = "block"; 
+    }
+  });
+  item.addEventListener("mouseleave",() => {
+     const img = document.querySelector(".menu-img"),
+           image_wrp = document.querySelector(".linklist_image");
+
+      if (img) {
+      img.setAttribute("src", '');
+      img.setAttribute("srcset", '');
+      image_wrp.style.display = "none"; 
+      }
+  });
+});
+
+// Automatically trigger hover for the first menu item to set default image
+// const firstItem = document.querySelector(".mega-menu__link[data-image-url]");
+// if (firstItem) {
+//   firstItem.dispatchEvent(new MouseEvent("mouseenter"));
+// }
