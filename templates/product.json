@@ -7,18 +7,11 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -27,11 +20,22 @@
           "type": "price",
           "settings": {}
         },
-        "variant_picker": {
-          "type": "variant_picker",
+        "product_offers_qhLJAG": {
+          "type": "product__offers",
           "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
+            "offertitle": "Coupons",
+            "heading1": "10% off upto ₹500 max on your first order above ₹600",
+            "subheading1": "NEW10 <span>copy<span></span></span>",
+            "heading2": "10% off upto ₹500 max on your first order above ₹600",
+            "subheading2": "NEW15 <span>copy<span></span></span>",
+            "heading3": "10% off upto ₹500 max on your first order above ₹600",
+            "subheading3": "NEW25 <span>copy<span></span></span>",
+            "heading4": "",
+            "subheading4": "",
+            "heading5": "",
+            "subheading5": "",
+            "heading6": "",
+            "subheading6": ""
           }
         },
         "quantity_selector": {
@@ -41,43 +45,110 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
+            "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
+        "collapsible_tab_JQnnHM": {
+          "type": "collapsible_tab",
           "settings": {
-            "share_label": "Share"
+            "heading": "Product Description",
+            "icon": "none",
+            "content": "<p>{{ product.description }}</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_hFczXz": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Benifits",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_PmiGPY": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Ingredients",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_A4xnWF": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Concers",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_EcdKkm": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Best for",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_NmtTXE": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How to use",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_arGwQF": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Frequently asked questions",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_qnheij": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product Details",
+            "icon": "none",
+            "content": "",
+            "page": ""
           }
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "price",
-        "variant_picker",
+        "product_offers_qhLJAG",
         "quantity_selector",
         "buy_buttons",
-        "description",
-        "share"
+        "collapsible_tab_JQnnHM",
+        "collapsible_tab_hFczXz",
+        "collapsible_tab_PmiGPY",
+        "collapsible_tab_A4xnWF",
+        "collapsible_tab_EcdKkm",
+        "collapsible_tab_NmtTXE",
+        "collapsible_tab_arGwQF",
+        "collapsible_tab_qnheij"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail_slider",
         "media_position": "left",
-        "image_zoom": "lightbox",
+        "image_zoom": "none",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
-        "enable_video_looping": false,
+        "enable_video_looping": true,
         "padding_top": 36,
         "padding_bottom": 12
       }

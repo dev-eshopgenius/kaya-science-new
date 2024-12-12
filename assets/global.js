@@ -1295,15 +1295,15 @@ if (colswiperContainer) {
 var col_swiper = new Swiper('.home-collection-slider', {
 loop: true,
 spaceBetween: 24,
-// autoplay: {
-// delay: 1000,
-// pauseOnMouseEnter:true,
-// disableOnInteraction:false,
-// },
+autoplay: {
+delay: 1000,
+pauseOnMouseEnter:true,
+disableOnInteraction:false,
+},
 loopAddBlankSlides:true,
 cssMode: false,
 slidesPerView: 4,
-// speed: 2000,
+speed: 2000,
 grabCursor: true,
   });
 } else {
