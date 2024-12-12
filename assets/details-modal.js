@@ -45,3 +45,83 @@ class DetailsModal extends HTMLElement {
 }
 
 customElements.define('details-modal', DetailsModal);
+
+
+// menu shows on hover js start
+let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+let grand_items = document.querySelector(".childlink--menu-wrap").querySelectorAll(".child-linklist");
+let child_items = document.querySelector(".main-link-wrapp").querySelectorAll(".main-link-item");
+  items.forEach(item => {
+    item.addEventListener("mouseover", () => {
+      item.setAttribute("open", true);
+      item.querySelector("ul").addEventListener("mouseleave", () => {
+        item.removeAttribute("open");
+      });
+    item.addEventListener("mouseleave", () => {
+      item.removeAttribute("open");
+    });
+  });
+});
+
+child_items.forEach(item => {
+  item.addEventListener("mouseover", () => {
+    const menu = item.querySelector("ul");
+    if (menu) {
+      menu.style.display = "block"; 
+      menu.addEventListener("mouseleave", () => {
+        menu.style.display = "none"; 
+      });
+    }
+  });
+
+  item.addEventListener("mouseleave", () => {
+    const menu = item.querySelector("ul");
+    if (menu) {
+      menu.style.display = "none";
+    }
+  });
+});
+
+
+grand_items.forEach(item => {
+  item.addEventListener("mouseover", () => {
+    const menu = item.querySelector("ul");
+    if (menu) {
+      menu.style.display = "block"; 
+      menu.addEventListener("mouseleave", () => {
+        menu.style.display = "none"; 
+      });
+    }
+  });
+
+  item.addEventListener("mouseleave", () => {
+    const menu = item.querySelector("ul");
+    if (menu) {
+      menu.style.display = "none";
+    }
+  });
+});
+
+// menu shows on hover js end
+ 
+
+
+// megamenu hover image 
+document.querySelectorAll(".header__menu-item[data-image-url]").forEach(item => {
+  item.addEventListener("mouseenter", () => {
+    const wrapper = item.closest(".linklist_image");
+    const imageUrl = item.getAttribute("data-image-url");
+ 
+    const img = wrapper.querySelector(".menu-img");
+     if (img) {
+      img.setAttribute("src", imageUrl);
+      img.setAttribute("srcset", imageUrl);
+    }
+
+  });
+});
+
+const firstItem = document.querySelector(".header__menu-item[data-image-url]");
+if (firstItem) {
+  firstItem.dispatchEvent(new MouseEvent("mouseenter"));
+}
