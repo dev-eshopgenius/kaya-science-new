@@ -21,10 +21,10 @@
     {% endif %}
 
     <div class="home-iwt__content-wrapp">
-      <div class="section-content-items">
+      <div class="section-content-items grid grid--2-col-desktop">
         {%- capture image_content -%} 
         {% if section.settings.image != blank %}
-          <div class="image-wrapper">{{ section.settings.image | image_url: width: section.settings.image.width, height: section.settings.image.height | image_tag: loading:'lazy', class:'image' }}
+          <div class="image-wrapper grid__item">{{ section.settings.image | image_url: width: section.settings.image.width, height: section.settings.image.height | image_tag: loading:'lazy', class:'image' }}
           </div>
           {% endif %}
         {%- endcapture -%}
@@ -32,7 +32,7 @@
         {% if section.settings.layout == 'image_first' %}
           {{ image_content }}
         {% endif %}
-        <div class="content-wrapper">
+        <div class="content-wrapper grid__item">
           {% if section.settings.content != blank %}
             <div class="content">
               {{ section.settings.content }}

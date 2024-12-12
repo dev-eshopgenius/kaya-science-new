@@ -15,15 +15,15 @@
       aria-haspopup="dialog"
       aria-label="{{ 'general.search.search' | t }}"
     >
-      <input type="text" id="search-box" placeholder="Type to search..." class="search-box"/>
-       <span>
+      <span class="lence">
         <span class="svg-wrapper">
           {{- 'icon-search.svg' | inline_asset_content -}}
         </span>
         <span class="svg-wrapper header__icon-close">
           {{- 'icon-close.svg' | inline_asset_content -}}
         </span>
-      </span>
+      </span>  <input type="text" id="search-box" placeholder="Type to search..." class="search-box"/>
+   
     </summary>
     <div
       class="search-modal modal__content gradient"

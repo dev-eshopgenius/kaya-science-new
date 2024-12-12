@@ -190,8 +190,25 @@
 }
 .insights .image-with-text .image-with-text__media {padding-top: 30px;}
 .insights .image-with-text .image-with-text__media img {position: static; object-fit: contain;}
-.insights .image-with-text  .image-with-text__text{margin-top: 1rem;}
+.insights .image-with-text  .image-with-text__text{margin-top: 1rem;max-width: 300px;}
 .insights .image-with-text  .image-with-text__text p{font-weight: 500;}
+.insights .image-with-text__content .image-with-text__text+.button {background: #fff; color:#262626;font-weight: 600;}
+.insights .image-with-text__content .image-with-text__text+.button:after{content:none}
+.header__icon--search {display: flex;border-bottom: solid 1px #AFAFAF;height: 40px;}
+
+.header__icon--search input.search-box{ border:none}
+.ingredients .multicolumn-card {background: transparent; padding: 0; box-shadow: none;}
+.ingredients  .multicolumn-list__item .media--adapt .multicolumn-card__image {max-width:150px; height: auto; aspect-ratio: 1; object-fit: contain;}
+.ingredients .multicolumn-list .multicolumn-card .multicolumn-card__info {
+  padding-top: 0;
+}
+.ingredients .multicolumn-list .multicolumn-card .multicolumn-card__info h3{font-size: 20px;}
+.ingredients .multicolumn-list .multicolumn-card .multicolumn-card__info .rte p{font-weight: 500; line-height: 22.4px; letter-spacing: normal;}
+.home-iwt__content-wrapp .section-content-items .content-wrapper .content {
+  text-align: center;
+}
+.home-iwt__content-wrapp .section-content-items .content-wrapper .content p{font-size: 24px; font-weight: 500;line-height: 28.8px;}
+
 @media(min-width:750px) {
   .insights .image-with-text .image-with-text__heading{font-size: 32px;}
   p.announcement-bar__message.h5{font-size: calc(var(--font-heading-scale)* 1.4rem); font-weight: 500;}
