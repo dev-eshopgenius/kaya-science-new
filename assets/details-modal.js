@@ -80,6 +80,9 @@ child_items.forEach(item => {
       menu.style.display = "none";
     }
   });
+
+  const element = document.querySelectorAll('.grandchild-mega-menu__content');
+  console.log("element>><><>",element);
 });
 
 
@@ -131,8 +134,3 @@ document.querySelectorAll(".mega-menu__link[data-image-url]").forEach(item => {
   });
 });
 
-// Automatically trigger hover for the first menu item to set default image
-// const firstItem = document.querySelector(".mega-menu__link[data-image-url]");
-// if (firstItem) {
-//   firstItem.dispatchEvent(new MouseEvent("mouseenter"));
-// }
