@@ -40,6 +40,7 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
@@ -153,6 +154,63 @@
         "padding_bottom": 12
       }
     },
+    "product_build_routine_MmnTkP": {
+      "type": "product-build-routine",
+      "blocks": {
+        "step_block_nH4Eff": {
+          "type": "step_block",
+          "settings": {
+            "step_number": "1",
+            "step_heading": "Step 1: Cleanse",
+            "step_content": "Wash away the day without stripping your skin.",
+            "step_product": "{{ product.metafields.custom.step_1_product.value }}"
+          }
+        },
+        "step_block_6xDKGb": {
+          "type": "step_block",
+          "settings": {
+            "step_number": "2",
+            "step_heading": "Step 2: Heal",
+            "step_content": "Prep, Refresh and knock out dullness.",
+            "step_product": "{{ product.metafields.custom.step_2_product.value }}"
+          }
+        },
+        "step_block_6yHE4y": {
+          "type": "step_block",
+          "settings": {
+            "step_number": "3",
+            "step_heading": "Step 3: Moisturise",
+            "step_content": "Boost radiance with 20% vitamin C serum",
+            "step_product": "{{ product.metafields.custom.step_3_product.value }}"
+          }
+        },
+        "step_block_kdNknq": {
+          "type": "step_block",
+          "settings": {
+            "step_number": "4",
+            "step_heading": "Step 4: Protect",
+            "step_content": "Hydrate and nourish for super-soft, glowing skin",
+            "step_product": "{{ product.metafields.custom.step_4_product.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "step_block_nH4Eff",
+        "step_block_6xDKGb",
+        "step_block_6yHE4y",
+        "step_block_kdNknq"
+      ],
+      "settings": {
+        "title": "Build Your Routine",
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "quick_add": "standard",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -170,10 +228,71 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "product_multi_image_section_fUiJcC": {
+      "type": "product-multi-image-section",
+      "settings": {}
+    },
+    "home_shipping_contact_geT3ze": {
+      "type": "home-shipping-contact",
+      "blocks": {
+        "block_RcNcRg": {
+          "type": "block",
+          "settings": {
+            "image_align": "left",
+            "image": "shopify://shop_images/free_shipping.svg",
+            "heading": "Free Shipping",
+            "text": "On Orders Above Rs. 499",
+            "button_label": "",
+            "button_link": "",
+            "bg_color": "#ffffff",
+            "linear_bg": ""
+          }
+        },
+        "block_i3hWxd": {
+          "type": "block",
+          "settings": {
+            "image_align": "left",
+            "image": "shopify://shop_images/cod.svg",
+            "heading": "COD Available",
+            "text": "@ Rs. 50 Per Order",
+            "button_label": "",
+            "button_link": "",
+            "bg_color": "#ffffff",
+            "linear_bg": ""
+          }
+        },
+        "block_q8DAAb": {
+          "type": "block",
+          "settings": {
+            "image_align": "left",
+            "image": "shopify://shop_images/question.svg",
+            "heading": "Have Questions?",
+            "text": "We’re Here to Help.",
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact",
+            "bg_color": "#ffffff",
+            "linear_bg": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_RcNcRg",
+        "block_i3hWxd",
+        "block_q8DAAb"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "product_build_routine_MmnTkP",
+    "related-products",
+    "product_multi_image_section_fUiJcC",
+    "home_shipping_contact_geT3ze"
   ]
 }
