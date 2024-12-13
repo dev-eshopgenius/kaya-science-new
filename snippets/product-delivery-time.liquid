@@ -1,0 +1,24 @@
+<div class="pdp_estimate--delivery pdp_estimate--wrapper">
+    <div class="pdp_estimate--main">
+      {% if settings.delivery_heading != blank %}
+        <div class="delivery_heading">
+          <h2 class="delivery_heading pincode-head">{{ settings.delivery_heading }}</h2>
+        </div>
+      {% endif %}  
+      <div class="estimate--delivery_wrap est-wrap--js check-delivery">
+        <input type="text" class="pincode_value cheinput" placeholder="Enter Delivery Postcode">
+        <button type="button" class="pin_check sub-de">check</button>
+        {% for i in (1..15) %}
+          {% capture pincodebox %}pincode_box_{{ i }}{% endcapture %}
+          {% capture timebox %}time_box_{{ i }}{% endcapture %}
+          {% if settings[timebox] != blank and settings[pincodebox] != blank %}
+            {% assign pincodearray = settings[pincodebox] | split:',' %}
+             {% capture pincodearrayclass %}{% for pcs in pincodearray %}{{ pcs | strip | strip_newlines | prepend: 'pin_' }} {% endfor %}{% endcapture %}
+            <input class="{{ pincodearrayclass }}" type="hidden" value="{{ settings[timebox] | escape }}">   
+          {% endif %}  
+        {% endfor %}  
+      </div>
+      <div class="pincode_checker_message"></div>
+    </div>
+  </div>
+  
