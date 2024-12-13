@@ -20,13 +20,14 @@
 }
 
 .newsletter-form__field-wrapper .field__input {
-  padding-right: 5rem;
+  padding-right: 5rem;padding-left:0
 }
-
+.newsletter-form__field-wrapper .field__label ,.newsletter-form__field-wrapper .field__input:focus~.field__label{left:0}
 .newsletter-form__field-wrapper .field {
   z-index: 0;
+  border-bottom: solid 1px #262626;
 }
-
+.newsletter-form__field-wrapper .field:after{content: none;}
 .newsletter-form__message {
   justify-content: center;
   margin-bottom: 0;
@@ -68,4 +69,7 @@
 
 .newsletter-form__button .icon {
   width: 1.5rem;
+}
+.footer-block__newsletter .footer-block__heading p {
+  margin: 0;
 }
