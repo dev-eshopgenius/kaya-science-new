@@ -82,7 +82,8 @@ child_items.forEach(item => {
   });
 
   const element = document.querySelectorAll('.grandchild-mega-menu__content');
-  console.log("element>><><>",element);
+  const element_html =  element.innerHTML ; 
+  console.log("element>><><>",element_html);
 });
 
 
