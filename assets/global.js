@@ -1306,9 +1306,7 @@ slidesPerView: 4,
 speed: 2000,
 grabCursor: true,
   });
-} else {
-  console.error('Swiper container not found!');
-} 
+}
 // collection slider js end
 
 
