@@ -70,6 +70,11 @@ child_items.forEach(item => {
       menu.style.display = "block"; 
       menu.addEventListener("mouseleave", () => {
         menu.style.display = "none"; 
+
+        
+        const element = document.querySelectorAll('.grandchild-mega-menu__content');
+        const element_html =  element.innerHTML ; 
+       console.log("element>><><>",element_html);
       });
     }
   });
@@ -81,9 +86,6 @@ child_items.forEach(item => {
     }
   });
 
-  const element = document.querySelectorAll('.grandchild-mega-menu__content');
-  const element_html =  element.innerHTML ; 
-  console.log("element>><><>",element_html);
 });
 
 
