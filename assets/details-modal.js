@@ -48,13 +48,13 @@ customElements.define('details-modal', DetailsModal);
 
 
 // menu shows on hover js start
-let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+let items = document.querySelector(".header__inline-menu").querySelectorAll("details ");
 let grand_items = document.querySelector(".childlink--menu-wrap").querySelectorAll(".child-linklist");
 let child_items = document.querySelector(".main-link-wrapp").querySelectorAll(".main-link-item");
   items.forEach(item => {
     item.addEventListener("mouseover", () => {
       item.setAttribute("open", true);
-      item.querySelector("ul").addEventListener("mouseleave", () => {
+      item.querySelector(".main-link-item span").addEventListener("mouseleave", () => {
         item.removeAttribute("open");
       });
     item.addEventListener("mouseleave", () => {
@@ -65,7 +65,7 @@ let child_items = document.querySelector(".main-link-wrapp").querySelectorAll(".
 
 child_items.forEach(item => {
   item.addEventListener("mouseover", () => {
-    const menu = item.querySelector("ul");
+    const menu = item.querySelector(".child-mega-menu__content");
     if (menu) {
       menu.style.display = "block"; 
       menu.addEventListener("mouseleave", () => {
@@ -91,7 +91,7 @@ child_items.forEach(item => {
 
 grand_items.forEach(item => {
   item.addEventListener("mouseover", () => {
-    const menu = item.querySelector("ul");
+    const menu = item.querySelector(".grandchild-mega-menu__content");
     if (menu) {
       menu.style.display = "block"; 
       menu.addEventListener("mouseleave", () => {

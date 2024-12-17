@@ -1305,7 +1305,7 @@ cssMode: false,
 slidesPerView: 4,
 speed: 2000,
 grabCursor: true,
-  });
+});
 }
 // collection slider js end
 
@@ -1343,8 +1343,7 @@ window.onload = function () {
     const speed = isDeleting ? 50 : 100;
     setTimeout(typeEffect, speed);
   }
-
-  typeEffect();
+   typeEffect();
 };
 // search bar placeholder end
 
