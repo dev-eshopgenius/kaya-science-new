@@ -330,7 +330,7 @@
       data-cascade
     {% endif %}
   >
-    {%- if section.settings.enable_country_selector or section.settings.enable_language_selector or if section.settings.payment_enable  -%}
+    {%- if section.settings.enable_country_selector or section.settings.enable_language_selector or section.settings.payment_enable  -%}
     <div class="footer__content-bottom-wrapper ">
       {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
         {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
@@ -341,7 +341,7 @@
               <div>
                 <h2 class="caption-large text-body" id="FooterCountryLabel">{{ 'localization.country_label' | t }}</h2>
                 {%- render 'country-localization', localPosition: 'FooterCountry' -%}
-              </div>
+              </div> 
             {%- endform -%}
           </localization-form>
         {%- endif -%}
