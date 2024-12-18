@@ -1313,6 +1313,7 @@ grabCursor: true,
 
 // search bar placeholder start
 window.onload = function () {
+  // Desktop Search Box
   const searchBox = document.getElementById('search-box');
   const placeholderTexts = window.placeholderTexts;
   let currentIndex = 0;
@@ -1343,8 +1344,45 @@ window.onload = function () {
     const speed = isDeleting ? 50 : 100;
     setTimeout(typeEffect, speed);
   }
-   typeEffect();
+
+  typeEffect();
+
+  // Mobile Search Box
+  const mobSearchBox = document.getElementById('mob-search-box');
+  const mobPlaceholderTexts = window.placeholderTexts;
+  let mobCurrentIndex = 0;
+  let mobCurrentText = "";
+  let mobCharIndex = 0;
+  let mobIsDeleting = false;
+
+  function mobTypeEffect() {
+    const fullText = mobPlaceholderTexts[mobCurrentIndex];
+
+    if (mobIsDeleting) {
+      mobCurrentText = fullText.substring(0, mobCharIndex--);
+    } else {
+      mobCurrentText = fullText.substring(0, mobCharIndex++);
+    }
+
+    mobSearchBox.setAttribute("placeholder", mobCurrentText + "|");
+
+    if (!mobIsDeleting && mobCharIndex === fullText.length) {
+      mobIsDeleting = true;
+      setTimeout(mobTypeEffect, 1000);
+      return;
+    } else if (mobIsDeleting && mobCharIndex === 0) {
+      mobIsDeleting = false;
+      mobCurrentIndex = (mobCurrentIndex + 1) % mobPlaceholderTexts.length;
+    }
+
+    const speed = mobIsDeleting ? 50 : 100;
+    setTimeout(mobTypeEffect, speed);
+  }
+
+  mobTypeEffect();
 };
+
+
 // search bar placeholder end
 
 
