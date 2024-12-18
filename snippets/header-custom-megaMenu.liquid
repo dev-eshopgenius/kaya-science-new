@@ -52,6 +52,9 @@
                        >
                         {{ childlink.title | escape }}
                       </a>
+                      <div class="linklist_image" style="display:none;">
+                        <img src="" class="menu-img" loading="lazy" width="auto" height="auto" alt="Menu Image"/>
+                      </div>
                       {%- if childlink.links != blank -%}
                         <div class="grandchild-mega-menu__content" style="display:none;">
                         <ul class="list-unstyled grandchild-linklist" role="list" >
@@ -73,6 +76,9 @@
                                >
                                 {{ grandchildlink.title | escape }}
                               </a>
+                              <div class="linklist_image" style="display:none;">
+                                <img src="" class="menu-img" loading="lazy" width="auto" height="auto" alt="Menu Image"/>
+                              </div>
                             </li>
                           {%- endfor -%}
                         </ul>
@@ -107,7 +113,5 @@
     {%- endfor -%}
   </ul>
 </nav>
-<div class="linklist_image" style="display:none;">
-  <img src="" class="menu-img" loading="lazy" width="auto" height="auto" alt="Menu Image"/>
-</div>
+
 </div>

@@ -80,7 +80,7 @@ child_items.forEach(item => {
   });
 
   item.addEventListener("mouseleave", () => {
-    const menu = item.querySelector("ul");
+    const menu = item.querySelector(".child-mega-menu__content");
     if (menu) {
       menu.style.display = "none";
     }
@@ -101,7 +101,7 @@ grand_items.forEach(item => {
   });
 
   item.addEventListener("mouseleave", () => {
-    const menu = item.querySelector("ul");
+    const menu = item.querySelector(".grandchild-mega-menu__content");
     if (menu) {
       menu.style.display = "none";
     }
@@ -137,3 +137,16 @@ document.querySelectorAll(".mega-menu__link[data-image-url]").forEach(item => {
   });
 });
 
+
+
+// const hoverElements = document.querySelectorAll('.child-linklist');
+// const targetDiv = document.querySelectorAll('.grandchild-mega-menu__content');
+// hoverElements.forEach(element => {
+//   element.addEventListener('mouseover', function () {
+//     const text = this.textContent;
+//     targetDiv.textContent = text;
+//   });
+//   element.addEventListener('mouseout', function () {
+//     targetDiv.textContent = 'Text will appear here when you hover.';
+//   });
+// });
