@@ -166,7 +166,7 @@
           render 'header-dropdown-menu'
         elsif section.settings.menu_type_desktop != 'drawer' and section.settings.menu_type_desktop == 'mega'
           render 'header-mega-menu'
-         elsif section.settings.menu_type_desktop == 'custom_mega' and section.settings.menu_type_desktop != 'mega'
+        elsif section.settings.menu_type_desktop == 'custom_mega' and section.settings.menu_type_desktop != 'mega'
           render 'header-custom-megaMenu'
         endif
       endif
@@ -231,7 +231,7 @@
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-          class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
+          class="header__icon header__icon--account link focus-inset"
           rel="nofollow"
         >
           {%- if section.settings.enable_customer_avatar -%}
@@ -281,7 +281,9 @@
         {%- endif -%}
       </a>
     </div>
+   
   </header>
+  {% render 'mob-header-search', input_id: 'Search-In-Modal' %}
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
 {%- if settings.cart_type == "notification" -%}

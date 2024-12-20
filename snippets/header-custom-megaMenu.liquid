@@ -27,11 +27,12 @@
                 id="MegaMenu-Content-{{ forloop.index }}"
                 class="child-mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
+                style="display:none;"
               >
                 <ul
                   class="mega-menu__list childlink--menu-wrap {% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
                   role="list"
-                  style="display:none;"
+                  
                 >
                   {%- for childlink in link.links -%}
                     {%- capture data_image_url -%}
@@ -51,9 +52,12 @@
                        >
                         {{ childlink.title | escape }}
                       </a>
+                      <div class="linklist_image" style="display:none;">
+                        <img src="" class="menu-img" loading="lazy" width="auto" height="auto" alt="Menu Image"/>
+                      </div>
                       {%- if childlink.links != blank -%}
-                        <div class="grandchild-mega-menu__content">
-                        <ul class="list-unstyled grandchild-linklist" role="list" style="display:none;">
+                        <div class="grandchild-mega-menu__content" style="display:none;">
+                        <ul class="list-unstyled grandchild-linklist" role="list" >
                           {%- for grandchildlink in childlink.links -%}
                             {%- capture data_image_url -%}
                               {%- if grandchildlink.object.metafields.custom.mega_menu_image != blank -%}
@@ -72,6 +76,9 @@
                                >
                                 {{ grandchildlink.title | escape }}
                               </a>
+                              <div class="linklist_image" style="display:none;">
+                                <img src="" class="menu-img" loading="lazy" width="auto" height="auto" alt="Menu Image"/>
+                              </div>
                             </li>
                           {%- endfor -%}
                         </ul>
@@ -106,7 +113,5 @@
     {%- endfor -%}
   </ul>
 </nav>
-<div class="linklist_image" style="display:none;">
-  <img src="" class="menu-img" loading="lazy" width="auto" height="auto" alt="Menu Image"/>
-</div>
+
 </div>
