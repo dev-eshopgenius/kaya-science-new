@@ -1311,6 +1311,25 @@ grabCursor: true,
 
 
 
+var pro_swiperContainer = document.querySelector('.product__media-list');
+if (pro_swiperContainer) {
+var prod_swiper = new Swiper('.product__media-list', {
+loop: true,
+spaceBetween: 24,
+autoplay: {
+delay: 1000,
+pauseOnMouseEnter:true,
+disableOnInteraction:false,
+},
+loopAddBlankSlides:true,
+cssMode: false,
+slidesPerView: 4,
+speed: 2000,
+grabCursor: true,
+});
+}
+
+
 // search bar placeholder start
 window.onload = function () {
   // Desktop Search Box

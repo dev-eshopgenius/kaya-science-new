@@ -159,3 +159,74 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("check-delivery");
+  const input = document.getElementById("pincode-input");
+  const result = document.getElementById("delivery-result");
+
+async function fetchCsvData() {
+    try {
+        const response = await fetch("../assets/pincode-delivery.csv");
+        if (!response.ok) {
+            throw new Error(`Failed to fetch CSV. Status: ${response.status}`);
+        }
+        const text = await response.text();
+        const rows = text.split("\n").slice(1); 
+        const data = {};
+
+        rows.forEach(row => {
+            const [pincode, minDays, maxDays] = row.split(",");
+            data[pincode.trim()] = { 
+                minDays: parseInt(minDays), 
+                maxDays: parseInt(maxDays) 
+            };
+        });
+
+        return data;
+    } catch (error) {
+        console.error("Error fetching CSV data:", error.message);
+        document.getElementById("delivery-result").textContent = "Error loading delivery data.";
+        throw error; 
+    }
+}
+function calculateDeliveryDate(minDays, maxDays) {
+      const currentDate = new Date();
+      const minDate = new Date(currentDate);
+      const maxDate = new Date(currentDate);
+
+      minDate.setDate(minDate.getDate() + minDays);
+      maxDate.setDate(maxDate.getDate() + maxDays);
+
+      const options = { day: "numeric", month: "long", year: "numeric" };
+      return `Delivery between ${minDate.toLocaleDateString(undefined, options)} to ${maxDate.toLocaleDateString(undefined, options)}`;
+  }
+button.addEventListener("click", async () => {
+      const pincode = input.value.trim();
+      if (!pincode) {
+          result.textContent = "Please enter a valid pincode.";
+          return;
+      }
+
+      const data = await fetchCsvData();
+      if (!data) {
+          result.textContent = "Error loading delivery information. Please try again.";
+          return;
+      }
+
+      if (data[pincode]) {
+          const { minDays, maxDays } = data[pincode];
+          result.textContent = calculateDeliveryDate(minDays, maxDays);
+      } else {
+          result.textContent = "Delivery information not available for this pincode.";
+      }
+  });
+});
+
+document.getElementById("check-delivery").addEventListener("click", async () => {
+  try {
+      const data = await fetchCsvData();
+      console.log("CSV Data Loaded:", data);
+  } catch (error) {
+      console.error("Could not fetch delivery data:", error);
+  }
+});

@@ -78,7 +78,7 @@
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
-      <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product__info-wrapper grid__item {% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
           class="product__info-container {% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
@@ -140,8 +140,10 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
-              {% when 'product__offers' %}
-                {% render 'coupan-code', block:block %}
+                {% when 'product__offers' %}
+                  {% render 'coupan-code', block:block %}
+                {% when 'pincode_delivery' %}
+                  {% render 'product-pincode', block:block %}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -672,7 +674,7 @@
       </div>
     </div>
 
-     {% render 'product-media-modal', variant_images: variant_images %} 
+    {% render 'product-media-modal', variant_images: variant_images %} 
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
@@ -2171,6 +2173,13 @@
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
+      ]
+    },
+    {
+      "type":"pincode_delivery",
+      "name":"Pincode Delivery",
+      "settings":[
+
       ]
     }
   ],

@@ -175,7 +175,8 @@
                     lazy_load: lazy_load,
                     skip_styles: skip_card_product_styles,
                     quick_add: section.settings.quick_add,
-                    section_id: section.id
+                    section_id: section.id,
+                    custom_tag: section.settings.custom_tag
                   %}
                 </li>
                 {%- assign skip_card_product_styles = true -%}
@@ -367,6 +368,11 @@
       "id": "enable_sorting",
       "default": true,
       "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "text",
+      "id": "custom_tag",
+      "label": "Custom Tag"
     },
     {
       "type": "header",
