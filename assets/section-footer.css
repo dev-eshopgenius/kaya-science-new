@@ -13,13 +13,14 @@
 
 @media screen and (max-width: 749px) {
   .footer .grid {
-    display: block;
+    display: flex;
   }
 
   .footer-block.grid__item {
     padding: 0;
-    margin: 4rem 0;
-    width: 100%;
+    margin: 0;
+    width: auto;
+    flex-basis: 48%;
   }
 
   .footer-block.grid__item:first-child {
