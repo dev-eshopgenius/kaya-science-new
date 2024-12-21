@@ -1,0 +1,20 @@
+<div class="product-slider-container">
+    <!-- Main Media Slider -->
+    <div class="main-slider">
+      {% for media in product.media %}
+        <div class="main-slider-item">
+          {{ media | image_url: width: '1024' |image_tag: loading:'lazy', class:'pro-image' }}
+        </div>
+      {% endfor %}
+    </div>
+  
+    <!-- Thumbnail Slider -->
+    <div class="thumbnail-slider">
+      {% for media in product.media %}
+        <div class="thumbnail-slider-item">
+          {{ media  | image_url: width: '500' | image_tag: loading:'lazy', class:'media-img' }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  

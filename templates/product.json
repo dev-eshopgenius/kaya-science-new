@@ -50,6 +50,10 @@
             "show_gift_card_recipient": true
           }
         },
+        "pincode_delivery_L3FAHj": {
+          "type": "pincode_delivery",
+          "settings": {}
+        },
         "collapsible_tab_JQnnHM": {
           "type": "collapsible_tab",
           "settings": {
@@ -129,6 +133,7 @@
         "product_offers_qhLJAG",
         "quantity_selector",
         "buy_buttons",
+        "pincode_delivery_L3FAHj",
         "collapsible_tab_JQnnHM",
         "collapsible_tab_hFczXz",
         "collapsible_tab_PmiGPY",
@@ -140,6 +145,7 @@
       ],
       "settings": {
         "enable_sticky_info": true,
+        "thumnail_vartical": true,
         "color_scheme": "scheme-1",
         "media_size": "medium",
         "constrain_to_viewport": true,

@@ -1311,23 +1311,25 @@ grabCursor: true,
 
 
 
-var pro_swiperContainer = document.querySelector('.product__media-list');
-if (pro_swiperContainer) {
-var prod_swiper = new Swiper('.product__media-list', {
-loop: true,
-spaceBetween: 24,
-autoplay: {
-delay: 1000,
-pauseOnMouseEnter:true,
-disableOnInteraction:false,
-},
-loopAddBlankSlides:true,
-cssMode: false,
-slidesPerView: 4,
-speed: 2000,
-grabCursor: true,
+document.addEventListener("DOMContentLoaded", () => {
+  const mainSlider = new Swiper(".main-slider", {
+    spaceBetween: 10,
+    slidesPerView: 1,
+    loop: true,
+  });
+
+  const thumbnailSlider = new Swiper(".thumbnail-slider", {
+    spaceBetween: 10,
+    slidesPerView: 4, 
+    freeMode: true,
+    watchSlidesProgress: true,
+  });
+
+  // Connect the two sliders
+  mainSlider.controller.control = thumbnailSlider;
+  thumbnailSlider.controller.control = mainSlider;
 });
-}
+
 
 
 // search bar placeholder start
