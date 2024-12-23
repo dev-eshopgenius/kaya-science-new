@@ -14,6 +14,7 @@
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
+        "image": "shopify://shop_images/2880x768-DTC.jpg",
         "color_scheme": "scheme-1"
       }
     },
@@ -42,6 +43,7 @@
       "type": "featured-blog",
       "settings": {
         "heading": "Read Our Expert Insights",
+        "subheading": "",
         "heading_size": "h1",
         "blog": "news",
         "post_limit": 4,
