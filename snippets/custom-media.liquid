@@ -1,14 +1,15 @@
 <div class="product-slider-container">
     <!-- Main Media Slider -->
-    <div class="main-slider">
+    <div class="main-slider swiper-wrapper">
       {% for media in product.media %}
-        <div class="main-slider-item">
+        <div class="main-slider-item swiper-slide">
           {{ media | image_url: width: '1024' |image_tag: loading:'lazy', class:'pro-image' }}
         </div>
       {% endfor %}
     </div>
   
     <!-- Thumbnail Slider -->
+    {% comment %}
     <div class="thumbnail-slider">
       {% for media in product.media %}
         <div class="thumbnail-slider-item">
@@ -16,5 +17,6 @@
         </div>
       {% endfor %}
     </div>
+    {% endcomment %}
   </div>
   

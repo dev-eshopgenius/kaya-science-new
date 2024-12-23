@@ -1293,20 +1293,23 @@ var colswiperContainer = document.querySelector('.home-collection-slider');
 if (colswiperContainer) {
     var col_swiper = new Swiper('.home-collection-slider', {
         loop: true,
-        cssMode: true,
+        cssMode: true, 
         spaceBetween: 24,
+        slidesPerView: 4, 
         autoplay: {
             delay: 1000,
             pauseOnMouseEnter: true,
             disableOnInteraction: false,
         },
-        loopAddBlankSlides: true,
-        cssMode: false,
-        slidesPerView: 4,
         speed: 2000,
         grabCursor: true,
         breakpoints: {
-            768: {
+          1024: {
+              slidesPerView: 3,
+            },
+        },
+        breakpoints: {
+            769: {
                 slidesPerView: 1,
             },
         },
@@ -1314,10 +1317,11 @@ if (colswiperContainer) {
 }
 
 
+
 // collection slider js end
 
 var prod_Container = document.querySelector('.main-slider');
-if (prod_Container) {
+
 var pro_swiper = new Swiper('.main-slider', {
 loop: true,
 spaceBetween: 24,
@@ -1332,7 +1336,7 @@ slidesPerView: 4,
 speed: 2000,
 grabCursor: true,
 });
-}
+
 
 // document.addEventListener("DOMContentLoaded", () => {
 //   const mainSlider = new Swiper(".main-slider", {
