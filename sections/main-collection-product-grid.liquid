@@ -158,6 +158,39 @@
                 {%- if forloop.index > 2 -%}
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
+                {% if forloop.index == 5 %}
+                  <li
+                    class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    {% if settings.animations_reveal_on_scroll %}
+                      data-cascade
+                      style="--animation-order: {{ forloop.index }};"
+                    {% endif %}
+                  >
+                  <div class="grid-image-content">
+                    <div class="grid-content">
+                      {% if section.settings.gridimage != blank %}
+                    <div class="gridimage">
+                      {{ section.settings.gridimage | image_url: width: 500 | image_tag: loading:'lazy', class:'grid-img' }}
+                    </div>
+                  {% endif %}
+                  {% if section.settings.content  != blank or section.settings.link_text != blank   %}
+                    <div class="grid-content-wrapp">
+                      {% if section.settings.content != blank %}
+                        <div class="title">
+                          {{ section.settings.content }}
+                        </div>
+                      {% endif %}
+                      {% if section.settings.link_text != blank %}
+                      <a href="{{ section.settings.link }}">
+                        {{ section.settings.link_text }}
+                      </a>
+                    {% endif %}
+                    </div>
+                  {% endif %}
+                  </div>
+                  </div>
+                </li>
+                {% else %}
                 <li
                   class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                   {% if settings.animations_reveal_on_scroll %}
@@ -179,6 +212,7 @@
                     custom_tag: section.settings.custom_tag
                   %}
                 </li>
+              {% endif %}
                 {%- assign skip_card_product_styles = true -%}
               {%- endfor -%}
             </ul>
@@ -373,6 +407,30 @@
       "type": "text",
       "id": "custom_tag",
       "label": "Custom Tag"
+    },
+    {
+      "type": "header",
+      "content": "Image with Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "gridimage",
+      "label":"Grid Image"
+    },
+    {
+      "type": "html",
+      "id":"content",
+      "label": "Content"
+    },
+    {
+      "type": "text",
+      "id":"link_text",
+      "label": "Link Text"
+    },
+    {
+      "type": "url",
+      "id":"link",
+      "label": "Link"
     },
     {
       "type": "header",
