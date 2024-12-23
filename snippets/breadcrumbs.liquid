@@ -1,6 +1,6 @@
 {%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
     {%- assign t = template | split: '.' | first -%}
-  <div class="page-width">
+
     <nav class="breadcrumbs " role="navigation" aria-label="breadcrumbs">
       <ol class="breadcrumbs__list">
         <li class="breadcrumbs__item">
@@ -61,7 +61,7 @@
             </li>
         {%- endcase -%}
       </ol>
-    </nav></div>
+    </nav>
   {%- endunless -%}
  
   
