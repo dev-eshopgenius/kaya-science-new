@@ -1293,6 +1293,7 @@ var colswiperContainer = document.querySelector('.home-collection-slider');
 if (colswiperContainer) {
     var col_swiper = new Swiper('.home-collection-slider', {
         loop: true,
+        cssMode: true,
         spaceBetween: 24,
         autoplay: {
             delay: 1000,
@@ -1305,15 +1306,14 @@ if (colswiperContainer) {
         speed: 2000,
         grabCursor: true,
         breakpoints: {
-            // When the viewport width is <= 768px (for mobile)
             768: {
-                slidesPerView: 1, // Show only one slide on mobile
+                slidesPerView: 1,
             },
         },
     });
 }
 
-}
+
 // collection slider js end
 
 var prod_Container = document.querySelector('.main-slider');
