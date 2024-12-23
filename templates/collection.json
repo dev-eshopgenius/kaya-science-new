@@ -37,10 +37,83 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "featured_blog_GzhyWM": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Read Our Expert Insights",
+        "heading_size": "h1",
+        "blog": "news",
+        "post_limit": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-2",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "home_shipping_contact_geT3ze": {
+      "type": "home-shipping-contact",
+      "blocks": {
+        "block_RcNcRg": {
+          "type": "block",
+          "settings": {
+            "image_align": "left",
+            "image": "shopify://shop_images/free_shipping.svg",
+            "heading": "Free Shipping",
+            "text": "On Orders Above Rs. 499",
+            "button_label": "",
+            "button_link": "",
+            "bg_color": "#ffffff",
+            "linear_bg": ""
+          }
+        },
+        "block_i3hWxd": {
+          "type": "block",
+          "settings": {
+            "image_align": "left",
+            "image": "shopify://shop_images/cod.svg",
+            "heading": "COD Available",
+            "text": "@ Rs. 50 Per Order",
+            "button_label": "",
+            "button_link": "",
+            "bg_color": "#ffffff",
+            "linear_bg": ""
+          }
+        },
+        "block_q8DAAb": {
+          "type": "block",
+          "settings": {
+            "image_align": "left",
+            "image": "shopify://shop_images/question.svg",
+            "heading": "Have Questions?",
+            "text": "We’re Here to Help.",
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact",
+            "bg_color": "#ffffff",
+            "linear_bg": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_RcNcRg",
+        "block_i3hWxd",
+        "block_q8DAAb"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "featured_blog_GzhyWM",
+    "home_shipping_contact_geT3ze"
   ]
 }
