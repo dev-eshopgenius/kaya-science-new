@@ -17,6 +17,20 @@
           "padding_bottom": 28
         }
       },
+      "video_WQbWdy": {
+        "type": "video",
+        "settings": {
+          "heading": "",
+          "heading_size": "h1",
+          "enable_video_looping": false,
+          "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+          "description": "",
+          "full_width": true,
+          "color_scheme": "",
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
       "rich_text_3cRtMw": {
         "type": "rich-text",
         "blocks": {
@@ -175,6 +189,7 @@
     },
     "order": [
       "main",
+      "video_WQbWdy",
       "rich_text_3cRtMw",
       "home_image_text_ntwGMg",
       "image_with_text_TB3baG",
