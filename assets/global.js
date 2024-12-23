@@ -1319,43 +1319,39 @@ if (colswiperContainer) {
 
 
 // collection slider js end
+// product media slider js start
+document.addEventListener("DOMContentLoaded", () => {
+  const mainSlider = new Swiper(".main-slider", {
+    spaceBetween: 10,
+    slidesPerView: 1,
+    loop: true,
+    navigation: {
+      nextEl: ".main-slider-next",
+      prevEl: ".main-slider-prev",
+    },
+  });
 
-var prod_Container = document.querySelector('.main-slider');
+  const thumbnailSlider = new Swiper(".thumbnail-slider", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    navigation: {
+      nextEl: ".thumbnail-slider-next",
+      prevEl: ".thumbnail-slider-prev",
+    },
+  });
 
-var pro_swiper = new Swiper('.main-slider', {
-loop: true,
-spaceBetween: 24,
-autoplay: {
-delay: 1000,
-pauseOnMouseEnter:true,
-disableOnInteraction:false,
-},
-loopAddBlankSlides:true,
-cssMode: false,
-slidesPerView: 4,
-speed: 2000,
-grabCursor: true,
+  mainSlider.controller.control = thumbnailSlider;
+  thumbnailSlider.controller.control = mainSlider;
+
+  document.querySelectorAll('.thumbnail-slider .swiper-slide').forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+      mainSlider.slideToLoop(index);
+    });
+  });
 });
-
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const mainSlider = new Swiper(".main-slider", {
-//     spaceBetween: 10,
-//     slidesPerView: 1,
-//     loop: true,
-//   });
-
-//   const thumbnailSlider = new Swiper(".thumbnail-slider", {
-//     spaceBetween: 10,
-//     slidesPerView: 4, 
-//     freeMode: true,
-//     watchSlidesProgress: true,
-//   });
-
-//   mainSlider.controller.control = thumbnailSlider;
-//   thumbnailSlider.controller.control = mainSlider;
-// });
-
+// product media slider js end
 
 
 // search bar placeholder start
