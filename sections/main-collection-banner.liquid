@@ -33,6 +33,7 @@
         >
       </div>
     {% else %}
+      {%  if section.settings.image != blank %}
     <div class="collection-hero__image-container media gradient">
       <img
         srcset="
@@ -51,6 +52,7 @@
         height="{{ section.settings.image.height }}"
       >
     </div>
+  {%- endif -%}
     {%- endif -%}
   </div>
   <div class="content--wrapper page-width">
