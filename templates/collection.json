@@ -15,7 +15,7 @@
         "show_collection_description": true,
         "show_collection_image": false,
         "image": "shopify://shop_images/2880x768-DTC.jpg",
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-2"
       }
     },
     "product-grid": {
@@ -23,7 +23,7 @@
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 3,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
