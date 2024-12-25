@@ -307,7 +307,58 @@ border-radius: 16px;padding:20px;
   left: 300px;
 }
 /*------End--------*/
+.product__info-wrapper .product__title h1 {
+  font-size: 1.8rem;
+  line-height: 23.4px;
+}
+.product__info-wrapper .price__container .price-item--last {
+  font-size: 2rem;line-height: 24.38px;
+}
+span.percent-count {
+  color: #3BA24A;
+  font-size: 1.6rem;
+  line-height: 19.5px;
+}
+.product--offers-wrap .coupan-code-wrapper .coupanCode--title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 20.8px; background: url(coupon-icon.svg) no-repeat left center; background-size: 23px auto;padding-left: 34px;
+}
+.coupan-code-content ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+}
+.coupan-code-content ul li.code--items {
+  background: #fff;
+  box-shadow: 1px 2px 4px 0px #0000000D;
+  border: solid 1px #F3F3F5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.coupan-code-content ul li.code--items .heading {
+  padding: 15px;
+}
+.discount-code-item {
+  background: #DDEDEB;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+}
 @media(min-width:750px) {
+  span.percent-count {
+   
+    font-size: 2rem;
+    line-height: 24.38px;
+}
+  .product__info-wrapper .price__container .price-item--last {
+    font-size: 2.8rem;line-height: 34.13px;
+}
+  .product__info-wrapper .product__title h1 {
+    font-size: 2.8rem;
+    line-height: 36.4px;
+}
   .header {padding-left: 3px;padding-right: 3px;}
   .mob-image{display: none!important;}
   .ingredients .multicolumn-list .multicolumn-card .multicolumn-card__info h3{font-size: 20px;}
@@ -403,3 +454,12 @@ border-radius: 16px;padding:20px;
   font-size: 1.4rem;
   font-weight: 500;
 }
+
+.product-slider-container.custom--product-media-slider {
+  overflow: hidden; position: relative;padding-left: 22%;
+}
+.product--thumbnail_slider .thumbnail-slider .swiper-slide {max-height: fit-content;}
+.product-slider-container.custom--product-media-slider .thumbnail-slider {width:20%; position: absolute; left:0; top:0}
+.product-slider-container.custom--product-media-slider .main-slider {width:75%; overflow: hidden;}
+
+.pro-image, .media-img{display: block;}

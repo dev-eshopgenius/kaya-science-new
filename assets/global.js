@@ -1356,9 +1356,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const thumbnailSlider = new Swiper(".thumbnail-slider", {
     spaceBetween: 10,
+    direction: 'vertical',
     slidesPerView: 4,
-    freeMode: true,
-    watchSlidesProgress: true,
+    // freeMode: true,
+    // watchSlidesProgress: true,
     navigation: {
       nextEl: ".thumbnail-slider-next",
       prevEl: ".thumbnail-slider-prev",
