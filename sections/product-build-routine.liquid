@@ -71,7 +71,7 @@
         {% endfor %}
       </div>
       <div class="collection-steps-wrapper">
-        <div class="collection-product-items">
+        <div class="collection-product-items grid grid--4-col-desktop">
           {% for block in section.blocks %}
             {% if block.type == 'step_block' %}
             {% assign product = block.settings.step_product %}

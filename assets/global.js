@@ -1537,3 +1537,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // END:- estiated pincode delivery
+var productAccordions = document.querySelectorAll(".product__accordion");
+var wrapper = document.createElement("div");
+wrapper.classList.add("product__accordion-wrapper");
+
+if (productAccordions.length > 0) {
+  var parent = productAccordions[0].parentNode;
+  productAccordions.forEach(function(accordion) {
+    wrapper.appendChild(accordion);
+  });
+  parent.appendChild(wrapper);
+}
+
+
+const sourceElement = document.querySelector('.product-card-wrapper');
+const sourceWidth = sourceElement.offsetWidth;
+const targetElements = document.querySelectorAll('.build-step-wrapper .content-wrap');
+
+targetElements.forEach(element => {
+  element.style.width = sourceWidth + 'px';
+});
