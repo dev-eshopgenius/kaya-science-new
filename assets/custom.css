@@ -338,13 +338,41 @@ span.percent-count {
   overflow: hidden;
 }
 .coupan-code-content ul li.code--items .heading {
-  padding: 15px;
+  padding: 15px;font-size:14px; line-height: 18.2px;font-weight: 500;
 }
 .discount-code-item {
   background: #DDEDEB;
   padding: 12px 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;align-items: center;
+}
+.copytext {
+  font-weight: 500;
+  text-decoration: underline;
+  line-height: 19.2px;
+  text-underline-offset: 4px;
+}
+.discount-code-item .discountcode{font-size:16px; font-weight: 700;letter-spacing: 1.6px; line-height: 20.8px;text-transform: uppercase;}
+.product__info-container .product--offers-wrap {
+  margin-right: -27.4%;
+  overflow-x: auto;
+}
+
+.product__info-container  .product--offers-wrap .coupan-code-wrapper {
+  margin-right: -40%;
+}
+.product__info-container  .product-form__buttons {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.product__info-container  .product-form__buttons {margin:0; width:100%;max-width: none;}
+.product__info-container .swym-button-bar {margin:0 10px 0 0}
+.estimated-delivery label {
+  background: url(free_shipping.svg) no-repeat left center;
+  background-size: 30px;
+  padding-left: 40px;
 }
 @media(min-width:750px) {
   span.percent-count {
