@@ -1,10 +1,12 @@
+<div class="product--offers-wraper">
+  {% if block.settings.offertitle != blank %}
+    <div class="title coupanCode--title">
+      {{ block.settings.offertitle }}
+    </div>
+  {% endif %}
 <div class="product--offers-wrap">
     <div class="coupan-code-wrapper">
-      {% if block.settings.offertitle != blank %}
-        <div class="title coupanCode--title">
-          {{ block.settings.offertitle }}
-        </div>
-      {% endif %}
+     
       <div class="coupan-code-content">
         <ul>
           {% for block in section.blocks %}
@@ -37,4 +39,4 @@
       </div>
     </div>
   </div>
-  
+  </div>

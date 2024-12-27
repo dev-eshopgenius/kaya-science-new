@@ -319,7 +319,7 @@ span.percent-count {
   font-size: 1.6rem;
   line-height: 19.5px;
 }
-.product--offers-wrap .coupan-code-wrapper .coupanCode--title {
+.product--offers-wraper .coupanCode--title {
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 20.8px; background: url(coupon-icon.svg) no-repeat left center; background-size: 23px auto;padding-left: 34px;
@@ -541,7 +541,7 @@ box-sizing: border-box;
 }
 .product--thumbnail_slider .thumbnail-slider .swiper-slide {max-height: fit-content;}
 .product-slider-container.custom--product-media-slider .thumbnail-slider {width:20%; position: absolute; left:0; top:0}
-.product-slider-container.custom--product-media-slider .main-slider {width:75%; overflow: hidden;}
+.product-slider-container.custom--product-media-slider .main-slider { overflow: hidden;}
 
 .pro-image, .media-img{display: block;}
 input, button, textarea, select {font-family: Montserrat;}
