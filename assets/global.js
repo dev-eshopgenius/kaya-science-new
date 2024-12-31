@@ -1289,32 +1289,6 @@ swiperContainers.forEach((container) => {
 
 
 // collection slider js start
-// var colswiperContainer = document.querySelector('.home-collection-slider');
-// if (colswiperContainer) {
-//     var col_swiper = new Swiper('.home-collection-slider', {
-//         loop: true,
-//         cssMode: false, 
-//         spaceBetween: 24,
-//         slidesPerView: 4, 
-//         autoplay: {
-//             delay: 1000,
-//             pauseOnMouseEnter: true,
-//             disableOnInteraction: false,
-//         },
-//         speed: 2000,
-//         grabCursor: true,
-//         breakpoints: {
-//             1024: {
-//                 slidesPerView: 4,
-//             },
-//             769: {
-//                 slidesPerView: 1,
-//             },
-//         },
-//     });
-// }
-
-
 var colswiperContainer = document.querySelector('.home-collection-slider');
 if (colswiperContainer) {
     var col_swiper = new Swiper('.home-collection-slider', {
