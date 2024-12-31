@@ -27,8 +27,8 @@
         "description": "",
         "full_width": true,
         "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "rich_text_3cRtMw": {
@@ -53,10 +53,10 @@
         "text_JrTAMk"
       ],
       "settings": {
-        "classname": "",
+        "classname": "about-head",
         "desktop_content_position": "left",
         "content_alignment": "left",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
@@ -89,11 +89,11 @@
         "icon_text_8rMgXP"
       ],
       "settings": {
-        "classname": "",
+        "classname": "about-content",
         "heading": "",
         "image": "shopify://shop_images/Rectangle_3379.png",
         "layout": "image_first",
-        "content": "<p>Our skincare blends nature with advanced science, using dermatologist-recommended, biotechnological actives for effective, skin-compatible solutions tailored for Indian skin.</p>",
+        "content": "<p>Empowering every individual to embrace their best skin through science and care.&lt;br&gt;—designed for real results.</p>",
         "label_text": "Stay Radiant<span>— Team Kaya</span>",
         "color_scheme": "scheme-2",
         "padding_top": 36,
@@ -130,8 +130,8 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
-        "section_color_scheme": "",
-        "color_scheme": "",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 36,
@@ -194,5 +194,5 @@
     "home_image_text_ntwGMg",
     "image_with_text_TB3baG",
     "image_with_text_wwBeXj"
-  ] 
+  ]
 }
