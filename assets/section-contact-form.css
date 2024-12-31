@@ -21,15 +21,15 @@
 }
 
 .contact__button {
-  margin-top: 3rem;
+  margin-top: 0;
 }
 
 @media screen and (min-width: 750px) {
   .contact__button {
-    margin-top: 4rem;
+    margin-top: 0;
   }
 }
-
+.contact__button button{width:100%}
 @media screen and (min-width: 750px) {
   .contact__fields {
     display: grid;

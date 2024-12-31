@@ -15,9 +15,9 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient  section-{{ section.id }}-padding">
-  <div class="contact-form__content-wrapper">
+  <div class="contact-form__content-wrapper grid grid--2-col-desktop">
     {% if section.settings.image != blank %}
-      <div class="contact--form-image">
+      <div class="contact--form-image grid__item">
         {{
           section.settings.image
           | image_url: width: section.settings.image.width
@@ -25,7 +25,7 @@
         }}
       </div>
     {% endif %}
-    <div class="contact page-width">
+    <div class="contact page-width grid__item">
       {%- if section.settings.heading != blank -%}
         <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.heading }}
@@ -152,9 +152,9 @@
         </div>
       {%- endform -%}
       <div class="below-content-wrapper">
-        {% if section.ettings.belowheading != blank %}
+        {% if section.settings.belowheading != blank %}
           <div class="belowheading title">
-            {{ section.ettings.belowheading }}
+            {{ section.settings.belowheading }}
           </div>
         {% endif %}
         <div class="content-wrapper">
