@@ -2798,7 +2798,7 @@ details[open] > .header__submenu {
 
 .header__menu-item {
   font-weight: 500;
-  padding:3.6rem 1.2rem;
+  padding:2.3rem 1.2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground), 0.75);
 }
