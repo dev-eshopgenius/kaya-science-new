@@ -504,6 +504,14 @@ box-sizing: border-box;
   color: #262626;
   letter-spacing: normal;
 }
+.about-content .home-iwt__content-wrapp .section-content-items .content-wrapper .content {
+  text-align: left;
+  background: transparent;
+  box-shadow: none;
+}
+.about-content .home-iwt__content-wrapp .section-content-items .content-wrapper .content p:before, .about-content .home-iwt__content-wrapp .section-content-items .content-wrapper .content p:after {content: none;}
+.about-content .home-iwt__content-wrapp .section-content-items .content-wrapper .content p {font-weight: 600; font-size: 32px; line-height: 38.4px;}
+.about-content .home-iwt__content-wrapp .block-content-wrap {max-width: 100%; background: transparent; box-shadow: none;}
 @media(min-width:750px) {
   .below-content-wrapper .belowheading {
     font-size: 20px;
