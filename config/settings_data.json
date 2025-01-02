@@ -127,6 +127,15 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
+    "phone_pop_text": "",
+    "popup_subheading": "<p>Get VIP discounts, Early access to new launches, and more.</p>",
+    "terms_text": "I accept Terms &amp; Conditions and <a href=\"https://kayascience.com/policies/privacy-policy\">Privacy Policy</a>.I accept Terms &amp; Conditions and <a href=\"https://kayascience.com/policies/privacy-policy\">Privacy Policy</a>.",
+    "image": "shopify://shop_images/frame-427319196-1024x1024.png",
+    "otp_heading": "OTP Verification",
+    "otp_text": "Enter OTP received on <span class=\"otp_number\"></span>",
+    "coupon_image": "shopify://shop_images/Frame_427319397_5da5555c-98fb-4127-b2af-abb87f7d6e52.png",
+    "coupon_text": "<strong>₹100 OFF</strong><br>\non first purchase",
+    "coupon_code": "NEWUSER",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

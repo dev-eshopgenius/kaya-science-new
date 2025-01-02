@@ -1472,5 +1472,112 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Discount Coupon",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_popup",
+        "label": "Enable Popup?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Phone Popup Details"
+      },
+      {
+        "type": "text",
+        "id": "phone_pop_text",
+        "label": "Text"
+      },
+      {
+        "type": "html",
+        "id": "phone_pop_heading",
+        "label": "Text"
+      },
+       {
+        "type": "text",
+        "id": "popup_heading",
+        "label": "Heading",
+         "default":"Unlock Exclusive Access"
+      },
+       {
+        "type": "richtext",
+        "id": "popup_subheading",
+        "label": "Sub-Heading"
+      },
+       {
+        "type": "inline_richtext",
+        "id": "subtext",
+        "label": "Sub-Text",
+        "default":"Offer applicable on min. cart value of ₹300"
+      },
+        {
+        "type": "html",
+        "id": "terms_text",
+        "label": "Terms & Condition Text"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text",
+        "default":"Get Access"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "discount_img",
+        "label": "Discount Image"
+      },
+      {
+        "type": "header",
+        "content": "OTP"
+      },
+      {
+        "type": "text",
+        "id": "otp_heading",
+        "label": "Heading"
+      },      
+      {
+        "type": "html",
+        "id": "otp_text",
+        "label": "OTP Text"
+      },
+      {
+        "type": "header",
+        "content": "Coupon Code"
+      },
+      {
+        "type": "text",
+        "id": "coupon_heading",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "coupon_image",
+        "label": "Coupon Image"
+      },
+      {
+        "type": "text",
+        "id": "coupan_caption",
+        "label": "Heading",
+        "default":"Coupan Unlocked "
+      },
+      {
+        "type": "html",
+        "id": "coupon_text",
+        "label": "Coupon Text"
+      },
+      {
+        "type": "text",
+        "id": "coupon_code",
+        "label": "Coupon Code"
+      }
+    ]
   }
 ]
