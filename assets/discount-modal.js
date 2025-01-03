@@ -254,3 +254,18 @@ function populateNext(input, data) {
     }
 }
   
+
+setTimeout(function() {
+  var phonePopup = document.querySelector('.discount-phone-popup__wrap').offsetHeight;
+  
+  document.querySelector('.discount-otp-popup-wrap').style.height = phonePopup + 'px';
+  document.querySelector('.discount-wlc-popup-wrap').style.height = phonePopup + 'px';
+}, 10000);
+
+document.addEventListener('click', function(event) {
+  if (event.target.closest('.accept-terms-wrap')) {
+    var termsInputChecked = document.querySelectorAll('.terms_input:checked').length > 0;
+    var availDiscountButton = document.querySelector('.avail_discount');
+    availDiscountButton.disabled = !termsInputChecked;
+  }
+});
