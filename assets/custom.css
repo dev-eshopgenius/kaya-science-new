@@ -543,6 +543,10 @@ box-sizing: border-box;
   line-height: 25.2px;
 }
 .about-insights .image-with-text .image-with-text__content {padding:4.5rem 7rem 4rem}
+.about-insights .image-with-text .image-with-text__grid {
+  border-radius: 16px;
+  overflow: hidden;
+}
 @media(min-width:750px) {
   .below-content-wrapper .belowheading {
     font-size: 20px;
@@ -574,7 +578,7 @@ box-sizing: border-box;
   .shop_category--left-wrap,.shop_category--right-wrap  {
     width: 50%;
   }
-  .insights .image-with-text .image-with-text__heading{font-size: 32px;}
+  .insights .image-with-text .image-with-text__heading,   .about-insights .image-with-text .image-with-text__heading{font-size: 32px;}
   p.announcement-bar__message.h5{font-size: calc(var(--font-heading-scale)* 1.4rem); font-weight: 500;}
   .slider-button--prev {left:40px}
   .slider-button--next {right:40px}
