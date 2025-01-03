@@ -523,9 +523,26 @@ box-sizing: border-box;
   padding-bottom: 0;
   padding-top: 0;
 }
+
 .about-content .home-iwt__content-wrapp .section-content-items .content-wrapper .content p {
   margin: 0;
 }
+.about-philosophy .image-with-text__media img, .about-philosophy .image-with-text__media svg {
+  border-radius: 16px;
+}
+.about-philosophy .image-with-text__media:after {
+  background: transparent;
+}
+.about-insights .image-with-text .image-with-text__media {
+  padding-top: 0;
+}
+.about-insights .image-with-text .image-with-text__media img{object-fit: cover;}
+.about-insights .image-with-text .image-with-text__content {padding-right:0}
+.about-insights .image-with-text .image-with-text__text {
+  max-width: 393px;
+  line-height: 25.2px;
+}
+.about-insights .image-with-text .image-with-text__content {padding:4.5rem 7rem 4rem}
 @media(min-width:750px) {
   .below-content-wrapper .belowheading {
     font-size: 20px;
