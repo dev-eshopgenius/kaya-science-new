@@ -285,6 +285,7 @@
       "type": "image-banner",
       "settings": {
         "image": "shopify://shop_images/image_44.png",
+        "mob_image": "shopify://shop_images/image_9.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -432,6 +433,7 @@
             "tar_heading": "Find Your Solution",
             "tar_text": "Address specific skin concerns with precision.",
             "image": "shopify://shop_images/image_43_d2fc64d0-d45b-4998-aebf-ad849edbff48.png",
+            "mob_image": "shopify://shop_images/fys.jpg",
             "text_1": "Hyperpigmentation",
             "link_1": "https://kayascience.com/collections/hyperpigmentation",
             "text_2": "Dullness",
@@ -581,6 +583,7 @@
       "settings": {
         "classname": "insights",
         "image": "shopify://shop_images/unbundldesign_Studio_Photography_of_an_beautiful_indian_beautif_72a29fc2-d63a-49b4-a654-8f5d18efa3de_1.png",
+        "mobimage": "shopify://shop_images/psi.png",
         "height": "medium",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -625,6 +628,7 @@
         "classname": "",
         "heading": "",
         "image": "shopify://shop_images/Rectangle_3379.png",
+        "mobimage": "shopify://shop_images/stay-radiant.jpg",
         "layout": "text_first",
         "content": "<p>Our skincare blends nature with advanced science, using dermatologist-recommended, biotechnological actives for effective, skin-compatible solutions tailored for Indian skin.</p>",
         "label_text": "Stay Radiant<span>— Team Kaya</span>",

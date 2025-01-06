@@ -74,9 +74,14 @@
               </div>
             {% endif %}
             <div class="shop-cat-right--main">
-              {% if block.settings.image != blank %}
+              {% if block.settings.image != blank or block.settings.mob_image != blank %}
                 <div class="shopcat-targ-image">
-                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'targ-img' }}
+                  {%  if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'targ-img desk-image' }}
+                  {% endif %}
+                  {%  if block.settings.mob_image != blank %}
+                  {{ block.settings.mob_image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'targ-img mob-image' }}
+                {% endif %}
                 </div>
               {% endif %}
               <div class="shop-right--items">
@@ -230,6 +235,12 @@
         "id": "image",
         "label": "Image"
         },
+        {
+          "type": "image_picker",
+          "id": "mob_image",
+          "label": "Mobile Image"
+          },
+        
         {
         "type": "header",
         "content": "Multiple Text"
