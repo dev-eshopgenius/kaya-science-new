@@ -511,7 +511,42 @@ box-sizing: border-box;
 }
 .about-content .home-iwt__content-wrapp .section-content-items .content-wrapper .content p:before, .about-content .home-iwt__content-wrapp .section-content-items .content-wrapper .content p:after {content: none;}
 .about-content .home-iwt__content-wrapp .section-content-items .content-wrapper .content p {font-weight: 600; font-size: 32px; line-height: 38.4px;}
-.about-content .home-iwt__content-wrapp .block-content-wrap {max-width: 100%; background: transparent; box-shadow: none;}
+.about-content .home-iwt__content-wrapp .block-content-wrap {max-width: 100%; background: transparent; box-shadow: none;margin-top:0}
+.about-philosophy .image-with-text__content{padding-left:0}
+.about-content .home-iwt__content-wrapp .label_text {
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+  font-size: 18px;
+  line-height: 25.2px;
+  font-weight: 400;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.about-content .home-iwt__content-wrapp .section-content-items .content-wrapper .content p {
+  margin: 0;
+}
+.about-philosophy .image-with-text__media img, .about-philosophy .image-with-text__media svg {
+  border-radius: 16px;
+}
+.about-philosophy .image-with-text__media:after {
+  background: transparent;
+}
+.about-insights .image-with-text .image-with-text__media {
+  padding-top: 0;
+}
+.about-insights .image-with-text .image-with-text__media img{object-fit: cover;}
+.about-insights .image-with-text .image-with-text__content {padding-right:0}
+.about-insights .image-with-text .image-with-text__text {
+  max-width: 393px;
+  line-height: 25.2px;
+}
+.about-insights .image-with-text .image-with-text__content {padding:4.5rem 7rem 4rem}
+.about-insights .image-with-text .image-with-text__grid {
+  border-radius: 16px;
+  overflow: hidden;
+}
 @media(min-width:750px) {
   .below-content-wrapper .belowheading {
     font-size: 20px;
@@ -543,7 +578,7 @@ box-sizing: border-box;
   .shop_category--left-wrap,.shop_category--right-wrap  {
     width: 50%;
   }
-  .insights .image-with-text .image-with-text__heading{font-size: 32px;}
+  .insights .image-with-text .image-with-text__heading,   .about-insights .image-with-text .image-with-text__heading{font-size: 32px;}
   p.announcement-bar__message.h5{font-size: calc(var(--font-heading-scale)* 1.4rem); font-weight: 500;}
   .slider-button--prev {left:40px}
   .slider-button--next {right:40px}
@@ -646,3 +681,6 @@ input, button, textarea, select {font-family: Montserrat;}
   width: 100%;
   height: auto;
 }
+
+
+
