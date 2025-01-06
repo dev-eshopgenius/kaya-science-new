@@ -1293,9 +1293,9 @@ var colswiperContainer = document.querySelector('.home-collection-slider');
 if (colswiperContainer) {
     var col_swiper = new Swiper('.home-collection-slider', {
         loop: true,
-        cssMode: false, 
+        cssMode: false,
         spaceBetween: 24,
-        slidesPerView: 4, 
+        slidesPerView: 4,
         autoplay: {
             delay: 1000,
             pauseOnMouseEnter: true,
