@@ -33,23 +33,23 @@
     >
       <div class="modal-overlay"></div>
       <div
-        class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}"
+        class="search-modal__content uu {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}"
         tabindex="-1"
       >
         {%- if settings.predictive_search_enabled -%}
-          <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+          <predictive-search class="search-modal__form ss" data-loading-text="{{ 'accessibility.loading' | t }}">
         {%- else -%}
-          <search-form class="search-modal__form">
+          <search-form class="search-modal__form oo">
         {%- endif -%}
-        <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form mmm">
           <div class="field">
             <input
-              class="search__input field__input"
+              class="search__input field__input search-box"
               id="{{ input_id }}"
               type="search"
               name="q"
               value="{{ search.terms | escape }}"
-              placeholder="{{ 'general.search.search' | t }}"
+              placeholder="Type to search..."
               {%- if settings.predictive_search_enabled -%}
                 role="combobox"
                 aria-expanded="false"
@@ -63,7 +63,7 @@
                 spellcheck="false"
               {%- endif -%}
             >
-            <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
+            {% comment %} <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label> {% endcomment %}
             <input type="hidden" name="options[prefix]" value="last">
             <button
               type="reset"

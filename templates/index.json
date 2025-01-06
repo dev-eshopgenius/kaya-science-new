@@ -16,7 +16,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/kaya-banner.jpg",
-            "mob_image": "shopify://shop_images/Kaya_Website-Mobile-Image-_7.webp",
+            "mob_image": "shopify://shop_images/kaya_13.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -35,6 +35,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Top_banner_Moisturizers-2880x768.webp",
+            "mob_image": "shopify://shop_images/kaya_13.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -53,7 +54,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Top_banner_Moisturizers-2880x768.webp",
-            "mob_image": "shopify://shop_images/2150718050.jpg",
+            "mob_image": "shopify://shop_images/kaya_13_1.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
