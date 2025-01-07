@@ -122,10 +122,10 @@
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
     "currency_code_enabled": true,
-    "cart_type": "notification",
+    "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
-    "cart_drawer_collection": "",
+    "cart_drawer_collection": "acne-and-pimples-1",
     "cart_color_scheme": "scheme-1",
     "phone_pop_text": "",
     "popup_subheading": "<p>Get VIP discounts, Early access to new launches, and more.</p>",
@@ -164,6 +164,31 @@
       },
       "14060646107696862457": {
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "9717370649079274736": {
+        "type": "shopify://apps/simply-otp-login/blocks/app-embed-block/c26b7b17-273d-4800-af62-8ec88ba18251",
+        "disabled": false,
+        "settings": {}
+      },
+      "11320579242087869063": {
+        "type": "shopify://apps/codify-order-cancel/blocks/cancel_button/f7f8a269-b6ea-461a-8e1b-d61167f44926",
+        "disabled": false,
+        "settings": {}
+      },
+      "246967388992510375": {
+        "type": "shopify://apps/msg91/blocks/app-embed/a23a396c-1b96-4cfa-80d4-96656b7dcfbc",
+        "disabled": false,
+        "settings": {}
+      },
+      "16605631912868231181": {
+        "type": "shopify://apps/moengage/blocks/app-embed/50f1ed6f-9777-46ca-ae3f-9d9b9c6152ef",
+        "disabled": false,
+        "settings": {}
+      },
+      "17550530943902319648": {
+        "type": "shopify://apps/appikon-back-in-stock/blocks/subscribe_it_helper/eb949c69-b3e6-4216-a322-1cd63915d46d",
         "disabled": false,
         "settings": {}
       }
