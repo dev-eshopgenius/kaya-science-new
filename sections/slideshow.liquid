@@ -82,6 +82,7 @@
 
       {%- if section.settings.auto_rotate -%}
         <button
+          style="display:none;"
           type="button"
           class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
           aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}"
@@ -94,6 +95,7 @@
           </span>
         </button>
       {%- endif -%}
+    
     </div>
   {%- endif -%}
 
@@ -245,9 +247,10 @@
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
-
+   
       {%- if section.settings.auto_rotate -%}
         <button
+          style="display:none;"
           type="button"
           class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
           aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}"
@@ -260,6 +263,7 @@
           </span>
         </button>
       {%- endif -%}
+   
     </div>
   {%- endif -%}
 </slideshow-component>
