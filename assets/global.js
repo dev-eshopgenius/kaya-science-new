@@ -1291,35 +1291,31 @@ swiperContainers.forEach((container) => {
 // collection slider js start
 var colswiperContainer = document.querySelector('.home-collection-slider');
 if (colswiperContainer) {
-    // Function to initialize Swiper
+ 
     function initializeSwiper() {
         var slides = colswiperContainer.querySelectorAll('.swiper-slide');
         var slidesPerView = window.innerWidth < 769 ? 1 : 4;
-
-        // Check if there are enough slides for looping
         var enableLoop = slides.length > slidesPerView;
 
         return new Swiper('.home-collection-slider', {
-            loop: enableLoop, // Enable loop only if enough slides are present
+            loop: enableLoop, 
             cssMode: false,
             spaceBetween: 24,
             slidesPerView: slidesPerView,
             autoplay: {
-                delay: 1000, // Delay between auto-slides (3 seconds)
-                disableOnInteraction: false, // Continue autoplay even after interaction
-                pauseOnMouseEnter: true, // Pause autoplay when the mouse is over the slider
+                delay: 1000, 
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
             },
-            speed: 2000, // Transition speed (2 seconds)
-            grabCursor: true, // Show grab cursor
+            speed: 2000, 
+            grabCursor: true, 
         });
     }
-
-    // Initialize Swiper
     var col_swiper = initializeSwiper();
 
     window.addEventListener('resize', function () {
-        col_swiper.destroy(true, true); // Destroy existing Swiper instance
-        col_swiper = initializeSwiper(); // Reinitialize Swiper
+        col_swiper.destroy(true, true);
+        col_swiper = initializeSwiper();
     });
 }
 
