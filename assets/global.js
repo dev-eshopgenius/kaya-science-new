@@ -1268,7 +1268,7 @@ if (!customElements.get('bulk-add')) {
   customElements.define('bulk-add', BulkAdd);
 }
 
-
+document.addEventListener("DOMContentLoaded", function () {
 // announcemnet and text slider js start
 const swiperContainers = document.querySelectorAll('.swiper-slider-wrap');
 swiperContainers.forEach((container) => {
@@ -1289,7 +1289,7 @@ swiperContainers.forEach((container) => {
 
 
 // collection slider js start
-document.addEventListener("DOMContentLoaded", function () {
+
   var colswiperContainer = document.querySelector('.home-collection-slider');
 
   if (colswiperContainer) {
@@ -1334,12 +1334,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       window.addEventListener('resize', recreateSwiper);
   }
-});
+
 
 
 // collection slider js end
 // product media slider js start
-document.addEventListener("DOMContentLoaded", () => {
   const mainSlider = new Swiper(".main-slider", {
     spaceBetween: 10,
     slidesPerView: 1,
@@ -1370,9 +1369,35 @@ document.addEventListener("DOMContentLoaded", () => {
       mainSlider.slideToLoop(index);
     });
   });
-});
+
 // product media slider js end
 
+
+var productAccordions = document.querySelectorAll(".product__accordion");
+var wrapper = document.createElement("div");
+wrapper.classList.add("product__accordion-wrapper");
+
+if (productAccordions.length > 0) {
+  var parent = productAccordions[0].parentNode;
+  productAccordions.forEach(function(accordion) {
+    wrapper.appendChild(accordion);
+  });
+  parent.appendChild(wrapper);
+}
+
+
+// const source_Element = document.querySelector('.product-card-wrapper');
+// if (source_Element) {
+//   const sourceWidth = source_Element.offsetWidth;
+//   const targetElements = document.querySelectorAll('.build-step-wrapper .content-wrap');
+
+//   targetElements.forEach(element => {
+//     element.style.width = sourceWidth + 'px';
+//   });
+// } else {
+//   console.error('The element with class .product-card-wrapper does not exist.');
+// }
+});
 
 // search bar placeholder start
 window.onload = function () {
@@ -1445,35 +1470,3 @@ window.onload = function () {
   mobTypeEffect();
 };
 // search bar placeholder end
-
-
-
-// START:- estiated pincode delivery
-
-
-
-
-// pincode estimated delivery
-
-
-var productAccordions = document.querySelectorAll(".product__accordion");
-var wrapper = document.createElement("div");
-wrapper.classList.add("product__accordion-wrapper");
-
-if (productAccordions.length > 0) {
-  var parent = productAccordions[0].parentNode;
-  productAccordions.forEach(function(accordion) {
-    wrapper.appendChild(accordion);
-  });
-  parent.appendChild(wrapper);
-}
-
-
-const source_Element = document.querySelector('.product-card-wrapper');
-const sourceWidth = source_Element.offsetWidth;
-const targetElements = document.querySelectorAll('.build-step-wrapper .content-wrap');
-
-targetElements.forEach(element => {
-  element.style.width = sourceWidth + 'px';
-});
-

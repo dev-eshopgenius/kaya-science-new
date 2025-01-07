@@ -115,6 +115,60 @@
         "padding_bottom": 36
       }
     },
+    "collection_list_HUNFgi": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_yy6ctz": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "calluses"
+          }
+        },
+        "featured_collection_BeAQHy": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dryness"
+          }
+        },
+        "featured_collection_wTc9cX": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dryness"
+          }
+        },
+        "featured_collection_bNFM9G": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dryness"
+          }
+        },
+        "featured_collection_f8T7AG": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dryness"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_yy6ctz",
+        "featured_collection_BeAQHy",
+        "featured_collection_wTc9cX",
+        "featured_collection_bNFM9G",
+        "featured_collection_f8T7AG"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": 4,
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "home_featured_collection_nP6Bmj": {
       "type": "home-featured-collection",
       "settings": {
@@ -284,6 +338,7 @@
     "image_banner_akMJ3V": {
       "type": "image-banner",
       "settings": {
+        "classname": "",
         "image": "shopify://shop_images/image_44.png",
         "mob_image": "shopify://shop_images/image_9.jpg",
         "image_overlay_opacity": 0,
@@ -753,6 +808,7 @@
   "order": [
     "slideshow_jYDxQC",
     "featured_collection",
+    "collection_list_HUNFgi",
     "home_featured_collection_nP6Bmj",
     "highlights_je6D6P",
     "video_section_ptMYic",
