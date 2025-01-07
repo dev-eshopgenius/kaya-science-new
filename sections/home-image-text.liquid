@@ -23,13 +23,10 @@
     <div class="home-iwt__content-wrapp">
       <div class="section-content-items grid grid--2-col-desktop grid--1-col-tablet-down">
         {%- capture image_content -%} 
-        {% if section.settings.image != blank or section.settings.mobimage != blank %}
+        {% if section.settings.image != blank %}
           <div class="image-wrapper grid__item">
           {% if section.settings.image != blank %}
             {{ section.settings.image | image_url: width: section.settings.image.width, height: section.settings.image.height | image_tag: loading:'lazy', class:'desk-image' }}
-          {% endif %}
-          {% if section.settings.mobimage != blank %}
-            {{ section.settings.mobimage | image_url: width: section.settings.mobimage.width, height: section.settings.mobimage.height | image_tag: loading:'lazy', class:'mob-image' }}
           {% endif %}
           </div>
           {% endif %}
@@ -48,6 +45,9 @@
             <div class="label_text">
               {{ section.settings.label_text }}
             </div>
+          {% endif %}
+          {% if section.settings.mobimage != blank %}
+            {{ section.settings.mobimage | image_url: width: section.settings.mobimage.width, height: section.settings.mobimage.height | image_tag: loading:'lazy', class:'mob-image' }}
           {% endif %}
           <div class="block-content-wrap">
             {% for block in section.blocks %}

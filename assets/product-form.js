@@ -158,3 +158,93 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+// estimated pincode delivery 
+document.addEventListener("DOMContentLoaded", function () {
+  const check_buttons = document.querySelectorAll(".check-delivery-btn"); // Changed variable name to plural
+  const input = document.getElementById("pincode-input");
+  const result = document.getElementById("delivery-result");
+
+  let deliveryData = null;
+
+  async function fetchCsvData() {
+    if (deliveryData) return deliveryData;
+
+    try {
+      const response = await fetch("https://cdn.shopify.com/s/files/1/0891/9413/5854/files/pincode-delivery.csv?v=1734760493");
+      if (!response.ok) throw new Error(`Failed to fetch CSV. Status: ${response.status}`);
+
+      const text = await response.text();
+      const rows = text.split("\n").slice(1);
+      const data = {};
+
+      rows.forEach(row => {
+        row = row.trim();
+        if (row) {
+          const [pincode, minDays, maxDays] = row.split(",").map(item => item.trim());
+          if (pincode && minDays && maxDays) {
+            data[pincode] = {
+              minDays: parseInt(minDays, 10),
+              maxDays: parseInt(maxDays, 10)
+            };
+          }
+        }
+      });
+
+      deliveryData = data;
+      return data;
+    } catch (error) {
+      console.error("Error fetching CSV data:", error.message);
+      result.textContent = "Error loading delivery data.";
+      return null;
+    }
+  }
+
+  function calculateDeliveryDate(minDays, maxDays) {
+    const currentDate = new Date();
+    const minDate = new Date(currentDate);
+    const maxDate = new Date(currentDate);
+
+    minDate.setDate(minDate.getDate() + minDays);
+    maxDate.setDate(maxDate.getDate() + maxDays);
+
+    const options = { day: "numeric", month: "long", year: "numeric" };
+    return `Delivery between ${minDate.toLocaleDateString(undefined, options)} to ${maxDate.toLocaleDateString(undefined, options)}`;
+  }
+
+  function isValidPincode(pincode) {
+    return /^\d{6}$/.test(pincode);
+  }
+
+  check_buttons.forEach(button => { // Loop through each button in the NodeList
+    button.addEventListener("click", async () => {
+      const pincode = input.value.trim();
+
+      if (!pincode || !isValidPincode(pincode)) {
+        result.textContent = "Please enter a valid 6-digit pincode.";
+        return;
+      }
+
+      const data = await fetchCsvData();
+      if (!data) {
+        result.textContent = "Error loading delivery information. Please try again.";
+        return;
+      }
+
+      const deliveryInfo = data[pincode];
+      if (deliveryInfo) {
+        const { minDays, maxDays } = deliveryInfo;
+        result.textContent = calculateDeliveryDate(minDays, maxDays);
+      } else {
+        result.textContent = "Delivery information not available for this pincode.";
+      }
+    });
+  });
+});
+
+
+// END:- estiated pincode delivery
+
+
+
+
