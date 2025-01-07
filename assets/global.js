@@ -1289,35 +1289,52 @@ swiperContainers.forEach((container) => {
 
 
 // collection slider js start
-var colswiperContainer = document.querySelector('.home-collection-slider');
-if (colswiperContainer) {
- 
-    function initializeSwiper() {
-        var slides = colswiperContainer.querySelectorAll('.swiper-slide');
-        var slidesPerView = window.innerWidth < 769 ? 1 : 4;
-        var enableLoop = slides.length > slidesPerView;
+document.addEventListener("DOMContentLoaded", function () {
+  var colswiperContainer = document.querySelector('.home-collection-slider');
 
-        return new Swiper('.home-collection-slider', {
-            loop: enableLoop, 
-            cssMode: false,
-            spaceBetween: 24,
-            slidesPerView: slidesPerView,
-            autoplay: {
-                delay: 1000, 
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-            },
-            speed: 2000, 
-            grabCursor: true, 
-        });
-    }
-    var col_swiper = initializeSwiper();
+  if (colswiperContainer) {
+      let col_swiper; // Declare the Swiper variable
 
-    window.addEventListener('resize', function () {
-        col_swiper.destroy(true, true);
-        col_swiper = initializeSwiper();
-    });
-}
+      function initializeSwiper() {
+          var slides = colswiperContainer.querySelectorAll('.swiper-slide');
+          var slidesPerView = window.innerWidth < 769 ? 1 : 4; // Adjust for mobile
+          var enableLoop = slides.length > slidesPerView;
+
+          return new Swiper('.home-collection-slider', {
+              loop: enableLoop,
+              cssMode: false,
+              spaceBetween: 24,
+              slidesPerView: slidesPerView,
+              autoplay: {
+                  delay: 1000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+              },
+              speed: 2000,
+              grabCursor: true,
+              breakpoints: {
+                  768: {
+                      slidesPerView: 4,
+                  },
+                  0: {
+                      slidesPerView: 1,
+                  },
+              },
+          });
+      }
+
+      function recreateSwiper() {
+          if (col_swiper && typeof col_swiper.destroy === 'function') {
+              col_swiper.destroy(true, true); 
+          }
+          col_swiper = initializeSwiper(); 
+      }
+
+      col_swiper = initializeSwiper(); 
+
+      window.addEventListener('resize', recreateSwiper);
+  }
+});
 
 
 // collection slider js end
