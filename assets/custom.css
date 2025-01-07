@@ -588,6 +588,8 @@ box-sizing: border-box;
     .newAnnouncment-section-wrap .icon_text_inner .icon_text {font-size: 14px;}
   }
   @media(max-width:749px) {
+    slideshow-component .slideshow__media.banner__media.media{aspect-ratio: 1/1.38;}
+    slideshow-component  .slideshow__text-wrapper {display: none;}
     .desk-image{display: none!important;}
     .free_shipping--main {row-gap:10px ;}
     .free_shipping--item {gap:10px; align-items: flex-start;padding:12px}
