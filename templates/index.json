@@ -123,7 +123,7 @@
         "description": "<p>Discover our most-loved, effective products</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "acne-and-pimples-1",
+        "collection": "anti-aging",
         "products_to_show": 18,
         "columns_desktop": 4,
         "full_width": true,
@@ -263,7 +263,7 @@
         "description": "<p>Discover our most-loved, effective products</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "acne-and-pimples-1",
+        "collection": "face-serum",
         "products_to_show": 18,
         "columns_desktop": 4,
         "full_width": true,
@@ -661,7 +661,7 @@
         "heading": "Beauty Insights",
         "subheading": "<p>Expert skin care tips here.</p>",
         "heading_size": "h1",
-        "blog": "news",
+        "blog": "haircare",
         "post_limit": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-2",
@@ -770,4 +770,3 @@
     "home_shipping_contact_geT3ze"
   ]
 }
- 
