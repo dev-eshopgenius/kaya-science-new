@@ -17,7 +17,7 @@
 <div class="color-{{ section.settings.color_scheme }} gradient  section-{{ section.id }}-padding">
   <div class="session-form__content-wrapper grid grid--2-col-desktop">
     {% if section.settings.image != blank %}
-      <div class="contact--form-image grid__item">
+      <div class="session--form-image grid__item">
         {{
           section.settings.image
           | image_url: width: section.settings.image.width
@@ -131,81 +131,68 @@
           </div>
 
           <div class="field">
-           
-            <select id="contact_reason" name="contact[concern_area]" required>
-              <option value="" disabled selected>Select a Concern Area</option>
-              <option value="general">General Inquiry</option>
-              <option value="support">Support</option>
-              <option value="feedback">Feedback</option>
-              <option value="other">Other</option>
+            <select id="concern_area" name="contact[concern_area]" required>
+              <option value="" disabled selected>Select Area of Concern</option>
+              {% assign concern_area = section.settings.concern_area | split: ',' %}
+              {% for concernArea in concern_area %}
+                <option value="{{ concernArea }}">{{ concernArea }}</option>
+              {% endfor %}
             </select>
-            <label for="contact[reason]">Select Area of Concern</label>
           </div>
+        </div>
+
+        <div class="contact__fields">
+          <div class="field ">
+            <select id="city" name="contact[city]" required>
+              <option value="" disabled selected>Select City</option>
+              {% assign all_city = section.settings.city_options | split: ',' %}
+              {% for m_city in all_city %}
+                <option value="{{ m_city }}">{{ m_city }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="field">
+            <select id="area" name="contact[area]" required>
+              <option value="" disabled selected>Select Area</option>
+              {% assign all_area = section.settings.area_options | split: ',' %}
+              {% for m_area in all_area %}
+                <option value="{{ m_area }}">{{ m_area }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="checkbox-container">
+            <label for="agreeCheckbox">
+                <input type="checkbox" id="agreeCheckbox" />
+                I agree to Terms and Conditions
+            </label>
         </div>
         <div class="contact__button">
-          <button type="submit" class="button">
-            {{ 'templates.contact.form.send' | t }}
-          </button>
+            <button type="submit" class="button" disabled id="submitButton">
+                Submit
+            </button>
         </div>
       {%- endform -%}
-      <div class="below-content-wrapper">
-        {% if section.settings.belowheading != blank %}
-          <div class="belowheading title">
-            {{ section.settings.belowheading }}
-          </div>
-        {% endif %}
-        <div class="content-wrapper">
-          <div class="phone-text-wrapp">
-            <div class="icon-text">
-              {% if section.settings.phone_icon != blank %}
-                {{
-                  section.settings.phone_icon
-                  | image_url: width: 50, height: 50
-                  | image_tag: loading: 'lazy', class: 'phonicon'
-                }}
-              {% endif %}
-              {% if section.settings.phonetext != blank %}
-                <span>{{ section.settings.phonetext }}</span>
-              {% endif %}
-            </div>
-            {% if section.settings.phonenumber != blank %}
-              <div class="phone-number-text">
-                <a href="tel:{{ section.settings.phonenumber }}">
-                  {{ section.settings.phonenumber }}
-                </a>
-              </div>
-            {% endif %}
-          </div>
-          <div class="email-text-wrapp">
-            <div class="icon-text">
-              {% if section.settings.email_icon != blank %}
-                {{
-                  section.settings.email_icon
-                  | image_url: width: 50, height: 50
-                  | image_tag: loading: 'lazy', class: 'emailicon'
-                }}
-              {% endif %}
-              {% if section.settings.emailtext != blank %}
-                <span>{{ section.settings.emailtext }}</span>
-              {% endif %}
-            </div>
-            {% if section.settings.emailnumber != blank %}
-              <div class="email-number-text">
-                <a href="mailto:{{ section.settings.emailnumber }}">
-                  {{ section.settings.emailnumber }}
-                </a>
-              </div>
-            {% endif %}
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
+<script>
+    // JavaScript to toggle the disabled attribute
+    const checkbox = document.getElementById('agreeCheckbox');
+    const submitButton = document.getElementById('submitButton');
 
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            submitButton.removeAttribute('disabled'); // Enable button
+        } else {
+            submitButton.setAttribute('disabled', 'true'); // Disable button
+        }
+    });
+</script>
 {% schema %}
 {
-  "name": "t:sections.contact-form.name",
+  "name": "Session Form",
   "tag": "section",
   "class": "section",
   "disabled_on": {
@@ -257,49 +244,27 @@
       "label": "Sub-Heading"
     },
     {
-      "type": "header",
-      "content":"Below Content"
+        "type": "textarea",
+        "id": "concern_area",
+        "label": "Concern Area",
+        "default": "New York,Los Angeles,Chicago,Houston,San Francisco",
+        "info":"Seperate with comma"
     },
     {
-      "type": "inline_richtext",
-      "id": "belowheading",
-      "label": "t:sections.contact-form.settings.title.label",
-      "default":"You Can Also Reach us Here !"
+        "type": "textarea",
+        "id": "city_options",
+        "label": "City Options",
+        "default": "New York,Los Angeles,Chicago,Houston,San Francisco",
+        "info":"Seperate with comma"
     },
     {
-      "type": "image_picker",
-      "id": "phone_icon",
-      "label": "Phone Icon"
+        "type": "textarea",
+        "id": "area_options",
+        "label": "Area Options",
+        "default": "New York,Los Angeles,Chicago,Houston,San Francisco",
+        "info":"Seperate with comma"
     },
-    {
-      "type": "text",
-      "id": "phonetext",
-      "label": "Phone Text",
-      "default":"Phone"
-    },
-    {
-      "type": "text",
-      "id": "phonenumber",
-      "label": "Phone Numer",
-      "default":"+91 777 700 7402"
-    },
-    {
-      "type": "image_picker",
-      "id": "email_icon",
-      "label": "Email Icon"
-    },
-    {
-      "type": "text",
-      "id": "emailtext",
-      "label": "Email Text",
-      "default":"Email"
-    },
-    {
-      "type": "text",
-      "id": "emailnumber",
-      "label": "Email",
-      "default":"customercare@kayascience.com"
-    },
+
     {
       "type": "color_scheme",
       "id": "color_scheme",
