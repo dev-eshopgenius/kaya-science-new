@@ -41,6 +41,7 @@
         {%- else -%}
           <search-form class="search-modal__form oo">
         {%- endif -%}
+      
         <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form mmm">
           <div class="field">
             <input
@@ -89,6 +90,7 @@
             <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
           {%- endif -%}
         </form>
+        {%  render 'search-collection' %}
         {%- if settings.predictive_search_enabled -%}
           </predictive-search>
         {%- else -%}
