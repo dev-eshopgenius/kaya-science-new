@@ -338,7 +338,7 @@
     "image_banner_akMJ3V": {
       "type": "image-banner",
       "settings": {
-        "classname": "",
+        "classname": "home-banner-class",
         "image": "shopify://shop_images/image_44.png",
         "mob_image": "shopify://shop_images/image_9.jpg",
         "image_overlay_opacity": 0,
