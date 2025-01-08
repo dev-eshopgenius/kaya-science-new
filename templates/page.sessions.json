@@ -20,16 +20,16 @@
     "session_form_jGXGNW": {
       "type": "session-form",
       "settings": {
-        "image": "shopify://shop_images/Rectangle_31.png",
-        "heading": "Contact form",
+        "image": "shopify://shop_images/book-session.jpg",
+        "heading": "Book a Session @ Kaya",
         "heading_size": "h1",
-        "subheading": "",
+        "subheading": "<p>Book your personalized consultation or treatment session at Kaya Skin and Hair Clinic today.</p>",
         "concern_area": "New York,Los Angeles,Chicago,Houston,San Francisco",
         "city_options": "New York,Los Angeles,Chicago,Houston,San Francisco",
         "area_options": "New York,Los Angeles,Chicago,Houston,San Francisco",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
