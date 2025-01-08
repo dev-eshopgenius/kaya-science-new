@@ -458,15 +458,19 @@ box-sizing: border-box;
 .contact-form__content-wrapper form {
   max-width: 560px;margin-top: 30px;
 }
-.contact-form__content-wrapper form input, .contact-form__content-wrapper form textarea {
+.contact-form__content-wrapper form input[type="tel"], .contact-form__content-wrapper form input[type="text"], .contact-form__content-wrapper form input[type="email"], .contact-form__content-wrapper form textarea, .contact-form__content-wrapper form select {
   max-height: 48px;
   height: 48px;
   min-height: initial;
 }
-.contact-form__content-wrapper form input, .contact-form__content-wrapper form textarea {
+.contact-form__content-wrapper form input[type="tel"], .contact-form__content-wrapper form input[type="text"], .contact-form__content-wrapper form input[type="email"], .contact-form__content-wrapper form textarea, .contact-form__content-wrapper form select {
   background: #F3F3F5;
-  border-radius: 8px;
+  border-radius: 8px;border:none; width:100%;
 }
+.contact-form__content-wrapper form select {padding: 1.5rem; font-size: 1.6rem; color:#262626;   -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none; background: #f3f3f5 url(facet-arrow.svg) no-repeat;
+  background-position: calc(100% - 15px) center;}
 .contact-form__content-wrapper form .field:after, .contact-form__content-wrapper form .field:before {
   content: none;
 }
@@ -547,6 +551,11 @@ box-sizing: border-box;
 .about-insights .image-with-text .image-with-text__grid {
   border-radius: 16px;
   overflow: hidden;
+}
+.session--form-image img.session-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 @media(min-width:750px) {
   .image-text__block-section{display: none;}
