@@ -92,7 +92,7 @@
         "heading_jMpxeM": {
           "type": "heading",
           "settings": {
-            "image": "shopify://shop_images/Cleansers_1_d7cbb4dd-8811-45ff-8238-65750ac6486f.png",
+            "image": "shopify://shop_images/bestsellers.jpg",
             "heading": "Bestseller",
             "link": "shopify://collections/best-sellers"
           }
@@ -100,23 +100,15 @@
         "heading_x7Hfiq": {
           "type": "heading",
           "settings": {
-            "image": "shopify://shop_images/Cleansers_1_af410d45-3235-41e1-97de-d0b4ea5fc473.png",
+            "image": "shopify://shop_images/free-call-con.jpg",
             "heading": "Free Call Consultation",
             "link": "#"
-          }
-        },
-        "heading_7U9h3J": {
-          "type": "heading",
-          "settings": {
-            "image": "shopify://shop_images/image_58_ae14a22f-782b-4206-adb7-b937c7d5ce2f.png",
-            "heading": "New Arrivals",
-            "link": "shopify://collections/new-arrivals"
           }
         },
         "heading_9N4Nbf": {
           "type": "heading",
           "settings": {
-            "image": "shopify://shop_images/image_58_ae14a22f-782b-4206-adb7-b937c7d5ce2f.png",
+            "image": "shopify://shop_images/new-arrivals.jpg",
             "heading": "New Arrivals",
             "link": "shopify://collections/new-arrivals"
           }
@@ -124,23 +116,31 @@
         "heading_HGafUn": {
           "type": "heading",
           "settings": {
-            "image": "shopify://shop_images/image_58_ae14a22f-782b-4206-adb7-b937c7d5ce2f.png",
-            "heading": "New Arrivals",
+            "image": "shopify://shop_images/face.jpg",
+            "heading": "Face",
             "link": "shopify://collections/new-arrivals"
+          }
+        },
+        "heading_9zecKy": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/hair.jpg",
+            "heading": "Hair",
+            "link": "shopify://collections"
           }
         }
       },
       "block_order": [
         "heading_jMpxeM",
         "heading_x7Hfiq",
-        "heading_7U9h3J",
         "heading_9N4Nbf",
-        "heading_HGafUn"
+        "heading_HGafUn",
+        "heading_9zecKy"
       ],
       "settings": {
         "classname": "",
-        "section_color_scheme": "",
-        "color_scheme": "",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
         "padding_top": 36,
         "padding_bottom": 36
       }
