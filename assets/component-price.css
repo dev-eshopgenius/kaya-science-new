@@ -20,7 +20,7 @@
 
 .price .price-item {
   display: inline-block;
-  margin: 0 1rem 0 0;
+  
 }
 
 .price__regular .price-item--regular {
@@ -87,7 +87,7 @@
 .price--on-sale .price-item--regular {
   text-decoration: line-through;
   color: #999191;
-  font-size: 1.6rem;
+ 
 }
 
 .unit-price {
