@@ -251,3 +251,15 @@ const copyCouponCode = (selector, button) => {
     });
   }
 };
+
+const closeModalButtons = document.querySelectorAll('.close_modal');
+
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        const discountSteps = document.querySelectorAll('.discount--steps');
+        discountSteps.forEach(step => {
+            step.style.display = 'none';
+        });
+        document.body.classList.remove('active_popup');
+    });
+});
