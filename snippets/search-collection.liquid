@@ -36,7 +36,7 @@
     <ul class="search--nav">
         {% for search_menu in settings.search_menu.links %}
             <li class="main-link-item">
-                {%- if link.links != blank -%}
+                {%- if search_menu.links != blank -%}
                     <a href="{{ search_menu.url }}">
                         {{- search_menu.title | escape -}}
                     </a>
@@ -58,7 +58,7 @@
     {%- for product in settings.search_col.products -%}
         {% render 'card-product',
             card_product: product,
-            show_secondary_image: section.settings.show_secondary_image,
+            show_secondary_image: settings.show_secondary_image,
             section_id: section.id,
             quick_add: settings.quick_add
           %}
