@@ -86,85 +86,61 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "Top Selling Formulas",
-        "heading_size": "h2",
-        "description": "<p>Discover our most-loved, effective products</p>",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 15,
-        "columns_desktop": 4,
-        "full_width": true,
-        "show_view_all": true,
-        "view_all_style": "link",
-        "enable_desktop_slider": true,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
-    "collection_list_HUNFgi": {
-      "type": "collection-list",
+    "image_text_block_rKfYjp": {
+      "type": "image-text-block",
       "blocks": {
-        "featured_collection_yy6ctz": {
-          "type": "featured_collection",
+        "heading_jMpxeM": {
+          "type": "heading",
           "settings": {
-            "collection": "calluses"
+            "image": "shopify://shop_images/Cleansers_1_d7cbb4dd-8811-45ff-8238-65750ac6486f.png",
+            "heading": "Bestseller",
+            "link": "shopify://collections/best-sellers"
           }
         },
-        "featured_collection_BeAQHy": {
-          "type": "featured_collection",
+        "heading_x7Hfiq": {
+          "type": "heading",
           "settings": {
-            "collection": "dryness"
+            "image": "shopify://shop_images/Cleansers_1_af410d45-3235-41e1-97de-d0b4ea5fc473.png",
+            "heading": "Free Call Consultation",
+            "link": "#"
           }
         },
-        "featured_collection_wTc9cX": {
-          "type": "featured_collection",
+        "heading_7U9h3J": {
+          "type": "heading",
           "settings": {
-            "collection": "dryness"
+            "image": "shopify://shop_images/image_58_ae14a22f-782b-4206-adb7-b937c7d5ce2f.png",
+            "heading": "New Arrivals",
+            "link": "shopify://collections/new-arrivals"
           }
         },
-        "featured_collection_bNFM9G": {
-          "type": "featured_collection",
+        "heading_9N4Nbf": {
+          "type": "heading",
           "settings": {
-            "collection": "dryness"
+            "image": "shopify://shop_images/image_58_ae14a22f-782b-4206-adb7-b937c7d5ce2f.png",
+            "heading": "New Arrivals",
+            "link": "shopify://collections/new-arrivals"
           }
         },
-        "featured_collection_f8T7AG": {
-          "type": "featured_collection",
+        "heading_HGafUn": {
+          "type": "heading",
           "settings": {
-            "collection": "dryness"
+            "image": "shopify://shop_images/image_58_ae14a22f-782b-4206-adb7-b937c7d5ce2f.png",
+            "heading": "New Arrivals",
+            "link": "shopify://collections/new-arrivals"
           }
         }
       },
       "block_order": [
-        "featured_collection_yy6ctz",
-        "featured_collection_BeAQHy",
-        "featured_collection_wTc9cX",
-        "featured_collection_bNFM9G",
-        "featured_collection_f8T7AG"
+        "heading_jMpxeM",
+        "heading_x7Hfiq",
+        "heading_7U9h3J",
+        "heading_9N4Nbf",
+        "heading_HGafUn"
       ],
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 3,
+        "classname": "",
+        "section_color_scheme": "",
         "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": 4,
-        "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -692,24 +668,6 @@
         "padding_bottom": 36
       }
     },
-    "173339978942ea19b1": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_featured_carousel_teNpY8": {
-          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "maxwidth": 1080
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_featured_carousel_teNpY8"
-      ],
-      "disabled": true,
-      "settings": {
-        "include_margins": true
-      }
-    },
     "featured_blog_GzhyWM": {
       "type": "featured-blog",
       "settings": {
@@ -807,8 +765,7 @@
   },
   "order": [
     "slideshow_jYDxQC",
-    "featured_collection",
-    "collection_list_HUNFgi",
+    "image_text_block_rKfYjp",
     "home_featured_collection_nP6Bmj",
     "highlights_je6D6P",
     "video_section_ptMYic",
@@ -820,7 +777,6 @@
     "multicolumn_qhke97",
     "image_with_text_wwBeXj",
     "home_image_text_ntwGMg",
-    "173339978942ea19b1",
     "featured_blog_GzhyWM",
     "17339035336e675352",
     "home_shipping_contact_geT3ze"
