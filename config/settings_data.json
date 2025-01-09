@@ -124,6 +124,7 @@
     "search_menu": "new-menu",
     "search_col": "acne-and-pimples-1",
     "quick_add": "standard",
+    "show_secondary_image": true,
     "currency_code_enabled": true,
     "cart_type": "drawer",
     "show_vendor": false,
