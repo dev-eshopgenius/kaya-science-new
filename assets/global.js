@@ -1301,7 +1301,7 @@ swiperContainers.forEach((container) => {
           var enableLoop = slides.length > slidesPerView;
 
           return new Swiper('.home-collection-slider', {
-              loop: enableLoop,
+              loop: true,
               cssMode: false,
               spaceBetween: 24,
               slidesPerView: slidesPerView,
@@ -1351,18 +1351,18 @@ swiperContainers.forEach((container) => {
 
   const thumbnailSlider = new Swiper(".thumbnail-slider", {
     spaceBetween: 10,
-    direction: 'vertical',
+    direction: "vertical",
     slidesPerView: 4,
-    freeMode: true,
+    freeMode: false,
     watchSlidesProgress: true,
     navigation: {
       nextEl: ".thumbnail-slider-next",
       prevEl: ".thumbnail-slider-prev",
     },
   });
-
-  mainSlider.controller.control = thumbnailSlider;
-  thumbnailSlider.controller.control = mainSlider;
+  
+  // mainSlider.controller.control = thumbnailSlider;
+  // thumbnailSlider.controller.control = mainSlider;
 
   document.querySelectorAll('.thumbnail-slider .swiper-slide').forEach((thumbnail, index) => {
     thumbnail.addEventListener('click', () => {

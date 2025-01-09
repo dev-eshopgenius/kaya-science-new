@@ -1,26 +1,3 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'template-collection.css' | asset_url | stylesheet_tag }}
-
-{% if section.settings.image_shape == 'blob' %}
-  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
-{% endif %}
-
-{%- unless section.settings.quick_add == 'none' -%}
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'product-form.js' | asset_url }}" defer></script>
-{% endunless %}
-
-{% case section.settings.quick_add %}
-  {% when 'standard' %}
-    <script src="{{ 'quick-add.js' | asset_url }}" defer></script>
-  {% when 'bulk' %}
-    <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer></script>
-    <script src="{{ 'quantity-popover.js' | asset_url }}" defer></script>
-    <script src="{{ 'price-per-item.js' | asset_url }}" defer></script>
-    <script src="{{ 'quick-order-list.js' | asset_url }}" defer></script>
-{% endcase %}
-
 <div class="search-collection-wrapper">
   <div class="search-collection-container">
     <div class="search--menu-wrapper">
@@ -41,24 +18,49 @@
 
     <!-- Collection Slider -->
     <div class="search-collection-wrap">
-      <div class="col_swiper home-collection-slider">
-        <ul
-          id="Slider-{{ section.id }}"
-          data-id="{{ section.id }}"
-          class="swiper-wrapper contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--{{ section.settings.columns_desktop }}-col-desktop{% if settings.collection == blank %} grid--2-col-tablet-down{% else %} grid--{{ section.settings.columns_mobile }}-col-tablet-down{% endif %}{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}"
-          role="list"
-          aria-label="{{ 'general.slider.name' | t }}"
-        >
+      <div class="search-collection-slider swiper">
+        <div class="swiper-wrapper">
           {% for product in settings.search_col.products %}
-            {% render 'card-product',
-                card_product: product,
-                show_secondary_image: settings.show_secondary_image,
-                section_id: section.id,
-                quick_add: settings.quick_add
-            %}
+            <div class="swiper-slide">
+              {% render 'card-product',
+                  card_product: product,
+                  show_secondary_image: settings.show_secondary_image,
+                  section_id: section.id,
+                  quick_add: settings.quick_add
+              %}
+            </div>
           {% endfor %}
-        </ul>
-      </div>
+        </div>
     </div>
   </div>
-</div>
+  </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var sliderElement = document.querySelector('.search-collection-slider');
+    
+      if (sliderElement) {
+        new Swiper('.search-collection-slider', {
+          loop: true,
+          spaceBetween: 24,
+          slidesPerView: 1,
+          breakpoints: {
+            768: {
+              slidesPerView: 4,
+            },
+            0: {
+              slidesPerView: 1,
+            },
+          },
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+            reverseDirection: false,
+          },
+          direction: 'horizontal',
+        });
+      }
+    });
+    
+  </script>
