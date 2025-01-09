@@ -1311,7 +1311,7 @@ swiperContainers.forEach((container) => {
                   pauseOnMouseEnter: true,
               },
               speed: 2000,
-              grabCursor: true,
+              grabCursor: false,
               breakpoints: {
                   768: {
                       slidesPerView: 4,
