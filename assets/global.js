@@ -1391,9 +1391,11 @@ var productCardWrapper = document.querySelector('.product-card-wrapper');
 var contentWrap = document.querySelector('.step-block .content-wrap');
 
 if (productCardWrapper && contentWrap) {
+  setTimeout(function(){
   var productCardWidth = productCardWrapper.offsetWidth;
-  contentWrap.style.width = productCardWidth + 'px';
+  contentWrap.style.width = (productCardWidth + 68) + 'px';
   alert(productCardWidth,'productCardWidth><><><>');
+}, 1000);
 }
 
 
