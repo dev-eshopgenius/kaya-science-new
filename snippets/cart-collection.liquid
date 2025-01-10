@@ -1,3 +1,5 @@
+{%- if cart != empty -%}
+
 <div class="cart-collection-wrapper">
   <div class="cart-collection-wrap">
     <div class="cart-collection-slider swiper">
@@ -16,7 +18,7 @@
     </div>
   </div>
 </div>
-
+{% endif %}
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var sliderElement = document.querySelector('.cart-collection-slider');

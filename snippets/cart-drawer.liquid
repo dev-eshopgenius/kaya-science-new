@@ -138,11 +138,29 @@
                           {%- if settings.show_vendor -%}
                             <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                           {%- endif -%}
-
+                        <div class="title-remove-wrapper">
                           <a href="{{ item.url }}" class="cart-item__name h4 break">
                             {{- item.product.title | escape -}}
                           </a>
 
+
+                          <cart-remove-button
+                            id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+                            data-index="{{ item.index | plus: 1 }}"
+                          >
+                            <button
+                              type="button"
+                              class="button button--tertiary cart-remove-button"
+                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                              data-variant-id="{{ item.variant.id }}"
+                            >
+                              <span class="svg-wrapper">
+                                {{- 'icon-remove.svg' | inline_asset_content -}}
+                              </span>
+                            </button>
+                          </cart-remove-button>
+                        </div>
+                        {% comment %}
                           {%- if item.original_price != item.final_price -%}
                             <div class="cart-item__discounted-prices">
                               <span class="visually-hidden">
@@ -163,7 +181,7 @@
                               {{ item.original_price | money }}
                             </div>
                           {%- endif -%}
-
+                          {% endcomment %}
                           {%- if item.product.has_only_default_variant == false
                             or item.properties.size != 0
                             or item.selling_plan_allocation != null
@@ -220,10 +238,11 @@
                               </li>
                             {%- endfor -%}
                           </ul>
+                        
                         </td>
-
+                        {% comment %}
                         <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
-                          {%- render 'loading-spinner' -%}
+                              {%- render 'loading-spinner' -%}
                           <div class="cart-item__price-wrapper">
                             {%- if item.original_line_price != item.final_line_price -%}
                               <div class="cart-item__discounted-prices">
@@ -262,6 +281,7 @@
                             {%- endif -%}
                           </div>
                         </td>
+                        {% endcomment %}
                         {%- liquid
                           assign has_qty_rules = false
                           if item.variant.quantity_rule.increment > 1 or item.variant.quantity_rule.min > 1 or item.variant.quantity_rule.max != null
@@ -278,6 +298,27 @@
                           role="cell"
                           headers="CartDrawer-ColumnQuantity"
                         >
+
+                          {%- if item.original_price != item.final_price -%}
+                            <div class="cart-item__discounted-prices">
+                              <span class="visually-hidden">
+                                {{ 'products.product.price.regular_price' | t }}
+                              </span>
+                              <s class="cart-item__old-price product-option">
+                                {{- item.original_price | money -}}
+                              </s>
+                              <span class="visually-hidden">
+                                {{ 'products.product.price.sale_price' | t }}
+                              </span>
+                              <strong class="cart-item__final-price product-option">
+                                {{ item.final_price | money }}
+                              </strong>
+                            </div>
+                          {%- else -%}
+                            <div class="product-option">
+                              {{ item.original_price | money }}
+                            </div>
+                          {%- endif -%}
                           <quantity-popover>
                             <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
                               <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %}">
@@ -327,6 +368,7 @@
                                   </button>
                                 </quantity-input>
                               </div>
+                              {% comment %}
                               <cart-remove-button
                                 id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
                                 data-index="{{ item.index | plus: 1 }}"
@@ -342,6 +384,7 @@
                                   </span>
                                 </button>
                               </cart-remove-button>
+                              {% endcomment %}
                             </div>
                             {%- if has_qty_rules or has_vol_pricing -%}
                               <button
@@ -453,9 +496,11 @@
           </div>
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
-    {% render 'cart-coupan-code' %}
-    {% render 'cart-collection' %}
-        {% render 'product-pincode' %}
+        {%- if cart != empty -%}
+          {% render 'cart-coupan-code' %}
+          {% render 'cart-collection' %}
+          {% render 'product-pincode' %}
+        {%-  endif -%}
       </cart-drawer-items>
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}

@@ -1,3 +1,5 @@
+{%- if cart != empty -%}
+
 <div class="product--offers-wraper">
     {% if settings.offertitle != blank %}
       <div class="title coupanCode--title">
@@ -37,3 +39,4 @@
       </div>
     </div>
     </div>
+  {% endif %}

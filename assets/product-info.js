@@ -416,16 +416,3 @@ if (!customElements.get('product-info')) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const source_Element = document.querySelector('.product-card-wrapper');
-  if (source_Element) {
-    const sourceWidth = source_Element.offsetWidth;
-    const targetElements = document.querySelectorAll('.build-step-wrapper .content-wrap');
-
-    targetElements.forEach(element => {
-      element.style.width = sourceWidth + 'px';
-    });
-  } else {
-    console.error('The element with class .product-card-wrapper does not exist.');
-  }
-});
