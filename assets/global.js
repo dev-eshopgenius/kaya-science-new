@@ -1400,12 +1400,12 @@ if (steps.length > 0) {
       mobileStp.innerHTML = contentHTML;
     }
 
-    productCards.forEach(card => card.style.display = 'none');
-    const matchingContent = document.querySelector(`.product-card-wrapper[data-index="${index}"]`);
-    if (matchingContent) {
-      matchingContent.style.display = 'block';
-    }
-  };
+  //   productCards.forEach(card => card.style.display = 'none');
+  //   const matchingContent = document.querySelector(`.product-card-wrapper[data-index="${index}"]`);
+  //   if (matchingContent) {
+  //     matchingContent.style.display = 'block';
+  //   }
+   };
 
   showContent(steps[0]);
 
