@@ -91,7 +91,8 @@
       "settings": {
         "classname": "about-content",
         "heading": "",
-        "image": "shopify://shop_images/Rectangle_3379.png",
+        "image": "shopify://shop_images/about-pic1.jpg",
+        "mobimage": "shopify://shop_images/about-pic1-mb.jpg",
         "layout": "image_first",
         "content": "<p>Empowering every individual to embrace their best skin through science and care.&lt;br&gt;—designed for real results.</p>",
         "label_text": "Stay Radiant<span>— Team Kaya</span>",
