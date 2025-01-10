@@ -94,7 +94,7 @@
         "image": "shopify://shop_images/about-pic1.jpg",
         "mobimage": "shopify://shop_images/about-pic1-mb.jpg",
         "layout": "image_first",
-        "content": "<p>Empowering every individual to embrace their best skin through science and care.&lt;br&gt;—designed for real results.</p>",
+        "content": "<p>Empowering every individual to embrace their best skin through science and care.<br>—designed for real results.</p>",
         "label_text": "Stay Radiant<span>— Team Kaya</span>",
         "color_scheme": "scheme-2",
         "padding_top": 36,
@@ -124,7 +124,7 @@
         "text_6mQd6w"
       ],
       "settings": {
-        "classname": "",
+        "classname": "our_philosophy",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -171,15 +171,16 @@
         "button_eRGetB"
       ],
       "settings": {
-        "classname": "insights",
+        "classname": "insights about-insights",
         "image": "shopify://shop_images/unbundldesign_Studio_Photography_of_an_beautiful_indian_beautif_72a29fc2-d63a-49b4-a654-8f5d18efa3de_1.png",
+        "mobimage": "shopify://shop_images/about-pic-2mb.jpg",
         "height": "medium",
         "desktop_image_width": "medium",
         "layout": "text_first",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-1",
+        "section_color_scheme": "scheme-2",
         "color_scheme": "scheme-4",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
