@@ -669,6 +669,35 @@ padding-left: 22%;
     max-width: 315px;
 }
   @media(max-width:749px) {
+    .about-insights.insights h2.image-with-text__heading {text-align: left;}
+    .about-insights..insights .image-with-text .image-with-text__text p {text-align: left;}
+    .about-insights.insights .image-with-text {
+      background: transparent;
+  }
+  .about-insights.insights .image-with-text__text-item {
+      background: transparent;
+      position: absolute;
+      bottom: 0;
+  }
+  .about-insights.insights .image-with-text__text-item .image-with-text__content {
+      background: transparent;
+      
+      padding: 20px 20px 30px;
+  }
+    .our_philosophy .image-with-text__content {
+      padding: 10px 0 0 0;
+  }
+  .our_philosophy .image-with-text__content  .image-with-text__heading {font-size: 20px; line-height: 24px;}
+  .our_philosophy .image-with-text__content  .image-with-text__text p {
+    font-size: 14px;
+    line-height: 19.6px;
+}
+    .about-head .rich-text {
+      padding-bottom: 0;
+  }
+    .about-content .home-iwt__content-wrapp .section-content-items .content-wrapper .content p{font-size: 20px; line-height: 24px;}
+   .index  .home-iwt__content-wrapp .image-wrapper img.uper-content-image, .about-content .home-iwt__content-wrapp .label_text {display: none;}
+   .about-content .mob-content-image {display: none;}
     .about-head .rich-text__wrapper {
       width: 100%;
   }
