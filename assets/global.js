@@ -1387,18 +1387,33 @@ if (productAccordions.length > 0) {
 
 
 
-document.querySelectorAll('.step-block').forEach(step => {
-  const contentHTML = this.querySelector('.content-wrap').innerHTML;
-  const mobileStp = document.querySelector('.mobile__stp');
-  mobileStp.innerHTML = contentHTML;
-  step.addEventListener('click', function () {
-    const contentHTML = this.querySelector('.content-wrap').innerHTML;
-    const mobileStp = document.querySelector('.mobile__stp');
-     if (mobileStp) {
-          mobileStp.innerHTML = contentHTML;
-      }
+const steps = document.querySelectorAll('.step-block');
+const mobileStp = document.querySelector('.mobile__stp');
+const productCards = document.querySelectorAll('.product-card-wrapper');
+
+if (steps.length > 0) {
+  const showContent = (step) => {
+    const index = step.getAttribute('data-index');
+    const contentHTML = step.querySelector('.content-wrap')?.innerHTML;
+
+    if (mobileStp && contentHTML) {
+      mobileStp.innerHTML = contentHTML;
+    }
+
+    productCards.forEach(card => card.style.display = 'none');
+    const matchingContent = document.querySelector(`.product-card-wrapper[data-index="${index}"]`);
+    if (matchingContent) {
+      matchingContent.style.display = 'block';
+    }
+  };
+
+  showContent(steps[0]);
+
+  steps.forEach(step => {
+    step.addEventListener('click', () => showContent(step));
   });
-});
+}
+
 });
 
 // search bar placeholder start
