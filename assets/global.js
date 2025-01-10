@@ -1385,41 +1385,16 @@ if (productAccordions.length > 0) {
   parent.appendChild(wrapper);
 }
 
-// var divs = document.querySelectorAll('div');
-// var stepBlock = document.querySelector('.step-block');
 
-// if (divs.length && stepBlock) {
-//   setTimeout(function() {
-//     var maxDivWidth = Array.from(divs).reduce((maxWidth, div) => 
-//       Math.max(maxWidth, div.offsetWidth), 0);
-
-//     stepBlock.style.width = maxDivWidth + 'px';
-//   }, 1000);
-// }
-
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const source_Element = document.querySelector('.product-card-wrapper');
-//   if (source_Element) {
-//     const sourceWidth = source_Element.offsetWidth;
-//     const targetElements = document.querySelectorAll('.build-step-wrapper .content-wrap');
-
-//     targetElements.forEach(element => {
-//       element.style.width = sourceWidth + 'px';
-//     });
-//   } else {
-//     console.error('The element with class .product-card-wrapper does not exist.');
-//   }
-// });
 
 document.querySelectorAll('.step-block').forEach(step => {
+  const contentHTML = this.querySelector('.content-wrap').innerHTML;
+  const mobileStp = document.querySelector('.mobile__stp');
+  mobileStp.innerHTML = contentHTML;
   step.addEventListener('click', function () {
-      const contentHTML = this.querySelector('.content-wrap').innerHTML;
-
-      const mobileStp = document.querySelector('.mobile__stp');
-
-      if (mobileStp) {
+    const contentHTML = this.querySelector('.content-wrap').innerHTML;
+    const mobileStp = document.querySelector('.mobile__stp');
+     if (mobileStp) {
           mobileStp.innerHTML = contentHTML;
       }
   });
