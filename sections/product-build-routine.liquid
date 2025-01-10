@@ -44,9 +44,11 @@
     </div>
     <div class="product-build-routine-wrapper">
       <div class="build-step-wrapper">
+        {% assign count = 0 %}
         {% for block in section.blocks %}
+        
           {% if block.type == 'step_block' %}
-            <div class="step-block step-content-item{{ forloop.index }}">
+            <div class="step-block step-content-item{{ forloop.index }}" data-index="step-product-index{{ count }}">
               {% if block.settings.step_number != blank %}
                 <div class="step-number">
                   {{ block.settings.step_number }}
@@ -67,6 +69,9 @@
                 </div>
               {% endif %}
             </div>
+
+              
+          {% assign count = count | plus: 1 %}
           {% endif %}
         {% endfor %}
       </div>
@@ -74,6 +79,7 @@
       <div class="collection-steps-wrapper">
         <div class="collection-product-items grid grid--4-col-desktop">
           {% for block in section.blocks %}
+            {% assign count = 0 %}
             {% if block.type == 'step_block' %}
             {% assign product = block.settings.step_product %}
             {% render 'build-card-product',
@@ -84,6 +90,7 @@
               quick_add: section.settings.quick_add
             %}
         {% endif %}
+        {% assign count = count | plus: 1 %}
           {% endfor %}
         </div>
       </div>

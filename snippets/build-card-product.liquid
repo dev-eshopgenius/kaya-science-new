@@ -32,7 +32,8 @@
         assign ratio = 1
       endif
     -%}
-    <div class="card-wrapper grid__item product-card-wrapper underline-links-hover">
+
+    <div class="card-wrapper grid__item product-card-wrapper underline-links-hover step-product-index{{ count }}">
       <div
         class="
           card card--{{ settings.card_style }}
@@ -626,4 +627,3 @@
       </div>
     </div>
   {%- endif -%}
-  
