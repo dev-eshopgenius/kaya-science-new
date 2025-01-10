@@ -1394,7 +1394,6 @@ if (productCardWrapper && contentWrap) {
   setTimeout(function(){
   var productCardWidth = productCardWrapper.offsetWidth;
   contentWrap.style.width = (productCardWidth + 68) + 'px';
-  alert(productCardWidth,'productCardWidth><><><>');
 }, 1000);
 }
 
