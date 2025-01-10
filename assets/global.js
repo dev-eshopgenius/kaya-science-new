@@ -1399,19 +1399,19 @@ if (productAccordions.length > 0) {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const source_Element = document.querySelector('.product-card-wrapper');
-  if (source_Element) {
-    const sourceWidth = source_Element.offsetWidth;
-    const targetElements = document.querySelectorAll('.build-step-wrapper .content-wrap');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const source_Element = document.querySelector('.product-card-wrapper');
+//   if (source_Element) {
+//     const sourceWidth = source_Element.offsetWidth;
+//     const targetElements = document.querySelectorAll('.build-step-wrapper .content-wrap');
 
-    targetElements.forEach(element => {
-      element.style.width = sourceWidth + 'px';
-    });
-  } else {
-    console.error('The element with class .product-card-wrapper does not exist.');
-  }
-});
+//     targetElements.forEach(element => {
+//       element.style.width = sourceWidth + 'px';
+//     });
+//   } else {
+//     console.error('The element with class .product-card-wrapper does not exist.');
+//   }
+// });
 
 document.querySelectorAll('.step-block').forEach(step => {
   step.addEventListener('click', function () {
