@@ -3,3 +3,5 @@
 //     const containerWidth = document.getElementById('slider-container').offsetWidth;
 //     sliderText.style.left = `${containerWidth}px`; // Start position
 //   });
+
+

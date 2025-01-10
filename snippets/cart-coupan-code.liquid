@@ -1,0 +1,39 @@
+<div class="product--offers-wraper">
+    {% if settings.offertitle != blank %}
+      <div class="title coupanCode--title">
+        {{ settings.offertitle }}
+      </div>
+    {% endif %}
+  <div class="product--offers-wrap">
+      <div class="coupan-code-wrapper">
+       
+        <div class="coupan-code-content">
+          <ul>
+                {% for i in (i..6) %}
+                  {% capture heading %}heading{{ i }}{% endcapture %}
+                  {% capture subheading %}subheading{{ i }}{% endcapture %}
+    
+                  {% if settings[heading] != blank or settings[subheading] != blank %}
+                    <li class="code--items">
+                      <div class="content-wrapp"> 
+                          {% if settings[heading] != blank %}
+                        <div class="heading">
+                          {{ settings[heading] }}
+                         </div>
+                         {%endif %}
+                         {% if settings[subheading] != blank %}
+                          <div class="sub_heading discount-code-item" >
+                            <div class="discountcode textToCopy ">{{ settings[subheading] }}</div>
+                            <span class="copytext">Copy</span>
+                          </div>
+                          {%endif %}
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>

@@ -1470,3 +1470,16 @@ window.onload = function () {
   mobTypeEffect();
 };
 // search bar placeholder end
+
+
+document.querySelectorAll('.step-block').forEach(step => {
+  step.addEventListener('click', function () {
+      const contentHTML = this.querySelector('.content-wrap').innerHTML;
+
+      const mobileStp = document.querySelector('.mobile__stp');
+
+      if (mobileStp) {
+          mobileStp.innerHTML = contentHTML;
+      }
+  });
+});

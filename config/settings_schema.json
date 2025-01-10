@@ -1628,5 +1628,105 @@
         "label": "Coupon Code"
       }
     ]
+  },
+  {
+  "name":"Cart Product Offers",
+   "settings": [
+      {
+          "type": "text",
+          "id": "offertitle",
+          "label": "Title",
+          "default": "Coupons"
+      },
+       {
+        "type":"header",
+        "content":"Coupon Code [1]"
+      },
+      {
+        "type": "text",
+        "id": "heading1",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading1",
+        "label": "SubHeading"
+      },
+        {
+        "type":"header",
+        "content":"Coupon Code [2]"
+      },
+      {
+        "type": "text",
+        "id": "heading2",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading2",
+        "label": "SubHeading"
+      },
+        {
+        "type":"header",
+        "content":"Coupon Code [3]"
+      },
+         {
+        "type": "text",
+        "id": "heading3",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading3",
+        "label": "SubHeading"
+      },
+        {
+        "type":"header",
+        "content":"Coupon Code [4]"
+      },
+      {
+        "type": "text",
+        "id": "heading4",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading4",
+        "label": "SubHeading"
+      },
+        {
+        "type":"header",
+        "content":"Coupon Code [5]"
+      },
+        {
+        "type": "text",
+        "id": "heading5",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading5",
+        "label": "SubHeading"
+      },
+        {
+        "type":"header",
+        "content":"Coupon Code [6]"
+      },
+         {
+        "type": "text",
+        "id": "heading6",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading6",
+        "label": "SubHeading"
+      },
+      {
+        "type": "collection",
+        "id": "cart_collection",
+        "label": "Cart Collection"
+      }
+    ]
   }
 ]
