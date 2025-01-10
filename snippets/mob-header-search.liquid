@@ -89,6 +89,7 @@
               <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
             {%- endif -%}
           </form>
+          {%  render 'search-collection' %}
           {%- if settings.predictive_search_enabled -%}
             </predictive-search>
           {%- else -%}
