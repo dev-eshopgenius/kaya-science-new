@@ -1386,17 +1386,29 @@ if (productAccordions.length > 0) {
 }
 
 
-// const source_Element = document.querySelector('.product-card-wrapper');
-// if (source_Element) {
-//   const sourceWidth = source_Element.offsetWidth;
-//   const targetElements = document.querySelectorAll('.build-step-wrapper .content-wrap');
 
-//   targetElements.forEach(element => {
-//     element.style.width = sourceWidth + 'px';
-//   });
-// } else {
-//   console.error('The element with class .product-card-wrapper does not exist.');
-// }
+var productCardWrapper = document.querySelector('.product-card-wrapper');
+var contentWrap = document.querySelector('.step-block .content-wrap');
+
+if (productCardWrapper && contentWrap) {
+  var productCardWidth = productCardWrapper.offsetWidth;
+  contentWrap.style.width = productCardWidth + 'px';
+  alert(productCardWidth,'productCardWidth><><><>');
+}
+
+
+
+document.querySelectorAll('.step-block').forEach(step => {
+  step.addEventListener('click', function () {
+      const contentHTML = this.querySelector('.content-wrap').innerHTML;
+
+      const mobileStp = document.querySelector('.mobile__stp');
+
+      if (mobileStp) {
+          mobileStp.innerHTML = contentHTML;
+      }
+  });
+});
 });
 
 // search bar placeholder start
@@ -1472,14 +1484,3 @@ window.onload = function () {
 // search bar placeholder end
 
 
-document.querySelectorAll('.step-block').forEach(step => {
-  step.addEventListener('click', function () {
-      const contentHTML = this.querySelector('.content-wrap').innerHTML;
-
-      const mobileStp = document.querySelector('.mobile__stp');
-
-      if (mobileStp) {
-          mobileStp.innerHTML = contentHTML;
-      }
-  });
-});

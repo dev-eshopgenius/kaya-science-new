@@ -1,5 +1,5 @@
 <div class="cart-collection-wrapper">
-<div class="cart-collection-wrap">
+  <div class="cart-collection-wrap">
     <div class="cart-collection-slider swiper">
       <div class="swiper-wrapper">
         {% for product in settings.cart_collection.products %}
@@ -13,29 +13,25 @@
           </div>
         {% endfor %}
       </div>
+    </div>
   </div>
 </div>
-</div>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var sliderElement = document.querySelector('.cart-collection-slider');
-  
+
     if (sliderElement) {
       new Swiper('.cart-collection-slider', {
         loop: true,
         spaceBetween: 24,
         slidesPerView: 1.5,
-        },
         autoplay: {
           delay: 3000,
           disableOnInteraction: false,
-          reverseDirection: false,
         },
         direction: 'horizontal',
       });
     }
   });
-  
 </script>
