@@ -1,6 +1,6 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template">
+<article class="article-template yyyyy">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -38,6 +38,26 @@
                 alt="{{ article.image.alt | escape }}"
               >
             </div>
+            <div class="blog-content-wrap">
+              <h1
+                class="article-template__title"
+              >
+                {{ article.title | escape }}
+              </h1>
+                <span class="circle-divider caption-with-letter-spacing">
+                <span>{{ article.metafields.custom.blog_type }}</span>  {{- article.published_at | time_tag: format: 'date' -}}
+                </span>
+              <div class="author-wrap">
+                <span class="caption-with-letter-spacing">
+                  <span>-by {{ article.author }}</span>
+                </span>
+                <div class="blog-share-option">
+                {% assign share_url = request.origin | append: article.url %}
+                {% render 'share-button', block: block, share_link: share_url %}
+                </div>
+              </div>
+            </div>
+
           </div>
         {%- endif -%}
 
@@ -82,6 +102,7 @@
     {%- endcase -%}
   {%- endfor -%}
 
+  {% comment %}
   <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
       <span class="icon-wrap">
@@ -92,6 +113,7 @@
       {{ 'blogs.article.back_to_blog' | t: title: blog.title | escape }}
     </a>
   </div>
+   {% endcomment %}
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div
