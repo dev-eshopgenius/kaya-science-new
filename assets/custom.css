@@ -399,7 +399,7 @@ span.percent-count {
 }
 .estimated-delivery {
   margin-top: 20px;
-  padding: 15px 0 45px 0;
+  padding: 1.5rem  1.5rem 45px 1.5rem;
  
 }
 
@@ -935,5 +935,47 @@ input, button, textarea, select {font-family: Montserrat;}
   height: auto;
 }
 
+.cart-drawer .cart-items tbody {
+  box-shadow: 0px 0px 12px 0px #0000000D;
+  border: 1px solid #F3F3F5;
+  border-radius: 16px;
+}
+cart-remove-button .button {
+  background: transparent;
+  color: #AFAFAF;
+}
+.title-remove-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.title-remove-wrapper  a{font-weight: 500; font-size: 14px; color: #262626;line-height: 18.2px;}
+.cart-drawer .cart-items .cart-item__quantity {display: flex; justify-content: space-between;align-items: center;}
+quantity-popover .quantity {    width: calc(8rem / var(--font-body-scale) + var(--inputs-border-width)* 2);
+  min-height: calc((var(--inputs-border-width)* 2) + 3.2rem);}
+  .cart-drawer .cart-items .cart-item__quantity .quantity__button {width:calc(2.5rem / var(--font-body-scale))}
+  quantity-popover .quantity:after {border-radius: 8px;}
+  .cart-drawer .cart-items .cart-item__quantity {padding-right: 15px;}
+  .drawer .drawer__inner .coupan-code-content ul li.code--items{min-width:23.2rem}
+  .drawer .drawer__inner .coupan-code-content ul {gap:10px}
+  .drawer .drawer__inner .coupan-code-content{
+    overflow-x: auto;
+}
+.cart-drawer .cart-item {position: relative;padding-bottom:10px;}
+.cart-drawer .cart-item:after{
+  content: ""; height: 1px; position: absolute; bottom:0; left:30px; right:30px;background: #E3E3E8;
+}
+.cart-drawer .cart-item:last-child:after{content: none;}
+.cart-drawer .cart-item:last-child{padding-bottom: 0;}
+.cart-drawer .cart-items .cart-item__quantity .product-option {
+  font-weight: 600;
+}
+.cart-collection-slider.swiper.swiper-initialized.swiper-horizontal .card__heading {font-size: 1.4rem;}
+.cart-collection-wrapper {
+  margin: 10px 0;
+  background: #FCF5E2;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+}
 
-
+.cart-drawer span.percent-count {font-size: 1.2rem;}
+.cart-drawer  .price .price-item {margin:0}
