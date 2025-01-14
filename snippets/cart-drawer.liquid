@@ -591,7 +591,32 @@
         </div>
 
         <!-- CTAs -->
-
+      <div class="cart-summary-wrapper">
+        <div class="summary-content-wrapp">
+          <div class="mrp-wrap">
+            <span>
+              MRP
+            </span>
+            <span>
+              {{ cart.total_price | money_with_currency }}
+              </span>
+          </div>
+          <div class="discount-wrap">
+            <span>
+              Discount
+              </span>
+              <span>
+                {{ cart.total_discount | money_with_currency }}
+              </span>
+            </div>
+            <div class="subtotal-wrap">
+              <span>
+                To Pay
+                </span>
+                <span>{{ cart.original_total_price | money_with_currency }}</span>
+            </div>
+        </div>
+      </div>
         <div class="cart__ctas" {{ block.shopify_attributes }}>
           <div class="totals" role="status">
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>

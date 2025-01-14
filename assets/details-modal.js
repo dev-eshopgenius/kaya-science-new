@@ -54,7 +54,7 @@ const childLiWrap = item.querySelector(".child-linklist");
 
 if (childMenu) {
   item.addEventListener("mouseover", () => {
-    childMenu.style.display = "block";
+    // childMenu.style.display = "block";
     item.classList.add("active");
     childLiWrap.classList.add("active-wrap");
     item.classList.add("active-li");
@@ -106,7 +106,7 @@ if (childMenu) {
   });
 
   item.addEventListener("mouseleave", () => {
-    childMenu.style.display = "none";
+    // childMenu.style.display = "none";
     item.classList.remove("active");
     item.classList.remove("active-li");
     childLiWrap.classList.remove("active-wrap");
