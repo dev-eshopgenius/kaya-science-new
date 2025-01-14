@@ -764,6 +764,8 @@ padding-left: 22%;
 }
 .article-template img {max-width: 100%;}
   @media(max-width:749px) {
+    .highlights-content {padding-top:6rem}
+    .highlights-title-wrap {padding-left: 0;padding-right: 0;}
     .highlights-title-wrap:before {
       content: "";
       position: absolute;
