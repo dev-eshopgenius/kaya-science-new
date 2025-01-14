@@ -1049,6 +1049,10 @@ padding-left: 22%;
   }
   }
   @media(min-width:990px){
+    .home-collection-slider .card__heading a {
+      min-height: 65px;
+  }
+  
     .mob-header__search-wrapper{display: none;}
   }
   .collection-hero__image-container {margin: 0;}
