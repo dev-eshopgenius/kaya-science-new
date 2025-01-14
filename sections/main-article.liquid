@@ -323,8 +323,39 @@
       </div>
       <div class="highlights-content">
         <div class="article--content-wrap">
-          {{ article.content }}
+          <div class="split-content split-before-product">
+            {{ article.content | split: '<!-- SPLIT -->' | first }}
+          </div>
+        
+          {% if article.metafields.custom.blog_content_product %}
+            <div class="blog-product">
+              {% if article.metafields.custom.blog_content_product.featured_image %}
+                {{ article.metafields.custom.blog_content_product.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'pro-img' }}
+              {% endif %}
+        
+              <div class="product-title">
+                {{ article.metafields.custom.blog_content_product.title }}
+              </div>
+        
+              <div class="price-wrapper">
+                <span class="price">
+                  {{ article.metafields.custom.blog_content_product.price | money }}
+                </span>
+        
+                {% if article.metafields.custom.blog_content_product.compare_at_price %}
+                  <span class="compare-at-price">
+                    {{ article.metafields.custom.blog_content_product.compare_at_price | money }}
+                  </span>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        
+          <div class="split-content split-after-product">
+            {{ article.content | split: '<!-- SPLIT -->' | last }}
+          </div>
         </div>
+        
       </div>
     </div>
   </div>
