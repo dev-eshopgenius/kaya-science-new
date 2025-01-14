@@ -672,7 +672,7 @@
       "type": "featured-blog",
       "settings": {
         "heading": "Beauty Insights",
-        "subheading": "<p>Expert skin care tips here.</p>",
+        "subheading": "<p>Expert skincare tips, trends, and science-driven advice.</p>",
         "heading_size": "h1",
         "blog": "skincare",
         "post_limit": 4,

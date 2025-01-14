@@ -1058,3 +1058,85 @@ cart-drawer  .quick-add__submit {min-height: 32px;}
   justify-content: center;
   align-items: center;
 }
+
+.blog__posts .card-wrapper .card__inner {
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: 12px;
+}
+.article-card__info time {
+  font-size: 14px;
+  color:  #AFAFAF;
+  letter-spacing: normal;
+  line-height: 16.8px;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.blog__posts .card-wrapper .card__information {padding:1rem 0}
+.article-template-banner {
+  background: #eff6f5;
+  margin-top: 0 !important;
+}
+.article-template__hero-container {display: flex; padding-top:15px; padding-bottom: 35px;gap:5.5rem; align-items: center;}
+.article-template__hero-container>.article-template__hero-adapt {
+  width: 33.333%;
+  aspect-ratio: 1;
+  padding: 0 !important;border-radius: 24px;
+}
+.article-template__hero-container >  .blog-content-wrap {width:66.666%}
+.article-template__hero-container>.article-template__hero-adapt  img{aspect-ratio: 1;position: static;}
+.article-template__hero-container>.blog-content-wrap .article-template__title {
+  font-size: 4rem;
+  line-height: 52px;
+}
+.article-template__hero-container>.blog-content-wrap span {
+  font-size: 16px;
+  color: gray;
+  line-height: 19.2px;
+  margin-top: 10px;
+  display: inline-block;
+  margin-right: 10px;
+  text-transform: capitalize;
+}
+.blog-content-wrap .author-wrap span {
+  color: #262626;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: block;
+  margin-top: 30px;
+}
+article.article-template {
+  background: #fafafa;
+}
+.higlights-content-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;padding-top:80px
+}
+.highlights-title-wrap {
+  max-width: 424px;
+  width: 100%;background: #EFF6F5;
+  border-radius: 16px;
+  padding: 24px;
+}
+.highlights-content p {
+  margin: 0;
+}
+.highlights-content {
+  width: 100%;
+  max-width: 776px;
+}
+.highlights-title-wrap .title {
+  color: #414A30;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+ul.highlights-points li {
+  color: #4D4D4D;
+}
+ul.highlights-points {
+  padding-left: 24px;
+}

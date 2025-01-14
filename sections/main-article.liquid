@@ -1,6 +1,6 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template yyyyy">
+<article class="article-template">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -9,8 +9,9 @@
         </div>
       {%- when 'featured_image' -%}
         {%- if article.image -%}
+          <div class="article-template-banner">
           <div
-            class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="page-width article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             {{ block.shopify_attributes }}
           >
             <div
@@ -58,7 +59,7 @@
               </div>
             </div>
 
-          </div>
+          </div></div>
         {%- endif -%}
 
       {%- when 'title' -%}
@@ -312,14 +313,14 @@
     <div class="higlights-content-wrap">
       <div class="highlights-title-wrap">
       <div class="title">Highlights Of the article</div>
-      <div class="content-wrapp">
-          <h3>What is tanning?</h3>
-          <h3>What tanning does to your skin</h3>
-          <h3>How to remove tan from your face</h3>
-          <h3>How long does it take for a tan to go</h3>
-          <h3>Tips to remove tan from face</h3>
-          <h3>Summary</h3>
-      </div>
+      <ul class="highlights-points">
+          <li>What is tanning?</li>
+          <li>What tanning does to your skin</li>
+          <li>How to remove tan from your face</li>
+          <li>How long does it take for a tan to go</li>
+          <li>Tips to remove tan from face</li>
+          <li>Summary</li>
+      </ul>
       </div>
       <div class="highlights-content">
         <div class="article--content-wrap">
