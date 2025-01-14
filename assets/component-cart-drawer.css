@@ -117,7 +117,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 
 .drawer__footer {
   background: #fafafa;
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
 }
 
 cart-drawer-items.is-empty + .drawer__footer {
