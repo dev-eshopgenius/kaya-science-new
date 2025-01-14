@@ -313,13 +313,12 @@
     <div class="higlights-content-wrap">
       <div class="highlights-title-wrap">
       <div class="title">Highlights Of the article</div>
-      <ul class="highlights-points">
-          <li>What is tanning?</li>
-          <li>What tanning does to your skin</li>
-          <li>How to remove tan from your face</li>
-          <li>How long does it take for a tan to go</li>
-          <li>Tips to remove tan from face</li>
-          <li>Summary</li>
+        {% assign highlights = article.metafields.custom.highlights_heading | split: ',' %}
+        <ul class="highlights-points">
+          {% for highlight in highlights %}
+            <li>{{ highlight | strip }}</li>
+          {% endfor %}
+      
       </ul>
       </div>
       <div class="highlights-content">
@@ -328,29 +327,31 @@
             {{ article.content | split: '<!-- SPLIT -->' | first }}
           </div>
         
-          {% if article.metafields.custom.blog_content_product %}
+          {% if article.metafields.custom.blog_product != blank  %}
             <div class="blog-product">
-              {% if article.metafields.custom.blog_content_product.featured_image %}
-                {{ article.metafields.custom.blog_content_product.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'pro-img' }}
-              {% endif %}
-        
+              {{ article.metafields.custom.blog_product.value.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'pro-img' }}
+              
               <div class="product-title">
-                {{ article.metafields.custom.blog_content_product.title }}
+                {{ article.metafields.custom.blog_product.value.title }}
               </div>
-        
+          
               <div class="price-wrapper">
                 <span class="price">
-                  {{ article.metafields.custom.blog_content_product.price | money }}
-                </span>
-        
-                {% if article.metafields.custom.blog_content_product.compare_at_price %}
+                  
+                  {{ article.metafields.custom.blog_product.value.price | money }}
                   <span class="compare-at-price">
-                    {{ article.metafields.custom.blog_content_product.compare_at_price | money }}
+                    {{ article.metafields.custom.blog_product.value.compare_at_price | money }}
                   </span>
-                {% endif %}
+                </span>
+                <!-- Start of Judge.me code -->
+                  <div class='jdgm-widget jdgm-preview-badge'>
+                    {{ product.metafields.custom.blog_product.judgeme.badge }}
+                  </div>
+                <!-- End of Judge.me code -->
               </div>
             </div>
           {% endif %}
+          
         
           <div class="split-content split-after-product">
             {{ article.content | split: '<!-- SPLIT -->' | last }}
