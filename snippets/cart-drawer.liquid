@@ -653,6 +653,8 @@
         </div>
       </div>
         <div class="cart__ctas" {{ block.shopify_attributes }}>
+          <div class="chekout-msg">Shipping and coupan discounts calculated at chekout</div>
+          <div class="chekout-total-wrapper">
           <div class="totals" role="status">
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
           </div>
@@ -668,6 +670,7 @@
           >
             {{ 'sections.cart.checkout' | t }}
           </button>
+        </div>
         </div>
       </div>
     </div>
