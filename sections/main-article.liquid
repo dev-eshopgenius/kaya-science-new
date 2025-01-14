@@ -327,29 +327,31 @@
             {{ article.content | split: '<!-- SPLIT -->' | first }}
           </div>
         
-          {% if article.metafields.custom.blog_content_product %}
+          {% if article.metafields.custom.blog_product != blank  %}
             <div class="blog-product">
-              {% if article.metafields.custom.blog_content_product.featured_image %}
-                {{ article.metafields.custom.blog_content_product.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'pro-img' }}
-              {% endif %}
-        
+              {{ article.metafields.custom.blog_product.value.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'pro-img' }}
+              
               <div class="product-title">
-                {{ article.metafields.custom.blog_content_product.title }}
+                {{ article.metafields.custom.blog_product.value.title }}
               </div>
-        
+          
               <div class="price-wrapper">
                 <span class="price">
-                  {{ article.metafields.custom.blog_content_product.price | money }}
-                </span>
-        
-                {% if article.metafields.custom.blog_content_product.compare_at_price %}
+                  
+                  {{ article.metafields.custom.blog_product.value.price | money }}
                   <span class="compare-at-price">
-                    {{ article.metafields.custom.blog_content_product.compare_at_price | money }}
+                    {{ article.metafields.custom.blog_product.value.compare_at_price | money }}
                   </span>
-                {% endif %}
+                </span>
+                <!-- Start of Judge.me code -->
+                  <div class='jdgm-widget jdgm-preview-badge'>
+                    {{ article.metafields.custom.blog_product.judgeme.badge }}
+                  </div>
+                <!-- End of Judge.me code -->
               </div>
             </div>
           {% endif %}
+          
         
           <div class="split-content split-after-product">
             {{ article.content | split: '<!-- SPLIT -->' | last }}
