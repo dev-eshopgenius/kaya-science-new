@@ -313,13 +313,12 @@
     <div class="higlights-content-wrap">
       <div class="highlights-title-wrap">
       <div class="title">Highlights Of the article</div>
-      <ul class="highlights-points">
-          <li>What is tanning?</li>
-          <li>What tanning does to your skin</li>
-          <li>How to remove tan from your face</li>
-          <li>How long does it take for a tan to go</li>
-          <li>Tips to remove tan from face</li>
-          <li>Summary</li>
+        {% assign highlights = article.metafields.custom.highlights_heading | split: ',' %}
+        <ul class="highlights-points">
+          {% for highlight in highlights %}
+            <li>{{ highlight | strip }}</li>
+          {% endfor %}
+      
       </ul>
       </div>
       <div class="highlights-content">
@@ -346,7 +345,7 @@
                 </span>
                 <!-- Start of Judge.me code -->
                   <div class='jdgm-widget jdgm-preview-badge'>
-                    {{ article.metafields.custom.blog_product.judgeme.badge }}
+                    {{ product.metafields.custom.blog_product.judgeme.badge }}
                   </div>
                 <!-- End of Judge.me code -->
               </div>
