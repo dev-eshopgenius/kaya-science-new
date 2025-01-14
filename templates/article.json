@@ -57,6 +57,68 @@
         "padding_bottom": 52
       }
     },
+    "collapsible_content_PnJz7r": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_rLyPgf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_JRbDmA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_iUE6WL": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_Lx7bhA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_rLyPgf",
+        "collapsible_row_JRbDmA",
+        "collapsible_row_iUE6WL",
+        "collapsible_row_Lx7bhA"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Collapsible content",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": true,
+        "image": "shopify://shop_images/image_46.png",
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection_rcJmm8": {
       "type": "featured-collection",
       "settings": {
@@ -125,6 +187,7 @@
   "order": [
     "main",
     "newsletter_66VdVy",
+    "collapsible_content_PnJz7r",
     "featured_collection_rcJmm8",
     "featured_blog_fbhTbR",
     "featured_blog_bqAK3e"
