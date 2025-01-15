@@ -31,7 +31,8 @@
           "type": "heading",
           "settings": {
             "heading": "Join us",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "text": "<p>Subscribe to receive the latest in skincare science, exclusive offers, and expert beauty tips straight to your inbox. Join us and be the first to discover new insights and routines tailored to you.</p>"
           }
         },
         "paragraph_nxBVEi": {
@@ -51,8 +52,8 @@
         "email_form_AUm3Lz"
       ],
       "settings": {
-        "color_scheme": "",
-        "full_width": true,
+        "color_scheme": "scheme-2",
+        "full_width": false,
         "padding_top": 40,
         "padding_bottom": 52
       }
@@ -119,14 +120,14 @@
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
-        "color_scheme": "",
-        "container_color_scheme": "",
+        "color_scheme": "scheme-00ac7443-e051-4410-ac64-803edf10c731",
+        "container_color_scheme": "scheme-00ac7443-e051-4410-ac64-803edf10c731",
         "open_first_collapsible_row": true,
         "image": "shopify://shop_images/image_46.png",
         "image_ratio": "adapt",
         "desktop_layout": "image_first",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "featured_collection_rcJmm8": {
