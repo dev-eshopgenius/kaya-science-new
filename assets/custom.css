@@ -845,6 +845,11 @@ padding-left: 22%;
  display: none;
 }
   @media(max-width:749px) {
+    .product__info-container .product--offers-wrap {margin-right: -15px;}
+    .product__info-container .product--offers-wrap .coupan-code-wrapper {margin-right: 0;}
+   .product__info-container .product--offers-wraper {padding:0}
+    .coupan-code-content ul {gap:10px}
+    .coupan-code-content ul li.code--items {min-width: 232px;}
     .mobile__stp .step-heading {
       font-weight: 600;
       font-size: 16px;
