@@ -745,7 +745,7 @@ padding-top:80px
   .article-template-banner {
     background: #eff6f5;}
   .blog-content-wrap .author-wrap span{ font-size: 18px; margin-top: 30px;}
-  .article-template__hero-container>.blog-content-wrap span {font-size: 16px; margin: 10px;}
+  .article-template__hero-container>.blog-content-wrap span {font-size: 16px; margin: 10px 0;}
   .article-template__hero-container {gap:5.5rem;}
   .article-template__hero-container>.blog-content-wrap .article-template__title {
     font-size: 4rem;
