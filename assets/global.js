@@ -1424,6 +1424,22 @@ if (steps.length > 0) {
   });
 }
 
+document.addEventListener('click', function (event) {
+  if (event.target.matches('.highlights-points li')) {
+      var findText = event.target.textContent;
+      console.log(findText, 'find_text<><><');
+
+      var headings = document.querySelectorAll('.split-content h3');
+      headings.forEach(function (heading) {
+          if (heading.textContent === findText) {
+              window.scrollTo({
+                  top: heading.offsetTop,
+                  behavior: 'smooth'
+              });
+          }
+      });
+  }
+});
 });
 
 // search bar placeholder start
@@ -1497,5 +1513,7 @@ window.onload = function () {
   mobTypeEffect();
 };
 // search bar placeholder end
+
+// blog highlights 
 
 
