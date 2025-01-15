@@ -725,6 +725,9 @@ ul.highlights-points {
   max-width: 354px;
 }
 .newsletter-blog__wrapper .newsletter-form__field-wrapper .field__input:focus~.field__label {left: 15px; transform: none; top: calc(1rem + var(--inputs-border-width));     font-size: 1.6rem; opacity: 0;}
+.grid-item-wrapper {
+  padding: 40px 80px 40px 50px;
+}
 @media(min-width:750px) {
   .cart-drawer .totals p {font-size: 18px;}
   
