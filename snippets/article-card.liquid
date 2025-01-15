@@ -23,7 +23,7 @@
       assign ratio = media_aspect_ratio
     endif
   -%}
-  <div class="article-card-wrapper card-wrapper underline-links-hover">
+  <div class="article-card-wrapper uu card-wrapper underline-links-hover">
     {% comment %} <article aria-labelledby="Article-{{ article.id }}"> {% endcomment %}
     <div
       class="
@@ -155,6 +155,23 @@
             <span class="badge color-{{ settings.color_schemes | first }}">{{ 'blogs.article.blog' | t }}</span>
           </div>
         {%- endif -%}
+      </div>
+      <div class="view-share-wrap">
+        <span class="views-wrap">
+           {{ article.metafields.custom.blog_view_count }} 
+           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.22618 12.6113C3.10944 12.4265 3.05108 12.334 3.01841 12.1915C2.99386 12.0844 2.99386 11.9156 3.01841 11.8085C3.05108 11.666 3.10944 11.5735 3.22618 11.3887C4.19081 9.86129 7.06213 6 11.4378 6C15.8136 6 18.6849 9.86129 19.6495 11.3887C19.7662 11.5735 19.8246 11.666 19.8573 11.8085C19.8818 11.9156 19.8818 12.0844 19.8573 12.1915C19.8246 12.334 19.7662 12.4265 19.6495 12.6113C18.6849 14.1387 15.8136 18 11.4378 18C7.06213 18 4.19081 14.1387 3.22618 12.6113Z" stroke="#808080" stroke-width="1.68" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11.4378 14.5714C12.858 14.5714 14.0093 13.4202 14.0093 12C14.0093 10.5798 12.858 9.42857 11.4378 9.42857C10.0177 9.42857 8.86642 10.5798 8.86642 12C8.86642 13.4202 10.0177 14.5714 11.4378 14.5714Z" stroke="#808080" stroke-width="1.68" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+                        
+        </span>
+        <span class="share-wrap">
+          {{ article.metafields.custom.blog_share_count }} 
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.20502 13.7766L14.5862 16.881M14.5784 8.31663L9.20502 11.421M18.9826 7.13883C18.9826 8.43117 17.9244 9.47883 16.619 9.47883C15.3136 9.47883 14.2553 8.43117 14.2553 7.13883C14.2553 5.84648 15.3136 4.79883 16.619 4.79883C17.9244 4.79883 18.9826 5.84648 18.9826 7.13883ZM9.52805 12.5988C9.52805 13.8912 8.46982 14.9388 7.16442 14.9388C5.85902 14.9388 4.80078 13.8912 4.80078 12.5988C4.80078 11.3065 5.85902 10.2588 7.16442 10.2588C8.46982 10.2588 9.52805 11.3065 9.52805 12.5988ZM18.9826 18.0588C18.9826 19.3512 17.9244 20.3988 16.619 20.3988C15.3136 20.3988 14.2553 19.3512 14.2553 18.0588C14.2553 16.7665 15.3136 15.7188 16.619 15.7188C17.9244 15.7188 18.9826 16.7665 18.9826 18.0588Z" stroke="#808080" stroke-width="1.68" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+                        
+       </span>
       </div>
     </div>
   </div>
