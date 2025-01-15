@@ -28,6 +28,7 @@
               {{ section.settings.caption | escape }}
             </p>
           {% endif %}
+          {% comment %}
           {%- if section.settings.heading != blank -%}
             <h2 class="collapsible-content__heading inline-richtext {{ section.settings.heading_size }}">
               {{ section.settings.heading }}
@@ -35,6 +36,7 @@
           {%- else -%}
             <h2 class="visually-hidden">{{ 'accessibility.collapsible_content_title' | t }}</h2>
           {% endif %}
+           {% endcomment %}
         </div>
         <div class="grid grid--1-col grid--2-col-tablet collapsible-content__grid{% if section.settings.desktop_layout == 'image_second' %} collapsible-content__grid--reverse{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {%- if section.settings.image != blank -%}
@@ -68,8 +70,13 @@
               </div>
             </div>
           {% endif %}
+       
           <div class="grid__item">
+            <h2 class="collapsible-content__heading inline-richtext {{ section.settings.heading_size }}">
+              {{ section.settings.heading }}
+            </h2>
             {%- for block in section.blocks -%}
+        
               <div
                 class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}"
                 {{ block.shopify_attributes }}
@@ -289,6 +296,12 @@
       "type": "collapsible_row",
       "name": "t:sections.collapsible_content.blocks.collapsible_row.name",
       "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "t:sections.collapsible_content.settings.heading.label",
+          "default": "t:sections.collapsible_content.settings.heading.default"
+        },
         {
           "type": "text",
           "id": "heading",
