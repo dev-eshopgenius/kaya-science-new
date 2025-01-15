@@ -64,34 +64,43 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Collapsible row",
-            "icon": "check_mark",
+            "icon": "none",
             "row_content": "",
             "page": ""
           }
         },
-        "collapsible_row_JRbDmA": {
+        "collapsible_row_9NdGdD": {
           "type": "collapsible_row",
           "settings": {
             "heading": "Collapsible row",
-            "icon": "check_mark",
+            "icon": "none",
             "row_content": "",
             "page": ""
           }
         },
-        "collapsible_row_iUE6WL": {
+        "collapsible_row_968MxP": {
           "type": "collapsible_row",
           "settings": {
             "heading": "Collapsible row",
-            "icon": "check_mark",
+            "icon": "none",
             "row_content": "",
             "page": ""
           }
         },
-        "collapsible_row_Lx7bhA": {
+        "collapsible_row_ERKEEd": {
           "type": "collapsible_row",
           "settings": {
             "heading": "Collapsible row",
-            "icon": "check_mark",
+            "icon": "none",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_jFQgcm": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "none",
             "row_content": "",
             "page": ""
           }
@@ -99,9 +108,10 @@
       },
       "block_order": [
         "collapsible_row_rLyPgf",
-        "collapsible_row_JRbDmA",
-        "collapsible_row_iUE6WL",
-        "collapsible_row_Lx7bhA"
+        "collapsible_row_9NdGdD",
+        "collapsible_row_968MxP",
+        "collapsible_row_ERKEEd",
+        "collapsible_row_jFQgcm"
       ],
       "settings": {
         "caption": "",
@@ -153,7 +163,7 @@
         "heading": "Trending",
         "subheading": "",
         "heading_size": "h1",
-        "blog": "skincare",
+        "blog": "trending",
         "post_limit": 3,
         "columns_desktop": 3,
         "color_scheme": "",
@@ -171,7 +181,7 @@
         "heading": "Related Articles",
         "subheading": "",
         "heading_size": "h1",
-        "blog": "haircare",
+        "blog": "skincare",
         "post_limit": 3,
         "columns_desktop": 3,
         "color_scheme": "",
