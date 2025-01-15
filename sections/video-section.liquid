@@ -16,6 +16,7 @@
 >
   <div class=" section-{{ section.id }}-padding page-width">
     {%- if section.settings.title != blank -%}
+      <div class="title-wrapper">
       <h2 class="title inline-richtext {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.title }}
       </h2>
@@ -24,7 +25,9 @@
       <div class="subtitle sub_heading">
         {{ section.settings.subtitle }}
       </div>
+   
     {% endif %}
+  </div>
     <div class="video-content-wrapper">
       <div class="video-block-wrap grid grid--4-col-desktop grid--2-col-tablet-down grid--2-col-tablet">
         {% for block in section.blocks %}

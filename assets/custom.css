@@ -669,7 +669,26 @@ ul.highlights-points {
   font-size: 2.8rem;
   line-height: 36.4px;
 }
+.home-collection-slider span.percent-count {font-size: 1.2rem;}
+.multicolumn-list .multicolumn-card__info .rte p {
+  color: #4D4D4D;
+  line-height: 19.2px;
+}
+.multicolumn-card__info .link .svg-wrapper {display: none;}
+.multicolumn-card__info .link {
+  text-decoration: underline !important;
+  text-underline-offset: 7px;
+}
+.cart-drawer .totals span{font-size: 1.4rem;}
+.cart-drawer .totals p {font-size: 16px;}
 @media(min-width:750px) {
+  .cart-drawer .totals p {font-size: 18px;}
+  
+  .multicolumn-list .multicolumn-card__info .rte p {
+   
+    line-height: 19.2px;
+}
+  .multicolumn-list .multicolumn-card__info h3 {font-size: 2rem;}
   .highlights-title-wrap {
     max-width: 424px;
    
@@ -763,7 +782,31 @@ padding-left: 22%;
     max-width: 315px;
 }
 .article-template img {max-width: 100%;}
+.multicolumn .slider-buttons, .blog .slider-buttons  {
+ display: none;
+}
   @media(max-width:749px) {
+    .footer__blocks-wrapper .footer-block:last-child {
+      border-top: solid 1px #D9D9D9;
+      padding-top: 3rem;
+  }
+   .footer__blocks-wrapper .footer-block__details-content {
+      margin-bottom: 1rem;
+  }
+    footer.footer  .footer__content-top {padding-bottom:0}
+    .footer__copyright {padding: 0 1.5rem;}
+   .footer__copyright  .policies li {
+         justify-content: flex-start;
+      align-items: center;
+      width: 50%;
+     
+  }
+  .footer__copyright   .policies {flex-wrap: wrap;}
+    .footer__blocks-wrapper .footer-block .footer-block__heading {margin-bottom: 1rem;text-align: left;}
+    .footer-block.grid__item.footer-block--menu {
+      max-width: calc(50% - 6px);
+        }
+    .multicolumn-list__item{padding-bottom: 10px!important;}
     .highlights-content {padding-top:6rem}
     .highlights-title-wrap {padding-left: 0;padding-right: 0;}
     .highlights-title-wrap:before {
@@ -1006,6 +1049,10 @@ padding-left: 22%;
   }
   }
   @media(min-width:990px){
+    .home-collection-slider .card__heading a {
+      min-height: 65px;
+  }
+  
     .mob-header__search-wrapper{display: none;}
   }
   .collection-hero__image-container {margin: 0;}
