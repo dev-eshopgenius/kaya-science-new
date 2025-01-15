@@ -373,8 +373,9 @@ span.percent-count {
   font-weight: 500;
   text-decoration: underline;
   line-height: 19.2px;
-  text-underline-offset: 4px;
+  text-underline-offset: 4px;cursor: pointer;
 }
+.product .price .badge {display: none!important;}
 .discount-code-item .discountcode{font-size:16px; font-weight: 700;letter-spacing: 1.6px; line-height: 20.8px;text-transform: uppercase;}
 .product__info-container .product--offers-wrap {
   margin-right: -27.4%;
@@ -728,6 +729,7 @@ ul.highlights-points {
 .grid-item-wrapper {
   padding: 40px 80px 40px 50px;
 }
+
 @media(min-width:750px) {
   .cart-drawer .totals p {font-size: 18px;}
   
