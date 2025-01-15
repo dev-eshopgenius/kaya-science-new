@@ -729,7 +729,14 @@ ul.highlights-points {
 .grid-item-wrapper {
   padding: 40px 80px 40px 50px;
 }
-
+.blog-accordian .collapsible-content__heading {margin-bottom:1.5rem}
+.blog-accordian  .accordion summary[aria-expanded="true"] {padding:2rem 0 .8rem 0}
+.blog-accordian  .accordion details[open]>summary .icon-caret{transform: rotate(180deg) ;}
+.blog-accordian  .accordion__title {font-weight: 500;color:#333}
+.blog-accordian .accordion__content p {color: #4d4d4d; line-height: 22.4px;}
+.blog-accordian  .collapsible-none-layout .accordion+.accordion:last-child {
+  border: none;
+}
 @media(min-width:750px) {
   .cart-drawer .totals p {font-size: 18px;}
   
