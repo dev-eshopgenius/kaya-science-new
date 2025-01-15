@@ -15,14 +15,14 @@
   }
 {%- endstyle -%}
 
-<div class="newsletter center {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
-  <div class="newsletter__wrapper color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+<div class="newsletter-blog center color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+  <div class="newsletter-blog__wrapper  {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when '@app' -%}
           {% render block %}
         {%- when 'heading' -%}
-          <div class="title-wrapper">
+          <div class="newsletter-info-wrap">
           <h2
             class="inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {{ block.shopify_attributes }}
@@ -49,7 +49,7 @@
           </div>
           {%  endcomment %}
         {%- when 'email_form' -%}
-          <div {{ block.shopify_attributes }}>
+          <div class="blog-form" {{ block.shopify_attributes }}>
             {% form 'customer', class: 'newsletter-form' %}
               <input type="hidden" name="contact[tags]" value="newsletter">
               <div
@@ -90,9 +90,7 @@
                     id="Subscribe"
                     aria-label="{{ 'newsletter.button_label' | t }}"
                   >
-                    <span class="svg-wrapper">
-                      {{- 'icon-arrow.svg' | inline_asset_content -}}
-                    </span>
+                    Subscribe
                   </button>
                 </div>
                 {%- if form.errors -%}

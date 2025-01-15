@@ -687,6 +687,44 @@ ul.highlights-points {
 .blog-product img {
   border-radius: 16px !important;
 }
+.newsletter-blog__wrapper {
+  background: #fff;
+  border: 1px solid #AFAFAF;
+  padding: 40px;
+  display: flex;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.newsletter-blog__wrapper .newsletter-form__field-wrapper .field{border:none; flex-direction: column;gap:20px}
+.newsletter-blog__wrapper .newsletter-form__field-wrapper .field .field__button {
+  position: static;
+  width: 100%;
+  background: #262626;
+  color: #fff;
+  min-height: 48px;
+  border-radius: 8px;justify-content: center;font-size: 1.6rem; font-weight: 600;
+}
+.newsletter-blog__wrapper .newsletter__subheading p {
+  line-height: 22.4px;letter-spacing: normal;
+}
+.newsletter-info-wrap h2 {
+  line-height: 38.4px;
+  margin: 0;
+}
+.newsletter-info-wrap {    max-width: 540px;
+  margin: 0 auto 0 80px;}
+.newsletter-blog__wrapper .newsletter-form__field-wrapper .field .field__input {
+  padding: 10px;
+  min-height: 48px;
+  border-radius: 8px;
+}
+.newsletter-blog__wrapper .newsletter-form__field-wrapper .field label{left: 15px; }
+.blog-form {
+  width: 100%;
+  max-width: 354px;
+}
+.newsletter-blog__wrapper .newsletter-form__field-wrapper .field__input:focus~.field__label {left: 15px; transform: none; top: calc(1rem + var(--inputs-border-width));     font-size: 1.6rem; opacity: 0;}
 @media(min-width:750px) {
   .cart-drawer .totals p {font-size: 18px;}
   
