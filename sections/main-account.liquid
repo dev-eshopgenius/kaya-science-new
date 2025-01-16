@@ -16,7 +16,6 @@
 
 <div class="customer bbb account section-{{ section.id }}-padding">
 
-
 {% comment %}
   <div>
     <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
@@ -27,15 +26,49 @@
       {{ 'customer.log_out' | t }}
     </a>
   </div>
- {% endcomment %}
+{% endcomment %}
+
  <div class="customer-details-wrapp">
-  <h2>{{ 'customer.account.details' | t }}</h2>
-  {{ customer.default_address | format_address }}
-</div>
+    <div class="customer-content-wrap">
+      <span>{{ customer.name }}</span>
+      <span>{{ customer.phone }}</span>
+      <span>{{ customer.email }}</span>
+    </div>
+
+    <div class="order-wrap">
+        Your Order
+    </div>
+    <div class="address-wrap">
+      Your Address
+    </div>
+    <div class="shipping-wrap">
+      Free shipping
+      <span>On orders Above Rs.499</span>
+    </div>
+
+    <div class="fre_Shipping-content">
+      <div class="fre_Shipping-text">
+          <h2>Have Questions?</h2>
+         <span>We're Here to Help</span>
+      </div>
+      <a href="#" class="button button-primary free_Shipping-btn">Contact Us</a>
+  
+     </div>
+     <div class="logout-wrapper">
+      <a href="{{ routes.account_logout_url }}">
+        <span class="svg-wrapper">
+          {{- 'icon-account.svg' | inline_asset_content -}}
+        </span>
+        {{ 'customer.log_out' | t }}
+      </a>
+    </div>
+  </div>
+ </div>
 
 <div class="details-content-wrapper"> 
   
 </div>
+
 
   <div>
     <div class="customer-order-wrapper">
@@ -160,7 +193,7 @@
       </a>
     </div>
   </div>
-</div>
+
 
 {% schema %}
 {
