@@ -16,9 +16,33 @@
 
 <div class="customer bbb account section-{{ section.id }}-padding">
 
-{% comment %}
-  <div>
-    <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
+<div class="customer-details-wrapp">
+  <div class="customer-content-wrap">
+    <span>{{ customer.name }}</span>
+    <span>{{ customer.phone }}</span>
+    <span>{{ customer.email }}</span>
+  </div>
+
+  <!-- Tab buttons -->
+  <div class="order-wrap tab-button active" data-id="order--detail">
+    Your Order
+  </div>
+  <div class="address-wrap tab-button" data-id="address--detail">
+    Your Address
+  </div>
+  <div class="shipping-wrap">
+    Free shipping
+    <span>On orders Above Rs.499</span>
+  </div>
+
+  <div class="fre_Shipping-content">
+    <div class="fre_Shipping-text">
+      <h2>Have Questions?</h2>
+      <span>We're Here to Help</span>
+    </div>
+    <a href="#" class="button button-primary free_Shipping-btn">Contact Us</a>
+  </div>
+  <div class="logout-wrapper">
     <a href="{{ routes.account_logout_url }}">
       <span class="svg-wrapper">
         {{- 'icon-account.svg' | inline_asset_content -}}
@@ -26,65 +50,49 @@
       {{ 'customer.log_out' | t }}
     </a>
   </div>
-{% endcomment %}
+</div>
 
- <div class="customer-details-wrapp">
-    <div class="customer-content-wrap">
-      <span>{{ customer.name }}</span>
-      <span>{{ customer.phone }}</span>
-      <span>{{ customer.email }}</span>
-    </div>
-
-    <div class="order-wrap">
-        Your Order
-    </div>
-    <div class="address-wrap">
-      Your Address
-    </div>
-    <div class="shipping-wrap">
-      Free shipping
-      <span>On orders Above Rs.499</span>
-    </div>
-
-    <div class="fre_Shipping-content">
-      <div class="fre_Shipping-text">
-          <h2>Have Questions?</h2>
-         <span>We're Here to Help</span>
-      </div>
-      <a href="#" class="button button-primary free_Shipping-btn">Contact Us</a>
-  
-     </div>
-     <div class="logout-wrapper">
-      <a href="{{ routes.account_logout_url }}">
-        <span class="svg-wrapper">
-          {{- 'icon-account.svg' | inline_asset_content -}}
-        </span>
-        {{ 'customer.log_out' | t }}
-      </a>
-    </div>
-  </div>
- </div>
-
-<div class="details-content-wrapper"> 
-  <div class="address-content-wrap">
+<!-- Tab content -->
+<div class="details-content-wrapper">
+  <div class="address-content-wrap tab-panel" data-target="address--detail">
     {{ customer.default_address | format_address }}
   </div>
 
-
-  <div class="orders-wrapper">
+  <div class="orders-wrapper tab-panel active" data-target="order--detail">
     {%- for order in customer.orders -%}
-      <div class="customer-order-details">
-        <div class="order-details-wrapp">
+    <div class="customer-order-details">
+      <div class="order-details-wrapp">
         <span><span>Order Date</span>{{ order.created_at | time_tag: format: 'date' }}</span>
         <span><span>Order Id</span>{{ order.id }}</span>
-        <span><span>Order Amount</span>  {{ order.total_net_amount | money_with_currency }}</span>
+        <span><span>Order Amount</span>{{ order.total_net_amount | money_with_currency }}</span>
       </div>
+
+      <div class="order-status">
+        <span>Order Status</span>
+        {{ order.fulfillment_status }}
       </div>
+      <div class="order-items-details">
+        <div class="">
+          {% for line_item in order.line_items %}
+          <div class="line-items-product-wrap">
+            <div class="line-item-image">
+              {{ line_item.product.featured_image | image_url: width: 100, height:100 | image_tag: loading:'lazy', class:'line-iem-img'}}
+              <span>{{ line_item.product.title }}</span>
+            </div>
+            <div class="line-item-price">
+              <span class="price">{{ line_item.product.price | money_with_currency }}</span>
+              <span class="compare_at_price">{{ line_item.product.compare_at_price | money_with_currency }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
     {% endfor %}
   </div>
 </div>
 
-
+{% comment %}
   <div>
     <div class="customer-order-wrapper">
       <h2>{{ 'customer.orders.title' | t }}</h2>
@@ -208,6 +216,7 @@
       </a>
     </div>
   </div>
+{% endcomment %}
 
 
 {% schema %}

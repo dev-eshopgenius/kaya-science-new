@@ -1439,6 +1439,44 @@ document.addEventListener('click', function (event) {
       });
   }
 });
+
+
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-id');
+
+      // Remove active class from all buttons and panels
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabPanels.forEach(panel => panel.classList.remove('active'));
+
+      // Add active class to the clicked button and corresponding panel
+      button.classList.add('active');
+      document.querySelector(`.tab-panel[data-target="${targetId}"]`).classList.add('active');
+    });
+  });
+
+
+
+ document.querySelectorAll('.tab-button').forEach((tabButton) => {
+  tabButton.addEventListener('click', function () {
+ 
+    document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
+
+    document.querySelectorAll('.tab-panel').forEach((panel) => panel.classList.remove('active'));
+
+
+    this.classList.add('active');
+  
+    const targetId = this.getAttribute('data-id');
+    document.querySelector(`.tab-panel[data-target="${targetId}"]`).classList.add('active');
+  });
+});
+
+
+
 });
 
 // search bar placeholder start
