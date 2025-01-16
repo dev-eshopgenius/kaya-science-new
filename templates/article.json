@@ -123,7 +123,7 @@
         "collapsible_row_jFQgcm"
       ],
       "settings": {
-        "classname": "",
+        "classname": "blog-accordian",
         "caption": "",
         "heading": "Frequently Asked Questions",
         "heading_size": "h1",
