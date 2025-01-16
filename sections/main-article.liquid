@@ -1,5 +1,5 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
-{% render 'breadcrumbs' %}
+
 <article class="article-template">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
@@ -10,6 +10,7 @@
       {%- when 'featured_image' -%}
         {%- if article.image -%}
           <div class="article-template-banner">
+            <div class="page-width">{% render 'breadcrumbs' %}</div>
           <div
             class="page-width article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             {{ block.shopify_attributes }}
