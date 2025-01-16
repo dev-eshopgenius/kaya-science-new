@@ -781,9 +781,7 @@ summary::-webkit-details-marker {
   font-size: inherit;
 }
 
-.title-wrapper {
-  margin-bottom: 3rem;
-}
+
 
 .title-wrapper-with-link {
   display: flex;
