@@ -14,7 +14,7 @@
   }
 {%- endstyle -%}
 
-<div class="customer bbb account section-{{ section.id }}-padding">
+<div class="customer  account section-{{ section.id }}-padding">
 
 <div class="customer-details-wrapp ">
   <div class="customer-content-wrap white-block">
@@ -56,7 +56,9 @@
 <div class="details-content-wrapper flex-column">
   <div class="act-page-head">Your Orders</div>
   <div class="address-content-wrap tab-panel" data-target="address--detail">
+    <span>Your Addresses</span>
     {{ customer.default_address | format_address }}
+    {{ customer.addresses.first }} {{ customer.addresses.last }}
   </div>
 
   <div class="orders-wrapper tab-panel active" data-target="order--detail">
