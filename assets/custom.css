@@ -1399,3 +1399,7 @@ cart-drawer  .quick-add__submit {min-height: 32px;}
 .blog-accordian .collapsible-content__media {
   height: 100%;
 }
+
+/*--------Account--------*/
+
+body.account {max-width: 100%; padding-left: 0; padding-right: 0;}
