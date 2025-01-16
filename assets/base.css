@@ -3606,3 +3606,13 @@ details-disclosure > details {
 .swiper-wrapper{
   transition-timing-function: linear 
 }
+
+  /* Tab styles */
+  .tab-panel {
+    display: none;
+  }
+
+  .tab-panel.active {
+    display: block;
+  }
+
