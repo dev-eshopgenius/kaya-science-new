@@ -124,7 +124,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       new Swiper('.main--article-wrapper', {
-        slidesPerView: 1, 
+        slidesPerView: 1.5, 
         spaceBetween: 20, 
         navigation: {
           nextEl: '.swiper-button-next',
@@ -132,11 +132,11 @@
         },
         breakpoints: {
           768: {
-            slidesPerView: 2,
+            slidesPerView: 1.5,
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: {{ section.settings.columns_desktop }},
+            slidesPerView: 4.5,
             spaceBetween: 30,
           },
         },

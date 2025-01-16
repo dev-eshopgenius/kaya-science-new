@@ -1296,7 +1296,7 @@ swiperContainers.forEach((container) => {
 
       function initializeSwiper() {
           var slides = colswiperContainer.querySelectorAll('.swiper-slide');
-          var slidesPerView = window.innerWidth < 769 ? 1 : 4; // Adjust for mobile
+          var slidesPerView = window.innerWidth < 769 ? 1 : 4; 
           var enableLoop = slides.length > slidesPerView;
 
           return new Swiper('.home-collection-slider', {

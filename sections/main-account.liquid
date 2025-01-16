@@ -69,6 +69,19 @@
   <div class="address-content-wrap">
     {{ customer.default_address | format_address }}
   </div>
+
+
+  <div class="orders-wrapper">
+    {%- for order in customer.orders -%}
+      <div class="customer-order-details">
+        <div class="order-details-wrapp">
+        <span><span>Order Date</span>{{ order.created_at | time_tag: format: 'date' }}</span>
+        <span><span>Order Id</span>{{ order.id }}</span>
+        <span><span>Order Amount</span>  {{ order.total_net_amount | money_with_currency }}</span>
+      </div>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 
 
