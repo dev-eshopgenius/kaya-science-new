@@ -1266,7 +1266,7 @@ class BulkAdd extends HTMLElement {
 
 if (!customElements.get('bulk-add')) {
   customElements.define('bulk-add', BulkAdd);
-}
+}  
 
 document.addEventListener("DOMContentLoaded", function () {
 // announcemnet and text slider js start
@@ -1287,13 +1287,12 @@ swiperContainers.forEach((container) => {
 });
 // announcemnet and text slider js end
 
-
 // collection slider js start
 
   var colswiperContainer = document.querySelector('.home-collection-slider');
 
   if (colswiperContainer) {
-      let col_swiper; // Declare the Swiper variable
+      let col_swiper;
 
       function initializeSwiper() {
           var slides = colswiperContainer.querySelectorAll('.swiper-slide');

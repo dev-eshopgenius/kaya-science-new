@@ -338,25 +338,14 @@
         
           {% if article.metafields.custom.blog_product != blank  %}
             <div class="blog-product">
-              {{ article.metafields.custom.blog_product.value.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'pro-img' }}
-              
-              <div class="product-title">
-                {{ article.metafields.custom.blog_product.value.title }}
-              </div>
-          
-              <div class="price-wrapper">
-                <span class="price">
-                  
-                  {{ article.metafields.custom.blog_product.value.price | money }}
-                  <span class="compare-at-price">
-                    {{ article.metafields.custom.blog_product.value.compare_at_price | money }}
-                  </span>
-                </span>
-                <!-- Start of Judge.me code -->
-                {% assign atr_prd = article.metafields.custom.blog_product.value %}
-                {{ atr_prd.metafields.judgeme.badge }}
-                <!-- End of Judge.me code -->
-              </div>
+            {% assign blog_product = article.metafields.custom.blog_product.value  %}
+
+              {% render 'card-product',
+                card_product: blog_product,
+                show_secondary_image: section.settings.show_secondary_image,
+                section_id: section.id,
+                quick_add: section.settings.quick_add
+              %}
             </div>
           {% endif %}
           
@@ -380,6 +369,35 @@
   "name": "t:sections.main-article.name",
   "tag": "section",
   "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": true,
+      "label": "t:sections.featured-collection.settings.show_secondary_image.label"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "info": "t:sections.main-collection-product-grid.settings.quick_add.info",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
+    }
+  ],
   "blocks": [
     {
       "type": "@app"
