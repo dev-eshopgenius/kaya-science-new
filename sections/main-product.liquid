@@ -74,14 +74,15 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
+    {% render 'breadcrumbs' %}
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-        {% render 'product-media-gallery', variant_images: variant_images %}
+        {% render 'custom-media', variant_images: variant_images %}
       </div>
-      <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product__info-wrapper grid__item {% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
-          class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+          class="product__info-container {% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -140,6 +141,10 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
+                {% when 'product__offers' %}
+                  {% render 'coupan-code', block:block %}
+                {% when 'pincode_delivery' %}
+                  {% render 'product-pincode', block:block %}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -219,7 +224,7 @@
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
-                      {{- 'icon-caret.svg' | inline_asset_content -}}
+                      {{- 'facet-arrow.svg' | inline_asset_content -}}
                     </summary>
                     <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ block.settings.content }}
@@ -670,7 +675,7 @@
       </div>
     </div>
 
-    {% render 'product-media-modal', variant_images: variant_images %}
+    {% render 'product-media-modal', variant_images: variant_images %} 
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
@@ -1185,6 +1190,102 @@
         {
           "type": "paragraph",
           "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
+        }
+      ]
+    },
+    {
+      "name":"Product Offers",
+      "type":"product__offers",
+     "settings": [
+        {
+            "type": "text",
+            "id": "offertitle",
+            "label": "Title",
+            "default": "Coupons"
+        },
+         {
+          "type":"header",
+          "content":"Coupon Code [1]"
+        },
+        {
+          "type": "text",
+          "id": "heading1",
+          "label": "Heading"
+        },
+         {
+          "type": "textarea",
+          "id": "subheading1",
+          "label": "SubHeading"
+        },
+          {
+          "type":"header",
+          "content":"Coupon Code [2]"
+        },
+        {
+          "type": "text",
+          "id": "heading2",
+          "label": "Heading"
+        },
+         {
+          "type": "textarea",
+          "id": "subheading2",
+          "label": "SubHeading"
+        },
+          {
+          "type":"header",
+          "content":"Coupon Code [3]"
+        },
+           {
+          "type": "text",
+          "id": "heading3",
+          "label": "Heading"
+        },
+         {
+          "type": "textarea",
+          "id": "subheading3",
+          "label": "SubHeading"
+        },
+          {
+          "type":"header",
+          "content":"Coupon Code [4]"
+        },
+        {
+          "type": "text",
+          "id": "heading4",
+          "label": "Heading"
+        },
+         {
+          "type": "textarea",
+          "id": "subheading4",
+          "label": "SubHeading"
+        },
+          {
+          "type":"header",
+          "content":"Coupon Code [5]"
+        },
+          {
+          "type": "text",
+          "id": "heading5",
+          "label": "Heading"
+        },
+         {
+          "type": "textarea",
+          "id": "subheading5",
+          "label": "SubHeading"
+        },
+          {
+          "type":"header",
+          "content":"Coupon Code [6]"
+        },
+           {
+          "type": "text",
+          "id": "heading6",
+          "label": "Heading"
+        },
+         {
+          "type": "textarea",
+          "id": "subheading6",
+          "label": "SubHeading"
         }
       ]
     },
@@ -2074,6 +2175,13 @@
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
       ]
+    },
+    {
+      "type":"pincode_delivery",
+      "name":"Pincode Delivery",
+      "settings":[
+
+      ]
     }
   ],
   "settings": [
@@ -2082,6 +2190,13 @@
       "id": "enable_sticky_info",
       "default": true,
       "label": "t:sections.main-product.settings.enable_sticky_info.label"
+    },
+    {
+      "type": "checkbox",
+      "id":"thumnail_vartical",
+      "label": "Vertical thumbnail?",
+      "info": "Choose 'Thumbnail carousel' to active this",
+      "default": true
     },
     {
       "type": "color_scheme",

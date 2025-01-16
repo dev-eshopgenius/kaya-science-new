@@ -301,7 +301,7 @@ h1,
 @media only screen and (min-width: 750px) {
   h1,
   .h1 {
-    font-size: calc(var(--font-heading-scale) * 4rem);
+    font-size: calc(var(--font-heading-scale) * 3.2rem);
   }
 }
 
@@ -313,7 +313,7 @@ h2,
 @media only screen and (min-width: 750px) {
   h2,
   .h2 {
-    font-size: calc(var(--font-heading-scale) * 2.4rem);
+    font-size: calc(var(--font-heading-scale) * 3.2rem);
   }
 }
 
@@ -344,7 +344,7 @@ h5,
 @media only screen and (min-width: 750px) {
   h5,
   .h5 {
-    font-size: calc(var(--font-heading-scale) * 1.3rem);
+    font-size: calc(var(--font-heading-scale) * 1.6rem);
   }
 }
 
@@ -656,9 +656,10 @@ summary {
 
 summary .icon-caret {
   position: absolute;
-  height: 0.6rem;
+  height: 1.6rem;
+  width: 1.6rem;
   right: 1.5rem;
-  top: calc(50% - 0.2rem);
+  top: calc(50% - 0.6rem);
 }
 
 summary::-webkit-details-marker {
@@ -715,18 +716,18 @@ summary::-webkit-details-marker {
   box-shadow: none;
 }
 
-*:focus-visible {
+/* *:focus-visible {
   outline: var(--focused-base-outline);
   outline-offset: var(--focused-base-outline-offset);
   box-shadow: var(--focused-base-box-shadow);
-}
+} */
 
 /* Fallback - for browsers that don't support :focus-visible, a fallback is set for :focus */
-.focused {
+/* .focused {
   outline: var(--focused-base-outline);
   outline-offset: var(--focused-base-outline-offset);
   box-shadow: var(--focused-base-box-shadow);
-}
+} */
 
 /*
   Focus ring - inset
@@ -780,9 +781,7 @@ summary::-webkit-details-marker {
   font-size: inherit;
 }
 
-.title-wrapper {
-  margin-bottom: 3rem;
-}
+
 
 .title-wrapper-with-link {
   display: flex;
@@ -813,7 +812,7 @@ summary::-webkit-details-marker {
 @media screen and (min-width: 990px) {
   .title,
   .title-wrapper-with-link {
-    margin: 5rem 0 3rem;
+    margin: 0 ;
   }
 
   .title--primary {
@@ -1220,11 +1219,14 @@ button.shopify-payment-button__button--unbranded {
   font: inherit;
   font-size: 1.5rem;
   text-decoration: none;
-  color: rgb(var(--color-button-text));
+  /* color: rgb(var(--color-button-text)); */
   transition: box-shadow var(--duration-short) ease;
   -webkit-appearance: none;
   appearance: none;
-  background-color: rgba(var(--color-button), var(--alpha-button-background));
+  /* background-color: rgba(var(--color-button), var(--alpha-button-background)); */
+  background-color: #262626;
+  color:#fff;
+  border:none;
 }
 
 .button:before,
@@ -1524,9 +1526,9 @@ details[open] > .share-button__fallback {
 
 .share-button__fallback .field__input:focus,
 .share-button__fallback .field__input:-webkit-autofill {
-  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  /* outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   outline-offset: 0.1rem;
-  box-shadow: 0 0 0 0.1rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  box-shadow: 0 0 0 0.1rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3); */
 }
 
 .share-button__fallback .field__input {
@@ -1648,9 +1650,9 @@ details[open] > .share-button__fallback {
 .customer .field input:focus-visible,
 .customer select:focus-visible,
 .localization-form__select:focus-visible.localization-form__select:after {
-  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
+  /* box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
   outline: 0;
-  border-radius: var(--inputs-radius);
+  border-radius: var(--inputs-radius); */
 }
 
 .field__input:focus,
@@ -1658,9 +1660,9 @@ details[open] > .share-button__fallback {
 .customer .field input:focus,
 .customer select:focus,
 .localization-form__select:focus.localization-form__select:after {
-  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
+  /* box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
   outline: 0;
-  border-radius: var(--inputs-radius);
+  border-radius: var(--inputs-radius); */
 }
 
 .localization-form__select:focus {
@@ -1742,10 +1744,11 @@ details[open] > .share-button__fallback {
 .customer .field input:focus ~ label,
 .customer .field input:not(:placeholder-shown) ~ label,
 .customer .field input:-webkit-autofill ~ label {
-  font-size: 1rem;
+  /* font-size: 1rem;
   top: calc(var(--inputs-border-width) + 0.5rem);
   left: calc(var(--inputs-border-width) + 2rem);
-  letter-spacing: 0.04rem;
+  letter-spacing: 0.04rem; */
+  opacity: 0;
 }
 
 .field__input:focus,
@@ -1754,8 +1757,8 @@ details[open] > .share-button__fallback {
 .customer .field input:focus,
 .customer .field input:not(:placeholder-shown),
 .customer .field input:-webkit-autofill {
-  padding: 2.2rem 1.5rem 0.8rem 2rem;
-  margin: var(--inputs-border-width);
+  /* padding: 2.2rem 1.5rem 0.8rem 2rem;
+  margin: var(--inputs-border-width); */
 }
 
 .field__input::-webkit-search-cancel-button,
@@ -2048,7 +2051,7 @@ input[type='checkbox'] {
 }
 
 .modal__content {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -2246,10 +2249,11 @@ input[type='checkbox'] {
 
 .announcement-bar__message {
   text-align: center;
-  padding: 1rem 0;
+ display: flex;
+ align-items: center;
   margin: 0;
-  letter-spacing: 0.1rem;
-  min-height: 3.8rem;
+  letter-spacing: normal;
+  min-height: 3rem;
 }
 
 .announcement-bar-slider--fade-in-next .announcement-bar__message,
@@ -2436,7 +2440,7 @@ input[type='checkbox'] {
 
 .header__heading-link {
   display: inline-block;
-  padding: 0.75rem;
+  padding:0 0.75rem;
   text-decoration: none;
   word-break: break-word;
 }
@@ -2507,7 +2511,8 @@ input[type='checkbox'] {
   display: flex;
   grid-area: icons;
   justify-self: end;
-  padding-right: 0.8rem;
+  /* padding-right: 0.8rem; */
+  align-items: center;
 }
 
 .header__icons .shopify-app-block {
@@ -2554,8 +2559,8 @@ input[type='checkbox'] {
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 2rem;
+  width: auto;
   padding: 0;
 }
 
@@ -2666,7 +2671,7 @@ details[open] .modal-overlay::after {
 
 .search-modal__content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: 100%;
   height: 100%;
@@ -2686,7 +2691,7 @@ details[open] .modal-overlay::after {
 .search-modal__form {
   width: 100%;
 }
-
+form.search-modal__form{padding-top:30px; width:calc(100% - 30px)}
 .search-modal__close-button {
   position: absolute;
   right: 0.3rem;
@@ -2704,7 +2709,7 @@ details[open] .modal-overlay::after {
 
 @media screen and (min-width: 990px) {
   .search-modal__form {
-    max-width: 74.2rem;
+    /* max-width: 74.2rem; */
   }
 
   .search-modal__close-button {
@@ -2716,7 +2721,7 @@ details[open] .modal-overlay::after {
 /* Header menu drawer */
 .header__icon--menu .icon {
   display: block;
-  position: absolute;
+  /* position: absolute; */
   opacity: 1;
   transform: scale(1);
   transition: transform 150ms ease, opacity 150ms ease;
@@ -2792,7 +2797,8 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item {
-  padding: 1.2rem;
+  font-weight: 500;
+  padding:2.3rem 1.2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground), 0.75);
 }
@@ -3572,7 +3578,7 @@ details-disclosure > details {
   width: 100%;
 }
 
-.progress-bar-value {
+.progress-bar-value {  
   width: 100%;
   height: 100%;
   background-color: rgb(var(--color-foreground));
@@ -3595,3 +3601,18 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+
+.swiper-wrapper{
+  transition-timing-function: linear 
+}
+
+  /* Tab styles */
+  .tab-panel {
+    display: none;
+  }
+
+  .tab-panel.active {
+    display: block;
+  }
+

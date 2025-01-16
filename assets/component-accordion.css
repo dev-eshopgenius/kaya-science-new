@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   line-height: 1;
-  padding: 1.5rem 0;
+  padding: 2rem 0;
 }
 
 .accordion .summary__title {
@@ -11,7 +11,7 @@
 }
 
 .accordion .summary__title + .icon-caret {
-  height: calc(var(--font-heading-scale) * 0.6rem);
+  height:16px;
 }
 
 .accordion + .accordion {
@@ -20,18 +20,18 @@
 }
 
 .accordion {
-  margin-top: 2.5rem;
-  margin-bottom: 0;
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+
+ 
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
-
+.product__accordion-wrapper .accordion:last-child{border:none} 
 .accordion__title {
   display: inline-block;
   max-width: calc(100% - 6rem);
   min-height: 1.6rem;
   margin: 0;
   word-break: break-word;
+  font-size: 1.6rem;line-height: 22.4px;
 }
 
 .accordion .svg-wrapper {
@@ -43,16 +43,72 @@
 }
 
 .accordion details[open] > summary .icon-caret {
-  transform: rotate(180deg);
+  transform: rotate(180deg) translateY(-50%);
 }
 
 .accordion__content {
   margin-bottom: 1.5rem;
   word-break: break-word;
   overflow-x: auto;
-  padding: 0 0.6rem;
+  padding: 0;
 }
 
 .accordion__content img {
   max-width: 100%;
+}
+.build-step-wrapper {
+  display: flex;
+  margin: 0 -11.3% 0 0;gap:24px;
+}
+.build-step-wrapper .step-number {
+  width: 40px;
+  height: 40px;
+  background: #262626;
+  color: #fff;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;position:relative; z-index: 9;
+}
+
+.build-step-wrapper .content-wrap .step-heading {
+  font-weight: 600;
+  margin: 10px 0;
+  line-height: 20px;
+}
+.build-step-wrapper .content-wrap  .step-content {
+  font-size: 14px;
+  line-height: 20px;
+}
+.build-step-wrapper .content-wrap {margin-bottom: 30px;}
+.product_multi-image-items .product_multi-image-items {
+  margin-bottom: 15px;
+}
+.product_multi-image-items .product_multi-image-items img {
+  display: block;
+  width: 100%;height: auto;
+  border-radius: 12px;
+}
+
+ /* Designing for scroll-bar */
+ .product__info-container .product--offers-wrap::-webkit-scrollbar {
+  width: 3px; height: 7px;
+}
+
+/* Track */
+.product__info-container .product--offers-wrap::-webkit-scrollbar-track {
+  background: gainsboro;
+  border-radius: 3px;height: 5px;
+}
+
+/* Handle */
+.product__info-container .product--offers-wrap::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 3px;height: 5px;
+}
+
+/* Handle on hover */
+.product__info-container .product--offers-wrap::-webkit-scrollbar-thumb:hover {
+  background: #555;height: 5px;
 }

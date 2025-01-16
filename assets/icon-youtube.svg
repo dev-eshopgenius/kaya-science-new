@@ -1,1 +1,5 @@
-<svg class="icon icon-youtube" viewBox="0 0 20 20"><path fill="currentColor" d="M18.16 5.87c.34 1.309.34 4.08.34 4.08s0 2.771-.34 4.08a2.13 2.13 0 0 1-1.53 1.53c-1.309.34-6.63.34-6.63.34s-5.321 0-6.63-.34a2.13 2.13 0 0 1-1.53-1.53c-.34-1.309-.34-4.08-.34-4.08s0-2.771.34-4.08a2.17 2.17 0 0 1 1.53-1.53C4.679 4 10 4 10 4s5.321 0 6.63.34a2.17 2.17 0 0 1 1.53 1.53M8.3 12.5l4.42-2.55L8.3 7.4z"/></svg>
+<svg class="icon icon-youtube" width="39" height="38" viewBox="0 0 39 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.666504" width="38" height="38" rx="19" fill="#D9D9D9"/>
+<rect x="9.36124" y="8.69278" width="20.6105" height="20.6105" rx="3.30526" stroke="#262626" stroke-width="1.38947"/>
+<path d="M17.0896 14.5093L24.4711 18.771L17.0896 23.0328L17.0896 14.5093Z" stroke="#262626" stroke-width="1.1"/>
+</svg>

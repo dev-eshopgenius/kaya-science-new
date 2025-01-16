@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "slideshow_jYDxQC": {
       "type": "slideshow",
@@ -15,7 +15,8 @@
         "slide_pkkB3F": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/1080x566-META.jpg",
+            "image": "shopify://shop_images/kaya-banner.jpg",
+            "mob_image": "shopify://shop_images/kaya_13.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -34,6 +35,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Top_banner_Moisturizers-2880x768.webp",
+            "mob_image": "shopify://shop_images/kaya_13.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -52,6 +54,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Top_banner_Moisturizers-2880x768.webp",
+            "mob_image": "shopify://shop_images/kaya_13_1.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -76,44 +79,706 @@
         "layout": "full_bleed",
         "slide_height": "adapt_image",
         "slider_visual": "dots",
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "image_text_block_rKfYjp": {
+      "type": "image-text-block",
+      "blocks": {
+        "heading_jMpxeM": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/bestsellers.jpg",
+            "heading": "Bestseller",
+            "link": "shopify://collections/best-sellers"
+          }
+        },
+        "heading_x7Hfiq": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/free-call-con.jpg",
+            "heading": "Free Call Consultation",
+            "link": "#"
+          }
+        },
+        "heading_9N4Nbf": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/new-arrivals.jpg",
+            "heading": "New Arrivals",
+            "link": "shopify://collections/new-arrivals"
+          }
+        },
+        "heading_HGafUn": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/face.jpg",
+            "heading": "Face",
+            "link": "shopify://collections/new-arrivals"
+          }
+        },
+        "heading_9zecKy": {
+          "type": "heading",
+          "settings": {
+            "image": "shopify://shop_images/hair.jpg",
+            "heading": "Hair",
+            "link": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jMpxeM",
+        "heading_x7Hfiq",
+        "heading_9N4Nbf",
+        "heading_HGafUn",
+        "heading_9zecKy"
+      ],
+      "settings": {
+        "classname": "",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "home_featured_collection_nP6Bmj": {
+      "type": "home-featured-collection",
       "settings": {
         "title": "Top Selling Formulas",
-        "heading_size": "h2",
+        "heading_size": "h1",
         "description": "<p>Discover our most-loved, effective products</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 15,
+        "collection": "anti-aging",
+        "products_to_show": 18,
         "columns_desktop": 4,
         "full_width": true,
         "show_view_all": true,
-        "view_all_style": "link",
-        "enable_desktop_slider": true,
-        "color_scheme": "scheme-1",
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "highlights_je6D6P": {
+      "type": "highlights",
+      "blocks": {
+        "icon_with_text_3A3aat": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_XNKBhC": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_NaPp7A": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_NQdp83": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_qKU3LK": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_yRDWt8": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_xTHAUN": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_with_text_3A3aat",
+        "icon_with_text_XNKBhC",
+        "icon_with_text_NaPp7A",
+        "icon_with_text_NQdp83",
+        "icon_with_text_qKU3LK",
+        "icon_with_text_yRDWt8",
+        "icon_with_text_xTHAUN"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "video_section_ptMYic": {
+      "type": "video-section",
+      "blocks": {
+        "vidoe_block_VfL6cG": {
+          "type": "vidoe_block",
+          "settings": {
+            "video": "shopify://files/videos/1105359_1080p_Stretch_1280x720.mp4",
+            "product": "kaya-10-niacinamide-1-azeloglycina-face-serum"
+          }
+        },
+        "vidoe_block_xFpxpz": {
+          "type": "vidoe_block",
+          "settings": {
+            "video": "shopify://files/videos/1105359_1080p_Stretch_1280x720.mp4",
+            "product": "kaya-10-niacinamide-1-azeloglycina-face-serum"
+          }
+        },
+        "vidoe_block_43663K": {
+          "type": "vidoe_block",
+          "settings": {
+            "video": "shopify://files/videos/1105359_1080p_Stretch_1280x720.mp4",
+            "product": "kaya-10-niacinamide-1-azeloglycina-face-serum"
+          }
+        },
+        "vidoe_block_YReDBt": {
+          "type": "vidoe_block",
+          "settings": {
+            "video": "shopify://files/videos/1105359_1080p_Stretch_1280x720.mp4",
+            "product": "kaya-10-niacinamide-1-azeloglycina-face-serum"
+          }
+        }
+      },
+      "block_order": [
+        "vidoe_block_VfL6cG",
+        "vidoe_block_xFpxpz",
+        "vidoe_block_43663K",
+        "vidoe_block_YReDBt"
+      ],
+      "settings": {
+        "title": "Sea & Shop",
+        "subtitle": "watch demos and shop instantly for what you need.",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "home_featured_collection_zPkr4D": {
+      "type": "home-featured-collection",
+      "settings": {
+        "title": "Just Launched",
+        "heading_size": "h1",
+        "description": "<p>Discover our most-loved, effective products</p>",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "face-serum",
+        "products_to_show": 18,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_akMJ3V": {
+      "type": "image-banner",
+      "settings": {
+        "classname": "home-banner-class",
+        "image": "shopify://shop_images/image_44.png",
+        "mob_image": "shopify://shop_images/image_9.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "highlights_7JYMJx": {
+      "type": "highlights",
+      "blocks": {
+        "icon_with_text_htEpb6": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": "#"
+          }
+        },
+        "icon_with_text_mVNDyM": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": "#"
+          }
+        },
+        "icon_with_text_dMVXLf": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_LiNqD7": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        },
+        "icon_with_text_PH7dKR": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Science-led skincare solutions for clear, radiant, and healthy skin",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_with_text_htEpb6",
+        "icon_with_text_mVNDyM",
+        "icon_with_text_dMVXLf",
+        "icon_with_text_LiNqD7",
+        "icon_with_text_PH7dKR"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_6HgaNV": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3CfQhq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_39_fac52310-5b13-4571-b4d4-21a59d37da63.png",
+            "title": "Brightening Essential Kit",
+            "text": "<p>This kit combines potent ingredients to give you a healthy, luminous glow.</p>",
+            "link_label": "Shop Now",
+            "link": "#"
+          }
+        },
+        "column_zNyyTr": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_38_49124040-7ed7-4bf4-bf49-899cedc3c219.png",
+            "title": "Brightening Essential Kit",
+            "text": "<p>This kit combines potent ingredients to give you a healthy, luminous glow.</p>",
+            "link_label": "Shop Now",
+            "link": "#"
+          }
+        },
+        "column_DTWDcf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_37_bcdb1a93-1eb4-4503-8a07-5a4eeaff1753.png",
+            "title": "Brightening Essential Kit",
+            "text": "<p>This kit combines potent ingredients to give you a healthy, luminous glow.</p>",
+            "link_label": "Shop Now",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "column_3CfQhq",
+        "column_zNyyTr",
+        "column_DTWDcf"
+      ],
+      "settings": {
+        "classname": "",
+        "title": "Routine Kits",
+        "sub_heading": "Curated kits for targeted skincare results.",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-48ef665a-368c-4f1a-b853-d3862b22e100",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 44,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "home_feature_category_6LJERP": {
+      "type": "home-feature-category",
+      "blocks": {
+        "category_FVMVxQ": {
+          "type": "category",
+          "settings": {
+            "cat_heading": "Browse by Category",
+            "cat_subheading": "Science-backed care for every part of you.",
+            "block_image_1": "shopify://shop_images/Frame_427319200_a092cc54-a6f1-4377-ab11-e2c86e53c733.png",
+            "block_text_1": "Face",
+            "block_link_1": "https://kayascience.com/collections/face-1",
+            "block_image_2": "shopify://shop_images/Frame_427319201_1.png",
+            "block_text_2": "Hair",
+            "block_link_2": "https://kayascience.com/collections/hair-1",
+            "block_image_3": "shopify://shop_images/Frame_427319202_e11b323f-2e4c-4f7c-ab23-bf53b54da382.png",
+            "block_text_3": "Body",
+            "block_link_3": "https://kayascience.com/collections/body"
+          }
+        },
+        "target_gLrTER": {
+          "type": "target",
+          "settings": {
+            "tar_heading": "Find Your Solution",
+            "tar_text": "Address specific skin concerns with precision.",
+            "image": "shopify://shop_images/image_43_d2fc64d0-d45b-4998-aebf-ad849edbff48.png",
+            "mob_image": "shopify://shop_images/fys.jpg",
+            "text_1": "Hyperpigmentation",
+            "link_1": "https://kayascience.com/collections/hyperpigmentation",
+            "text_2": "Dullness",
+            "link_2": "https://kayascience.com/collections/dullness",
+            "text_3": "Anti Aging",
+            "link_3": "https://kayascience.com/collections/anti-aging",
+            "text_4": "Acne and Pimple",
+            "link_4": "https://kayascience.com/collections/acne",
+            "text_5": "Dark Spots",
+            "link_5": "https://kayascience.com/collections/dark-spots",
+            "text_6": "Sun Protection",
+            "link_6": "https://kayascience.com/collections/sun-protection"
+          }
+        }
+      },
+      "block_order": [
+        "category_FVMVxQ",
+        "target_gLrTER"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_qhke97": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_XLXHXp": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_40.png",
+            "title": "Salicylic Acid",
+            "text": "<p>Clears pores, fights breakouts</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_GEe7ig": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_42.png",
+            "title": "Niacinamide",
+            "text": "<p>Calms, strengthens, brightens skin.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_xHVNnk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_40.png",
+            "title": "Witch Hazel",
+            "text": "<p>Soothes irritation, tightens pores.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_NfQnPP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_40.png",
+            "title": "Witch Hazel",
+            "text": "<p>Soothes irritation, tightens pores.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_AyJNCR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_40.png",
+            "title": "Shea Butter",
+            "text": "<p>Soothes irritation, tightens pores.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_REkDFR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_40.png",
+            "title": "Witch Hazel",
+            "text": "<p>Soothes irritation, tightens pores.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_XLXHXp",
+        "column_GEe7ig",
+        "column_xHVNnk",
+        "column_NfQnPP",
+        "column_AyJNCR",
+        "column_REkDFR"
+      ],
+      "settings": {
+        "classname": "ingredients",
+        "title": "Discover Key Ingredients",
+        "sub_heading": "Science-backed ingredients for maximum efficacy.",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 6,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-a24c0c28-8ffe-411d-9854-c829604e0bb5",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_wwBeXj": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_DpnYHK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Personalized Skin Insights",
+            "heading_size": "h1"
+          }
+        },
+        "text_wXkiAA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get a custom routine based on your unique skin needs.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_eRGetB": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start Your Free Analysis",
+            "button_link": "shopify://collections/acne-and-pimples-1",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_DpnYHK",
+        "text_wXkiAA",
+        "button_eRGetB"
+      ],
+      "settings": {
+        "classname": "insights",
+        "image": "shopify://shop_images/unbundldesign_Studio_Photography_of_an_beautiful_indian_beautif_72a29fc2-d63a-49b4-a654-8f5d18efa3de_1.png",
+        "mobimage": "shopify://shop_images/psi.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "home_image_text_ntwGMg": {
+      "type": "home-image-text",
+      "blocks": {
+        "icon_text_9V9eKz": {
+          "type": "icon_text",
+          "settings": {
+            "icon1": "shopify://shop_images/indian-skin-icon.svg",
+            "text1": "Made for <br>Indian Skin",
+            "icon2": "shopify://shop_images/dermo-icon.svg",
+            "text2": "Dermatologist <br>Recommended"
+          }
+        },
+        "icon_text_8rMgXP": {
+          "type": "icon_text",
+          "settings": {
+            "icon1": "shopify://shop_images/science-icon.svg",
+            "text1": "Science Backed <br>Formulas",
+            "icon2": "shopify://shop_images/experties-icon.svg",
+            "text2": "20+ years of <br>Expertise"
+          }
+        }
+      },
+      "block_order": [
+        "icon_text_9V9eKz",
+        "icon_text_8rMgXP"
+      ],
+      "settings": {
+        "classname": "",
+        "heading": "",
+        "image": "shopify://shop_images/Rectangle_3379.png",
+        "mobimage": "shopify://shop_images/stay-radiant.jpg",
+        "layout": "text_first",
+        "content": "<p>Our skincare blends nature with advanced science, using dermatologist-recommended, biotechnological actives for effective, skin-compatible solutions tailored for Indian skin.</p>",
+        "label_text": "Stay Radiant<span>— Team Kaya</span>",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_GzhyWM": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Beauty Insights",
+        "subheading": "<p>Expert skincare tips, trends, and science-driven advice.</p>",
+        "heading_size": "h1",
+        "blog": "skincare",
+        "post_limit": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-2",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17339035336e675352": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_86b3Fq": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "Join our conversation",
+            "title_color": "",
+            "alignment": "left",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_86b3Fq"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "home_shipping_contact_geT3ze": {
+      "type": "home-shipping-contact",
+      "blocks": {
+        "block_RcNcRg": {
+          "type": "block",
+          "settings": {
+            "image_align": "left",
+            "image": "shopify://shop_images/free_shipping.svg",
+            "heading": "Free Shipping",
+            "text": "On Orders Above Rs. 499",
+            "button_label": "",
+            "button_link": "",
+            "bg_color": "#ffffff",
+            "linear_bg": ""
+          }
+        },
+        "block_i3hWxd": {
+          "type": "block",
+          "settings": {
+            "image_align": "left",
+            "image": "shopify://shop_images/cod.svg",
+            "heading": "COD Available",
+            "text": "@ Rs. 50 Per Order",
+            "button_label": "",
+            "button_link": "",
+            "bg_color": "#ffffff",
+            "linear_bg": ""
+          }
+        },
+        "block_q8DAAb": {
+          "type": "block",
+          "settings": {
+            "image_align": "left",
+            "image": "shopify://shop_images/question.svg",
+            "heading": "Have Questions?",
+            "text": "We’re Here to Help.",
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact",
+            "bg_color": "#ffffff",
+            "linear_bg": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_RcNcRg",
+        "block_i3hWxd",
+        "block_q8DAAb"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
     "slideshow_jYDxQC",
-    "featured_collection"
+    "image_text_block_rKfYjp",
+    "home_featured_collection_nP6Bmj",
+    "highlights_je6D6P",
+    "video_section_ptMYic",
+    "home_featured_collection_zPkr4D",
+    "image_banner_akMJ3V",
+    "highlights_7JYMJx",
+    "multicolumn_6HgaNV",
+    "home_feature_category_6LJERP",
+    "multicolumn_qhke97",
+    "image_with_text_wwBeXj",
+    "home_image_text_ntwGMg",
+    "featured_blog_GzhyWM",
+    "17339035336e675352",
+    "home_shipping_contact_geT3ze"
   ]
 }

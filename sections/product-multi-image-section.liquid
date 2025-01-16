@@ -1,0 +1,29 @@
+{% if product.metafields.custom.product_multiple_images_section != blank %}
+    <div class="product_multi-image--wrap">
+      <div class="product_multi-image-main page-width">
+        <div class="product_multi-image-items">
+            {% for product_multi_image in product.metafields.custom.product_multiple_images_section.value %}
+                <div class="product_multi-image-items">
+                    {{ product_multi_image | image_url: width: 1024 | image_tag: laoding:'lazy', class:'product_multi_image'  }}
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}  
+  {% schema %}
+    {
+      "name": "Product Image Section",
+      "settings": [
+        {
+            "type": "header",
+            "content": "Images Coming From Metafield...."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Product Image Section"
+        }
+      ]
+    }
+  {% endschema %}

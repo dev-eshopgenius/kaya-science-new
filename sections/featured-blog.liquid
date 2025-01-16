@@ -26,8 +26,10 @@
 -%}
 <div class="blog color-{{ section.settings.color_scheme }} gradient{% if section.settings.heading == blank %} no-heading{% endif %}">
   <div class="page-width-desktop isolate{% if posts_displayed < 3 %} page-width-tablet{% endif %} section-{{ section.id }}-padding">
+   
     {%- unless section.settings.heading == blank -%}
       <div class="title-wrapper-with-link{% if posts_displayed > 2 %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
+        <div class="title-wrapper ">
         <h2
           id="SectionHeading-{{ section.id }}"
           class="blog__title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -37,7 +39,12 @@
         >
           {{ section.settings.heading }}
         </h2>
-
+        {% if section.settings.subheading != blank %}
+          <div class="subheading sub_heading">
+              {{  section.settings.subheading }}
+          </div>
+        {% endif %}
+        </div>
         {%- if section.settings.blog != blank
           and section.settings.show_view_all
           and section.settings.post_limit < section.settings.blog.articles_count
@@ -192,7 +199,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.featured-blog.name",
+  "name": "Featured Blog",
   "tag": "section",
   "disabled_on": {
     "groups": ["header", "footer"]
@@ -203,6 +210,11 @@
       "id": "heading",
       "default": "t:sections.featured-blog.settings.heading.default",
       "label": "t:sections.featured-blog.settings.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "sub-Heading"
     },
     {
       "type": "select",
@@ -314,7 +326,7 @@
   ],
   "presets": [
     {
-      "name": "t:sections.featured-blog.presets.name"
+      "name": "Featured Blog"
     }
   ]
 }

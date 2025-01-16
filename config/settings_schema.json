@@ -156,7 +156,7 @@
         "id": "page_width",
         "min": 1000,
         "max": 1600,
-        "step": 100,
+        "step": 10,
         "default": 1200,
         "unit": "px",
         "label": "t:settings_schema.layout.settings.page_width.label"
@@ -1391,7 +1391,63 @@
         "default": false,
         "label": "t:settings_schema.search_input.settings.predictive_search_show_price.label",
         "info": "t:settings_schema.search_input.settings.predictive_search_show_price.info"
-      }
+      },
+      {
+            "type": "text",
+            "id": "placeholder_texts",
+            "label": "Placeholder Texts (comma-separated)",
+            "default": "Search for products,Find your favorite items,Explore new categories,Discover amazing deals"
+     },
+     {
+        "type": "text",
+        "id": "menu_title",
+        "label": "Menu Title",
+        "default":"Trending"
+     },
+     {
+      "type": "link_list",
+      "id": "search_menu",
+      "label": "Search Menu"
+     },
+     {
+      "type": "text",
+      "id": "seller_title",
+      "label": "Title",
+      "default":"Our BestSellers"
+   },
+     {
+      "type": "collection",
+      "id": "search_col",
+      "label": "Search Collection"
+     },
+     {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "info": "t:sections.main-collection-product-grid.settings.quick_add.info",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_secondary_image.label"
+    }
+        
     ]
   },
   {
@@ -1463,6 +1519,213 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      }
+    ]
+  },
+  {
+    "name": "Discount Coupon",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_popup",
+        "label": "Enable Popup?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Phone Popup Details"
+      },
+      {
+        "type": "text",
+        "id": "phone_pop_text",
+        "label": "Text"
+      },
+      {
+        "type": "html",
+        "id": "phone_pop_heading",
+        "label": "Text"
+      },
+       {
+        "type": "text",
+        "id": "popup_heading",
+        "label": "Heading",
+         "default":"Unlock Exclusive Access"
+      },
+       {
+        "type": "richtext",
+        "id": "popup_subheading",
+        "label": "Sub-Heading"
+      },
+       {
+        "type": "inline_richtext",
+        "id": "subtext",
+        "label": "Sub-Text",
+        "default":"Offer applicable on min. cart value of ₹300"
+      },
+        {
+        "type": "html",
+        "id": "terms_text",
+        "label": "Terms & Condition Text"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text",
+        "default":"Get Access"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "discount_img",
+        "label": "Discount Image"
+      },
+      {
+        "type": "header",
+        "content": "OTP"
+      },
+      {
+        "type": "text",
+        "id": "otp_heading",
+        "label": "Heading"
+      },      
+      {
+        "type": "html",
+        "id": "otp_text",
+        "label": "OTP Text"
+      },
+      {
+        "type": "header",
+        "content": "Coupon Code"
+      },
+      {
+        "type": "text",
+        "id": "coupon_heading",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "coupon_image",
+        "label": "Coupon Image"
+      },
+      {
+        "type": "text",
+        "id": "coupan_caption",
+        "label": "Heading",
+        "default":"Coupan Unlocked "
+      },
+      {
+        "type": "html",
+        "id": "coupon_text",
+        "label": "Coupon Text"
+      },
+      {
+        "type": "text",
+        "id": "coupon_code",
+        "label": "Coupon Code"
+      }
+    ]
+  },
+  {
+  "name":"Cart Product Offers",
+   "settings": [
+      {
+          "type": "text",
+          "id": "offertitle",
+          "label": "Title",
+          "default": "Coupons"
+      },
+       {
+        "type":"header",
+        "content":"Coupon Code [1]"
+      },
+      {
+        "type": "text",
+        "id": "heading1",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading1",
+        "label": "SubHeading"
+      },
+        {
+        "type":"header",
+        "content":"Coupon Code [2]"
+      },
+      {
+        "type": "text",
+        "id": "heading2",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading2",
+        "label": "SubHeading"
+      },
+        {
+        "type":"header",
+        "content":"Coupon Code [3]"
+      },
+         {
+        "type": "text",
+        "id": "heading3",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading3",
+        "label": "SubHeading"
+      },
+        {
+        "type":"header",
+        "content":"Coupon Code [4]"
+      },
+      {
+        "type": "text",
+        "id": "heading4",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading4",
+        "label": "SubHeading"
+      },
+        {
+        "type":"header",
+        "content":"Coupon Code [5]"
+      },
+        {
+        "type": "text",
+        "id": "heading5",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading5",
+        "label": "SubHeading"
+      },
+        {
+        "type":"header",
+        "content":"Coupon Code [6]"
+      },
+         {
+        "type": "text",
+        "id": "heading6",
+        "label": "Heading"
+      },
+       {
+        "type": "textarea",
+        "id": "subheading6",
+        "label": "SubHeading"
+      },
+      {
+        "type": "collection",
+        "id": "cart_collection",
+        "label": "Cart Collection"
       }
     ]
   }

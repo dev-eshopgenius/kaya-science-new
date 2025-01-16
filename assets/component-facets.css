@@ -47,9 +47,10 @@
 
 .facet-filters__label {
   display: block;
-  color: rgba(var(--color-foreground), 0.85);
-  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 1);
+  font-size: 1.6rem;
   margin: 0 2rem 0 0;
+  font-weight: 600;
 }
 
 .facet-filters__summary {
@@ -179,9 +180,10 @@
 
 .facets__heading {
   display: block;
-  color: rgba(var(--color-foreground), 0.85);
+  color: rgba(var(--color-foreground), 1);
   font-size: 1.4rem;
   margin: -1.5rem 2rem 0 0;
+  font-weight: 600;
 }
 
 .facets__reset {
@@ -193,10 +195,11 @@
 }
 
 .facets__summary {
-  color: rgba(var(--color-foreground), 0.75);
-  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 1);
+  font-size: 1.6rem;
   padding: 0 1.75rem 0 0;
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .facets__summary .svg-wrapper {
@@ -225,8 +228,8 @@
 }
 
 .facets__summary:hover .facets__summary-label {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  /* text-decoration: underline;
+  text-underline-offset: 0.3rem; */
 }
 
 .facets__and-helptext {
@@ -1150,7 +1153,7 @@ input.mobile-facets__checkbox {
 
   .facets__heading--vertical {
     margin: 0 0 1.5rem 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .facets__header-vertical {

@@ -7,19 +7,20 @@
 }
 
 .footer__content-top {
-  padding-bottom: 5rem;
+  padding-bottom: 0;
   display: block;
 }
 
 @media screen and (max-width: 749px) {
   .footer .grid {
-    display: block;
+    display: flex;
   }
 
   .footer-block.grid__item {
     padding: 0;
-    margin: 4rem 0;
-    width: 100%;
+    margin: 0;
+    width: auto;
+    flex-basis: 48%;
   }
 
   .footer-block.grid__item:first-child {
@@ -28,8 +29,8 @@
 
   .footer__content-top {
     padding-bottom: 3rem;
-    padding-left: calc(4rem / var(--font-body-scale));
-    padding-right: calc(4rem / var(--font-body-scale));
+    padding-left: calc(1.5rem / var(--font-body-scale));
+    padding-right: calc(1.5rem / var(--font-body-scale));
   }
 }
 
@@ -40,10 +41,10 @@
   }
 }
 
-.footer__content-bottom {
+/* .footer__content-bottom {
   border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);
   padding-top: 3rem;
-}
+} */
 
 .footer__content-bottom:only-child {
   border-top: 0;
@@ -232,8 +233,8 @@
     align-items: center;
     gap: 3rem;
   }
+  .footer__list-social.list-social{justify-content: flex-start;}
 
-  .footer__list-social.list-social,
   .footer__follow-on-shop,
   .footer-block__newsletter {
     display: flex;
@@ -266,7 +267,7 @@
 
 .footer__localization h2 {
   margin: 1rem 1rem 0.5rem;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-foreground), 1);
 }
 
 @media screen and (min-width: 750px) {
@@ -292,7 +293,7 @@
 
 .footer__copyright {
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 1.5rem;width:100%
 }
 
 @media screen and (min-width: 750px) {
@@ -337,7 +338,7 @@
 
 .footer-block__details-content .list-menu__item--link,
 .copyright__content a {
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-foreground), 1);font-size: 1.4rem; font-weight: 500;
 }
 
 .footer-block__details-content .list-menu__item--active {
@@ -360,8 +361,8 @@
 
 @media screen and (max-width: 989px) {
   .footer-block__details-content .list-menu__item--link {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0;
+    padding-bottom: .5rem;
   }
 }
 
@@ -452,7 +453,7 @@
 }
 
 .policies {
-  display: inline;
+  display: flex;justify-content: space-between;padding: 0;
 }
 
 .policies li {
@@ -461,10 +462,10 @@
   align-items: center;
 }
 
-.policies li::before {
+/* .policies li::before {
   content: '\00B7';
   padding: 0 0.8rem;
-}
+} */
 
 .policies li a {
   padding: 0.6rem 0;
