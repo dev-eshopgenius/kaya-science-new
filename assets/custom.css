@@ -743,6 +743,13 @@ ul.highlights-points {
   margin: 0;
   padding-top: 10px;
 }
+.blog-product {margin-top:60px}
+.blog-product .product-card-wrapper {
+  background: transparent;
+  padding: 0;max-width: 355px;
+}
+.article-template-banner .breadcrumbs__list li.breadcrumbs__item a {font-size: 12px;}
+.breadcrumbs__list li.breadcrumbs__item:last-child a{color: #262626;font-weight: 500;}
 @media(min-width:750px) {
   .mobile__stp {
     display: none;
@@ -851,6 +858,27 @@ padding-left: 22%;
  display: none;
 }
   @media(max-width:749px) {
+    .article-template-banner .breadcrumbs__list li.breadcrumbs__item a {white-space: nowrap; text-overflow: ellipsis; overflow: hidden;max-width: 210px; display: block;}
+    .accordion__title, .accordion__content p {font-size: 1.4rem; line-height: 19.6px;}
+    .blog-accordian .collapsible-content__heading {font-size: 20px; line-height: 26px;}
+    .grid-item-wrapper {padding: 15px;}
+    .newsletter-info-wrap {
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+    .newsletter-blog__wrapper {padding: 20px;}
+    .newsletter-blog {
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+    .newsletter-blog__wrapper {
+      flex-direction: column;
+  }
+  
+  .newsletter-blog__wrapper > div {
+      width: 100%;
+      margin: auto;
+  }
     .contact.page-width .subheading p {font-size: 14px; line-height: 19.6px;}
     .contact .title {
       font-size: 20px;
