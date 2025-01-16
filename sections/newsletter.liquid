@@ -16,6 +16,7 @@
 {%- endstyle -%}
 
 <div class="newsletter-blog center color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+  <div class=" {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
   <div class="newsletter-blog__wrapper  {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
@@ -121,7 +122,7 @@
       {%- endcase -%}
     {%- endfor -%}
   </div>
-</div>
+</div></div>
 
 {% schema %}
 {
