@@ -43,10 +43,9 @@
     <a href="#" class="button button-primary free_Shipping-btn">Contact Us</a>
   </div>
   <div class="logout-wrapper white-block">
-    <a href="{{ routes.account_logout_url }}">
-      <span class="svg-wrapper">
-        {{- 'icon-account.svg' | inline_asset_content -}}
-      </span>
+    <a href="{{ routes.account_logout_url }} " class="flex align-center gap-10">
+      
+        {{- 'logout-icon.svg' | inline_asset_content -}}   
       {{ 'customer.log_out' | t }}
     </a>
   </div>
