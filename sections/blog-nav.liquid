@@ -18,7 +18,7 @@
 <div class="blog-tabs">
     <ul>
         {%- for link in section.settings.blog_link.links -%}
-         <li><a href="{{ link.url }}" class="active">{{ link.title }}</a></li>
+         <li><a href="{{ link.url }}" class="{% if  link.url == request.path %}active{% endif %}">{{ link.title }}</a></li>
        {% endfor %}
   
     </ul>

@@ -67,6 +67,7 @@
         {% if posts_displayed > 2 %}slider--tablet{% else %}slider--mobile{% endif %}
       "
       role="list"
+      id="article--items"
     >
       <div class="swiper-wrapper">
         {% if section.settings.blog != blank and section.settings.blog.articles_count > 0 %}
@@ -122,19 +123,24 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const sliderWrapper = document.querySelectorAll('.main--article-wrapper');
-    sliderWrapper.forEach((el) => {
-      let width = 0;
-      if (el.classList.contains('disable-slider-mobile')) {
-        width = 768;
-      }
-      if(window.innerWidth > width) {
-        new Swiper(el, {
+    const sliderWrappers = document.querySelectorAll('.main--article-wrapper');
+  
+    sliderWrappers.forEach((el) => {
+      // Check if the slider should be disabled on mobile
+      const isDisabledOnMobile = el.classList.contains('disable-slider-mobile');
+      const minWidth = isDisabledOnMobile ? 768 : 0;
+      console.log(el.id,"<><><><><><somu>",isDisabledOnMobile);
+     
+      if (window.innerWidth > minWidth) {
+        const element_class = document.querySelector("#" + el.id);
+        const childElement = element_class.querySelector('.main--article-wrapper');
+        childElement.classList.remove('swiper-slide');
+        new Swiper("#"+el.id, {
           slidesPerView: 1.5,
           spaceBetween: 20,
           navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: el.querySelector('.swiper-button-next'),
+            prevEl: el.querySelector('.swiper-button-prev'),
           },
           breakpoints: {
             768: {
@@ -150,29 +156,7 @@
         });
       }
     });
-
-    {% comment %} if (sliderWrapper && !sliderWrapper.classList.contains('disable-slider-mobile')) {
-      new Swiper('.main--article-wrapper', {
-        slidesPerView: 1.5,
-        spaceBetween: 20,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 1.5,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4.5,
-            spaceBetween: 30,
-          },
-        },
-        loop: true,
-      });
-    } {% endcomment %}
-  });
+  }); 
 </script>
 
 {% schema %}

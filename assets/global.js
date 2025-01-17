@@ -1463,15 +1463,18 @@ document.addEventListener('click', function (event) {
  document.querySelectorAll('.tab-button').forEach((tabButton) => {
   tabButton.addEventListener('click', function () {
  
+    
     document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
 
     document.querySelectorAll('.tab-panel').forEach((panel) => panel.classList.remove('active'));
-
+   
 
     this.classList.add('active');
-  
+    
     const targetId = this.getAttribute('data-id');
     document.querySelector(`.tab-panel[data-target="${targetId}"]`).classList.add('active');
+    
+    
   });
 });
 
