@@ -53,14 +53,14 @@
 </div>
 <!-- Tab content -->
 <div class="details-content-wrapper flex-column">
-  <div class="act-page-head">Your Orders</div>
+  
   <div class="address-content-wrap tab-panel" data-target="address--detail">
-    <span>Your Addresses</span>
+    <div class="act-page-head">Your Addresses</div>
     {{ customer.default_address | format_address }}
-    {{ customer.addresses.first }} {{ customer.addresses.last }}
   </div>
 
   <div class="orders-wrapper tab-panel active" data-target="order--detail">
+    <div class="act-page-head">Your Orders</div>
     {%- for order in customer.orders -%}
          <div class="customer-order-details">
      <div class="trans-bg-tbl"> <div class="order-details-wrapp">
