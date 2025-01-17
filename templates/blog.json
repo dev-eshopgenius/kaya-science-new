@@ -16,7 +16,7 @@
           "type": "heading",
           "settings": {
             "heading": "Kaya Blog",
-            "heading_size": "h1"
+            "heading_size": "h2"
           }
         }
       },
@@ -24,10 +24,10 @@
         "heading_j3Exkm"
       ],
       "settings": {
-        "classname": "",
+        "classname": "blog-list-banner",
         "image": "shopify://shop_images/kaya-blog-banner.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
@@ -43,7 +43,7 @@
       "settings": {
         "blog_link": "blogs",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 8
       }
     },
     "main": {
@@ -52,10 +52,10 @@
         "subheading": "",
         "layout": "grid",
         "show_image": true,
-        "image_height": "adapt",
+        "image_height": "medium",
         "show_date": true,
         "show_author": false,
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     }
