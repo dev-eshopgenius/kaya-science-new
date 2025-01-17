@@ -612,7 +612,7 @@
         "button_eRGetB"
       ],
       "settings": {
-        "classname": "insights",
+        "classname": "insights skin-insights",
         "image": "shopify://shop_images/unbundldesign_Studio_Photography_of_an_beautiful_indian_beautif_72a29fc2-d63a-49b4-a654-8f5d18efa3de_1.png",
         "mobimage": "shopify://shop_images/psi.png",
         "button_label": "Button label",

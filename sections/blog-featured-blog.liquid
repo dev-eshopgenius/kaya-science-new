@@ -70,8 +70,10 @@
       id="article--items"
     >
          <!-- Swiper navigation buttons -->
+         <div class="button-wrapper">
          <div class="swiper-button-next"></div>
          <div class="swiper-button-prev"></div>
+        </div>
       <div class="swiper-wrapper">
         {% if section.settings.blog != blank and section.settings.blog.articles_count > 0 %}
           {% for article in section.settings.blog.articles %}
