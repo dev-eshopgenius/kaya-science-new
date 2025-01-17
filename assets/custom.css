@@ -1571,7 +1571,25 @@ li[data-address] .white-block h2 {
 li[data-address] .white-block p {
   text-align: left;
 }
+.blog main{background: #fafafa;}
+.main-blog-nav .blog-tabs ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 60px;
+}
 
+.main-blog-nav .blog-tabs ul li a {
+  color: #808080;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.main-blog-nav .blog-tabs ul li a.active {
+  color: #262626;
+  text-decoration: underline;
+}
 @media (min-width:750px) {
   .order-status { flex-basis: 100%;}
   .customer {display: flex; gap:40px; align-items: flex-start;}
