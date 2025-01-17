@@ -797,8 +797,15 @@ option:not(:first-of-type) {
 .checkbox-container {
   margin-bottom: 16px;
 }
-
+.collection__view-all a {
+  font-size: 14px;
+  line-height: 16.8px;
+}
 @media(min-width:750px) {
+  .collection__view-all a {
+    font-size: 16px;
+    line-height: 19.2px;
+}
   .act-page-head {font-size: 24px; font-weight: 600; line-height: 28px;margin-bottom: 12px;}
   .blog .main-blog .blog-articles {
     grid-template-columns: repeat(3, 1fr);
@@ -953,6 +960,14 @@ padding-left: 22%;
 .article-template img {max-width: 100%;}
 .multicolumn .slider-buttons, .blog .slider-buttons  {
  display: none;
+}
+.home-featured-collection .collection__title.title-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.home-featured-collection .collection__title.title-wrapper .title-wrapper {
+  margin-bottom: 0;
 }
   @media(max-width:749px) {
     .act-page-head {
