@@ -1304,11 +1304,11 @@ swiperContainers.forEach((container) => {
               cssMode: false,
               spaceBetween: 24,
               slidesPerView: slidesPerView,
-              // autoplay: {
-              //     delay: 1000,
-              //     disableOnInteraction: false,
-              //     pauseOnMouseEnter: true,
-              // },
+              autoplay: {
+                  delay: 1000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+              },
               speed: 2000,
               grabCursor: false,
               breakpoints: {
