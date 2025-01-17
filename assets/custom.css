@@ -1496,7 +1496,13 @@ html body.account  main {background: #fafafa;}
   .customer-details-wrapp span.c_name {
     font-size: 18px;
     font-weight: 600;
-    line-height: 23.4px;margin-bottom: 10px;
+    line-height: 23.4px;margin-bottom: 10px;    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.order-wrap, .address-wrap {
+  cursor: pointer;
 }
 .customer-details-wrapp span {
   line-height: 22.4px;margin-bottom: 3px;
