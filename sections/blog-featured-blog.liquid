@@ -126,10 +126,9 @@
     const sliderWrappers = document.querySelectorAll('.main--article-wrapper');
   
     sliderWrappers.forEach((el) => {
-      // Check if the slider should be disabled on mobile
       const isDisabledOnMobile = el.classList.contains('disable-slider-mobile');
       const minWidth = isDisabledOnMobile ? 768 : 0;
-      console.log(el.id,"<><><><><><somu>",isDisabledOnMobile);
+      {% comment %} console.log(el.id,"<><><><><><somu>",isDisabledOnMobile); {% endcomment %}
      
       if (window.innerWidth > minWidth) {
         const element_class = document.querySelector("#" + el.id);
