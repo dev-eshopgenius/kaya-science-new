@@ -672,6 +672,7 @@
     },
     "featured_blog_GzhyWM": {
       "type": "featured-blog",
+      "disabled": true,
       "settings": {
         "heading": "Beauty Insights",
         "subheading": "<p>Expert skincare tips, trends, and science-driven advice.</p>",
@@ -684,6 +685,25 @@
         "show_date": true,
         "show_author": false,
         "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "blog_featured_blog_ngCiQA": {
+      "type": "blog-featured-blog",
+      "settings": {
+        "heading": "Beauty Insights",
+        "subheading": "<p>Expert skin care tips, trends and science driven advice.</p>",
+        "heading_size": "h1",
+        "blog": "skincare",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "disable_slider": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -780,6 +800,7 @@
     "image_with_text_wwBeXj",
     "home_image_text_ntwGMg",
     "featured_blog_GzhyWM",
+    "blog_featured_blog_ngCiQA",
     "17339035336e675352",
     "home_shipping_contact_geT3ze"
   ]
