@@ -18,7 +18,16 @@
 
 <div class="customer-details-wrapp ">
   <div class="customer-content-wrap white-block">
-    <span class="c_name">Hi {{ customer.name }}</span>
+    <span class="c_name">Hi {{ customer.name }}
+      <span>
+        <a href="/account/addresses">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 20.1213H21M3 20.1213H4.67454C5.16372 20.1213 5.40832 20.1213 5.63849 20.0661C5.84256 20.0171 6.03765 19.9363 6.2166 19.8266C6.41843 19.7029 6.59138 19.53 6.93729 19.1841L19.5 6.62132C20.3285 5.79289 20.3285 4.44975 19.5 3.62132C18.6716 2.79289 17.3285 2.79289 16.5 3.62132L3.93726 16.1841C3.59136 16.53 3.4184 16.7029 3.29472 16.9047C3.18506 17.0837 3.10425 17.2788 3.05526 17.4829C3 17.713 3 17.9576 3 18.4468V20.1213Z" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+         </a>
+      </span>
+    </span>
+    
     <span class="c_phone">{{ customer.phone }}</span>
     <span class="c_email">{{ customer.email }}</span>
   </div>
@@ -57,6 +66,14 @@
   <div class="address-content-wrap tab-panel" data-target="address--detail">
     <div class="act-page-head">Your Addresses</div>
     {{ customer.default_address | format_address }}
+    <span>
+      <a href="/account/addresses">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 20.1213H21M3 20.1213H4.67454C5.16372 20.1213 5.40832 20.1213 5.63849 20.0661C5.84256 20.0171 6.03765 19.9363 6.2166 19.8266C6.41843 19.7029 6.59138 19.53 6.93729 19.1841L19.5 6.62132C20.3285 5.79289 20.3285 4.44975 19.5 3.62132C18.6716 2.79289 17.3285 2.79289 16.5 3.62132L3.93726 16.1841C3.59136 16.53 3.4184 16.7029 3.29472 16.9047C3.18506 17.0837 3.10425 17.2788 3.05526 17.4829C3 17.713 3 17.9576 3 18.4468V20.1213Z" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+      </a>
+    </span>
   </div>
 
   <div class="orders-wrapper tab-panel active" data-target="order--detail">
@@ -71,7 +88,9 @@
 
       <div class="order-status flex flex-column">
         <span class="sm-head">Order Status</span>
-        {{ order.fulfillment_status }}
+        {% assign status = order.fulfillment_status %}
+       
+        {% if status == "restocked" %} cencelled{% endif %}
       </div>
       </div>
       <div class="order-items-details white-block radius-tp-0">

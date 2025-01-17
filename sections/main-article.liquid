@@ -353,7 +353,10 @@
             {{ article.content | split: '<!-- SPLIT -->' | last }}
           </div>
         </div>
-        
+        <div class="bold-data-wrapp">
+          <h3>Bold Copy</h3>
+          {{ article.metafields.custom.bold_data.value }}
+        </div>
       </div>
     </div>
   </div>

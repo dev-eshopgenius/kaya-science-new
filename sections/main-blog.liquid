@@ -17,11 +17,11 @@
 {%- endstyle -%}
 
 {%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
+  <div class="main-blog acf page-width section-{{ section.id }}-padding">
     <div class="title-wrapper">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    {% comment %} <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
-    </h1>
+    </h1> {% endcomment %}
     {% if section.settings.subheading != blank %}
       <div class="subheading sub_heading">
           {{  section.settings.subheading }}
@@ -29,6 +29,14 @@
     {% endif %}
   </div>
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+      <div class="blog-tabs">
+        <ul>
+          <li><a href="/blogs/all" class="active">All Blogs</a></li>
+          {% for block in section.blocks  %}
+          <li><a href="/blogs/{{ block.settings.blog_title }}" class="active">{{ block.settings.blog_title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
       {%- for article in blog.articles -%}
         <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -159,6 +167,19 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "blog_heading",
+      "name": "Blog Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "blog_title",
+          "label": "Blog Title"
+        }
+      ]
     }
   ]
 }
