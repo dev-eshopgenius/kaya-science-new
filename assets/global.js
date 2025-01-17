@@ -1475,6 +1475,24 @@ tabButtons.forEach(button => {
 
 
 
+
+
+
+});
+document.addEventListener('click', function(event) {
+  if (event.target.classList.contains('order-button')) {
+      document.querySelectorAll('.customer').forEach(function(element) {
+          element.classList.remove('order--detail');
+      });
+  }
+});
+
+document.addEventListener('click', function(event) {
+  if (event.target.classList.contains('address-button')) {
+      document.querySelectorAll('.customer').forEach(function(element) {
+          element.classList.remove('address--detail');
+      });
+  }
 });
 
 // search bar placeholder start

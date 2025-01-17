@@ -17,6 +17,7 @@
 <div class="customer  account section-{{ section.id }}-padding">
 
 <div class="customer-details-wrapp ">
+  <div class="act-page-head account-button">Your Account</div>
   <div class="customer-content-wrap white-block">
     <span class="c_name">Hi {{ customer.name }}
       <span>
@@ -64,12 +65,12 @@
 <div class="details-content-wrapper flex-column">
 
   <div class="address-content-wrap tab-panel" data-target="address--detail">
-    <div class="act-page-head">Your Addresses</div>
+    <div class="act-page-head address-button">Your Addresses</div>
    <div class="white-block mx-block-width mid-text"> {{ customer.default_address | format_address }} </div> 
   </div>
 
   <div class="orders-wrapper tab-panel active" data-target="order--detail">
-    <div class="act-page-head desk-element">Your Orders</div>
+    <div class="act-page-head desk-element order-button">Your Orders</div>
     
     {%- for order in customer.orders -%}
          <div class="customer-order-details">
