@@ -56,7 +56,7 @@
   
   <div class="address-content-wrap tab-panel" data-target="address--detail">
     <div class="act-page-head">Your Addresses</div>
-    {{ customer.default_address | format_address }}
+   <div class="white-block mx-block-width mid-text"> {{ customer.default_address | format_address }} </div> 
   </div>
 
   <div class="orders-wrapper tab-panel active" data-target="order--detail">
@@ -67,12 +67,13 @@
         <span><span class="sm-head">Order Date</span><span class="mid-head">{{ order.created_at | time_tag: format: 'date' }}</span></span>
         <span><span class="sm-head">Order Id</span><span class="mid-head">{{ order.id }}</span></span>
         <span><span class="sm-head">Order Amount</span><span class="mid-head">{{ order.total_net_amount | money_with_currency }}</span></span>
+        <div class="order-status flex flex-column">
+          <span class="sm-head">Order Status</span>
+          {{ order.fulfillment_status }}
+        </div>
       </div>
 
-      <div class="order-status flex flex-column">
-        <span class="sm-head">Order Status</span>
-        {{ order.fulfillment_status }}
-      </div>
+  
       </div>
       <div class="order-items-details white-block radius-tp-0">
         <div class="">
