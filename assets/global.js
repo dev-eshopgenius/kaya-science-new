@@ -1279,7 +1279,7 @@ swiperContainers.forEach((container) => {
       pauseOnMouseEnter: true,
     },
     loop: true,
-    slidesPerView: 2,
+    slidesPerView: 1,
     speed: 5000,
     grabCursor: true,
     loopAdditionalSlides: 2,
@@ -1441,40 +1441,33 @@ document.addEventListener('click', function (event) {
 });
 
 
-  const tabButtons = document.querySelectorAll('.tab-button');
-  const tabPanels = document.querySelectorAll('.tab-panel');
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabPanels = document.querySelectorAll('.tab-panel');
+const contentWrapper = document.querySelector('.details-content-wrapper');
 
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const targetId = button.getAttribute('data-id');
-
-      // Remove active class from all buttons and panels
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      tabPanels.forEach(panel => panel.classList.remove('active'));
-
-      // Add active class to the clicked button and corresponding panel
-      button.classList.add('active');
-      document.querySelector(`.tab-panel[data-target="${targetId}"]`).classList.add('active');
-    });
-  });
-
-
-
- document.querySelectorAll('.tab-button').forEach((tabButton) => {
-  tabButton.addEventListener('click', function () {
- 
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const targetId = button.getAttribute('data-id');
     
-    document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
+    if (!targetId) return; 
 
-    document.querySelectorAll('.tab-panel').forEach((panel) => panel.classList.remove('active'));
+    // Remove active class from all buttons and panels
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    tabPanels.forEach(panel => panel.classList.remove('active'));
+    
    
+    tabButtons.forEach(btn => {
+      const id = btn.getAttribute('data-id');
+      if (id) contentWrapper.classList.remove(id);
+    });
 
-    this.classList.add('active');
     
-    const targetId = this.getAttribute('data-id');
-    document.querySelector(`.tab-panel[data-target="${targetId}"]`).classList.add('active');
-    
-    
+    button.classList.add('active');
+
+    const targetPanel = document.querySelector(`.tab-panel[data-target="${targetId}"]`);
+    if (targetPanel) targetPanel.classList.add('active');
+
+    contentWrapper.classList.add(targetId);
   });
 });
 
