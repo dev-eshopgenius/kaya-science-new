@@ -799,6 +799,7 @@ option:not(:first-of-type) {
 }
 
 @media(min-width:750px) {
+  .act-page-head {font-size: 24px; font-weight: 600; line-height: 28px;margin-bottom: 12px;}
   .blog .main-blog .blog-articles {
     grid-template-columns: repeat(3, 1fr);
 }
@@ -954,6 +955,29 @@ padding-left: 22%;
  display: none;
 }
   @media(max-width:749px) {
+    .act-page-head {
+      margin: 0px -19px;
+      background: #fff;
+      position: relative;
+      top: -1px;
+      z-index: 4;
+      padding: 9px 17px 13px;
+      font-size: 20px;
+      line-height: 24px;
+      box-shadow: 0px 4px 10px 0px #0000000F;
+      margin-bottom:30px ;
+      font-weight: 600;
+
+  }
+  
+  .act-page-head:before {
+      content: "";
+      background: url(arrow-left.svg) no-repeat left center;width:24px; height: 24px; display: inline-block;
+      margin-right: 5px;
+      position: relative;
+      top: 5px;
+  }
+    .customer.account {padding-top:0}
     .home-featured-collection .home-collection-slider .swiper-wrapper .swiper-slide {max-width: 66.666%;}
 
     .home-featured-collection .home-collection-slider .swiper-wrapper {
@@ -1572,7 +1596,7 @@ html body.account  main {background: #fafafa;}
 .flex-column {flex-direction: column;}
 .no-icon{margin-left:33px}
 .white-block.fre_Shipping-content .free_Shipping-btn {display: flex;}
-.act-page-head {font-size: 24px; font-weight: 600; line-height: 28px;margin-bottom: 12px;}
+
 .trans-bg-tbl {box-shadow: 0px 0px 12px 0px #0000000D;border: 1px solid #F3F3F5; background: #F9F9F9;
 border-radius: 16px 16px 0 0;padding:12px 16px;
 }
