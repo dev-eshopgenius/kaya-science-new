@@ -26,24 +26,23 @@
 -%}
 <div class="blog-featured-blog color-{{ section.settings.color_scheme }} gradient{% if section.settings.heading == blank %} no-heading{% endif %}">
   <div class="page-width-desktop isolate{% if posts_displayed < 3 %} page-width-tablet{% endif %} section-{{ section.id }}-padding">
-   
     {%- unless section.settings.heading == blank -%}
       <div class="title-wrapper-with-link{% if posts_displayed > 2 %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
         <div class="title-wrapper">
-        <h2
-          id="SectionHeading-{{ section.id }}"
-          class="blog__title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
+          <h2
+            id="SectionHeading-{{ section.id }}"
+            class="blog__title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+            {% endif %}
+          >
+            {{ section.settings.heading }}
+          </h2>
+          {% if section.settings.subheading != blank %}
+            <div class="subheading sub_heading">
+              {{ section.settings.subheading }}
+            </div>
           {% endif %}
-        >
-          {{ section.settings.heading }}
-        </h2>
-        {% if section.settings.subheading != blank %}
-          <div class="subheading sub_heading">
-              {{  section.settings.subheading }}
-          </div>
-        {% endif %}
         </div>
         {%- if section.settings.blog != blank
           and section.settings.show_view_all
@@ -60,70 +59,77 @@
     {%- endunless -%}
 
     <div
-        id="Slider-{{ section.id }}"
-        class="blog__posts  {% if section.settings.disable_slider %} disable-slider-mobile{% endif %} main--article-wrapper swiper swiper_Containers contains-card contains-card--article
+      id="Slider-{{ section.id }}"
+      class="
+        blog__posts  {% if section.settings.disable_slider %} disable-slider-mobile{% endif %} main--article-wrapper swiper swiper_Containers contains-card contains-card--article
         {% if settings.blog_card_style == 'standard' %}contains-card--standard{% endif %}
         grid grid--peek grid--2-col-tablet grid--{{ section.settings.columns_desktop }}-col-desktop slider
-        {% if posts_displayed > 2 %}slider--tablet{% else %}slider--mobile{% endif %}"
-        role="list"
-      > 
-        <div class="swiper-wrapper">
-          {% if section.settings.blog != blank and section.settings.blog.articles_count > 0 %}
-            {% for article in section.settings.blog.articles %}
-              <div
-                id="Slide-{{ section.id }}-{{ forloop.index }}"
-                class="swiper-slide blog__post grid__item article slider__slide slider__slide--full-width
-                {% if settings.animations_reveal_on_scroll %}scroll-trigger animate--slide-in{% endif %}"
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
-              >
-                {% render 'article-card',
-                  blog: section.settings.blog,
-                  article: article,
-                  media_aspect_ratio: 1.66,
-                  show_image: section.settings.show_image,
-                  show_date: section.settings.show_date,
-                  show_author: section.settings.show_author,
-                  show_excerpt: true
-                %}
-              </div>
-            {% endfor %}
-          {% endif %}
-        </div>
-      
-        <!-- Swiper navigation buttons -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      
-      </div>
-    </div>
- {%- if section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
-      <div
-        class="blog__view-all center small-hide medium-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-        {% if settings.animations_reveal_on_scroll %}
-          data-cascade
+        {% if posts_displayed > 2 %}slider--tablet{% else %}slider--mobile{% endif %}
+      "
+      role="list"
+    >
+      <div class="swiper-wrapper">
+        {% if section.settings.blog != blank and section.settings.blog.articles_count > 0 %}
+          {% for article in section.settings.blog.articles %}
+            <div
+              id="Slide-{{ section.id }}-{{ forloop.index }}"
+              class="
+                swiper-slide blog__post grid__item article slider__slide slider__slide--full-width
+                {% if settings.animations_reveal_on_scroll %}scroll-trigger animate--slide-in{% endif %}
+              "
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+              {% render 'article-card',
+                blog: section.settings.blog,
+                article: article,
+                media_aspect_ratio: 1.66,
+                show_image: section.settings.show_image,
+                show_date: section.settings.show_date,
+                show_author: section.settings.show_author,
+                show_excerpt: true
+              %}
+            </div>
+          {% endfor %}
         {% endif %}
-      >
-        <a
-          href="{{ section.settings.blog.url }}"
-          id="ViewAll-{{ section.id }}"
-          class="blog__button button"
-          aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
-        >
-          {{ 'sections.featured_blog.view_all' | t }}
-        </a>
       </div>
-    {%- endif -%}
-  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const sliderWrapper = document.querySelector('.main--article-wrapper');
-    
-      if (sliderWrapper && !sliderWrapper.classList.contains('disable-slider-mobile')) {
-        new Swiper('.main--article-wrapper', {
+      <!-- Swiper navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+  {%- if section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
+    <div
+      class="blog__view-all center small-hide medium-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      {% if settings.animations_reveal_on_scroll %}
+        data-cascade
+      {% endif %}
+    >
+      <a
+        href="{{ section.settings.blog.url }}"
+        id="ViewAll-{{ section.id }}"
+        class="blog__button button"
+        aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
+      >
+        {{ 'sections.featured_blog.view_all' | t }}
+      </a>
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const sliderWrapper = document.querySelectorAll('.main--article-wrapper');
+    sliderWrapper.forEach((el) => {
+      let width = 0;
+      if (el.classList.contains('disable-slider-mobile')) {
+        width = 768;
+      }
+      if(window.innerWidth > width) {
+        new Swiper(el, {
           slidesPerView: 1.5,
           spaceBetween: 20,
           navigation: {
@@ -144,9 +150,30 @@
         });
       }
     });
-    
-  </script>
 
+    {% comment %} if (sliderWrapper && !sliderWrapper.classList.contains('disable-slider-mobile')) {
+      new Swiper('.main--article-wrapper', {
+        slidesPerView: 1.5,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 1.5,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 4.5,
+            spaceBetween: 30,
+          },
+        },
+        loop: true,
+      });
+    } {% endcomment %}
+  });
+</script>
 
 {% schema %}
 {

@@ -9,12 +9,50 @@
  */
  {
   "sections": {
+    "image_banner_fbgpGr": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_j3Exkm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Kaya Blog",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_j3Exkm"
+      ],
+      "settings": {
+        "classname": "",
+        "image": "shopify://shop_images/kaya-blog-banner.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "blog_nav_RcWtRB": {
+      "type": "blog-nav",
+      "settings": {
+        "blog_link": "blogs",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "main": {
       "type": "main-blog",
       "settings": {
-        "layout": "collage",
+        "subheading": "",
+        "layout": "grid",
         "show_image": true,
-        "image_height": "medium",
+        "image_height": "adapt",
         "show_date": true,
         "show_author": false,
         "padding_top": 36,
@@ -23,6 +61,8 @@
     }
   },
   "order": [
+    "image_banner_fbgpGr",
+    "blog_nav_RcWtRB",
     "main"
   ]
 }
