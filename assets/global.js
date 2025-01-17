@@ -1444,7 +1444,7 @@ document.addEventListener('click', function (event) {
 const tabButtons = document.querySelectorAll('.tab-button');
 const tabPanels = document.querySelectorAll('.tab-panel');
 const contentWrapper = document.querySelector('.details-content-wrapper');
-
+const customerWrapper = document.querySelector('.customer');
 tabButtons.forEach(button => {
   button.addEventListener('click', () => {
     const targetId = button.getAttribute('data-id');
@@ -1459,6 +1459,7 @@ tabButtons.forEach(button => {
     tabButtons.forEach(btn => {
       const id = btn.getAttribute('data-id');
       if (id) contentWrapper.classList.remove(id);
+      customerWrapper.classList.remove(id);
     });
 
     
@@ -1468,6 +1469,7 @@ tabButtons.forEach(button => {
     if (targetPanel) targetPanel.classList.add('active');
 
     contentWrapper.classList.add(targetId);
+    customerWrapper.classList.add(targetId);
   });
 });
 

@@ -954,6 +954,13 @@ padding-left: 22%;
  display: none;
 }
   @media(max-width:749px) {
+    .customer.address--detail > .details-content-wrapper.address--detail {
+      display: block;
+  }
+    .customer.order--detail > .details-content-wrapper.order--detail  {display:block}
+   .customer   .details-content-wrapper {display: none;}
+    .customer.order--detail > .customer-details-wrapp  {display:none}
+.customer.address--detail > .customer-details-wrapp  {display:none}
     .orderd-prdct-wrap .line-items-product-wrap {
       border-bottom: solid 1px #eee;
       padding-bottom: 16px;
