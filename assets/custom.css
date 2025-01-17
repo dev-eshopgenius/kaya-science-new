@@ -806,6 +806,7 @@ option:not(:first-of-type) {
   border-bottom: solid 1px #E3E3E8;;
 }
 .order-items-details .orderd-prdct-wrap > div:last-child{border: none;}
+
 .orderd-prdct-wrap > div:nth-child(odd) {
   border-right: solid 1px #E3E3E8;
 }
