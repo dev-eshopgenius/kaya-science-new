@@ -801,6 +801,23 @@ option:not(:first-of-type) {
   font-size: 14px;
   line-height: 16.8px;
 }
+body.index .blog-featured-blog .title-wrapper {
+  margin-bottom: 1.5rem;
+}
+body.index .blog-featured-blog .page-width-desktop{position: relative;}
+body.index .blog-featured-blog .page-width-desktop .blog__posts  {position: static;}
+body.index .blog-featured-blog .button-wrapper {
+  position: absolute;
+  top: 57px;
+  right: 135px;
+  width: 75px;
+  height: 20px;
+}
+
+body.index .blog-featured-blog .button-wrapper > div {
+  display: block;
+}
+body.index .blog-featured-blog .button-wrapper > div:after{font-size: 21px; color: #262626;}
 @media(min-width:750px) {
   .insights .image-with-text .image-with-text__media, .insights .image-with-text .image-with-text__text-item .image-with-text__content {background: transparent;}
   .insights .image-with-text {background: radial-gradient(43.78% 156.35% at 26.37% 59.13%, #AECCE2 0%, #E7EFFB 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
