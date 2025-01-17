@@ -139,24 +139,30 @@
               endif
             -%}
             {%- if forloop.first %}
+              <a href="{{ block.settings.link }}">
               {{
                 block.settings.image
                 | image_url: width: 3840
                 | image_tag: height: height, sizes: sizes, widths: widths, fetchpriority: fetch_priority, class:'desk-image'
               }}
+              </a>
             {%- else -%}
+              <a href="{{ block.settings.link }}">
               {{
                 block.settings.image
                 | image_url: width: 3840
                 | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths, class:'desk-image'
               }}
+            </a>
             {%- endif -%}
             {%- if block.settings.mob_image != blank -%}
+            <a href="{{ block.settings.link }}">
             {{
               block.settings.mob_image
               | image_url: width: 3840
               | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths, class:'mob-image'
             }}
+          </a>
           {%- endif -%}
           {%- else -%}
             {%- assign placeholder_slide = forloop.index | modulo: 2 -%}
