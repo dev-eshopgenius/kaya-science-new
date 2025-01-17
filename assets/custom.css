@@ -799,6 +799,9 @@ option:not(:first-of-type) {
 }
 
 @media(min-width:750px) {
+  .blog .main-blog .blog-articles {
+    grid-template-columns: repeat(3, 1fr);
+}
   .orderd-prdct-wrap {
     display: flex;
     flex-wrap: wrap;
@@ -1290,6 +1293,15 @@ padding-left: 22%;
   }
   }
   @media(min-width:990px){
+    .blog-list-banner h2.banner__heading {
+      color: #C78F73;
+      font-size: 68px;
+      font-weight: 700;
+      line-height: 36px;
+  }
+    .blog .main-blog .blog-articles {
+      grid-template-columns: repeat(4, 1fr);
+  }
     .home-collection-slider .card__heading a {
       min-height: 65px;
   }
