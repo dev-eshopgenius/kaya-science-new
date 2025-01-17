@@ -1304,11 +1304,11 @@ swiperContainers.forEach((container) => {
               cssMode: false,
               spaceBetween: 24,
               slidesPerView: slidesPerView,
-              autoplay: {
-                  delay: 1000,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-              },
+              // autoplay: {
+              //     delay: 1000,
+              //     disableOnInteraction: false,
+              //     pauseOnMouseEnter: true,
+              // },
               speed: 2000,
               grabCursor: false,
               breakpoints: {
@@ -1489,9 +1489,9 @@ document.addEventListener('click', function(event) {
       });
   }
 });
-document.querySelector('.account-button').addEventListener('click', function() {
-  history.back();
-});
+// document.querySelector('.account-button').addEventListener('click', function() {
+//   history.back();
+// });
 
 // search bar placeholder start
 window.onload = function () {
