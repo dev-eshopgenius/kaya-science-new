@@ -31,17 +31,17 @@
 
 {% if card_product.tags.size > 0 %}
   {% assign has_tag = '' %}
-  {% for tag in card_product.tags %}
-    {% if card_product.tags.size > 1 %}
-    {% if tag contains '__' %}
-      {% assign clean_tag = tag | split: '__' | last %}
-     {% assign has_tag = clean_tag %}
-    {% endif %}
-      {% else %}
-       {% assign has_tag = tag %}
-    {% endif %}  
-  {% endfor %}
+{% for tag in card_product.tags %}
+  {% if card_product.tags.size > 1 %}
+  {% if tag contains '__' %}
+    {% assign clean_tag = tag | split: '__' | last %}
+   {% assign has_tag = clean_tag %}
   {% endif %}
+    {% else %}
+     {% assign has_tag = tag %}
+  {% endif %}  
+{% endfor %}
+{% endif %}
 
 {%- if card_product and card_product != empty -%}
   {%- liquid
@@ -601,6 +601,21 @@
           {% endif %}
         {% endif %}
         <div class="card__badge {{ settings.badge_position }}">
+          {% if custom_tag != blank %}
+            <span
+             id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+             class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+           >
+            {{ custom_tag }}
+           </span>
+         {% elsif has_tag %}  
+          <span
+             id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+             class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+           >
+            {{ has_tag }}
+           </span>
+         {% else %}
           {%- if card_product.available == false -%}
             <span
               id="Badge-{{ section_id }}-{{ card_product.id }}"
