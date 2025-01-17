@@ -61,12 +61,12 @@
 
     <div
         id="Slider-{{ section.id }}"
-        class="blog__posts {% if section.settings.disable_slider %}main--article-wrapper{% else %}disable-article-slider{% endif %} swiper swiper_Containers contains-card contains-card--article
+        class="blog__posts  {% if section.settings.disable_slider %} disable-slider-mobile{% endif %} main--article-wrapper swiper swiper_Containers contains-card contains-card--article
         {% if settings.blog_card_style == 'standard' %}contains-card--standard{% endif %}
         grid grid--peek grid--2-col-tablet grid--{{ section.settings.columns_desktop }}-col-desktop slider
         {% if posts_displayed > 2 %}slider--tablet{% else %}slider--mobile{% endif %}"
         role="list"
-      >
+      > 
         <div class="swiper-wrapper">
           {% if section.settings.blog != blank and section.settings.blog.articles_count > 0 %}
             {% for article in section.settings.blog.articles %}
@@ -120,26 +120,31 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      new Swiper('.main--article-wrapper', {
-        slidesPerView: 1.5, 
-        spaceBetween: 20, 
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 1.5,
-            spaceBetween: 20,
+      const sliderWrapper = document.querySelector('.main--article-wrapper');
+    
+      if (sliderWrapper && !sliderWrapper.classList.contains('disable-slider-mobile')) {
+        new Swiper('.main--article-wrapper', {
+          slidesPerView: 1.5,
+          spaceBetween: 20,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
           },
-          1024: {
-            slidesPerView: 4.5,
-            spaceBetween: 30,
+          breakpoints: {
+            768: {
+              slidesPerView: 1.5,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 4.5,
+              spaceBetween: 30,
+            },
           },
-        },
-        loop: true, 
-      });
+          loop: true,
+        });
+      }
     });
+    
   </script>
 
 
