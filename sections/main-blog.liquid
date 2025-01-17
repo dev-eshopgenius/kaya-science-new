@@ -29,14 +29,7 @@
     {% endif %}
   </div>
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-      <div class="blog-tabs">
-        <ul>
-          <li><a href="/blogs/all" class="active">All Blogs</a></li>
-          {% for block in section.blocks  %}
-          <li><a href="/blogs/{{ block.settings.blog_title }}" class="active">{{ block.settings.blog_title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
+
       {%- for article in blog.articles -%}
         <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -169,18 +162,6 @@
       "default": 36
     }
   ],
-  "blocks": [
-    {
-      "type": "blog_heading",
-      "name": "Blog Heading",
-      "settings": [
-        {
-          "type": "text",
-          "id": "blog_title",
-          "label": "Blog Title"
-        }
-      ]
-    }
-  ]
+
 }
 {% endschema %}
