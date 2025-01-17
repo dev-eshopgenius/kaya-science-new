@@ -954,6 +954,11 @@ padding-left: 22%;
  display: none;
 }
   @media(max-width:749px) {
+    .home-featured-collection .home-collection-slider .swiper-wrapper .swiper-slide {max-width: 66.666%;}
+
+    .home-featured-collection .home-collection-slider .swiper-wrapper {
+        padding-left: 15px;
+    }
     .insights .image-with-text .image-with-text__media a.mob-button {
       max-width: 260px;
       height: 48px;
