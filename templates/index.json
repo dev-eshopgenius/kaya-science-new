@@ -298,7 +298,7 @@
         "columns_desktop": 4,
         "full_width": true,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "link",
         "color_scheme": "scheme-2",
         "image_ratio": "adapt",
         "image_shape": "default",
