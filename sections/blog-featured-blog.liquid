@@ -69,6 +69,9 @@
       role="list"
       id="article--items"
     >
+         <!-- Swiper navigation buttons -->
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
       <div class="swiper-wrapper">
         {% if section.settings.blog != blank and section.settings.blog.articles_count > 0 %}
           {% for article in section.settings.blog.articles %}
@@ -97,9 +100,7 @@
         {% endif %}
       </div>
 
-      <!-- Swiper navigation buttons -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+   
     </div>
   </div>
   {%- if section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
@@ -122,19 +123,49 @@
 </div>
 
 <script>
+  {% comment %} document.addEventListener('DOMContentLoaded', function () {
+    const sliderWrapper = document.querySelectorAll('.main--article-wrapper');
+    sliderWrapper.forEach((el) => {
+      let width = 0;
+      if (el.classList.contains('disable-slider-mobile')) {
+        width = 768;
+      }
+      if(window.innerWidth > width) {
+        new Swiper(el, {
+          slidesPerView: 1.5,
+          spaceBetween: 20,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: 1.5,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 4.5,
+              spaceBetween: 30,
+            },
+          },
+          loop: true,
+        });
+      }
+    });
+
+   
+  }); {% endcomment %}
   document.addEventListener('DOMContentLoaded', function () {
     const sliderWrappers = document.querySelectorAll('.main--article-wrapper');
   
     sliderWrappers.forEach((el) => {
+      // Check if the slider should be disabled on mobile
       const isDisabledOnMobile = el.classList.contains('disable-slider-mobile');
       const minWidth = isDisabledOnMobile ? 768 : 0;
-      {% comment %} console.log(el.id,"<><><><><><somu>",isDisabledOnMobile); {% endcomment %}
-     
+  console.log(el.id);
+      // Initialize Swiper only if the viewport width exceeds the condition
       if (window.innerWidth > minWidth) {
-        const element_class = document.querySelector("#" + el.id);
-        const childElement = element_class.querySelector('.main--article-wrapper');
-        childElement.classList.remove('swiper-slide');
-        new Swiper("#"+el.id, {
+        new Swiper(el, {
           slidesPerView: 1.5,
           spaceBetween: 20,
           navigation: {
