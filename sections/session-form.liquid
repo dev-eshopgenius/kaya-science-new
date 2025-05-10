@@ -1,0 +1,305 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient  section-{{ section.id }}-padding">
+  <div class="contact-form__content-wrapper grid grid--2-col-desktop  grid--1-col-tablet-down grid--2-col-tablet">
+    {% if section.settings.image != blank %}
+      <div class="session--form-image grid__item">
+        {{
+          section.settings.image
+          | image_url: width: section.settings.image.width
+          | image_tag: loading: 'lazy', class: 'session-img'
+        }}
+      </div>
+    {% endif %}
+    <div class="contact page-width grid__item">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.heading }}
+        </h2>
+      {%- else -%}
+        <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+      {%- endif -%}
+      {% if section.settings.subheading != blank %}
+        <div class="subheading">
+          {{ section.settings.subheading }}
+        </div>
+      {% endif %}
+      {%- liquid
+        assign contact_form_class = 'isolate'
+        if settings.animations_reveal_on_scroll
+          assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+        endif
+      -%}
+      {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+        {%- if form.posted_successfully? -%}
+          <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+            {{- 'icon-success.svg' | inline_asset_content -}}
+            {{ 'templates.contact.form.post_success' | t }}
+          </h2>
+        {%- elsif form.errors -%}
+          <div class="form__message">
+            <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+              {{- 'icon-error.svg' | inline_asset_content -}}
+              {{ 'templates.contact.form.error_heading' | t }}
+            </h2>
+          </div>
+          <ul class="form-status-list caption-large" role="list">
+            <li>
+              <a href="#ContactForm-email" class="link">
+                {{ form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email }}
+              </a>
+            </li>
+          </ul>
+        {%- endif -%}
+        <div class="contact__fields">
+          <div class="field">
+            <input
+              class="field__input"
+              autocomplete="name"
+              type="text"
+              id="ContactForm-name"
+              name="contact[{{ 'templates.contact.form.name' | t }}]"
+              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+              placeholder="Message"
+            >
+            <label class="field__label" for="ContactForm-name">Message</label>
+          </div>
+
+          <div class="field">
+            <input
+              type="tel"
+              id="ContactForm-phone"
+              class="field__input"
+              autocomplete="tel"
+              name="contact[{{ 'templates.contact.form.phone' | t }}]"
+              pattern="[0-9\-]*"
+              value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+              placeholder="Mobile Number"
+            >
+            <label class="field__label" for="ContactForm-phone">Mobile Number</label>
+          </div>
+        </div>
+        <div class="contact__fields">
+          <div class="field field--with-error">
+            <input
+              autocomplete="email"
+              type="email"
+              id="ContactForm-email"
+              class="field__input"
+              name="contact[email]"
+              spellcheck="false"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              aria-required="true"
+              {% if form.errors contains 'email' %}
+                aria-invalid="true"
+                aria-describedby="ContactForm-email-error"
+              {% endif %}
+              placeholder="{{ 'templates.contact.form.email' | t }}"
+            >
+            <label class="field__label" for="ContactForm-email">
+              {{- 'templates.contact.form.email' | t }}
+              <span aria-hidden="true">*</span></label
+            >
+            {%- if form.errors contains 'email' -%}
+              <small class="contact__field-error" id="ContactForm-email-error">
+                <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                <span class="form__message">
+                  <span class="svg-wrapper">
+                    {{- 'icon-error.svg' | inline_asset_content -}}
+                  </span>
+                  {{- form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email -}}
+                </span>
+              </small>
+            {%- endif -%}
+          </div>
+
+          <div class="field">
+            <select id="concern_area" name="contact[concern_area]" required>
+              <option value="" disabled selected>Select Area of Concern</option>
+              {% assign concern_area = section.settings.concern_area | split: ',' %}
+              {% for concernArea in concern_area %}
+                <option value="{{ concernArea }}">{{ concernArea }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <div class="contact__fields">
+          <div class="field ">
+            <select id="city" name="contact[city]" required>
+              <option value="" disabled selected>Select City</option>
+              {% assign all_city = section.settings.city_options | split: ',' %}
+              {% for m_city in all_city %}
+                <option value="{{ m_city }}">{{ m_city }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="field">
+            <select id="area" name="contact[area]" required>
+              <option value="" disabled selected>Select Area</option>
+              {% assign all_area = section.settings.area_options | split: ',' %}
+              {% for m_area in all_area %}
+                <option value="{{ m_area }}">{{ m_area }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="checkbox-container">
+            <label for="agreeCheckbox">
+                <input type="checkbox" id="agreeCheckbox" />
+                I agree to Terms and Conditions
+            </label>
+        </div>
+        <div class="contact__button">
+            <button type="submit" class="button" disabled id="submitButton">
+                Submit
+            </button>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+<script>
+    // JavaScript to toggle the disabled attribute
+    const checkbox = document.getElementById('agreeCheckbox');
+    const submitButton = document.getElementById('submitButton');
+
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            submitButton.removeAttribute('disabled'); // Enable button
+        } else {
+            submitButton.setAttribute('disabled', 'true'); // Disable button
+        }
+    });
+</script>
+{% schema %}
+{
+  "name": "Session Form",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.contact-form.settings.title.default",
+      "label": "t:sections.contact-form.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Sub-Heading"
+    },
+    {
+        "type": "textarea",
+        "id": "concern_area",
+        "label": "Concern Area",
+        "default": "New York,Los Angeles,Chicago,Houston,San Francisco",
+        "info":"Seperate with comma"
+    },
+    {
+        "type": "textarea",
+        "id": "city_options",
+        "label": "City Options",
+        "default": "New York,Los Angeles,Chicago,Houston,San Francisco",
+        "info":"Seperate with comma"
+    },
+    {
+        "type": "textarea",
+        "id": "area_options",
+        "label": "Area Options",
+        "default": "New York,Los Angeles,Chicago,Houston,San Francisco",
+        "info":"Seperate with comma"
+    },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Session Form"
+    }
+  ]
+}
+{% endschema %}

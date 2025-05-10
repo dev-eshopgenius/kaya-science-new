@@ -15,7 +15,7 @@
 <style>
   header-drawer {
     justify-self: start;
-    margin-left: -1.2rem;
+    
   }
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
@@ -74,7 +74,8 @@
 
 {%- style -%}
   .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
   }
 
   .section-header {
@@ -164,8 +165,10 @@
       if section.settings.menu != blank
         if section.settings.menu_type_desktop == 'dropdown'
           render 'header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
+        elsif section.settings.menu_type_desktop != 'drawer' and section.settings.menu_type_desktop == 'mega'
           render 'header-mega-menu'
+        elsif section.settings.menu_type_desktop == 'custom_mega' and section.settings.menu_type_desktop != 'mega'
+          render 'header-custom-megaMenu'
         endif
       endif
     %}
@@ -229,7 +232,7 @@
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-          class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
+          class="header__icon header__icon--account link focus-inset"
           rel="nofollow"
         >
           {%- if section.settings.enable_customer_avatar -%}
@@ -279,7 +282,9 @@
         {%- endif -%}
       </a>
     </div>
+   
   </header>
+  {% render 'mob-header-search', input_id: 'Search-In-Modal' %}
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
 {%- if settings.cart_type == "notification" -%}
@@ -488,6 +493,10 @@
           "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
         },
         {
+          "value": "custom_mega",
+          "label":"Custom Mega Menu"
+        },
+        {
           "value": "drawer",
           "label": "t:sections.header.settings.menu_type_desktop.options__3.label"
         }
@@ -638,6 +647,22 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type":"mega_linklist",
+      "name":"MegaMenu Linklist",
+      "settings":[
+        {
+          "type":"text",
+          "id":"menufor",
+          "label":"Menu For"
+        },
+        {
+          "type":"link_list",
+          "id":"menu",
+          "label":"Menu"
+        }
+      ]
     }
   ]
 }

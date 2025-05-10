@@ -17,12 +17,19 @@
 {%- endstyle -%}
 
 {%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  <div class="main-blog acf page-width section-{{ section.id }}-padding">
+    <div class="title-wrapper">
+    {% comment %} <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
-    </h1>
-
+    </h1> {% endcomment %}
+    {% if section.settings.subheading != blank %}
+      <div class="subheading sub_heading">
+          {{  section.settings.subheading }}
+      </div>
+    {% endif %}
+  </div>
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+
       {%- for article in blog.articles -%}
         <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -44,6 +51,7 @@
       {%- endfor -%}
     </div>
 
+
     {%- if paginate.pages > 1 -%}
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
@@ -56,6 +64,11 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "sub-Heading"
+    },
     {
       "type": "header",
       "content": "t:sections.main-blog.settings.header.content"
@@ -148,6 +161,7 @@
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
     }
-  ]
+  ],
+
 }
 {% endschema %}

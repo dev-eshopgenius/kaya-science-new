@@ -215,8 +215,5 @@ cart-items {
     justify-content: flex-end;
   }
 
-  .cart__ctas {
-    display: flex;
-    gap: 1rem;
-  }
+
 }

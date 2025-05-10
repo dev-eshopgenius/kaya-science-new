@@ -15,13 +15,15 @@
   }
 {%- endstyle -%}
 
-<div class="newsletter center {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
-  <div class="newsletter__wrapper color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+<div class="newsletter-blog center color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+  <div class=" {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
+  <div class="newsletter-blog__wrapper  {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when '@app' -%}
           {% render block %}
         {%- when 'heading' -%}
+          <div class="newsletter-info-wrap">
           <h2
             class="inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {{ block.shopify_attributes }}
@@ -32,6 +34,9 @@
           >
             {{ block.settings.heading }}
           </h2>
+          <div class="newsletter__subheading">  {{ block.settings.text }}</div>
+        </div>
+        {% comment %}
         {%- when 'paragraph' -%}
           <div
             class="newsletter__subheading rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -43,8 +48,9 @@
           >
             {{ block.settings.text }}
           </div>
+          {%  endcomment %}
         {%- when 'email_form' -%}
-          <div {{ block.shopify_attributes }}>
+          <div class="blog-form" {{ block.shopify_attributes }}>
             {% form 'customer', class: 'newsletter-form' %}
               <input type="hidden" name="contact[tags]" value="newsletter">
               <div
@@ -85,9 +91,7 @@
                     id="Subscribe"
                     aria-label="{{ 'newsletter.button_label' | t }}"
                   >
-                    <span class="svg-wrapper">
-                      {{- 'icon-arrow.svg' | inline_asset_content -}}
-                    </span>
+                    Subscribe
                   </button>
                 </div>
                 {%- if form.errors -%}
@@ -118,7 +122,7 @@
       {%- endcase -%}
     {%- endfor -%}
   </div>
-</div>
+</div></div>
 
 {% schema %}
 {
@@ -209,6 +213,12 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "t:sections.newsletter.blocks.paragraph.settings.paragraph.default",
+          "label": "t:sections.newsletter.blocks.paragraph.settings.paragraph.label"
         }
       ]
     },

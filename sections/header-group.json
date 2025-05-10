@@ -7,40 +7,76 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
+    "new-announcement": {
+      "type": "new-announcement",
       "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
+        "icon_with_text_FNk3Ct": {
+          "type": "icon-with-text",
           "settings": {
-            "text": "Welcome to our store",
+            "icon-text": "Welcome to our store",
             "link": ""
+          }
+        },
+        "icon_with_text_fKPyLY": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Welcome to our store",
+            "link": ""
+          }
+        },
+        "icon_with_text_RmWmUt": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "Welcome to our store",
+            "link": ""
+          }
+        },
+        "icon_with_text_BUy6KH": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "prepaid order only",
+            "link": "#"
+          }
+        },
+        "icon_with_text_J8fLHe": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "prepaid order only",
+            "link": "#"
+          }
+        },
+        "icon_with_text_jHJqEH": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon-text": "prepaid order only",
+            "link": "#"
           }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "icon_with_text_FNk3Ct",
+        "icon_with_text_fKPyLY",
+        "icon_with_text_RmWmUt",
+        "icon_with_text_BUy6KH",
+        "icon_with_text_J8fLHe",
+        "icon_with_text_jHJqEH"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "show_line_separator": true,
-        "show_social": false,
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "enable_country_selector": false,
-        "enable_language_selector": false
+        "color_scheme": "scheme-4",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "header": {
       "type": "header",
       "settings": {
         "logo_position": "middle-center",
-        "menu": "main-menu",
-        "menu_type_desktop": "mega",
+        "menu": "new-menu",
+        "menu_type_desktop": "custom_mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
@@ -50,13 +86,13 @@
         "enable_customer_avatar": true,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
   "order": [
-    "announcement-bar",
+    "new-announcement",
     "header"
   ]
 }

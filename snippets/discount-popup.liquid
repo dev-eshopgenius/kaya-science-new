@@ -1,0 +1,171 @@
+{% if settings.enable_popup %}
+    {{ 'discount-modal.css' | asset_url | stylesheet_tag }}
+    <script defer src="{{ 'discount-modal.js' | asset_url }}"></script>
+    <div class="discount--steps">
+      <div id="modal-step--1" class="discount--step step--1 discount-phone-popup__wrap">
+        <div class="discount--popup__main">
+          <div class="dis--popup_wrapper">
+            <div class="dis__popup-textContent">
+              <div class="dis__popup-textContent-main">
+                <span class="before_code-close close_modal">{% render 'icon-close-pop' %}</span>
+                {% if settings.phone_pop_text != blank %}
+                  <div class="dis__popup--text">
+                    {{ settings.phone_pop_text }}
+                  </div>
+                {% endif %}
+                {% if settings.discount_img != blank or settings.phone_pop_heading != blank %}
+                  <div class="dis__popup-disImage">
+                    {% if settings.phone_pop_heading != blank %}
+                      <h2 class="title">{{ settings.phone_pop_heading }}</h2>
+                    {% endif %}
+                    {% if settings.discount_img != blank %}
+                        {{ settings.discount_img | image_url: width:settings.discount_img.width | image_tag: loading:'lazy', class:'dis_image' }}
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            {% if settings.image != blank %}
+              <div class="dis__image">
+                {{ settings.image | image_url: width: settings.image.width | image_tag: loading:'lazy', class:'dis_image' }}
+              </div>
+            {% endif %}
+  
+            {% if settings.popup_heading != blank or settings.popup_subheading != blank %}
+              <div class="heading-wrapp">
+                {% if settings.popup_heading != blank %}
+                  <div class="popup_heading">
+                    <h3>{{ settings.popup_heading }}</h3>
+                  </div>
+                {% endif %}
+                {% if settings.popup_subheading != blank %}
+                  <div class="popup_subheading">
+                    {{ settings.popup_subheading }}
+                  </div>
+                {% endif %}
+                 {% if settings.subtext != blank %}
+                  <div class="subtext ">
+                    {{ settings.subtext }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+            <div class="dis__popup--btn-wrap">
+              <div class="dis_input--wrap">
+                {% comment %} <div class="number">Phone number</div>{% endcomment %}
+                <div class="mobilenumber_wrap">
+                 {% comment %} <label for="mobileNumber" class="mobilenumber_label">+91</label> {% endcomment %}
+                  <input type="text" class="input_number" maxlength="10" value="" autocomplete="mobile" id="mobileNumber" placeholder="Enter Mobile Number">
+                </div>
+                {% if settings.terms_text != blak %}
+                <label class="accept-terms-wrap">
+                  <input type="checkbox" class="terms_input" >
+                  <span>{{ settings.terms_text }}</span>
+                </label>
+                {% endif %}
+              </div>
+               {% if settings.terms_text != blak %}
+              <button type="button" class="button button-primary avail_discount btn_text" disabled>{{ settings.btn_text }}</button>
+              {% endif %}
+              <p class="mobile_validation_mgs"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="modal-step--2" class="discount--step step--2 discount-otp-popup-wrap">
+        <div class="discount-otp-main">
+          <span class="after_otp-close close_modal">{% render 'icon-close-pop' %}</span>
+          <div class="dis-wlc-main--content">
+            <h2 class="h1 title">{{ settings.otp_heading }}</h2>
+            {% if settings.otp_text != blank %}
+              <div class="rte text">{{ settings.otp_text }}</div>
+            {% endif %}
+  
+            <div class="otp__cover">
+              <fieldset>
+                <label for="otp-1">Number 1</label>
+                <label for="otp-2">Number 2</label>
+                <label for="otp-3">Number 3</label>
+                <label for="otp-4">Number 4</label>
+                <div class="otp-container">
+                  <input
+                    type="number"
+                    pattern="[0-9]*"
+                    min="0"
+                    max="9"
+                    maxlength="1"
+                    value=""
+                    inputtype="numeric"
+                    id="otp-1"
+                    class="otp-input"
+                    maxlength="1"
+                  >
+                  <input
+                    type="number"
+                    pattern="[0-9]*"
+                    min="0"
+                    max="9"
+                    maxlength="1"
+                    value=""
+                    inputtype="numeric"
+                    id="otp-2"
+                    class="otp-input"
+                    maxlength="1"
+                  >
+                  <input
+                    type="number"
+                    pattern="[0-9]*"
+                    min="0"
+                    max="9"
+                    maxlength="1"
+                    value=""
+                    inputtype="numeric"
+                    id="otp-3"
+                    class="otp-input"
+                    maxlength="1"
+                  >
+                  <input
+                    type="number"
+                    pattern="[0-9]*"
+                    min="0"
+                    max="9"
+                    maxlength="1"
+                    value=""
+                    inputtype="numeric"
+                    id="otp-4"
+                    class="otp-input"
+                    maxlength="1"
+                  >
+                </div>
+              </fieldset>
+            </div>
+  
+            <button type="button" class="otp__verify button button-primary">Verify</button>
+            <div class="resend_otp_wrap">
+              <span class="resend_otp disabled" onClick="resendOTP(this)">Resend OTP in</span> <span id="timer"></span>
+            </div>
+            <p class="varify_mgs"></p>
+          </div>
+        </div>
+      </div>
+      <div id="modal-step--3" class="discount--step step--3 discount-wlc-popup-wrap">
+        <div class="dis-wlc-main coupon-code_wrapp">
+          <span class="after_code-close close_modal">{% render 'icon-close-pop' %}</span>
+          <div class="dis-wlc-main--content copy_code_cover">
+            <h2 class="h1 title">{{ settings.coupon_heading }}</h2>
+            <div class="coup_img-wrap">
+              {% if settings.coupon_image != blank %}
+                {{ settings.coupon_image | image_url: width: settings.coupon_image.width | image_tag: loading:'lazy', class:'coup_img' }}
+              {% endif %}
+            </div>
+            {% if settings.coupon_text != blank %}
+              <div class="rte text">{{ settings.coupon_text }}</div>
+            {% endif %}
+            <span class="md-coupon-text" style="display:none">{{ settings.coupon_code }}</span>
+            <button type="button" class="md-coupon-code button button-primary">Copy Coupon Code</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  

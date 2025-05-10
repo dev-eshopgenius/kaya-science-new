@@ -1,0 +1,39 @@
+{%- if cart != empty -%}
+
+<div class="cart-collection-wrapper">
+  <div class="cart-collection-wrap">
+    <div class="cart-collection-slider swiper">
+      <div class="swiper-wrapper">
+        {% for product in settings.cart_collection.products %}
+          <div class="swiper-slide">
+            {% render 'card-product',
+                card_product: product,
+                show_secondary_image: settings.show_secondary_image,
+                section_id: section.id,
+                quick_add: settings.quick_add
+            %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var sliderElement = document.querySelector('.cart-collection-slider');
+
+    if (sliderElement) {
+      new Swiper('.cart-collection-slider', {
+        loop: true,
+        spaceBetween: 10,
+        slidesPerView: 2.5,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        direction: 'horizontal',
+      });
+    }
+  });
+</script>

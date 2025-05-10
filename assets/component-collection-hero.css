@@ -17,6 +17,9 @@
   .collection-hero--with-image .collection-hero__inner {
     padding-bottom: 0;
   }
+  .collection-hero__text-wrapper {
+    padding: 5rem 0 0 0;
+  }
 }
 
 .collection-hero__text-wrapper {
@@ -36,7 +39,7 @@
 }
 
 .collection-hero__title {
-  margin: 2.5rem 0;
+  margin: 0;
 }
 
 .collection-hero__title + .collection-hero__description {
@@ -92,7 +95,6 @@
   .collection-hero__image-container {
     align-self: stretch;
     flex: 1 0 50%;
-    margin-left: 3rem;
     min-height: 20rem;
   }
 }

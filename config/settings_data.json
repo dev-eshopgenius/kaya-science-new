@@ -7,22 +7,23 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "current": {
-    "logo_width": 90,
-    "type_header_font": "assistant_n4",
+    "logo": "shopify://shop_images/kaya-logo.jpg",
+    "logo_width": 70,
+    "type_header_font": "montserrat_n6",
     "heading_scale": 100,
-    "type_body_font": "assistant_n4",
+    "type_body_font": "montserrat_n4",
     "body_scale": 100,
-    "page_width": 1200,
+    "page_width": 1390,
     "spacing_sections": 0,
-    "spacing_grid_horizontal": 8,
-    "spacing_grid_vertical": 8,
-    "animations_reveal_on_scroll": true,
+    "spacing_grid_horizontal": 24,
+    "spacing_grid_vertical": 24,
+    "animations_reveal_on_scroll": false,
     "animations_hover_elements": "none",
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
-    "buttons_radius": 0,
+    "buttons_radius": 8,
     "buttons_shadow_opacity": 0,
     "buttons_shadow_horizontal_offset": 0,
     "buttons_shadow_vertical_offset": 4,
@@ -101,10 +102,10 @@
     "drawer_shadow_horizontal_offset": 0,
     "drawer_shadow_vertical_offset": 4,
     "drawer_shadow_blur": 5,
-    "badge_position": "bottom left",
+    "badge_position": "top left",
     "badge_corner_radius": 40,
-    "sale_badge_color_scheme": "scheme-4",
-    "sold_out_badge_color_scheme": "scheme-3",
+    "sale_badge_color_scheme": "scheme-5",
+    "sold_out_badge_color_scheme": "scheme-5",
     "brand_headline": "",
     "brand_description": "<p></p>",
     "brand_image_width": 100,
@@ -120,12 +121,32 @@
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
+    "search_menu": "new-menu",
+    "search_col": "best-sellers",
+    "quick_add": "standard",
+    "show_secondary_image": true,
     "currency_code_enabled": true,
-    "cart_type": "notification",
+    "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
+    "phone_pop_text": "",
+    "popup_subheading": "<p>Get VIP discounts, Early access to new launches, and more.</p>",
+    "terms_text": "I accept Terms &amp; Conditions and <a href=\"https://kayascience.com/policies/privacy-policy\">Privacy Policy</a>.I accept Terms &amp; Conditions and <a href=\"https://kayascience.com/policies/privacy-policy\">Privacy Policy</a>.",
+    "image": "shopify://shop_images/frame-427319196-1024x1024.png",
+    "otp_heading": "OTP Verification",
+    "otp_text": "Enter OTP received on <span class=\"otp_number\"></span>",
+    "coupon_image": "shopify://shop_images/Frame_427319397_5da5555c-98fb-4127-b2af-abb87f7d6e52.png",
+    "coupon_text": "<strong>₹100 OFF</strong><br>\non first purchase",
+    "coupon_code": "NEWUSER",
+    "heading1": "10% off upto ₹500 max on your first order above ₹600",
+    "subheading1": "NEW10",
+    "heading2": "10% off upto ₹500 max on your first order above ₹600",
+    "subheading2": "NEW15",
+    "heading3": "10% off upto ₹500 max on your first order above ₹600",
+    "subheading3": "NEW25",
+    "cart_collection": "best-sellers",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -141,12 +162,54 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "5946647744298494267": {
+        "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+        "disabled": false,
+        "settings": {}
+      },
+      "1232542678405107163": {
+        "type": "shopify://apps/instafeed/blocks/head-block/c447db20-095d-4a10-9725-b5977662c9d5",
+        "disabled": false,
+        "settings": {}
+      },
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "9717370649079274736": {
+        "type": "shopify://apps/simply-otp-login/blocks/app-embed-block/c26b7b17-273d-4800-af62-8ec88ba18251",
+        "disabled": false,
+        "settings": {}
+      },
+      "11320579242087869063": {
+        "type": "shopify://apps/codify-order-cancel/blocks/cancel_button/f7f8a269-b6ea-461a-8e1b-d61167f44926",
+        "disabled": false,
+        "settings": {}
+      },
+      "246967388992510375": {
+        "type": "shopify://apps/msg91/blocks/app-embed/a23a396c-1b96-4cfa-80d4-96656b7dcfbc",
+        "disabled": false,
+        "settings": {}
+      },
+      "16605631912868231181": {
+        "type": "shopify://apps/moengage/blocks/app-embed/50f1ed6f-9777-46ca-ae3f-9d9b9c6152ef",
+        "disabled": false,
+        "settings": {}
+      },
+      "17550530943902319648": {
+        "type": "shopify://apps/appikon-back-in-stock/blocks/subscribe_it_helper/eb949c69-b3e6-4216-a322-1cd63915d46d",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
           "background": "#ffffff",
           "background_gradient": "",
-          "text": "#121212",
+          "text": "#262626",
           "button": "#121212",
           "button_label": "#ffffff",
           "secondary_button_label": "#121212",
@@ -155,11 +218,11 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "#f3f3f3",
+          "background": "#fafafa",
           "background_gradient": "",
-          "text": "#121212",
-          "button": "#121212",
-          "button_label": "#f3f3f3",
+          "text": "#262626",
+          "button": "#262626",
+          "button_label": "#ffffff",
           "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
@@ -178,8 +241,8 @@
       "scheme-4": {
         "settings": {
           "background": "#121212",
-          "background_gradient": "",
-          "text": "#ffffff",
+          "background_gradient": "linear-gradient(270deg, rgba(225, 237, 240, 1) 3%, rgba(234, 220, 232, 1) 100%)",
+          "text": "#262626",
           "button": "#ffffff",
           "button_label": "#121212",
           "secondary_button_label": "#ffffff",
@@ -188,12 +251,100 @@
       },
       "scheme-5": {
         "settings": {
-          "background": "#334fb4",
+          "background": "#c3ebe6",
           "background_gradient": "",
-          "text": "#ffffff",
+          "text": "#262626",
           "button": "#ffffff",
           "button_label": "#334fb4",
           "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-18bccc13-b32c-4b71-b120-f96cb1a9ecd1": {
+        "settings": {
+          "background": "#262626",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-48ef665a-368c-4f1a-b853-d3862b22e100": {
+        "settings": {
+          "background": "#faeeed",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "rgba(0,0,0,0)",
+          "button_label": "#262626",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-a24c0c28-8ffe-411d-9854-c829604e0bb5": {
+        "settings": {
+          "background": "#fcf5e2",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#323232",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-39a738da-7717-40a9-98ac-65806e0b1672": {
+        "settings": {
+          "background": "rgba(0,0,0,0)",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#ffffff",
+          "button_label": "#262626",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-c73cd97e-c5a9-4470-9429-dfeca6bc795e": {
+        "settings": {
+          "background": "#f3f3f5",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "rgba(0,0,0,0)",
+          "button_label": "#262626",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-b6e1040a-b0b8-4746-ba35-5ea009db42be": {
+        "settings": {
+          "background": "#ebeeec",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#262626",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#262626",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-00ac7443-e051-4410-ac64-803edf10c731": {
+        "settings": {
+          "background": "#eff6f5",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-68497806-25de-4f1c-8fb8-8714e4e866a0": {
+        "settings": {
+          "background": "#f5faf9",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
       }

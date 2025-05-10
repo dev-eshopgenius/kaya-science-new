@@ -1,0 +1,265 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+  
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="product-build-routine-section section-{{ section.id }}-padding page-width">
+    <div class="title-wrapper">
+      {%- if section.settings.title != blank -%}
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+    </div>
+    <div class="product-build-routine-wrapper">
+      <div class="build-step-wrapper">
+        {% assign count = 0 %}
+        {% for block in section.blocks %}
+        
+          {% if block.type == 'step_block' %}
+            <div class="step-block step-content-item{{ forloop.index }}" data-index="step-product-index{{ count }}">
+              {% if block.settings.step_number != blank %}
+                <div class="step-number">
+                  {{ block.settings.step_number }}
+                </div>
+              {% endif %}
+              {% if block.settings.step_heading != blank or block.settings.step_content != blank %}
+                <div class="content-wrap">
+                  {% if block.settings.step_heading != blank %}
+                    <div class="step-heading">
+                      {{ block.settings.step_heading }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.step_content != blank %}
+                    <div class="step-content">
+                      {{ block.settings.step_content }}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+
+              
+          {% assign count = count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="mobile__stp"></div>
+      <div class="collection-steps-wrapper">
+        <div class="collection-product-items grid grid--4-col-desktop">
+          {% assign count = 0 %}
+          {% for block in section.blocks %}
+       
+            {% if block.type == 'step_block' %}
+            {% assign product = block.settings.step_product %}
+            {% render 'build-card-product',
+              card_product: product,
+              media_aspect_ratio: section.settings.image_ratio,
+              show_secondary_image: section.settings.show_secondary_image,
+              section_id: section.id,
+              quick_add: section.settings.quick_add,
+              count: count
+            %}
+        {% endif %}
+        {% assign count = count | plus: 1 %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+    "name": "Product Build Routine",
+    "disabled_on": {
+    "groups": ["header", "footer"]
+    },
+    "settings": [
+        {
+            "type": "inline_richtext",
+            "id": "title",
+            "default": "Build Your Routine",
+            "label": "t:sections.featured-collection.settings.title.label"
+          },
+          {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+              {
+                "value": "h2",
+                "label": "t:sections.all.heading_size.options__1.label"
+              },
+              {
+                "value": "h1",
+                "label": "t:sections.all.heading_size.options__2.label"
+              },
+              {
+                "value": "h0",
+                "label": "t:sections.all.heading_size.options__3.label"
+              },
+              {
+                "value": "hxl",
+                "label": "t:sections.all.heading_size.options__4.label"
+              },
+              {
+                "value": "hxxl",
+                "label": "t:sections.all.heading_size.options__5.label"
+              }
+            ],
+            "default": "h1",
+            "label": "t:sections.all.heading_size.label"
+          },
+
+          {
+            "type": "header",
+            "content": "t:sections.featured-collection.settings.header.content"
+          },
+          {
+            "type": "select",
+            "id": "image_ratio",
+            "options": [
+              {
+                "value": "adapt",
+                "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+              },
+              {
+                "value": "portrait",
+                "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+              },
+              {
+                "value": "square",
+                "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+              }
+            ],
+            "default": "adapt",
+            "label": "t:sections.featured-collection.settings.image_ratio.label"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_secondary_image",
+            "default": false,
+            "label": "t:sections.featured-collection.settings.show_secondary_image.label"
+          },
+          {
+            "type": "select",
+            "id": "quick_add",
+            "default": "none",
+            "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+            "info": "t:sections.main-collection-product-grid.settings.quick_add.info",
+            "options": [
+              {
+                "value": "none",
+                "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+              },
+              {
+                "value": "standard",
+                "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+              },
+              {
+                "value": "bulk",
+                "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+              }
+            ]
+          },
+          {
+            "type": "header",
+            "content": "t:sections.featured-collection.settings.header_mobile.content"
+          },
+          {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "t:sections.all.colors.label",
+            "info": "t:sections.all.colors.has_cards_info",
+            "default": "scheme-1"
+          },
+        {
+            "type": "header",
+            "content": "t:sections.all.padding.section_padding_heading"
+          },
+          {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_top",
+            "default": 36
+          },
+          {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_bottom",
+            "default": 36
+          }
+    ],
+    "blocks": [
+    {
+        "type": "step_block",
+        "name":"Add Steps",
+        "settings": [
+            {
+                "type": "text",
+                "id": "step_number",
+                "label": "Step Number"
+                },
+                {
+                "type": "text",
+                "id": "step_heading",
+                "label": "Step Heading"
+                },
+                {
+                "type": "html",
+                "id": "step_content",
+                "label": "Step Content"
+                },
+                {
+                    "type": "product",
+                    "id": "step_product",
+                    "label": "Step Product"
+                }
+        ]
+    }
+    ],
+    "presets": [
+    {
+        "name": "Product Build Routine"
+    }
+    ]
+}
+{% endschema %}

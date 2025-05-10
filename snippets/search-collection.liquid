@@ -1,0 +1,66 @@
+<div class="search-collection-wrapper">
+  <div class="search-collection-container">
+    <div class="search--menu-wrapper">
+      {% if settings.menu_title != blank %}
+        <div class="menu_title">{{ settings.menu_title | escape }}</div>
+      {% endif %}
+
+      {% if settings.search_menu != blank %}
+        <ul class="search--nav">
+          {% for search_menu in settings.search_menu.links %}
+            <li class="main-link-item">
+              <a href="{{ search_menu.url | escape }}">{{ search_menu.title | escape }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+
+    <!-- Collection Slider -->
+    <div class="search-collection-wrap">
+      <div class="search-collection-slider swiper">
+        <div class="swiper-wrapper">
+          {% for product in settings.search_col.products %}
+            <div class="swiper-slide">
+              {% render 'card-product',
+                  card_product: product,
+                  show_secondary_image: settings.show_secondary_image,
+                  section_id: section.id,
+                  quick_add: settings.quick_add
+              %}
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var sliderElement = document.querySelector('.search-collection-slider');
+    
+      if (sliderElement) {
+        new Swiper('.search-collection-slider', {
+          loop: true,
+          spaceBetween: 24,
+          slidesPerView: 1,
+          breakpoints: {
+            768: {
+              slidesPerView: 4.4,
+            },
+            0: {
+              slidesPerView: 1.4,
+            },
+          },
+          {% comment %} autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+            reverseDirection: false,
+          }, {% endcomment %}
+          direction: 'horizontal',
+        });
+      }
+    });
+    
+  </script>

@@ -7,10 +7,11 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
@@ -19,11 +20,20 @@
     "form": {
       "type": "contact-form",
       "settings": {
-        "heading": "",
+        "image": "shopify://shop_images/image_45_87f01ef4-3d42-4526-875b-4128002479e8.png",
+        "heading": "We’d Love to Hear From You!",
         "heading_size": "h1",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "subheading": "<p>Questions, comments, or stories to share? We love hearing from you.</p>",
+        "belowheading": "You Can Also Reach us Here !",
+        "phone_icon": "shopify://shop_images/phone-icon.svg",
+        "phonetext": "Phone",
+        "phonenumber": "+91 777 700 7402",
+        "email_icon": "shopify://shop_images/email-icon.svg",
+        "emailtext": "Email",
+        "emailnumber": "customercare@kayascience.com",
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },

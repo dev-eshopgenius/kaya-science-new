@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-article",
@@ -17,35 +17,199 @@
           "settings": {
             "image_height": "adapt"
           }
-        },
-        "title": {
-          "type": "title",
+        }
+      },
+      "block_order": [
+        "featured_image"
+      ],
+      "settings": {
+        "show_secondary_image": true,
+        "quick_add": "none"
+      }
+    },
+    "newsletter_66VdVy": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_4CypGy": {
+          "type": "heading",
           "settings": {
-            "blog_show_date": true,
-            "blog_show_author": false
+            "heading": "Join us",
+            "heading_size": "h1",
+            "text": "<p>Subscribe to receive the latest in skincare science, exclusive offers, and expert beauty tips straight to your inbox. Join us and be the first to discover new insights and routines tailored to you.</p>"
           }
         },
-        "share": {
-          "type": "share",
+        "paragraph_nxBVEi": {
+          "type": "paragraph",
           "settings": {
-            "share_label": "Share"
+            "text": "<p>Subscribe to receive the latest in skincare science, exclusive offers, and expert beauty tips straight to your inbox. Join us and be the first to discover new insights and routines tailored to you.</p>"
           }
         },
-        "content": {
-          "type": "content",
+        "email_form_AUm3Lz": {
+          "type": "email_form",
           "settings": {}
         }
       },
       "block_order": [
-        "featured_image",
-        "title",
-        "share",
-        "content"
+        "heading_4CypGy",
+        "paragraph_nxBVEi",
+        "email_form_AUm3Lz"
       ],
-      "settings": {}
+      "settings": {
+        "color_scheme": "scheme-2",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "collapsible_content_PnJz7r": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_rLyPgf": {
+          "type": "collapsible_row",
+          "settings": {
+            "title": "Collapsible content",
+            "heading": "Can I use face serums with other skincare products?",
+            "icon": "none",
+            "row_content": "<p>Yes, face serums can be easily integrated into your existing skincare routine. Ensure compatibility with other products.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_9NdGdD": {
+          "type": "collapsible_row",
+          "settings": {
+            "title": "Collapsible content",
+            "heading": "Can I use face serums with other skincare products?",
+            "icon": "none",
+            "row_content": "<p>Yes, face serums can be easily integrated into your existing skincare routine. Ensure compatibility with other products.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_968MxP": {
+          "type": "collapsible_row",
+          "settings": {
+            "title": "Collapsible content",
+            "heading": "Can I use face serums with other skincare products?",
+            "icon": "none",
+            "row_content": "<p>Yes, face serums can be easily integrated into your existing skincare routine. Ensure compatibility with other products.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_ERKEEd": {
+          "type": "collapsible_row",
+          "settings": {
+            "title": "Collapsible content",
+            "heading": "Can I use face serums with other skincare products?",
+            "icon": "none",
+            "row_content": "<p>Yes, face serums can be easily integrated into your existing skincare routine. Ensure compatibility with other products.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_jFQgcm": {
+          "type": "collapsible_row",
+          "settings": {
+            "title": "Collapsible content",
+            "heading": "Can I use face serums with other skincare products?",
+            "icon": "none",
+            "row_content": "<p>Yes, face serums can be easily integrated into your existing skincare routine. Ensure compatibility with other products.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_rLyPgf",
+        "collapsible_row_9NdGdD",
+        "collapsible_row_968MxP",
+        "collapsible_row_ERKEEd",
+        "collapsible_row_jFQgcm"
+      ],
+      "settings": {
+        "classname": "blog-accordian",
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-00ac7443-e051-4410-ac64-803edf10c731",
+        "container_color_scheme": "scheme-00ac7443-e051-4410-ac64-803edf10c731",
+        "open_first_collapsible_row": true,
+        "image": "shopify://shop_images/image_46.png",
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_rcJmm8": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Products",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "best-sellers",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "blog_featured_blog_78W6Ay": {
+      "type": "blog-featured-blog",
+      "settings": {
+        "heading": "Trending",
+        "subheading": "",
+        "heading_size": "h1",
+        "blog": "skincare",
+        "post_limit": 3,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-68497806-25de-4f1c-8fb8-8714e4e866a0",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "blog_featured_blog_yEBMT4": {
+      "type": "blog-featured-blog",
+      "settings": {
+        "heading": "Related Articles",
+        "subheading": "",
+        "heading_size": "h1",
+        "blog": "skincare",
+        "post_limit": 3,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-2",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "newsletter_66VdVy",
+    "collapsible_content_PnJz7r",
+    "featured_collection_rcJmm8",
+    "blog_featured_blog_78W6Ay",
+    "blog_featured_blog_yEBMT4"
   ]
 }
