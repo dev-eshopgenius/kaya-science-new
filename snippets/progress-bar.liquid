@@ -1,0 +1,322 @@
+{% assign tags_to_check = '__b2g1_product2,Affiliate,B2G1+Freegift,b2g1_product,B2G2,B3G2,bundle_FPH,Buy3,buy3at799,offer 2'
+  | split: ','
+%}
+{% assign hasItemsTag = false %}
+
+{% for item in cart.items %}
+  {% for tag in item.product.tags %}
+    {% if tags_to_check contains tag %}
+      {% assign hasItemsTag = true %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% assign mdayloyal_tag = 'Mdayloyal' %}
+{% assign mdayloyal = false %}
+{% for item in cart.items %}
+  {% for tag in item.product.tags %}
+    {% if mdayloyal_tag contains tag %}
+      {% assign mdayloyal = true %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% if cart != empty %}
+  {% if settings.cart_free_shipping_threshold != blank
+    or settings.discount_price_1 != blank
+    or settings.discount_price_2 != blank
+    or settings.discount_price_3 != blank
+  %}
+    {% assign shipping_threshold = settings.cart_free_shipping_threshold | times: 100 %}
+    {% assign discount_price_1 = settings.discount_price_1 | times: 100 %}
+    {% assign discount_price_2 = settings.discount_price_2 | times: 100 %}
+    {% assign discount_price_3 = settings.discount_price_3 | times: 100 %}
+    {% assign  discount_price_1999 = settings.threeshold_price_1999 | times: 100 %}
+    {% assign discount_price_3999 = settings.threeshold_price_3999 | times: 100 %}
+    {% assign cart_total = cart.total_price %}
+    <div class="free-shipping-container ">
+      {% if hasItemsTag %}
+        <p class="free-shipping-text">
+          {% if cart_total >= shipping_threshold %}
+            You are eligible for free shipping!
+          {% else %}
+            Add {{ shipping_threshold | minus: cart_total | money }} worth of items to get free shipping.
+          {% endif %}
+        </p>
+      {% else %}
+        <p class="free-shipping-text">
+          {% if cart_total < shipping_threshold %}
+            Add {{ shipping_threshold | minus: cart_total | money }} more for free shipping <br>
+          {% elsif cart_total < discount_price_1 %}
+            Add {{ discount_price_1 | minus: cart_total | money }} more to get free brightening beads cleanser <br>
+          {% elsif cart_total < discount_price_2 %}
+            Add {{ discount_price_2 | minus: cart_total | money }} more to get free nourishing shampoo <br>
+          {% elsif cart_total < discount_price_1999 %}
+            Add {{ discount_price_1999 | minus: cart_total | money }} more to get free dermat consultation <br>
+           {% elsif cart_total < discount_price_3999 %}
+            Add {{ discount_price_3999 | minus: cart_total | money }} more to get free facial <br>
+          {% else %}
+            You are eligible for free facial!
+          {% endif %}
+        </p>
+      {% endif %}
+      <progress
+        id="file"
+        value="{{ cart_total }}"
+        max="{{ shipping_threshold }}"
+        class="progress-bar {% unless hasItemsTag %}hidden{% endunless %}"
+      ></progress>
+    </div>
+    <div
+      class="buy_more_container {% if cart.total_price == 0 %} empty{% endif %} {% if hasItemsTag %}hidden{% endif %} ddd"
+      data-total="{{ cart.total_price }}"
+    >
+       <div class="free_shipping_b2g2">{{ settings.b2g2_freeshipping }}</div>
+      <div class="buy_more_discount_wrap">
+        <div class="offer_text">
+          {{ settings.special_text }}
+        </div>
+        <div class="progress_bar {{ hasItemsTag }}">
+          <div class="progress_div{% if mdayloyal %} mday_sale{% endif %}">
+          {% comment %}
+            {% if shipping_threshold != blank %}
+              <div
+                class="progress_wrap{% if cart.total_price > shipping_threshold %} active{% endif %}"
+                data-val="1"
+              >
+                <span class="p-top">{{ shipping_threshold | money }}</span>
+                <span class="progressbar"></span>
+                <progress id="file" value="{{ cart.total_price }}" max="{{ shipping_threshold }}"></progress>
+                <span class="p-bottom">Free Shipping</span>
+              </div>
+            {% endif %}
+            {% endcomment %}
+           
+            {% if settings.discount_price_1 != blank %}
+              <div
+                class="progress_wrap{% if cart.total_price < shipping_threshold %} not_active{% endif %}{% if cart.total_price >= discount_price_1 %} active{% endif %}"
+                data-val="2"
+              >
+                <span class="p-top">{{ discount_price_1 | money }}
+              <span class="free-text">(1 Gift)</span>
+              </span>
+                
+                <span class="progressbar"></span>
+                <progress
+                  id="file"
+                  value="{{ cart.total_price }}"
+                  max="{{ discount_price_1 }}"
+                ></progress>
+                <span class="p-bottom">
+                  <div class="discout_per">{{ settings.discount_percent_1 }}</div>
+                  {% if settings.discount_img_1 != blank %}
+                    <span class="d_img pbottom">{{ settings.discount_img_1}}</span>
+                  {% endif %}
+                </span>
+              </div>
+            {% endif %}
+            {% if settings.discount_price_2 != blank %}
+              <div
+                class="progress_wrap{% if cart.total_price < discount_price_1 %} not_active{% endif %}{% if cart.total_price > discount_price_2 %} active{% endif %}"
+                data-val="3"
+              >
+                <span class="p-top">{{ discount_price_2 | money }}
+              <span class="free-text">(2 Gifts)</span>
+              </span>
+                <span class="progressbar"></span>
+                <progress
+                  id="file"
+                  {% if cart.total_price > discount_price_1 %}
+                    value="{% unless cart.total_price >= discount_price_1 %}not_active{% else %}{{ cart.total_price }}{% endunless %}"
+                  {% else %}
+                    value="0"
+                  {% endif %}
+                  max="{{ discount_price_2 }}"
+                ></progress>
+                <span class="p-bottom">
+                  <div class="discout_per">{{ settings.discount_percent_2 }}</div>
+                  {% if settings.discount_img_1 != blank %}
+                    <span class="d_img pbottom">{{ settings.discount_img_2 }}</span>
+                  {% endif %}
+                </span>
+              </div>
+            {% endif %}
+           
+            {% if settings.free_product_1999 != blank %}
+              <div
+                class="progress_wrap{% if cart.total_price < discount_price_2 %} not_active{% endif %}{% if cart.total_price > discount_price_1999 %} active{% endif %}"
+                data-val="4"
+              >
+                <span class="p-top">{{ discount_price_1999 | money }}
+                 <span class="free-text">(3 Gifts)</span>
+              </span>
+               <span class="progressbar"></span>
+                <progress
+                  id="file"
+                  {% if cart.total_price > discount_price_2 %}
+                    value="{% unless cart.total_price >= discount_price_2 %}not_active{% else %}{{ cart.total_price }}{% endunless %}"
+                  {% else %}
+                    value="0"
+                  {% endif %}
+                  max="{{ discount_price_1999 }}"
+                ></progress>
+                {% if settings.discount_text_1999 != blank %}
+                  <span class="p-bottom">
+                    <div class="discout_per">{{ settings.discount_text_1999 }}</div>
+                  </span>
+                {% endif %}
+              </div>
+            {% endif %}
+            {% if settings.free_product_3999 != blank %}
+              <div
+                class="progress_wrap{% if cart.total_price < discount_price_1999 %} not_active{% endif %}{% if cart.total_price > discount_price_3999 %} active{% endif %}"
+                data-val="4"
+              >
+                <span class="p-top">{{ discount_price_3999 | money }}
+               <span class="free-text">(4 Gifts)</span>
+              </span>
+                <span class="progressbar"></span>
+                <progress
+                  id="file"
+                  {% if cart.total_price > discount_price_1999 %}
+                    value="{% unless cart.total_price >= discount_price_1999 %}not_active{% else %}{{ cart.total_price }}{% endunless %}"
+                  {% else %}
+                    value="0"
+                  {% endif %}
+                  max="{{ discount_price_3999 }}"
+                ></progress>
+                {% if settings.discount_text_3999 != blank %}
+                  <span class="p-bottom">
+                    <div class="discout_per">{{ settings.discount_text_3999 }}</div>
+                  </span>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+{% unless hasItemsTag %}
+{% if cart_total > discount_price_1 and cart_total < discount_price_2 %}  
+   {%- assign new_sample_in_cart_gift = false -%}
+          {%- for item in cart.items -%}
+            {%- if item.properties.__newfreeproduct -%}
+            {%- assign new_sample_in_cart_gift = true -%}
+              {%- endif -%}
+            {%- endfor -%}
+ {% if settings.free_buy1product2 or settings.free_buy2product2 %}
+{% comment %}
+  <h2 class="sample_products_heading">Choose Your Free Gift</h2>
+
+  <div class="sample_products new_cart_smp">
+  
+    {% if settings.free_buy1product2 != blank %}
+      {% assign sample_free_gift1 = all_products[settings.free_buy1product2] %}
+      {% assign cart_free_varianit1 = sample_free_gift1.selected_or_first_available_variant.id %}
+      {%- capture sample_in_cart1 -%}
+          {%- for item in cart.items -%}
+            {%- if item.properties.__newfreeproduct -%}
+              {{- item.key -}}
+            {%- endif -%}
+          {%- endfor -%}
+      {%- endcapture -%}
+
+      <div class="sp__item">
+       <img class="sp_img" src="{{ sample_free_gift1.featured_image | image_url: width: 120 }}" width="120" height="auto" loading="lazy">
+        <div class="sp_detail_wrap">
+          <h3 class="sp_title">{{ sample_free_gift1.title }}</h3>
+          <button
+            class="new_sp_btn {% if sample_in_cart1 contains cart_free_varianit1 %}to_remove{% else %}to_add{% endif -%}"
+            type="button"
+            data-cart-key="{{ sample_in_cart1 }}"
+            data-message="{{ settings.mgs_toshow }}"
+            {% unless sample_in_cart1 contains cart_free_varianit1 %}
+              {% if new_sample_in_cart_gift %}
+                disabled
+              {% else %}
+                data-id="{{ cart_free_varianit1 }}"
+              {% endif %}
+            {% endunless %}
+          >
+            <span class="sp_btn_ico">
+              {% render 'icon-plus' %}
+              {% render 'icon-close' %}
+              {% render 'icon-spin' %}
+            </span>
+            <span class="sp_btn_txt">
+              {% if sample_in_cart1 contains cart_free_varianit1 %}Remove{% else %}Add{% endif %}
+            </span>
+          </button>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if settings.free_buy2product2 != blank %}
+      {% assign sample_free_gift2 = all_products[settings.free_buy2product2] %}
+      {% assign cart_free_varianit2 = sample_free_gift2.selected_or_first_available_variant.id %}
+      {%- capture sample_in_cart2 -%}
+          {%- for item in cart.items -%}
+            {%- if item.properties.__newfreeproduct -%}
+              {{- item.key -}}
+            {%- endif -%}
+          {%- endfor -%}
+      {%- endcapture -%}
+      <div class="sp__item">
+    
+          <img class="sp_img" src="{{ sample_free_gift2.featured_image | image_url: width: 120 }}" width="120" height="auto" loading="lazy">
+        <div class="sp_detail_wrap">
+          <h3 class="sp_title">{{ sample_free_gift2.title }}</h3>
+          <button
+            class="new_sp_btn {% if sample_in_cart2 contains cart_free_varianit2 %}to_remove{% else %}to_add{% endif -%}"
+            type="button"
+            data-cart-key="{{ sample_in_cart2 }}"
+            data-message="{{ settings.mgs_toshow }}"
+            {% unless sample_in_cart2 contains cart_free_varianit2 %}
+              {% if new_sample_in_cart_gift %}
+                disabled
+              {% else %}
+                data-id="{{ cart_free_varianit2 }}"
+              {% endif %}
+            {% endunless %}
+          >
+            <span class="sp_btn_ico">
+              {% render 'icon-plus' %}
+              {% render 'icon-close' %}
+              {% render 'icon-spin' %}
+            </span>
+            <span class="sp_btn_txt">
+              {% if sample_in_cart2 contains cart_free_varianit2 %}Remove{% else %}Add{% endif %}
+            </span>
+          </button>
+        </div>
+      </div>
+    {% endif %}
+
+  
+  </div>
+{% endcomment %}   
+{% endif %}
+
+{% endif %}
+  {% endunless %}
+{% comment %}
+   {% if cart != empty %}
+    {% if settings.cart_free_shipping_threshold != blank %}
+      {% assign shipping_threshold = settings.cart_free_shipping_threshold | times: 100 %}
+      {% assign cart_total = cart.total_price %}
+      {% assign remaining_amount = shipping_threshold | minus: cart_total %}
+      <div class="free-shipping-bar">
+        {% if cart_total >= shipping_threshold %}
+          <p>You are eligible for free shipping!</p>
+        {% else %}
+          <p>Add ₹{{ remaining_amount | money_without_currency }} worth of items to get free shipping</p>
+        {% endif %}
+        <div class="progress-container">
+          <div class="progress-bar" style="width: {{ cart_total | divided_by: shipping_threshold | times: 100 }}%;"></div>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endcomment %}

@@ -1,0 +1,125 @@
+
+
+{% assign product_index = '' %}
+<div class="sticky_gift-wrapper">
+  <div class="sticky_gift--main">
+    <div class="sticky_gift-header">
+      <div class="sticky_gift-header-title">
+        <span class="sticky_gift-today-offer-title">{{ settings.gift_heading }}</span>
+        <span class="sticky_gift-close-today-offer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#5e5873"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </span>
+      </div>
+      <span class="sticky_gift-today-offer-subtitle">{{ settings.gift_subheading }}</span>
+    </div>
+    <div class="sticky_gift-body">
+      <div class="sticky_gift-offers">
+        <div class="sticky-gift-offer">
+          {% if settings.gift_sub_banner != blank  or settings.gift_sub_heading != blank %}
+          <div class="sticky-gift-header-container  {% if settings.gift_sub_banner != blank %}has_image{% endif %}">
+            <div class="sticky-gift-info">
+              <span class="sticky-gift-icon-back-offer-detail">
+                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78033 0.46967C6.07322 0.762563 6.07322 1.23744 5.78033 1.53033L2.31066 5L5.78033 8.46967C6.07322 8.76256 6.07322 9.23744 5.78033 9.53033C5.48744 9.82322 5.01256 9.82322 4.71967 9.53033L0.719669 5.53033C0.426776 5.23744 0.426777 4.76256 0.719669 4.46967L4.71967 0.46967C5.01256 0.176777 5.48744 0.176777 5.78033 0.46967Z" fill="#8A8A8A"></path>
+                </svg>
+              </span>
+              {% if settings.gift_sub_banner != blank %}
+                <img src="{{ settings.gift_sub_banner | img_url:'original' }}" class="gift_image" loading="lazy">
+              {% else %}  
+              <div class="sticky-gift-title-container">
+                <b
+                  class="sticky-gift-title"
+                  data-sticky-gift-today-offer-title-tooltip="{{ settings.gift_sub_heading }}"
+                  style="cursor: default"
+                >
+                  {{ settings.gift_sub_heading }}
+                </b>
+                <span class="sticky-gift-subtitle ">{{ settings.gift_sub_subheading }}</span>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+          <div class="sticky-gift--products">
+            {% for i in (1..12) %}
+              {% capture  image %}st_pimg_{{i}}{% endcapture %}
+              {% capture  text %}st_ptext_{{ i }}{% endcapture %}
+              {% capture  btn_text %}st_pbtn_{{ i }}{% endcapture %}
+              {% capture  btn_link %}st_plink_{{ i }}{% endcapture %}
+              {% capture  price %}st_pop_{{ i }}{% endcapture %}
+              
+              {% if settings[image] != blank or settings[text] != blank %}
+                {% assign product_index = forloop.index %}
+              <div class="sticky-gift-product  {% if settings.enable_see_more %}{% unless forloop.index == 1 or forloop.index == 2 %} hide_product{% endunless %}{% endif %}">
+               <img loading="lazy" class="sticky-gift-product-img" src="{{ settings[image] | img_url:'original' }}" alt="{{ settings[text] }}">
+               <div class="sticky-gift-product-info">
+                  <div class="sticky-gift-product-title">
+                    {{ settings[text] }}
+                  </div>
+                  <div class="sticky-gift-variant-title sca-d-none">
+                     
+                  </div>
+                  {% if settings[price] != blank %}
+                  <div class="sticky-gift-product-price">
+                     <span class="sticky-gift-product-discount-price">₹0.00</span>
+                     <span class="sticky-gift-product-original-price">{{ settings[price] }}</span>
+                  </div>
+                 {% endif %} 
+                  {% if settings[btn_link] != blank %}
+                  <a href="{{ settings[btn_link] }}" class="button button-primary st_pbtn">{{ settings[btn_text] }}</a>
+                  {% endif %} 
+               </div>
+              </div>
+            {% endif %}
+            {% endfor %}  
+            {% for product in settings.gift_product_list %}
+              {% assign product_index = forloop.index %}
+              <div class="sticky-gift-product  {% if settings.enable_see_more %}{% unless forloop.index == 1 or forloop.index == 2 %} hide_product{% endunless %}{% endif %}">
+               <img loading="lazy" class="sticky-gift-product-img" src="{{ product.featured_image | img_url:'original' }}" alt="{{ product.title }}">
+               <div class="sticky-gift-product-info">
+                  <div class="sticky-gift-product-title">
+                    {{ product.title }}
+                  </div>
+                  <div class="sticky-gift-variant-title sca-d-none">
+                     
+                  </div>
+                  {% if product.selected_or_first_available_variant.price %}
+                  <div class="sticky-gift-product-price">
+                     <span class="sticky-gift-product-discount-price">₹0.00</span>
+                     <span class="sticky-gift-product-original-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+                  </div>
+                {% endif %} 
+               </div>
+              </div>
+            {% endfor %}  
+          </div>
+          {% if settings.enable_see_more %}
+          <span class="sca-offer-more-gift-products">
+               See more ({{product_index | minus:2}} products)
+          </span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% if settings.sticky_btn_link != blank %}
+      {% unless template.name == "product" or template.name == "collection" %}
+          <div class="sticky_btn-wrap">
+            <a href="{{ settings.sticky_btn_link }}" class="button button-primary sticky_btn-link">{{ settings.sticky_shop_btn }}</a>
+          </div>
+      {% endunless %}
+    {% endif %}
+  </div>
+</div>

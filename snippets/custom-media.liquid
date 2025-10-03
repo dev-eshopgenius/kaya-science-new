@@ -1,0 +1,39 @@
+<div class="product-slider-container custom--product-media-slider">
+  <!-- Main Slider -->  
+  <div class="swiper-container main-slider">
+    <div class="swiper-wrapper">
+      {% for media in product.media %}
+        <div class="swiper-slide"> 
+            {% if media.media_type == 'video' %}
+                {{ media | video_tag: autoplay: true, loop: true, muted: true, controls: true,class: 'pro-image media-vdo' }}
+            {% else %}
+                {{ media | image_url: width: '1024' | image_tag: loading: 'lazy', class: 'pro-image' }} 
+            {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev main-slider-prev"></div>
+    <div class="swiper-button-next main-slider-next"></div>
+  </div>
+
+  <!-- Thumbnail Slider -->
+  <div class="thumbnail-slider">
+    <div class="swiper-container custom-thumb-slider">
+      <div class="swiper-wrapper">
+        {% for media in product.media %}
+          <div class="swiper-slide">
+            {% if media.media_type == 'video' %}
+                {{ media | video_tag: autoplay: true, loop: true, muted: true, controls: true,class: 'media-img media-vdo' }}
+            {% else %}
+                {{ media | image_url: width: '1024' | image_tag: loading: 'lazy', class: 'media-img' }}
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-prev thumbnail-slider-prev"></div>
+      <div class="swiper-button-next thumbnail-slider-next"></div>
+    </div>
+  </div>
+</div>
+

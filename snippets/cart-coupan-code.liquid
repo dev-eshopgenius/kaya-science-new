@@ -1,0 +1,183 @@
+{%- if cart != empty -%}
+  <div class="product--offers-wraper">
+    {% if settings.offertitle != blank %}
+      <div class="title coupanCode--title">
+        {{ settings.offertitle }}
+      </div>
+    {% endif %}
+    <div class="product--offers-wrap">
+      <div class="coupan-code-wrapper">
+        <div class="coupan-code-content">
+          <ul>
+            {% assign has_properties = false %}
+            {% assign has_gift_product = false %}
+            {% assign has_shower_gel = false %}
+            {% assign has_b2g2_sale = false %}
+            {% for item in cart.items %}
+              {% if item.properties and item.properties._b2g1_product == 'b2g1_product' %}
+                {% assign has_properties = true %}
+              {% endif %}
+              {% if item.properties and item.properties._GiftWrap == 'b2g1gift_product' %}
+                {% assign has_gift_product = true %}
+              {% endif %}
+              {% if item.product.tags contains 'summer-sale' %}
+                {% assign has_summer_sale = true %}
+              {% endif %}
+              {% if item.product.tags contains 'MonsoonSale' %}
+                {% assign has_shower_gel = true %}
+              {% endif %}
+
+              {% if item.product.tags contains 'navratri-sale' %}
+                {% assign has_b2g2_sale = true %}
+              {% endif %}
+            {% endfor %}
+
+            <li
+              class="code--items b2g1_prod_coupan {% if has_gift_product  %}disable-coupan-code{% endif %}"
+              style="display:{% if has_properties %}block{% else %}none{% endif %};"
+            >
+              <div class="content-wrapp">
+                {% if settings.b2g1coupan_text != blank %}
+                  <div class="heading">
+                    {{ settings.b2g1coupan_text }}
+                  </div>
+                {% endif %}
+                {% if settings.b2g1coupan_code != blank %}
+                  <div class="sub_heading discount-code-item">
+                    <div class="discountcode textToCopy">{{ settings.b2g1coupan_code }}</div>
+                    <span class="applytext">
+                      <span
+                        class="apply_text"
+                        style="display:{% if has_gift_product %}none{% else %} block{% endif %};"
+                      >
+                        {{- settings.apply_text -}}
+                      </span>
+                      <span
+                        class="applied-text"
+                        style="display:{% if has_gift_product %}block {% else %} none{% endif %};"
+                      >
+                        {{- settings.applied_text -}}
+                      </span>
+                    </span>
+                  </div>
+                {% endif %}
+              </div>
+            </li>
+
+            <li
+              class="code--items b2g1_prod2_coupan"
+            >
+              <div class="content-wrapp">
+                {% if settings.b2g1coupan2_text != blank %}
+                  <div class="heading">
+                    {{ settings.b2g1coupan2_text }}
+                  </div>
+                {% endif %}
+                {% if settings.b2g1coupan2_code != blank %}
+                  <div class="sub_heading discount-code-item">
+                    <div class="discountcode textToCopy">{{ settings.b2g1coupan2_code }}</div>
+                    <span class="copytext"><span class="copy">Copy</span><span class="copied-text">Copied</span></span>
+                  </div>
+                {% endif %}
+              </div>
+            </li>
+            {% for i in (i..6) %}
+              {% capture heading %}heading{{ i }}{% endcapture %}
+              {% capture subheading %}subheading{{ i }}{% endcapture %}
+
+              {% if settings[heading] != blank or settings[subheading] != blank %}
+                {% comment %} {% if i == 1 %} {% endcomment %}
+                {% assign firs_item = false %}
+                {% if i == 2 %}
+                  {% assign firs_item = true %}
+                {% endif %}
+                <li class="code--items {{has_b2g2_sale}} {{ i }} {% if collection.handle == "festive-glow-sale-buy-2-get-2" %}{% unless firs_item %} hide_all{% endunless %}{% endif %}{% if has_b2g2_sale %}{% if i == 3 or i == 4 %} hide_b2g2_sale{% endif %}{% endif %} ">
+                  <div class="content-wrapp">
+                    {% if settings[heading] != blank %}
+                      <div class="heading">
+                        {{ settings[heading] }}
+                      </div>
+                    {% endif %}
+                    {% if settings[subheading] != blank %}
+                      <div class="sub_heading discount-code-item">
+                        <div class="discountcode textToCopy ">{{ settings[subheading] }}</div>
+                        {% unless settings[subheading] == 'AUTO-APPLIED' %}
+                          <button
+                            class="copy-btn"
+                            data-code="{{ settings[subheading] }}"
+                            onclick="navigator.clipboard.writeText(this.getAttribute('data-code')).then(() => { this.innerText = 'Copied!'; setTimeout(() => { this.innerText = 'Copy'; }, 2000); })"
+                          >
+                            Copy
+                          </button>
+                        {% endunless %}
+                      </div>
+                    {% endif %}
+                  </div>
+                </li>
+
+                {% comment %}
+                  {% endif %}
+                  {% elsif i== 2 %}
+                    {% comment %} {% if has_summer_sale %} {% endcomment %}
+
+                      <li class="code--items four-{{ i }} {% if has_b2g2_sale %}{% if i == 2 or i == 3 %}hide_b2g2_sale{% endif %}{% endif %}">
+                        <div class="content-wrapp">
+                          {% if settings[heading] != blank %}
+                            <div class="heading">
+                              {{ settings[heading] }}
+                            </div>
+                          {% endif %}
+                          {% if settings[subheading] != blank %}
+                            <div class="sub_heading discount-code-item">
+                              <div class="discountcode textToCopy ">{{ settings[subheading] }}</div>
+                              {% unless settings[subheading] == 'AUTO-APPLIED' %}
+                              <button
+                                class="copy-btn"
+                                data-code="{{ settings[subheading] }}"
+                                onclick="navigator.clipboard.writeText(this.getAttribute('data-code')).then(() => { this.innerText = 'Copied!'; setTimeout(() => { this.innerText = 'Copy'; }, 2000); })"
+                              >
+                                Copy
+                              </button>
+                            {% endunless %}
+                            </div>
+                          {% endif %}
+                        </div>
+                      </li>
+                {% endcomment %}
+                {% comment %}
+                  {% else %}
+                    <li class="code--items test11 ">
+                      <div class="content-wrapp">
+                        {% if settings[heading] != blank %}
+                          <div class="heading">
+                            {{ settings[heading] }}
+                          </div>
+                        {% endif %}
+                        {% if settings[subheading] != blank %}
+                          <div class="sub_heading discount-code-item">
+                            <div class="discountcode textToCopy ">{{ settings[subheading] }}</div>
+
+                               {% unless settings[subheading] == 'AUTO-APPLIED' %}
+                            <button
+                              class="copy-btn"
+                              data-code="{{ settings[subheading] }}"
+                              onclick="navigator.clipboard.writeText(this.getAttribute('data-code')).then(() => { this.innerText = 'Copied!'; setTimeout(() => { this.innerText = 'Copy'; }, 2000); })"
+                            >
+                              Copy
+                            </button>
+
+                            {% endunless %}
+                          </div>
+                        {% endif %}
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endcomment %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

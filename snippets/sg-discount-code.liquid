@@ -1,0 +1,284 @@
+<script>
+  let TIMEOUT_VAR;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initializeDiscountWidget("cart");
+
+    const cartDrawer = document.querySelector("cart-drawer");
+    if (cartDrawer) {
+      const observer = new MutationObserver(() => {
+        if (cartDrawer.classList.contains("active")) {
+          clearTimeout(TIMEOUT_VAR);
+          initializeDiscountWidget("drawer");
+        }
+      });
+      observer.observe(cartDrawer, { attributes: true, attributeFilter: ["class"] });
+    }
+
+    document.addEventListener("click", (event) => {
+      const button = event.target.closest("#copy-code-btn");
+      if (!button) return;
+
+      const discountCodeElement = document.querySelector(".dw_code");
+      if (!discountCodeElement) return;
+
+      const code = discountCodeElement.innerText.trim();
+      navigator.clipboard.writeText(code).then(() => {
+        button.textContent = "Copied";
+        setTimeout(() => (button.textContent = "Copy"), 1000);
+      }).catch(err => console.error("Clipboard copy failed:", err));
+    });
+  });
+
+  function initializeDiscountWidget(type = "drawer") {
+    const APP_DOMAIN = "https://kaya-science-discount-e0fa68da8cdb.herokuapp.com";
+    const API_URL = `${APP_DOMAIN}/api/get-code`;
+    const COOKIE_NAME = "discount_timer";
+    const DISCOUNT_COOKIE = "discount_code_cus";
+    const DISCOUNT_EXPIRE = "discount_code_expire";
+    const ACTIVE_COOKIE = "discount_active";
+    const TIMER_DURATION = 15 * 60;
+    const ACTIVE_DURATION = 12 * 60 * 60;
+    const EXPIRE_DURATION = 24 * 60 * 60;
+
+    let discountCode = getCookie(DISCOUNT_COOKIE);
+    let remainingTime = parseInt(getCookie(COOKIE_NAME), 10) || TIMER_DURATION;
+
+    if (discountCode) {
+      renderWidgetUnified(type, discountCode, remainingTime);
+    } else {
+      fetchDiscountCode();
+    }
+
+    async function fetchDiscountCode() {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        if (data.success && data.data.code) {
+          discountCode = data.data.code;
+          setCookie(DISCOUNT_COOKIE, discountCode, TIMER_DURATION);
+          setCookie(COOKIE_NAME, TIMER_DURATION, TIMER_DURATION);
+          renderWidgetUnified(type, discountCode, TIMER_DURATION);
+        }
+      } catch (error) {
+        console.error("Failed to fetch discount code:", error);
+      }
+    }
+
+    function renderWidgetUnified(type, code, timeLeft) {
+      const selector = type === "cart"
+        ? ".discount-widget-container--cart"
+        : ".discount-widget-container--drawer";
+      const container = document.querySelector(selector);
+      if (!container) return;
+
+      container.querySelectorAll(".discount-widget").forEach(el => el.remove());
+
+      const widgetHTML = `
+        <div class="discount-widget" id="discount-widget">
+          <div class="dw_wrap">
+            <div class="dw_info">
+              <div class="dw_title">Limited Time Offer!</div>
+              <div class="dw_desc">Use code to avail 5% off on entire cart value</div>
+            </div>
+            <div class="dw_inwrp">
+              <div class="dwcode_wrap">
+                <div class="dw_code">${code}</div>
+                <button id="copy-code-btn" class="dw_copy button">Copy</button>
+              </div>
+              <div id="timer-text" class="dw_timertext">
+                <div class="dw_cdtwrap">
+                  <strong>Offer Expires in: <span class="countdown" id="countdown">${formatTime(timeLeft)}</span> ⏱️</strong>
+                </div>
+                <div class="dw_desc_2"><strong>Flat 5% off</strong> on orders above ₹1399.00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      if (getCookie(ACTIVE_COOKIE) === "true") {
+        container.innerHTML = widgetHTML;
+        startCountdown(timeLeft, container);
+      } else {
+        setTimeout(() => {
+          container.innerHTML = widgetHTML;
+          document.body.classList.add("discount_show");
+          setCookie(ACTIVE_COOKIE, "true", ACTIVE_DURATION);
+
+          TIMEOUT_VAR = setTimeout(() => {
+            document.body.classList.remove("discount_show");
+          }, 2000);
+
+          startCountdown(timeLeft, container);
+        }, 10000);
+      }
+    }
+
+    function startCountdown(seconds, container) {
+      const countdownEl = container.querySelector(".countdown");
+      if (!countdownEl) return;
+
+      const interval = setInterval(() => {
+        seconds--;
+        countdownEl.textContent = formatTime(seconds);
+        setCookie(COOKIE_NAME, seconds, seconds);
+
+        if (seconds <= 0) {
+          clearInterval(interval);
+          [COOKIE_NAME, DISCOUNT_COOKIE, ACTIVE_COOKIE].forEach(deleteCookie);
+          container.querySelectorAll(".discount-widget").forEach(el => el.remove());
+          setCookie(DISCOUNT_EXPIRE, "true", EXPIRE_DURATION);
+        }
+      }, 1000);
+    }
+
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      return `${m}:${s < 10 ? "0" : ""}${s}`;
+    }
+
+    function setCookie(name, value, seconds) {
+      const expires = new Date(Date.now() + seconds * 1000).toUTCString();
+      document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+    }
+
+    function getCookie(name) {
+      const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+      return match ? match[2] : null;
+    }
+
+    function deleteCookie(name) {
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    }
+  }
+</script>
+
+<style>
+  .discount-widget-container--cart {
+    margin: 16px auto;
+ 
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #dfeeed;
+  }
+
+  .discount-widget-container {
+    width: 100%;
+  }
+
+  #discount-widget {
+    color: #000;
+    background: #dfeeec;
+  }
+
+  .dw_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .dw_info {
+    text-align: center;
+    display: none;
+  }
+
+  .dw_title {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .dw_desc {
+    font-size: 13px;
+  }
+
+  .dw_inwrp {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .dwcode_wrap {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .dw_code {
+    text-transform: uppercase;
+    padding: 1px 16px;
+    border-radius: 4px;
+    border: 2px dashed currentColor;
+    font-size: 16px;
+    line-height: 1;
+  }
+.drawer__inner .dw_code {padding:2px 4px; font-size:14px}
+  .dw_copy.button {
+    padding: 4px !important;
+    min-width: 120px;
+    min-height: 24px;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+.drawer__inner .dw_copy.button {min-width:60px}
+  .dw_copy.button:before,
+  .dw_copy.button:after {
+    display: none;
+  }
+
+  .dw_desc_2 {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+
+  body:has(cart-drawer.active) {
+    overflow: hidden;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .dwcode_wrap {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .dw_code {
+      font-size: 11px;
+    }
+  }
+
+  /* Optional overlay animation - uncomment to use
+  body.discount_show .cart-drawer .drawer__inner:before {
+    content: "";
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background: rgba(0, 0, 0, 0.4) url(https://cdn.shopify.com/s/files/1/0891/9413/5854/files/coupon-unlocked.svg?v=1740044649) no-repeat center;
+    background-size: auto;
+    z-index: 9;
+  }
+
+  body.discount_show .cart-drawer .drawer__inner {
+    overflow: hidden;
+    border-left: none;
+  }
+
+  body.discount_show .cart-drawer .drawer__inner:after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background: url(https://cdn.shopify.com/s/files/1/0891/9413/5854/files/party_popper_gif.gif?v=1725968419) no-repeat center;
+    background-size: contain;
+    z-index: 99;
+  }
+  */
+</style>

@@ -1,0 +1,442 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient  section-{{ section.id }}-padding">
+  <div class="contact-form__content-wrapper grid grid--2-col-desktop grid--1-col-tablet-down grid--2-col-tablet">
+    {% if section.settings.image != blank %}
+      <div class="contact--form-image grid__item">
+        {{
+          section.settings.image
+          | image_url: width: section.settings.image.width
+          | image_tag: loading: 'lazy', class: 'contact-img'
+        }}
+      </div>
+    {% endif %}
+    <div class="contact page-width grid__item">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.heading }}
+        </h2>
+      {%- else -%}
+        <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+      {%- endif -%}
+      {% if section.settings.subheading != blank %}
+        <div class="subheading">
+          {{ section.settings.subheading }}
+        </div>
+      {% endif %}
+      {%- liquid
+        assign contact_form_class = 'isolate'
+        if settings.animations_reveal_on_scroll
+          assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+        endif
+      -%}
+      {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+        {%- if form.posted_successfully? -%}
+          <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+            {{- 'icon-success.svg' | inline_asset_content -}}
+            {{ 'templates.contact.form.post_success' | t }}
+          </h2>
+        {%- elsif form.errors -%}
+          <div class="form__message">
+            <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+              {{- 'icon-error.svg' | inline_asset_content -}}
+              {{ 'templates.contact.form.error_heading' | t }}
+            </h2>
+          </div>
+          <ul class="form-status-list caption-large" role="list">
+            <li>
+              <a href="#ContactForm-email" class="link">
+                {{ form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email }}
+              </a>
+            </li>
+          </ul>
+        {%- endif -%}
+        <div class="contact__fields">
+          <div class="field">
+            <input
+              class="field__input"
+              autocomplete="name"
+              type="text"
+              id="ContactForm-name"
+              name="contact[{{ 'templates.contact.form.name' | t }}]"
+              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+              placeholder="Message"
+              aria-required="true"
+              required
+            >
+            <label class="field__label" for="ContactForm-name">
+              Name
+              <span aria-hidden="true">*</span>
+            </label>
+          </div>
+
+          <div class="field">
+            <input
+              type="tel"
+              id="ContactForm-phone"
+              class="field__input"
+              autocomplete="tel"
+              name="contact[{{ 'templates.contact.form.phone' | t }}]"
+              pattern="[0-9\-]*"
+              value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+              placeholder="Mobile Number"
+              aria-required="true"
+              required
+            >
+            <label class="field__label" for="ContactForm-phone">
+              Mobile Number
+              <span aria-hidden="true">*</span>
+            </label>
+          </div>
+        </div>
+        <div class="contact__fields">
+          <div class="field field--with-error">
+            <input
+              autocomplete="email"
+              type="email"
+              id="ContactForm-email"
+              class="field__input"
+              name="contact[email]"
+              spellcheck="false"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              aria-required="true"
+              {% if form.errors contains 'email' %}
+                aria-invalid="true"
+                aria-describedby="ContactForm-email-error"
+              {% endif %}
+              placeholder="{{ 'templates.contact.form.email' | t }}"
+              required
+            >
+            <label class="field__label" for="ContactForm-email">
+              {{- 'templates.contact.form.email' | t }}
+              <span aria-hidden="true">*</span></label
+            >
+            {%- if form.errors contains 'email' -%}
+              <small class="contact__field-error" id="ContactForm-email-error">
+                <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                <span class="form__message">
+                  <span class="svg-wrapper">
+                    {{- 'icon-error.svg' | inline_asset_content -}}
+                  </span>
+                  {{- form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email -}}
+                </span>
+              </small>
+            {%- endif -%}
+          </div>
+
+          <div class="field">
+            <textarea
+              rows="10"
+              id="ContactForm-body"
+              class="text-area field__input"
+              name="contact[{{ 'templates.contact.form.comment' | t }}]"
+              placeholder="{{ 'templates.contact.form.comment' | t }}"
+            >
+          {{- form.body -}}
+        </textarea>
+            <label class="form__label field__label" for="ContactForm-body"> Message </label>
+          </div>
+        </div>
+        <div class="contact__button">
+          <button type="submit" class="button">
+            {{ 'templates.contact.form.send' | t }}
+          </button>
+        </div>
+      {%- endform -%}
+      <div class="below-content-wrapper">
+        {% if section.settings.belowheading != blank %}
+          <div class="belowheading title">
+            {{ section.settings.belowheading }}
+          </div>
+        {% endif %}
+        <div class="content-wrapper">
+              <div class="phone-text-wrapp wp-text-wrap">
+            <div class="icon-text">
+             {% if section.settings.wp_icon != blank %}
+                {{
+                  section.settings.wp_icon
+                  | image_url: width: 50, height: 50
+                  | image_tag: loading: 'lazy', class: 'phonicon'
+                }}
+              {% endif %}
+              {% if section.settings.wptext != blank %}
+                <span>{{ section.settings.wptext }}</span>
+              {% endif %}
+            </div>
+            {% if section.settings.wpnumber != blank %}
+              <div class="phone-number-text">
+                <a href="https://wa.me/{{ section.settings.wpnumber }}" target="_blank">
+                  {{ section.settings.wpnumber }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+          <div class="phone-text-wrapp">
+            <div class="icon-text">
+              {% if section.settings.phone_icon != blank %}
+                {{
+                  section.settings.phone_icon
+                  | image_url: width: 50, height: 50
+                  | image_tag: loading: 'lazy', class: 'phonicon'
+                }}
+              {% endif %}
+              {% if section.settings.phonetext != blank %}
+                <span>{{ section.settings.phonetext }}</span>
+              {% endif %}
+            </div>
+            {% if section.settings.phonenumber != blank %}
+              <div class="phone-number-text">
+                <a href="tel:{{ section.settings.phonenumber }}">
+                  {{ section.settings.phonenumber }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+          <div class="email-text-wrapp">
+            <div class="icon-text">
+              {% if section.settings.email_icon != blank %}
+                {{
+                  section.settings.email_icon
+                  | image_url: width: 50, height: 50
+                  | image_tag: loading: 'lazy', class: 'emailicon'
+                }}
+              {% endif %}
+              {% if section.settings.emailtext != blank %}
+                <span>{{ section.settings.emailtext }}</span>
+              {% endif %}
+            </div>
+            {% if section.settings.emailnumber != blank %}
+              <div class="email-number-text">
+                <a href="mailto:{{ section.settings.emailnumber }}">
+                  {{ section.settings.emailnumber }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+      
+          <div class="address-text-wrapp email-text-wrapp">
+            <div class="icon-text address_icon">
+              {% if section.settings.address_icon != blank %}
+                {{
+                  section.settings.address_icon
+                  | image_url: width: 50, height: 50
+                  | image_tag: loading: 'lazy', class: 'emailicon'
+                }}
+              {% endif %}
+              {% if section.settings.addresstext != blank %}
+                <span>{{ section.settings.addresstext }}</span>
+              {% endif %}
+            </div>
+            {% if section.settings.addres_content != blank %}
+              <div class="address-number-text addres_content">
+                {{ section.settings.addres_content }}
+              </div>
+            {% endif %}
+          </div>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.contact-form.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.contact-form.settings.title.default",
+      "label": "t:sections.contact-form.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Sub-Heading"
+    },
+    {
+      "type": "header",
+      "content":"Below Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "belowheading",
+      "label": "t:sections.contact-form.settings.title.label",
+      "default":"You Can Also Reach us Here !"
+    },{
+      "type": "header",
+      "content": "WhatsApp Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "wp_icon",
+      "label": "WhatsApp Icon"
+    },
+    {
+      "type": "text",
+      "id": "wptext",
+      "label": "WhatsApp Text",
+      "default":"WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "wpnumber",
+      "label": "WhatsApp Numer",
+      "default":"+91 777 700 7402"
+    },
+      {
+      "type": "header",
+      "content": "Phone Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "phone_icon",
+      "label": "Phone Icon"
+    },
+    {
+      "type": "text",
+      "id": "phonetext",
+      "label": "Phone Text",
+      "default":"Phone"
+    },
+    {
+      "type": "text",
+      "id": "phonenumber",
+      "label": "Phone Numer",
+      "default":"+91 777 700 7402"
+    },
+    {
+      "type": "header",
+      "content": "Emai Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "email_icon",
+      "label": "Email Icon"
+    },
+    {
+      "type": "text",
+      "id": "emailtext",
+      "label": "Email Text",
+      "default":"Email"
+    },
+    {
+      "type": "text",
+      "id": "emailnumber",
+      "label": "Email",
+      "default":"customercare@kayascience.com"
+    },
+    {
+      "type": "header",
+      "content": "Address Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "address_icon",
+      "label": "Address Icon"
+    },
+    {
+      "type": "text",
+      "id": "addresstext",
+      "label": "Address Text",
+      "default":"Address"
+    },
+    {
+      "type":"html",
+      "id": "addres_content",
+      "label": "Address Content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contact-form.presets.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,84 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "skin_quiz_section_HBDtmR": {
+      "type": "skin-quiz-section",
+      "settings": {
+        "heading1": "My Hair",
+        "heading2": "Any Product",
+        "heading3": "Any Concern",
+        "col_trigger1": "face",
+        "col_label1": "My Face",
+        "col_tags1": "face",
+        "col_list1": [
+          "face-toner",
+          "face-cream",
+          "cleanser",
+          "night-cream",
+          "moisturizer",
+          "face-serum",
+          "sunscreen"
+        ],
+        "col_trigger2": "body",
+        "col_label2": "My Body",
+        "col_tags2": "body",
+        "col_list2": [
+          "shower-gel-1",
+          "body-lotion",
+          "foot-cream"
+        ],
+        "col_trigger3": "hair",
+        "col_label3": "My Hair",
+        "col_tags3": "hair",
+        "col_list3": [
+          "shampoo-1",
+          "lotion",
+          "hair-serum"
+        ],
+        "col_trigger4": "",
+        "col_label4": "",
+        "col_tags4": "",
+        "col_list4": [],
+        "col_trigger5": "",
+        "col_label5": "",
+        "col_tags5": "",
+        "col_list5": [],
+        "search_btn_label": "Discover your match",
+        "clear_btn_label": "Clear Filter",
+        "clear_url_label": "https://kayascience.com/collections/shop-all"
+      }
+    },
+    "main": {
+      "type": "main-search",
+      "settings": {
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "quick_add": "standard",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_filtering": false,
+        "filter_type": "vertical",
+        "enable_sorting": false,
+        "article_show_date": false,
+        "article_show_author": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "skin_quiz_section_HBDtmR",
+    "main"
+  ]
+}

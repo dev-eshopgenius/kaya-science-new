@@ -1,0 +1,123 @@
+.cart-page-progress {
+  
+    margin: auto;
+    border: solid 1px #dfeeec;
+    border-radius: 18px;
+}
+body.cart .saving_ammount {
+   
+    margin: 10px auto;
+    padding: 0;
+}
+.cart-page-progress .free-shipping-container {
+    border-radius: 18px 18px 0 0;
+}
+
+body.cart .cart__footer>* {width:100%; max-width: 45rem;}
+body.cart .cart__footer .cart-summary-wrapper {padding-left:0; padding-right:0}
+body.cart .cart__ctas button {max-width: 100%;}
+body.cart .sample_products_wrap  .sample_header{padding:0;}
+body.cart  .coupan-code-content {
+    max-width: 100%;
+    overflow: auto;
+}
+
+
+
+
+.cart__items {max-height: 445px; overflow-y: auto;  box-sizing: border-box; padding-right:15px}
+.cart__items::-webkit-scrollbar {
+  width: 4px;
+}
+.cart__items::-webkit-scrollbar-thumb {
+  background-color: #DDEDEB;
+  border-radius: 4px;
+}
+.cart__items::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.cart__items::-webkit-scrollbar-track{background: #FAFAFA}
+.cart__items thead{position: sticky; top:0;background: #fff; z-index: 99; padding-top:10px; padding-bottom: 10px;}
+.cart__footer {position: sticky; top:0}
+.cart-delivery-result-cls {font-size: 14px; line-height: 19.6px;}
+.cart__items tbody tr td:last-child{padding-right:15px; box-sizing: border-box}
+@media(max-width:989px) {
+ body.cart  .cart-items--wrapper {margin-bottom: 45px}
+  body.cart  .tax-note{font-size: 12px}
+   body.cart .totals{margin:10px auto}
+  body.cart  .cart-items--wrapper.page-width .page-width {padding-left:0; padding-right: 0}
+body.cart .cart-items--wrapper.page-width .estimated-delivery {
+     padding:  1.5rem;
+}
+}
+body.cart cart-items .title-wrapper-with-link{padding-bottom:10px }
+body.cart .cart__footer .cart-summary-wrapper .discount-wrap span:last-child{color:#3EB86F}
+@media(min-width:990px) {
+ body.cart   span.p-top, body.cart  span.p-bottom {right:-47%}
+  body.cart cart-items .title-wrapper-with-link{padding-bottom:15px }
+ body.cart .cart__ctas{margin-top:0}
+  body.cart .totals{margin:15px auto}
+  .cart__items {max-height: 345px;}
+   .cart-items--wrapper.page-width #main-cart-footer {max-width:500px; width:500px;}
+  .custom-cart-wrapper{display: flex}
+  .main-cart-item-wrapper {width:100%; max-width: 100%}
+.custom-cart-wrapper:has(.is-empty) .main-cart-item-wrapper {
+    width: 100%;
+    max-width: 100%;
+}
+.custom-cart-wrapper:has(.is-empty) .cart__footer-wrapper {display: none}
+}
+body.cart  .cart__footer-wrapper:last-child .cart__footer {padding-bottom: 0}
+
+
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+body.cart .coupan-code-content ul::-webkit-scrollbar {
+  height: 2px; /* Makes the scrollbar very thin */
+}
+
+body.cart .coupan-code-content ul::-webkit-scrollbar-track {
+  background: #FAFAFA; /* Light track color */
+  border-radius: 2px; height: 2px;
+}
+
+body.cart .coupan-code-content ul::-webkit-scrollbar-thumb {
+  background: #DDEDEB; /* Light gray thumb */
+  border-radius: 2px;
+}
+
+body.cart .coupan-code-content ul::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0; /* Slightly darker on hover */
+}
+
+/* For Firefox */
+body.cart .coupan-code-content ul {
+  scrollbar-width: thin;
+  scrollbar-color:  #DDEDEB #FAFAFA;
+}
+/* body.cart .coupan-code-wrapper .coupan-code-content ul li{min-width:initial;width:230px; } */
+body.cart  .coupan-code-wrapper .coupan-code-content{max-width:750px;}
+body.cart  .privacy_policy_wrap, body.cart  .tax-note {text-align: center}
+body.cart .coupan-code-content ul li{margin-bottom:10px;}
+
+
+body.cart .totals {justify-content: center; }
+body.cart  .tax-note a{font-weight: 600}
+body.cart .cart-item__price-wrapper,body.cart cart-items .product-option  {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+body.cart .cart-item__price-wrapper span.price, body.cart cart-items .product-option{font-weight: 600; font-size: 1.4rem}
+body.cart .cart-item__price-wrapper, body.cart cart-items .product-option s{font-weight: 400; color:#BDB3B3; font-size: 1.4rem}
+body.cart cart-items dl .product-option {font-weight: 400; font-size: 10px;}
+body.cart .cart-item__price-wrapper {
+    flex-direction: column;
+}
+body.cart  .card__content .quick-add {gap:5px;}
+body.cart cart-items.page-width {padding-right:0 }
+@media(min-width:750px){
+ body.cart .dw_desc_2{font-size: 1.4rem}
+  body.cart .dw_desc_2 strong{font-weight: 400}
+   body.cart .cart-items-coupons-wrap  {position:sticky; top:0}
+}

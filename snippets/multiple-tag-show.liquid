@@ -1,0 +1,50 @@
+  <div class="card__badge {{ settings.badge_position }} multi-tag__wrapper delayed-hide">
+  {% if custom_tag != blank %}
+    <span
+      id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+      class="badge sss badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+    >
+      {{ custom_tag }}
+    </span>
+
+  {% else %}
+    {% assign fade_tags = '' %}
+    {% for tag in card_product.tags %}
+      {% if tag contains '__' %}
+        {% assign clean = tag | split: '__' | last %}
+        {% assign fade_tags = fade_tags | append: clean | append: '||' %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign tag_array = fade_tags | split: '||' | uniq %}
+
+    {% if tag_array.size > 0 and tag_array.first != '' %}
+      <span
+        id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+        class="fade-text-wrapper badge rrr badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+      >
+        {% for t in tag_array %}
+          {% if t != '' %}
+            <span class="fade-tag {{ t }}">{{ t }}</span>
+          {% endif %}
+        {% endfor %}
+      </span>
+    {% else %}
+      {% if card_product.available == false %}
+        <span
+          id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+          class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }} sold-out"
+        >
+          {{ 'products.product.sold_out' | t }}
+        </span>
+      {% elsif card_product.compare_at_price > card_product.price and card_product.available %}
+        <span
+          id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+          class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }} sale"
+        >
+          {{ 'products.product.on_sale' | t }}
+        </span>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+</div>

@@ -1,0 +1,91 @@
+{% if settings.enable_sample and settings.sample_coll != blank %}
+  {%- capture sample_in_cart -%}{%- for item in cart.items -%}{%- if item.properties.__freeproduct -%}{{- item.key -}}{%- endif -%}{%- endfor -%}{%- endcapture -%}
+  {% assign total_price = cart.items_subtotal_price | money_without_trailing_zeros | remove: '₹' %}
+  {% assign total_without_commas = total_price | remove: ',' %}
+  {% assign threshold_price = settings.cart_moa %}
+  {% assign total_without_commas = total_without_commas | plus: 0 %}
+  {% assign threshold_price = threshold_price | plus: 0 %}
+
+  {% if total_without_commas >= threshold_price %}
+    <div class="sample_products_wrap ">
+      {% if settings.sample_text != blank %}
+        <div class="sample_header">
+          <label for="freegift_checkbox_input" class="freegift_checkbox_label">
+            <input id="freegift_checkbox_input" type="checkbox" class="freegixtcheckbox" title="" autocomplete="false" autofocus="false">
+            <div class="freegift_txt">{{ settings.sample_text }}</div>
+          </label>
+        </div>
+      {% endif %}
+      <div class="sample_products {% if sample_in_cart != blank %}cart_has_freegift{% endif %}" style="display:none;">
+        {% for product in settings.sample_coll.products %}
+          {% assign current_variant = product.selected_or_first_available_variant %}
+          {% unless current_variant.available %}{% continue %}{% endunless %}
+          <div class="sp__item">
+            <img
+              class="sp_img"
+              src="{{ product.featured_image | image_url: width: 120 }}"
+              width="120"
+              height="auto"
+              loading="lazy"
+            >
+            <div class="sp_detail_wrap">
+              <h3 class="sp_title">{{ product.title }}</h3>
+              <div class="sp-pricelist">
+                <p class="sp_price">{{ product.price | money }}</p>
+                <!-- <span class="sp_final_price">₹0.00</span> -->
+              </div>
+              <button
+                class="sp_btn {% if sample_in_cart contains current_variant.id %}to_remove{% else %}to_add{% endif -%}"
+                type="button"
+                data-id="{{ current_variant.id }}"
+                data-cart-key="{{ sample_in_cart }}"
+                {% if sample_in_cart != blank %}
+                  {% unless sample_in_cart contains current_variant.id %}
+                    disableddd
+                  {% endunless %}
+                {% endif %}
+                data-message="{{ settings.mgs_toshow }}"
+              >
+                <span class="sp_btn_ico">
+                  {% render 'icon-plus' %}
+                  {% render 'icon-close' %}
+                  {% render 'icon-spin' %}
+                </span>
+                <span class="sp_btn_txt">
+                  {%- if sample_in_cart contains current_variant.id %}
+                    Remove
+                  {%- else %}
+                    Add
+                  {% endif -%}
+                </span>
+              </button>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div id="cooee-upsell"></div>
+  {% endif %}
+{% endif %}
+<style>
+  .sp_btn.loading {
+    pointer-events: none;
+  }
+  .sp_btn.to_add .icon-close,
+  .sp_btn.to_remove .icon-plus,
+  .sp_btn.loading .icon-plus,
+  .sp_btn.loading .icon-close,
+  .sp_btn.to_add .icon-spin,
+  .sp_btn.to_remove .icon-spin {
+    display: none;
+  }
+  .sp_btn.loading .icon-spin {
+    display: inline-block !important;
+    width: 15px;
+    height: 15px;
+  }
+  .sp_btn .icon.icon-close {
+    width: 12px;
+    height: 12px;
+  }
+</style>

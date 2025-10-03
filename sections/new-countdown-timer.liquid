@@ -1,0 +1,127 @@
+{% if section.settings.end_time != blank and section.settings.start_time != blank %}
+  <div class="countdown_wrapper" style="display:none;">
+    {% if section.settings.link != blank %}
+      <a href="{{ section.settings.link }}" class="countdown--link">
+    {% endif %}
+    <div class="countdown_main">
+      {% if section.settings.end_time != blank and section.settings.start_time != blank %}
+        <div class="countdown_wrap">
+          <div class="countdown_heading-wrap">
+            <h2 class="countdown_heading">{{ section.settings.countdown_heading }}</h2>
+            <span class="rte count__text">{{ section.settings.subtext }}</span>
+          </div>
+          <div class="time_cover" id="timer--{{ section.id | replace: '-', '_' }}">
+            <div class="time_block day" id="days--{{ section.id | replace: '-', '_' }}"></div>
+            <div class="time_block hour" id="hours--{{ section.id | replace: '-', '_' }}"></div>
+            <div class="time_block minute" id="minutes--{{ section.id | replace: '-', '_' }}"></div>
+            <div class="time_block second" id="seconds--{{ section.id | replace: '-', '_' }}"></div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    {% if section.settings.link != blank %}
+      </a>
+    {% endif %}
+  </div>
+{% endif %}
+{% if section.settings.end_time != blank and section.settings.start_time != blank %}
+  <script>
+    var counnn=0;
+      controlTimer_{{ section.id | replace: '-', '_' }} = (start, end) => {
+        var endTime = new Date(end);
+        endTime = (Date.parse(endTime) / 1000);
+        var now = new Date();
+        now = (Date.parse(now) / 1000);
+        var startTime = new Date(start);
+        startTime = (Date.parse(start) / 1000);
+        var timeLeft = endTime - now;
+        var timeLeftStart = now - startTime;
+        if(timeLeft > 0 && timeLeftStart >= 0) {
+          var days = Math.floor(timeLeft / 86400);
+          var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+          var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+          var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+          if(days <= 0){
+              document.querySelector(".day").classList.add('hide_day');
+          }
+          document.querySelector("#days--{{ section.id | replace: '-', '_' }}").innerHTML = window.tens_digit(days,'days') + ' <span class="dots-text">:</span>' + '<div class="timer_text">Days</div>';
+          document.querySelector("#hours--{{ section.id | replace: '-', '_' }}").innerHTML = window.tens_digit(hours,'Hours')+ '<span class="dots-text">:</span> ' + '<div class="timer_text">Hrs</div>';
+          document.querySelector("#minutes--{{ section.id | replace: '-', '_' }}").innerHTML = window.tens_digit(minutes,'Minutes')+ ' <span class="dots-text">:</span> ' + '<div class="timer_text">Mins</div>';
+          document.querySelector("#seconds--{{ section.id | replace: '-', '_' }}").innerHTML = window.tens_digit(seconds,'Seconds') + '<div class="timer_text">Secs</div>';
+        }
+        {% comment %} console.log(timeLeft, '<<<<timeLeft', timeLeftStart); {% endcomment %}
+        if(timeLeft <= 0) {
+          document.querySelector("#timer--{{ section.id | replace: '-', '_' }}").innerHTML = {{ section.settings.sale_end_mgs | json }};
+          document.querySelector("#timer--{{ section.id | replace: '-', '_' }}").classList.add('sale_end');
+          document.querySelector("#timer--{{ section.id | replace: '-', '_' }}").parentElement.classList.add('remove_title');
+          document.querySelector("#timer--{{ section.id | replace: '-', '_' }}").parentElement.closest('.shopify-section').style.display = "none";
+          clearInterval(interval__{{ section.id | replace: '-', '_' }});
+        }else{
+            document.querySelector(".countdown_wrapper").style.display = "block";
+       
+        }
+
+        if(timeLeftStart < 0) {
+          document.querySelector("#timer--{{ section.id | replace: '-', '_' }}").parentElement.closest('.shopify-section').style.display = "none";
+        } else {
+          document.querySelector("#timer--{{ section.id | replace: '-', '_' }}").parentElement.closest('.shopify-section').style.display = "block";
+        }
+      }
+
+       var interval__{{ section.id | replace: '-', '_' }} = setInterval(function(){
+        controlTimer_{{ section.id | replace: '-', '_' }}({{ section.settings.start_time | json }}, {{ section.settings.end_time | json }});
+      },1000);
+
+      window.tens_digit = (digit, unit='') => {
+        var digit = parseInt(digit), return_value = '';
+        if (digit < 10) {
+          return_value = `<span class="digit tens">0</span><span class="digit unit">${digit}</span>`;
+        } else {
+          var unit = digit % 10,
+          tens = parseInt(digit / 10);
+          return_value = `<span class="digit tens">${tens}</span><span class="digit unit">${unit}</span>`;
+        }
+        return return_value;
+      }
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "New Countdown Timer",
+  "settings": [
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "countdown_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "SubText"
+    },
+    {
+      "type": "text",
+      "id": "start_time",
+      "label": "Start Time",
+      "info": "Format: [29 April 2018 9:56:00]"
+    },
+    {
+      "type": "text",
+      "id": "end_time",
+      "label": "End Time",
+      "info": "Format: [29 April 2018 9:56:00]"
+    }
+  ],
+  "presets": [
+    {
+      "name": "New Countdown Timer"
+    }
+  ]
+}
+{% endschema %}

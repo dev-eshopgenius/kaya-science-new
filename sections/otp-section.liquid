@@ -1,0 +1,423 @@
+{% if customer %}
+  <script>
+    window.simplyOtp = window.simplyOtp || {};
+    window.simplyOtp.customer = true;
+    document.cookie = '_skip_check_login_status=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = '_customer_status_check_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  </script>
+  {% if template contains 'login' or template contains 'register' %}
+    <style>
+      .otp-loader {
+        border: 8px solid #f3f3f3; /* Light grey */
+        border-top: 8px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite;
+        margin:20px auto;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+    <script>
+      if(location.hash == "#ref=gokwik"){
+        window.addEventListener("load", (event) => {
+          setTimeout(function(){
+            window.gokwikSdk.initCheckout(merchantInfo);
+          }, 4000);
+        });
+      } else {
+          location.href="/account";
+      }
+    </script>
+    <div class="otp-loader">&nbsp;</div>
+  {% endif %}
+{% else %}
+  {% assign time_stamp = 'now' | date: '%s' %}
+  {%- assign secret_potion = shop.id | append: time_stamp | md5 -%}
+  <style>
+    .simply-otp-wrapper {
+      display: block;
+    }
+    .otp-loader {
+      border: 8px solid #f3f3f3; /* Light grey */
+      border-top: 8px solid #3498db; /* Blue */
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 2s linear infinite;
+      margin:20px auto;
+    }
+    #sotp-footprint{
+      position: absolute;
+      top: 0;
+      z-index: -10000;
+      width: 0;
+      height: 0;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  <iframe
+    id="sotp-footprint"
+    src="https://simplyotplogin.s3.ap-south-1.amazonaws.com/simply-otp-login-script.html"
+  ></iframe>
+  <div id="otp-original-login" style="display:none">
+    {%- form 'customer_login', name: 'login', class: 'sotp-form', id: 'sotp-form' -%}
+      <input
+        type="email"
+        id="otp-original-email"
+        name="customer[email]"
+      >
+      <input
+        type="password"
+        id="otp-original-password"
+        name="customer[password]"
+      >
+      <input
+        type="hidden"
+        name="return_url"
+        id="otp-return_to"
+      >
+      <button type="submit" id="otp-original-submit">Login</button>
+    {%- endform -%}
+  </div>
+  <div id="recaptcha-container"></div>
+
+  {% comment %}Popup HTML{% endcomment %}
+  <div id="sotp">
+    <div class="sotp-popup-wrapper">
+      <div class="sotp-popup-bg"></div>
+      <div class="sotp-popup-inner">
+        <div class="sotp-popup-content">
+          <div class="sotp-popup-close-btn">
+            <span>
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.7339 14.9984L25.5229 4.52187C25.6702 4.34776 25.5464 4.08325 25.3187 4.08325H22.6468C22.4894 4.08325 22.3388 4.15356 22.235 4.2741L14.9861 12.9158L7.73721 4.2741C7.63676 4.15356 7.48609 4.08325 7.32538 4.08325H4.6535C4.42582 4.08325 4.30194 4.34776 4.44926 4.52187L13.2383 14.9984L4.44926 25.475C4.41626 25.5138 4.39509 25.5613 4.38826 25.6117C4.38143 25.6622 4.38923 25.7136 4.41073 25.7598C4.43224 25.806 4.46654 25.845 4.50958 25.8723C4.55261 25.8995 4.60256 25.9139 4.6535 25.9136H7.32538C7.48274 25.9136 7.63341 25.8433 7.73721 25.7228L14.9861 17.081L22.235 25.7228C22.3354 25.8433 22.4861 25.9136 22.6468 25.9136H25.3187C25.5464 25.9136 25.6702 25.6491 25.5229 25.475L16.7339 14.9984Z" fill="white"/>
+              </svg>
+            </span>
+          </div>
+          <div class="sotp-popup-container">
+            <div class="sotp-popup-img-section desk-img-section">
+              <div class="img-container">
+                <img class="desk-img" src="" height="" width="" alt="">
+              </div>
+            </div>
+            <div class="sotp-popup-img-section mobile-img-section">
+              <div class="img-container">
+                <img class="mobile-img" src="" height="" width="" alt="">
+              </div>
+            </div>
+            <div class="sotp-widget"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% comment %}
+    For open popup use function "simplyOtp.openPopup();"
+    For close popup use function "simplyOtp.closePopup();"
+  {% endcomment %}
+
+  {{ 'otp-login.css' | asset_url | stylesheet_tag }}
+  <script>
+    window.simplyOtp = window.simplyOtp || {};
+    window.simplyOtp.fpPromise = import("{{ 'otp-status.js' | asset_url }}");
+
+    window.simplyOtp.time_stamp = "{{time_stamp}}";
+    window.simplyOtp.generated_hash = "{{ secret_potion }}";
+
+    window.simplyOtp.designMode = 1;
+    window.simplyOtp.initializeCss = () => {
+      simplyOtp.cartJson = {{ cart | json }};
+      window.olWrapper = document.querySelectorAll('.olWrapper');
+      olWrapper.forEach(ele => ele.style.display = "none")
+
+      // If available then change olWrapper display property
+      /* Load css */
+      var cssId = 'myCss'; // you could encode the css path itself to generate id..
+      if (!document.getElementById(cssId)) {
+        var head = document.getElementsByTagName('head')[0];
+        var link = document.createElement('link');
+        link.id = cssId;
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = "{{ 'otp-login.css' | asset_url }}";
+        link.media = 'all';
+        head.appendChild(link);
+      }if (Shopify.designMode) {
+        document.addEventListener("shopify:section:load", () => {
+          let olWrapperDiv = document.querySelectorAll('.olWrapper'); // Parent element
+          if (olWrapperDiv) { // To check css is available in the DOM or not
+            olWrapperDiv.forEach(ele => ele.style.display = "flex") // If available then change olWrapper display property
+          }
+        });
+      }
+    }
+    window.simplyOtp.signUpEvent = (data) => {
+      dataLayer.push({
+        'event': 'signup',
+        'signup': {
+        'firstName': data.firstName,
+        'lastName': data.lastName,
+        'email': data.email,
+        'mobile': data.phone,
+        // 'source': 'Lucent OTP Login App',
+        // 'meduim': '',
+        // 'campaign': ''
+        }
+      });
+     // WebEngage - identify user
+      webengage.user.login(data.phone); // optional if you want to track as logged-in user
+    
+      webengage.user.setAttribute('first_name', data.firstName);
+      webengage.user.setAttribute('last_name', data.lastName);
+      webengage.user.setAttribute('phone', data.phone);
+    
+      // WebEngage - track signup event
+      webengage.track('User Signed Up', {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone
+        // Add more properties if needed
+      });
+      console.log('signup', data);
+    }
+    window.simplyOtp.loginEvent = (data) => {
+     dataLayer.push({
+        'event': 'login',
+        'Login': {
+        'email': data.email,
+        'mobile': data.phone,
+        // 'source': 'Lucent OTP Login App',
+        // 'medium': '',
+        // 'campaign': ''
+        }
+      });
+       // Identify user in WebEngage
+      webengage.user.login(data.phone); // Login the user by email
+    
+      webengage.user.setAttribute('phone', data.phone); // Optional: update user attributes
+    
+      // Track custom login event in WebEngage
+      webengage.track('User Logged In', {
+        email: data.email,
+        phone: data.phone
+        // Add more properties if needed
+      });
+      console.log('login', data);
+    }
+  </script>
+  <script>
+
+    window.addEventListener('message', (event) => {
+      if (event.data.type === 'footprint' && event.isTrusted && event.origin === 'https://simplyotplogin.s3.ap-south-1.amazonaws.com' && event.data.value) {
+            window.simplyOtp.footprintID = event.data.value
+        }
+    });
+
+    {% if shop.metafields.simply-otp-login.otp_widgets %}
+      simplyOtp.otp_widgets = {{ shop.metafields.simply-otp-login.otp_widgets }};
+    {% else %}
+      simplyOtp.otp_widgets = {};
+    {% endif %}
+    {% if shop.metafields.simply-otp-login.custom_fields %}
+      simplyOtp.custom_fields = {{ shop.metafields.simply-otp-login.custom_fields }};
+    {% else %}
+      simplyOtp.custom_fields = [];
+    {% endif %}
+
+    {% if shop.metafields.simply-otp-login.recaptcha_site_key %}
+      simplyOtp.siteKeyConfig = {{ shop.metafields.simply-otp-login.recaptcha_site_key }};
+    {% else %}
+      const siteKey = simplyOtp.otp_widgets?.challange_capcha_enabled ? "6LfMBmEqAAAAAIFY9r3vxRO3PVV5moIU5lCQ4NOi" : "6Lcf5mAqAAAAAHFr4iDq6SR_1CGKcRKZO5TpEudY";
+      simplyOtp.siteKeyConfig = {site_key : siteKey};
+    {% endif %}
+
+    simplyOtp.recaptchaSiteKey = simplyOtp.siteKeyConfig.site_key;
+
+    simplyOtp.language = {
+      loginSubTitle: simplyOtp.otp_widgets.login_sub_title,
+      loginTitle: simplyOtp.otp_widgets.login_title,
+      phoneEnable: simplyOtp.otp_widgets.phone_enable,
+      emailEnable: simplyOtp.otp_widgets.email_enable,
+      whatsappEnable: simplyOtp.otp_widgets.whatsapp_enable,
+      phonePlaceholder: simplyOtp.otp_widgets.phone_placeholder,
+      emailPlaceholder: simplyOtp.otp_widgets.email_placeholder,
+      whatsappPlaceholder: simplyOtp.otp_widgets.whatsapp_placeholder,
+      otpTitle: simplyOtp.otp_widgets.otp_title,
+      otpSubTitle: simplyOtp.otp_widgets.otp_sub_title,
+      accountTitle: simplyOtp.otp_widgets.account_title,
+      marketingText: simplyOtp.otp_widgets.marketing_text,
+      emailOfferEnable: simplyOtp.otp_widgets.email_offer_enable,
+      phoneOfferEnable: simplyOtp.otp_widgets.sms_offer_enable,
+      whatsappOfferEnable: simplyOtp.otp_widgets.whatsapp_offer_enable,
+      enableCountries: simplyOtp.otp_widgets.enable_countries,
+      otherOptionText: simplyOtp.otp_widgets.other_option_text || "Or Login Using",
+      btn_bg_color: simplyOtp.otp_widgets.btn_bg_color,
+      btn_text_color: simplyOtp.otp_widgets.btn_text_color,
+      fname_required: simplyOtp.otp_widgets.fname_required !== false,
+      lname_required: simplyOtp.otp_widgets.lname_required !== false,
+      email_required: simplyOtp.otp_widgets.email_required !== false,
+      phone_required: simplyOtp.otp_widgets.phone_required !== false,
+      updateBtnText: simplyOtp.otp_widgets.update_btn_text || "Update",
+      requestOTP : simplyOtp.otp_widgets.request_otp_text || "Request OTP",
+      emText : simplyOtp.otp_widgets.em_text || "Email",
+      waText : simplyOtp.otp_widgets.wa_text || "WhatsApp",
+      phText : simplyOtp.otp_widgets.ph_text || "Phone",
+      emTextError : simplyOtp.otp_widgets.em_text_error || "Please enter a valid email",
+      phTextError : simplyOtp.otp_widgets.ph_text_error || "Please enter a valid Phone Number",
+      fnameTextError : simplyOtp.otp_widgets.fname_text_error || "Please enter First Name",
+      lnameTextError : simplyOtp.otp_widgets.lname_text_error || "Please enter Last Name",
+      fnameText : simplyOtp.otp_widgets.fname_text || "First Name",
+      lnameText : simplyOtp.otp_widgets.lname_text || "Last Name",
+      verifyOTPText : simplyOtp.otp_widgets.verify_otp_text || "Verify OTP",
+      resendOTPText : simplyOtp.otp_widgets.resend_otp_text || "Resend OTP",
+      didNotReceiveOTPText : simplyOtp.otp_widgets.did_not_receive_otp_text || "Didn't Receive the OTP?",
+      phoneInputMaxLength : simplyOtp.otp_widgets.phone_input_max_length || "10",
+
+      verifyOTPLabel : "OTP",
+      accountSubTitle: 'Enter below details and update your account',
+      firstNamePlaceholder: 'Enter your first name',
+      lastNamePlaceholder: 'Enter your last name',
+      countrySearchPlaceholder : "Search...",
+      phLabel : "Phone",
+      emLabel : "Email",
+      waLabel : "Whatsapp",
+      emptySearchMessage : "No results found..!",
+      successLoginTitle : "<span>🎉 Congratulations!</span> <span>Verification Successful</span>",
+      successLoginSubtitle : "Logging you in",
+      otpConsentElement : `
+      <div class="consent-links-wrapper">
+      <span class="consent-text">By proceeding, I accept that I have read and understood the</span>
+        <a href="/policies/terms-of-service" target="_blank" class="consent-link">Kaya’s T&Cs</a>
+        <a href="/policies/privacy-policy" target="_blank" class="consent-link">& Privacy Policy</a>
+      </div>`,
+    };
+    let enabledCountry = simplyOtp.language.enableCountries.split(',');
+    simplyOtp.settings = {
+      pageUrl: simplyOtp.otp_widgets.page_url || window.location.href,
+      resendTime: simplyOtp.otp_widgets.resend_time || 5,
+      forceUpdateProfile : simplyOtp.otp_widgets.force_update_profile ?? true,
+      new_popup_design : simplyOtp.otp_widgets.login_screen_theme == 'modal_view',
+      onlyOTPNoLogin : false,
+      multipass_enabled : false,
+      skipPage3 : false,
+      goKwik:false,
+      onlyIndia: false,
+      selectedCountry: enabledCountry[0].toLowerCase(),
+      primaryColor: simplyOtp.otp_widgets.btn_bg_color,
+      image: simplyOtp.otp_widgets.image_url
+        ? simplyOtp.otp_widgets.image_url
+        : null,
+      modal_logo_image_url: simplyOtp.otp_widgets.modal_logo_image_url
+        ? simplyOtp.otp_widgets.modal_logo_image_url
+        : null,
+      modal_desktop_image_url: simplyOtp.otp_widgets.modal_desktop_image_url
+        ? simplyOtp.otp_widgets.modal_desktop_image_url
+        : null,
+      modal_mobile_image_url: simplyOtp.otp_widgets.modal_mobile_image_url
+        ? simplyOtp.otp_widgets.modal_mobile_image_url
+        : null,
+    };
+    simplyOtp.permanentDomain = "{{ shop.permanent_domain }}";
+    simplyOtp.shopId = "{{ shop.id }}";
+    simplyOtp.myFirebaseApi = '{{ shop.metafields.simply-otp-login.firebase_config }}';
+  </script>
+
+  <script
+    src="{{'otp-login.js' | asset_url}}"
+    type="text/javascript"
+    defer="defer"
+  ></script>
+
+  <script
+    src="{{ 'otp-status-check.js' | asset_url }}"
+    type="text/javascript"
+    defer="defer"
+  ></script>
+
+{% endif %}
+<script>
+  // Set site key
+  var onloadCallback = function() {
+    grecaptcha.enterprise.render('otp-recaptcha-container-app', {
+      'sitekey' : simplyOtp.recaptchaSiteKey,
+      'callback' : window.simplyOtp.captchTokenCallback,
+      'action': 'simply_otp_login'
+    });
+
+    grecaptcha.enterprise.render('otp-recaptcha-container-app-resend', {
+      'sitekey' : simplyOtp.recaptchaSiteKey,
+      'callback' : window.simplyOtp.captchTokenCallback,
+      'action': 'simply_otp_login'
+    });
+  };
+  {% comment %}
+    if(location.pathname.includes('account/activate')){
+      var urlencoded = new URLSearchParams();
+      let timeStamp = new Date().getTime().toString();
+      let locationHref = location.pathname.split('/');
+      urlencoded.append("form_type", "activate_customer_password");
+      urlencoded.append("utf8", "✓");
+      urlencoded.append("customer[password]",timeStamp);
+      urlencoded.append("customer[password_confirmation]", timeStamp);
+      urlencoded.append("id", locationHref[3]);
+      urlencoded.append("token", locationHref[4]);
+      var requestOptions = {
+        method: 'POST',
+        body: urlencoded,
+        redirect: 'follow'
+      };
+      fetch("/account/activate", requestOptions)
+      .then(response => response.text())
+      .then(result => location.href = '/account/login')
+      .catch(error => console.log('error', error));
+    }
+  {% endcomment %}
+</script>
+<script>
+  function handleLogoutClick(e) {
+    e.preventDefault();
+    fetch("/account/logout").then(function() {
+      const date = new Date();
+      date.setTime(date.getTime() + (3 * 60 * 60 * 1000)); // 3 hours
+      const expires = "expires=" + date.toUTCString();
+      document.cookie = "_skip_check_login_status=" + encodeURIComponent(true) + ";" + expires + ";path=/";
+      window.location.href = '/account';
+    });
+    return false;
+  }
+
+  {% comment %}
+    document.querySelector('a[href^="/account/logout"]')?.addEventListener("click", handleLogoutClick);
+    document.querySelector('.sotp-logout-btn')?.addEventListener("click", handleLogoutClick);
+  {% endcomment %}
+
+  document.addEventListener("click", (e) => {
+    if (e.target?.closest('a')?.href.includes("account/logout") || e.target?.closest('.sotp-logout-btn')) {
+      handleLogoutClick(e);
+    }
+  })
+</script>
+
+{% schema %}
+{
+  "name": "Simply OTP Section",
+  "tag": "section",
+  "class": "section",
+  "presets": [
+    {
+      "name": "Simply OTP Section"
+    }
+  ]
+}
+{% endschema %}

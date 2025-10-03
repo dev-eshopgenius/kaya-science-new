@@ -1,0 +1,262 @@
+ {% style %}
+  @media (max-width: 767px) {
+    .search-collection-wrapper .card__information {
+     justify-content: unset;
+    }
+    }
+{% endstyle %}
+<div class="search-collection-wrapper">
+  <div class="search-collection-container">
+    <div class="search-collection-first-part">
+      <div class="recent-search-wrapper">
+        <div class="heading">Recently Searched</div>
+        <ul id="recentSearches" class="recentSearches" style="z-index:10;"></ul>
+      </div>
+      <div class="trend-search-wrapper">
+        <h2 class="heading">Popular choices</h2>
+        {% if settings.search_menu != blank %}
+          <ul class="search--nav">
+            {% for search_menu in settings.search_menu.links %}
+              <li class="main-link-item">
+                <a href="{{ search_menu.url | escape }}">{{ search_menu.title | escape }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+    <div class="categories-search-wrapper">
+      <h2 class="heading">Search suggestions</h2>
+      <ul class="search--nav category_search--nav">
+        {% for collection in collections %}
+          <li class="main-link-item category_search--nav-item" data-title="{{ collection.title }}">
+            <a href="{{ collection.url | escape }}">{{ collection.title | escape }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="product__search-result"></div>
+   
+
+    <!-- Collection Slider popular -->
+    <div class="search-collection-wrap popular-search-collection">
+      <div class="heading">Bestsellers</div>
+      <div class="search-collectionr">
+        <slider-component class="slider-mobile-gutter slider-component-desktop">
+      <ul
+        id="Slider-template--2490465563473741__featured_blog_tybfXX"
+        data-id="template--2490465563473741__featured_blog_tybfXX"
+        class="blog__posts articles-wrapper contains-card contains-card--article grid grid--peek grid--2-col-tablet grid--{{ section.settings.columns_desktop }}-col-desktop slider slider--desktop slider--tablet slider--mobile"
+        role="list"
+      >
+          {% assign popular_products = collections[settings.search_col].products %}
+          {% for product in popular_products limit: 15 %}
+            <li
+            id="Slide-template--2490465563473741__featured_blog_tybfXX-{{ forloop.index }}"
+            class="grid__item slider__slide"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+              {% render 'card-product',
+                card_product: product,
+                show_secondary_image: settings.show_secondary_image,
+                section_id: section.id,
+                quick_add: settings.quick_add,
+                show_rating:   true
+              %}
+           </li>
+          {% endfor %}
+        </ul>
+      </slider-component>
+      </div>
+    </div>
+
+    <!-- Collection Slider best-seller -->
+    {% if settings.best_seller_col != blank %}
+      <div class="search-collection-wrap best-seller-collection">
+        <h2 class="heading">Bestsellers</h2>
+        <div class="search-collection">
+          <slider-component class="slider-mobile-gutter slider-component-desktop">
+      <ul
+        id="Slider-template--249046556347374__featured_blog_tybfXX"
+        data-id="template--249046556347374__featured_blog_tybfXX"
+        class="blog__posts articles-wrapper contains-card contains-card--article grid grid--peek grid--2-col-tablet grid--{{ section.settings.columns_desktop }}-col-desktop slider slider--desktop slider--tablet slider--mobile"
+        role="list"
+      >
+            {% assign bs_products = collections[settings.best_seller_col].products %}
+            {% for bsProduct in bs_products limit: 10 %}
+              <li
+            id="Slide-template--249046556347374__featured_blog_tybfXX-{{ forloop.index }}"
+            class="grid__item slider__slide"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+                {% render 'card-product',
+                  card_product: bsProduct,
+                  show_secondary_image: settings.show_secondary_image,
+                  section_id: section.id,
+                  quick_add: settings.quick_add
+                %}
+              </li>
+            {% endfor %}
+          </ul>
+        </slider-component>
+        </div>
+      </div>
+    {% endif %}
+    <!-- offer banner -->
+
+    <div class="wizzy-autocomplete-banner-2">
+      {% if settings.image_banner %}
+        <div class="wiz-banner-image-2">
+          <div class="">
+            <img loading="eager" class="image-mobile" src="{{ settings.image_banner | image_url: width:1000, height: 600 }}"  alt="Mobile Image"/>
+          </div>
+        </div>
+      {% endif %}
+
+      <!-- categories -->
+      <div class="wizzy-collection-banner">
+        <h3>Categories</h3>
+
+        <div class="_3sdu8W emupdz">
+          {% if settings.head1 and settings.head1_image and settings.head1_link %}
+            <a href="{{ settings.head1_link }}" class="_1ch8e_" aria-label="Grocery">
+              <div data-observerid-72a5eeb1-d481-46e1-a70f-6c71f3200cc4="2535dacb-3a4e-42c9-8340-a2080b8b199e">
+                <div class="YBLJE4">
+                  <div class="_3ETuFY">
+                    <div class="_2GaeWJ" style="width: 100%; height: 100%;">
+                      <img
+                        class="_2puWtW _3a3qyb"
+                        alt="Grocery"
+                        src="{{ settings.head1_image | image_url: width: 800  }}"
+                      />
+                    </div>
+                  </div>
+                  <span class="_1XjE3T"
+                    ><span>{{ settings.head1 }}</span></span
+                  >
+                </div>
+              </div>
+            </a>
+          {% endif %}
+          {% if settings.head2 and settings.head2_image and settings.head2_link %}
+            <a href="{{ settings.head2_link }}" class="_1ch8e_" aria-label="Grocery">
+              <div data-observerid-72a5eeb1-d481-46e1-a70f-6c71f3200cc4="2535dacb-3a4e-42c9-8340-a2080b8b199e">
+                <div class="YBLJE4">
+                  <div class="_3ETuFY">
+                    <div class="_2GaeWJ" style="width: 100%; height: 100%;">
+                      <img
+                        class="_2puWtW _3a3qyb"
+                        alt="Grocery"
+                        src="{{ settings.head2_image | image_url: width: 800  }}"
+                      />
+                    </div>
+                  </div>
+                  <span class="_1XjE3T"
+                    ><span>{{ settings.head2 }}</span></span
+                  >
+                </div>
+              </div>
+            </a>
+          {% endif %}
+          {% if settings.head3 and settings.head3_image and settings.head3_link %}
+            <a href="{{ settings.head3_link }}" class="_1ch8e_" aria-label="Grocery">
+              <div data-observerid-72a5eeb1-d481-46e1-a70f-6c71f3200cc4="2535dacb-3a4e-42c9-8340-a2080b8b199e">
+                <div class="YBLJE4">
+                  <div class="_3ETuFY">
+                    <div class="_2GaeWJ" style="width: 100%; height: 100%;">
+                      <img
+                        class="_2puWtW _3a3qyb"
+                        alt="Grocery"
+                        src="{{ settings.head3_image | image_url: width: 800  }}"
+                      />
+                    </div>
+                  </div>
+                  <span class="_1XjE3T"
+                    ><span>{{ settings.head3 }}</span></span
+                  >
+                </div>
+              </div>
+            </a>
+          {% endif %}
+          {% if settings.head4 and settings.head4_image and settings.head4_link %}
+            <a href="{{ settings.head4_link }}" class="_1ch8e_" aria-label="Grocery">
+              <div data-observerid-72a5eeb1-d481-46e1-a70f-6c71f3200cc4="2535dacb-3a4e-42c9-8340-a2080b8b199e">
+                <div class="YBLJE4">
+                  <div class="_3ETuFY">
+                    <div class="_2GaeWJ" style="width: 100%; height: 100%;">
+                      <img
+                        class="_2puWtW _3a3qyb"
+                        alt="Grocery"
+                        src="{{ settings.head4_image | image_url: width: 800  }}"
+                      />
+                    </div>
+                  </div>
+                  <span class="_1XjE3T"
+                    ><span>{{ settings.head4 }}</span></span
+                  >
+                </div>
+              </div>
+            </a>
+          {% endif %}
+          {% if settings.head5 and settings.head5_image and settings.head5_link %}
+            <a href="{{ settings.head5_link }}" class="_1ch8e_" aria-label="Grocery">
+              <div data-observerid-72a5eeb1-d481-46e1-a70f-6c71f3200cc4="2535dacb-3a4e-42c9-8340-a2080b8b199e">
+                <div class="YBLJE4">
+                  <div class="_3ETuFY">
+                    <div class="_2GaeWJ" style="width: 100%; height: 100%;">
+                      <img
+                        class="_2puWtW _3a3qyb"
+                        alt="Grocery"
+                        src="{{ settings.head5_image | image_url: width: 800  }}"
+                      />
+                    </div>
+                  </div>
+                  <span class="_1XjE3T"
+                    ><span>{{ settings.head5 }}</span></span
+                  >
+                </div>
+              </div>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="page__search-result"></div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+   
+    var sliderElements = document.querySelectorAll('.search-collection-slider');
+
+    sliderElements.forEach(function(sliderElement, index) {
+      new Swiper(sliderElement, {
+        loop: false,
+        spaceBetween: 24,
+        slidesPerView: 4.5,
+        breakpoints: {
+          990: {
+            slidesPerView: 4.5,
+          },
+          750: {
+            slidesPerView: 2.5,
+            spaceBetween: 15,
+          },
+          0: {
+            slidesPerView: 2.5,
+          },
+        },
+        direction: 'horizontal',
+      });
+    });
+  });
+</script>

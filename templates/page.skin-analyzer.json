@@ -1,0 +1,55 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "skin_analyzer_i9weFN": {
+      "type": "skin-analyzer",
+      "blocks": {
+        "image_block_wtnDAM": {
+          "type": "image_block",
+          "settings": {
+            "image1": "shopify://shop_images/1.png",
+            "image2": "shopify://shop_images/2.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_wtnDAM"
+      ],
+      "settings": {
+        "classname": "",
+        "bg_image": "shopify://shop_images/chakra.svg",
+        "mobbg_image": "shopify://shop_images/mob-chakra.svg",
+        "bottom_image": "shopify://shop_images/stage-png.png",
+        "mobbottom_image": "shopify://shop_images/mob-stage.png",
+        "heading": "Let’s discover your perfect skin regimen!",
+        "heading_size": "h1",
+        "text": "<p>Answer a few questions, and we’ll recommend science-backed products tailored to your unique skin needs.</p>",
+        "button_label": "",
+        "button_link": "",
+        "make_btn": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "skin_analyzer_i9weFN"
+  ]
+}

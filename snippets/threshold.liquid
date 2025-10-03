@@ -1,0 +1,50 @@
+<script>
+   window.cartTotal = {{ cart.total_price | json }}; 
+ {% if settings.all_free_product != blank %}
+        window.enable_all_free_product = {{ settings.enable_all_free_product}}
+      window.all_free_product = {{ all_products[settings.all_free_product].selected_or_first_available_variant.id }};
+{% endif %}
+    {% if settings.showergel_gift != blank %}
+window.showergel_gift = {{ all_products[settings.showergel_gift].selected_or_first_available_variant.id }};
+{% endif %}
+</script>
+{% if settings.threeshold_price and settings.free_product %}
+        {% assign prod1Id = all_products[settings.free_product] %}
+        {% assign product1 = prod1Id.selected_or_first_available_variant.id %}
+        <input
+          type="hidden"
+          data-threshold="{{ settings.threeshold_price }}"
+          data-variantId="{{ product1 }}"
+          class="threshold_products threshold_product-1"
+        >
+      {% endif %}
+      {% if settings.threeshold_price1 and settings.free_product1 %}
+        {% assign prod2Id = all_products[settings.free_product1] %}
+        {% assign product2 = prod2Id.selected_or_first_available_variant.id %}
+        <input
+          type="hidden"
+          data-threshold="{{ settings.threeshold_price1 }}"
+          data-variantId="{{ product2 }}"
+          class="threshold_products threshold_product-2"
+        >
+      {% endif %}
+      {% if settings.threeshold_price_1999 and settings.free_product_1999 %}
+        {% assign prod3Id = all_products[settings.free_product_1999] %}
+        {% assign product3 = prod3Id.selected_or_first_available_variant.id %}
+        <input
+          type="hidden"
+          data-threshold="{{ settings.threeshold_price_1999 }}"
+          data-variantId="{{ product3 }}"
+          class="threshold_products threshold_product-3"
+        >
+      {% endif %}
+      {% if settings.threeshold_price_3999 and settings.free_product_3999 %}
+        {% assign prod4Id = all_products[settings.free_product_3999] %}
+        {% assign product4 = prod4Id.selected_or_first_available_variant.id %}
+        <input
+          type="hidden"
+          data-threshold="{{ settings.threeshold_price_3999 }}"
+          data-variantId="{{ product4 }}"
+          class="threshold_products threshold_product-4"
+        >
+      {% endif %}

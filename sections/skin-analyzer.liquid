@@ -1,0 +1,471 @@
+{%- style -%}
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+          padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        }
+
+        @media screen and (min-width: 750px) {
+          .section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+          }
+        }
+
+        .js-image-element {
+          position: relative;
+        }
+
+      .js-slide-image {
+        position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0;
+          transform: scale(0);
+          transition: transform 3s ease-in-out, opacity 1s ease-in-out;
+      }
+
+      .js-slide-image.active {
+          opacity: 1;
+          transform: scale(1);
+          z-index: 1;
+      }
+
+      .skin-analyzer__section-wrapper {
+          background: linear-gradient(180deg, #EDEDF8 0%, #F2FAF6 81.15%);padding:0;
+        overflow: auto;
+      }
+      .skin-analyzer__section-wrapper .page-width{height:100%}
+      .bg-image-wrap.bg_image {
+        position: absolute;height: 100vh;
+        overflow: hidden;right:0;
+    }
+      .bg-image-wrap.bg_image img{ position: relative;
+         /* animation: rotate 60s linear infinite; */
+                                 animation: chakraRotate 12s infinite;
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1); /* smooth but controllable */
+                                 }
+    .skin-analyzer__content-wrapper {
+        display: flex;height:100%;position:relative;align-items:center;
+
+    }
+    .banner-content__column-wrapper .button {
+        width: 100%;
+        margin-top: 60px;
+        max-width: 358px;
+    }
+    .skin-analyzer__content-wrapper .banner-content__column-wrapper {
+        width: 45%;
+        max-width: 450px;
+    }
+
+    .skin-analyzer__content-wrapper .banner-image__column-wrapper {
+        width: 100%;position:relative; height:100%;
+    }
+    .skin-analyzer__content-wrapper .banner-image__column-wrapper .all_images_wrapp {width:340px; height:340px; position:absolute; right:215px; bottom:100px;}
+    .all_images_wrapp .js-slide-image {
+        width: 480px;
+        height: 340px;
+        right: 0;
+    }
+    img.bg-bottom-img {position:absolute; bottom:0; right:0}
+    .all_images_wrapp .js-slide-image img {
+      max-width: 100%;
+      height: auto;
+  }
+
+      @media(max-width:767px) {
+        .skin-analyzer__section-wrapper{max-height:85vh}
+        .bg-image-wrap.bg_image {
+      position: absolute;
+      height: 100vh;
+      overflow: hidden;
+      transform: translateX(-50%);
+      left: 50%;
+      margin: auto;
+      bottom: -18vh;right:auto;
+  }
+        .bg-image-wrap.bg_image img{width: auto;
+      height: 100%;}
+         .skin-analyzer__content-wrapper .banner-content__column-wrapper{padding-left:1.5rem;padding-right:1.5rem}
+        .skin-analyzer__content-wrapper .banner-content__column-wrapper h2.content__heading {
+      font-size: 26px;
+  }
+      .skin-analyzer__content-wrapper .banner-content__column-wrapper p  {        line-height: 20px;
+          font-size: 17px;}
+        .skin-analyzer__content-wrapper .banner-image__column-wrapper .mob-button {
+      position: absolute;
+      left: 1.5rem;
+      right: 1.5rem;
+      bottom: 30px;
+  }
+        .all_images_wrapp .js-slide-image {width:300px; height:300px;left:0; right:0; margin:auto;}
+        .all_images_wrapp .js-slide-image img{aspect-ratio:1; width:100%; object-fit:contain}
+        .skin-analyzer__content-wrapper .banner-image__column-wrapper .all_images_wrapp {width:330px; height:300px; left:0; right:0; margin:auto; aspect-ratio:1; bottom:86px}
+        img.mob-bott-img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+  }
+        .desktop-image, .desk-button {display:none}
+          .skin-analyzer__section-wrapper .page-width {padding:0}
+        img.bg-bottom-img{left:0; max-width:100%; object-fit:contain; height:auto}
+        .skin-analyzer__content-wrapper{flex-direction:column;}
+         .skin-analyzer__content-wrapper > div{min-width:100%}
+      }
+      @media(min-width:768px) {
+          .bg-image-wrap.bg_image img{
+        right: -28vw;bottom:200px; }
+        .mob-button, .mobile-image{display:none}
+      }
+      /* @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+
+
+    } */
+      @keyframes chakraRotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        33.33% {
+          transform: rotate(180deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        83.33% {
+          transform: rotate(360deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    @media(max-width:1299px) and (min-width:1280px) {
+      .bg-image-wrap.bg_image img {
+          right: -36vw;
+          bottom: -20px;
+      }
+    }
+    @media(max-width:1440px) and (min-width:1300px) {
+
+      .bg-image-wrap.bg_image img {
+          right: -33vw;
+          bottom: -20px;
+      }
+    }
+    @media(min-width:990px) {
+      .banner-content__column-wrapper .button {padding:15px 30px; font-size:22px; font-weight:600}
+      .skin-analyzer__content-wrapper .banner-content__column-wrapper h2.content__heading{font-size: calc(var(--font-heading-scale) * 3.7rem);}
+       .skin-analyzer__content-wrapper .banner-content__column-wrapper .content__text p{font-size:18px}
+    }
+    @media(min-width:1900px) {
+          .bg-image-wrap.bg_image img {
+          right: -24vw;
+          bottom: -50px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding  {{ section.settings.classname }} skin-analyzer__section-wrapper">
+  <div class="page-width">
+    <div
+      id="orbo-cc-skin-analyzer-container"
+      class="skin-analyzer__content-wrapper"
+    ></div>
+  </div>
+</div>
+
+<script type="module">
+  import {
+    initializeOrboSkinAnalyzer,
+    startOrboSkinAnalyzer,
+  } from 'https://cdn.orbo.tech/ke433dIxa7/load-orbo-skin-analyzer.js';
+  await initializeOrboSkinAnalyzer();
+  startOrboSkinAnalyzer();
+</script>
+
+<style>
+        #orbo-cc-skin-analyzer-container *:focus-visible {
+          outline: 0;
+          outline-offset: 0;
+          box-shadow: none;
+        }
+         #orbo-cc-skin-analyzer-container div:empty {
+  display: block;
+         }
+</style>
+{% schema %}
+{
+  "name": "Skin Analyzer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "classname",
+      "label": "Unique ClassName"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobbg_image",
+      "label": "Mobile Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_image",
+      "label": "Background Bottom Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobbottom_image",
+      "label": "Mobile BG Bottom Image"
+    },
+    {
+      "type": "html",
+      "id": "heading",
+      "default": "t:sections.image-with-text.blocks.heading.settings.heading.default",
+      "label": "t:sections.image-with-text.blocks.heading.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "t:sections.image-with-text.blocks.text.settings.text.default",
+      "label": "t:sections.image-with-text.blocks.text.settings.text.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "t:sections.image-with-text.blocks.button.settings.button_label.default",
+      "label": "t:sections.image-with-text.blocks.button.settings.button_label.label",
+      "info": "t:sections.image-with-text.blocks.button.settings.button_label.info"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.image-with-text.blocks.button.settings.button_link.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "make_btn",
+      "label": "Button?"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image Content [1]"
+        },
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimage1",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "header",
+          "content": "Image Content [2]"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimage2",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "header",
+          "content": "Image Content [3]"
+        },
+        {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimage3",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "header",
+          "content": "Image Content [4]"
+        },
+        {
+          "type": "image_picker",
+          "id": "image4",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimage4",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "header",
+          "content": "Image Content [5]"
+        },
+        {
+          "type": "image_picker",
+          "id": "image5",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimage5",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "header",
+          "content": "Image Content [6]"
+        },
+        {
+          "type": "image_picker",
+          "id": "image6",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimage6",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "header",
+          "content": "Image Content [7]"
+        },
+        {
+          "type": "image_picker",
+          "id": "image7",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimage7",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "header",
+          "content": "Image Content [8]"
+        },
+        {
+          "type": "image_picker",
+          "id": "image8",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimage8",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "header",
+          "content": "Image Content [9]"
+        },
+        {
+          "type": "image_picker",
+          "id": "image9",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimage9",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "header",
+          "content": "Image Content [10]"
+        },
+        {
+          "type": "image_picker",
+          "id": "image10",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimage10",
+          "label": "Mobile Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Skin Analyzer"
+    }
+  ]
+}
+{% endschema %}

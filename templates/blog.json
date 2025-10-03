@@ -1,0 +1,58 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_fbgpGr": {
+      "type": "image-banner",
+      "settings": {
+        "classname": "blog-list-banner",
+        "image": "shopify://shop_images/2880_x_768_b4d36d96-b804-4a25-b2ba-174842a2f8bf.webp",
+        "mob_image": "shopify://shop_images/1080_x_1080.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "blog_nav_RcWtRB": {
+      "type": "blog-nav",
+      "settings": {
+        "blog_link": "blogs",
+        "padding_top": 36,
+        "padding_bottom": 8
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "subheading": "",
+        "disable_grid": true,
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_fbgpGr",
+    "blog_nav_RcWtRB",
+    "main"
+  ]
+}

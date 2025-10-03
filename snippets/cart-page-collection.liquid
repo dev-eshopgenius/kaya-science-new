@@ -1,0 +1,24 @@
+{%- if cart != empty -%}
+<div class="cartPage-collection-wrapper">
+    {% if settings.cart_col_text != blank %}
+      <h3>{{ settings.cart_col_text }}</h3> 
+    {% endif %}
+  <div class="cartPage-collection-wrap">
+    <div class="cartPage-collection-slider">
+      <div class="cartPage-slider-content">
+        {% for product in settings.cart_collection.products %}
+          <div class="product-slide-wrapp">
+            {% render 'card-product',
+                card_product: product,
+                show_secondary_image: settings.show_secondary_image,
+                section_id: section.id,
+                quick_add: settings.quick_add
+            %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+

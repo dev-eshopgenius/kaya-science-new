@@ -1,0 +1,53 @@
+{%- if cart == empty -%}
+  <div class="empty-cart__collection-wrapper" style="background: #fafafa;">
+    {% if settings.empty_cart_coltext != blank %}
+      <h1>{{ settings.empty_cart_coltext }}</h1>
+    {% endif %}
+    <div class="cart-collection-wrap page-width" >
+      <div class="swiper empty-cartPage-slider">
+        <div class="swiper-wrapper">
+          {% for product in settings.cart_drawer_collection.products %}
+            <div class="swiper-slide">
+              {% render 'card-product',
+                card_product: product,
+                show_secondary_image: settings.show_secondary_image,
+                section_id: section.id,
+                quick_add: settings.quick_add
+              %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<style>
+  .empty-cart__collection-wrapper{background: #f0f0f0;padding-bottom: 30px;padding-top:15px;margin-top:30px;}
+  .empty-cart__collection-wrapper h1{margin:0 auto 30px auto}
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.empty-cartPage-slider').forEach(function(sliderElement) {
+       if (sliderElement.swiper) return;
+
+      new Swiper(sliderElement, {
+        slidesPerView: 2,
+        spaceBetween: 16,
+        navigation: {
+          nextEl: sliderElement.querySelector('.swiper-button-next'),
+          prevEl: sliderElement.querySelector('.swiper-button-prev'),
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 5,
+          },
+        },
+      });
+
+      console.log('Swiper initialized for:', sliderElement);
+    });
+  });
+</script>

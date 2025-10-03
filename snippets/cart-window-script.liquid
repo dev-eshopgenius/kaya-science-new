@@ -1,0 +1,63 @@
+<script>
+     window.cartTotal = {{ cart.total_price | json }};
+      window.b2g1_max_amount = {{ settings.b2g1_max_amount }};
+      {% if settings.b2g1_gift_product != blank %}
+      window.b2g1_gift_product = {{ all_products[settings.b2g1_gift_product].selected_or_first_available_variant.id }};
+      {% endif %}
+      window.enable_b2g1 = {{ settings.enable_b2g1}};
+
+
+      window.threeshouldPrice = {{ settings.threeshold_price }};
+      {% if settings.free_product != blank %}
+      window.free_product = {{ all_products[settings.free_product].selected_or_first_available_variant.id }};
+
+      {% endif %}
+
+      window.threeshouldPrice1 = {{ settings.threeshold_price1 }};
+      {% if settings.free_product1 != blank %}
+      window.free_product1 = {{ all_products[settings.free_product1].selected_or_first_available_variant.id }};
+
+      {% endif %}
+
+      window.threeshouldPrice2 = {{ settings.threeshold_price2 }};
+      {% if settings.free_buy1product2 != blank %}
+      window.free_buy1product2 = {{ all_products[settings.free_buy1product2].selected_or_first_available_variant.id }};
+      {% endif %}
+      {% if settings.free_buy2product2 != blank %}
+      window.free_buy2product2 = {{ all_products[settings.free_buy2product2].selected_or_first_available_variant.id }};
+
+      {% endif %}
+
+      {% if settings.free_product_1999 != blank %}
+          window.threeshold_price_1999 = {{ settings.threeshold_price_1999}}
+      window.free_product_1999 = {{ all_products[settings.free_product_1999].selected_or_first_available_variant.id }};
+
+      {% endif %}
+      {% if settings.free_product_3999 != blank %}
+        window.threeshold_price_3999 = {{ settings.threeshold_price_3999}}
+      window.free_product_3999 = {{ all_products[settings.free_product_3999].selected_or_first_available_variant.id }};
+
+      {% endif %}
+
+
+      {% if settings.all_free_product != blank %}
+        window.enable_all_free_product = {{ settings.enable_all_free_product}}
+      window.all_free_product = {{ all_products[settings.all_free_product].selected_or_first_available_variant.id }};
+
+      {% endif %}
+          {% if settings.showergel_gift != blank %}
+      window.showergel_gift = {{ all_products[settings.showergel_gift].selected_or_first_available_variant.id }};
+      {% endif %}
+
+       {% comment %} window.products = {
+    {% paginate collections.all.products by 10000 %}
+    {% for product in collections.all.products %}
+    {{ product.id }}: {
+    "id": {{ product.id | json }},
+    "tags": {{ product.tags | json }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+    {% endpaginate %}
+    }; {% endcomment %}
+
+    </script>

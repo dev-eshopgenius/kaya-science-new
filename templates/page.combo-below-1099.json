@@ -1,0 +1,159 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_jmFQCq": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/Collection_page.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "rich_text_GNiU63": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xrazP9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gifting Store",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xrazP9"
+      ],
+      "settings": {
+        "fullwidth": false,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "featured_collection_zC6Ved": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Gift Sets at 799",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "view_all_btn": "View All",
+        "view_all_url": "shopify://collections/buy-at-799",
+        "description_style": "body",
+        "collection": "buy-at-799",
+        "products_to_show": 6,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_nw3xGA": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Gift Sets at 499",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "view_all_btn": "View All",
+        "view_all_url": "shopify://collections/buy-at-499",
+        "description_style": "body",
+        "collection": "buy-at-499",
+        "products_to_show": 6,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_nCDbTj": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Gift Sets at 299",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "view_all_btn": "View All",
+        "view_all_url": "shopify://collections/buy-at-300",
+        "description_style": "body",
+        "collection": "buy-at-300",
+        "products_to_show": 21,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 32
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_jmFQCq",
+    "rich_text_GNiU63",
+    "featured_collection_zC6Ved",
+    "featured_collection_nw3xGA",
+    "featured_collection_nCDbTj"
+  ]
+}

@@ -1,0 +1,687 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "logo": "shopify://shop_images/kaya-logo.jpg",
+    "logo_width": 90,
+    "favicon": "shopify://shop_images/Fav_Icon_aaadde63-1e92-45e4-9f5f-a08baf76adf4.png",
+    "type_header_font": "montserrat_n6",
+    "heading_scale": 100,
+    "type_body_font": "montserrat_n4",
+    "body_scale": 100,
+    "page_width": 1390,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 16,
+    "spacing_grid_vertical": 16,
+    "animations_reveal_on_scroll": false,
+    "animations_hover_elements": "none",
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 8,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "scheme-2",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "collection_card_style": "standard",
+    "collection_card_image_padding": 0,
+    "collection_card_text_alignment": "left",
+    "collection_card_color_scheme": "scheme-2",
+    "collection_card_border_thickness": 0,
+    "collection_card_border_opacity": 10,
+    "collection_card_corner_radius": 0,
+    "collection_card_shadow_opacity": 0,
+    "collection_card_shadow_horizontal_offset": 0,
+    "collection_card_shadow_vertical_offset": 4,
+    "collection_card_shadow_blur": 5,
+    "blog_card_style": "standard",
+    "blog_card_image_padding": 0,
+    "blog_card_text_alignment": "left",
+    "blog_card_color_scheme": "scheme-2",
+    "blog_card_border_thickness": 0,
+    "blog_card_border_opacity": 10,
+    "blog_card_corner_radius": 0,
+    "blog_card_shadow_opacity": 0,
+    "blog_card_shadow_horizontal_offset": 0,
+    "blog_card_shadow_vertical_offset": 4,
+    "blog_card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 5,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "top left",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "scheme-5",
+    "sold_out_badge_color_scheme": "scheme-5",
+    "brand_headline": "",
+    "brand_description": "<p></p>",
+    "brand_image_width": 100,
+    "social_facebook_link": "https://www.facebook.com/profile.php?id=61563038487762",
+    "social_instagram_link": "https://www.instagram.com/kayascience/",
+    "social_youtube_link": "",
+    "social_tiktok_link": "",
+    "social_twitter_link": "",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "placeholder_texts": "Shop Antox Vit-C serum, Explore Sunscreens",
+    "search_menu": "search-menu",
+    "search_col": "best-sellers",
+    "head1": "Day Creams",
+    "head1_image": "shopify://shop_images/new-arrivals_21396ef0-86ef-410d-ad08-b41146bc40be.jpg",
+    "head1_link": "https://kayascience.com/collections/face-cream",
+    "head2": "Serums",
+    "head2_image": "shopify://shop_images/Serums.webp",
+    "head2_link": "https://kayascience.com/collections/face-serum",
+    "head3": "Cleansers",
+    "head3_image": "shopify://shop_images/bestsellers.jpg",
+    "head3_link": "https://kayascience.com/collections/cleanser",
+    "head4": "Sunscreens",
+    "head4_image": "shopify://shop_images/Sunscreen_d911d340-273e-4a29-86f7-2fc1700bbdc6.webp",
+    "head4_link": "https://kayascience.com/collections/sunscreen",
+    "head5": "Build Regimen",
+    "head5_image": "shopify://shop_images/Regimen.webp",
+    "head5_link": "https://kayascience.com/pages/build-regimen",
+    "quick_add": "standard",
+    "show_secondary_image": true,
+    "currency_code_enabled": true,
+    "cart_col_text": "Try Our Everyday Essentials",
+    "cart_type": "drawer",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "cart_free_shipping_threshold": "699",
+    "discount_price_1": "1199",
+    "discount_percent_1": "",
+    "discount_img_1": "Free Cleanser",
+    "discount_price_2": "1699",
+    "discount_percent_2": "",
+    "discount_img_2": "Free Shampoo",
+    "discount_price_3": "799",
+    "discount_img_3": "shopify://shop_images/Hamper-Box-_-Keychain-_2.jpg",
+    "empty_cart_coltext": "Try Our Bestsellers",
+    "cart_drawer_collection": "best-sellers",
+    "privacy_policy": "By proceeding, I consent to Kaya's <a href=\"https://kayascience.com/policies/privacy-policy\">privacy policy</a>",
+    "cart_color_scheme": "scheme-1",
+    "sample_text": "<p><strong>Make it a gift to remember </strong>🎁</p>",
+    "sample_coll": "gifting-option",
+    "cart_moa": 0,
+    "mgs_toshow": "Gift Product",
+    "enable_b2g1": false,
+    "b2g1_max_amount": "1000",
+    "b2g1_gift_product": "",
+    "enable_popup": true,
+    "phone_pop_text": "",
+    "popup_heading": "Unlock Your Glow ✨",
+    "popup_subheading": "<p>Join the Kaya community and get flat ₹100 off on your first order - plus early access to exclusive drops, skincare tips and glow secrets</p>",
+    "subtext": "",
+    "terms_text": "I accept Terms &amp; Conditions and <a href=\"https://kayascience.com/policies/privacy-policy\">Privacy Policy</a>.I accept Terms &amp; Conditions and <a href=\"https://kayascience.com/policies/privacy-policy\">Privacy Policy</a>.",
+    "btn_text": "Get My Offer",
+    "image": "shopify://shop_images/ATMC_cream_converted-popup-img.webp",
+    "otp_heading": "OTP Verification",
+    "otp_text": "Enter OTP received on <span class=\"otp_number\"></span>",
+    "coupon_image": "shopify://shop_images/Frame_427319397_5da5555c-98fb-4127-b2af-abb87f7d6e52.png",
+    "coupon_text": "<strong>₹100 OFF</strong><br>\non first purchase",
+    "coupon_code": "NEWUSER",
+    "heading1": "",
+    "subheading1": "",
+    "heading2": "Buy 2 Get 2 Free - Add minimum 4 products to the cart",
+    "subheading2": "AUTO-APPLIED",
+    "heading3": "Get Free Brightening Beads Cleanser on orders above ₹1199",
+    "subheading3": "AUTO-APPLIED",
+    "heading4": "Get Free Nourishing Shampoo on orders above ₹1699",
+    "subheading4": "AUTO-APPLIED",
+    "heading5": "Flat ₹100 off for new customers on their first order above Rs 459",
+    "subheading5": "NEWUSER",
+    "heading6": "",
+    "subheading6": "",
+    "cart_collection": "upsell-products",
+    "showergel_gift": "",
+    "pincode_csv": "https://cdn.shopify.com/s/files/1/0891/9413/5854/files/pincode-delivery_5967ae0c-56eb-43b9-9fb1-c946951801e3.csv?v=1738854824",
+    "b2g1coupan_text": "<p>Buy 2, Get 1 FREE + Free Gift Worth ₹699!</p>",
+    "b2g1coupan_code": "KayaB2G1",
+    "b2g1coupan2_text": "<p>Buy 2, Get 1 Free. Use code at checkout</p>",
+    "b2g1coupan2_code": "KAYAB2G1",
+    "skin_heading1": "My Face",
+    "col_trigger1": "face",
+    "col_label1": "My Face",
+    "col_tags1": "face",
+    "col_list1": [
+      "face-toner",
+      "face-cream",
+      "cleanser",
+      "night-cream",
+      "moisturizer",
+      "face-serum",
+      "sunscreen"
+    ],
+    "col_trigger2": "body",
+    "col_tags2": "body",
+    "col_list2": [
+      "shower-gel",
+      "body-lotion",
+      "foot-cream"
+    ],
+    "col_trigger3": "hair",
+    "col_tags3": "hair",
+    "col_list3": [
+      "shampoo",
+      "lotion",
+      "hair-serum"
+    ],
+    "threeshold_price": "1199",
+    "free_product": "brightening-beads-cleanser-exfoliating-face-cleanser-100-ml-4",
+    "threeshold_price1": "1699",
+    "free_product1": "nourishing-shampoo-mild-and-hydrating-hair-shampoo-200-ml-3",
+    "threeshold_price2": "1299",
+    "free_buy1product2": "",
+    "free_buy2product2": "gift-bag-test",
+    "free_product_1999": "deram-consul",
+    "discount_text_1999": "Free Dermat Consultation",
+    "free_product_3999": "facial-kit",
+    "discount_text_3999": "Free Facial",
+    "enable_all_free_product": false,
+    "all_free_product": "",
+    "enable_sticky_gift": true,
+    "gift_heading": "Get a FREE GIFT on every purchase",
+    "st_ptext_1": "",
+    "st_pimg_2": "shopify://shop_images/ChatGPT_Image_Sep_23_2025_04_48_48_PM.webp",
+    "st_ptext_2": "Buy 2 Get 2 Free - Add minimum 4 products",
+    "st_pimg_3": "shopify://shop_images/FOP_d794324e-43e3-4490-9fe8-c9a331f3a007.webp",
+    "st_ptext_3": "Free Brightening Beads Cleanser on orders above ₹1199",
+    "st_pimg_4": "shopify://shop_images/FOP_cf588598-9061-4536-b6cc-05241ca584b2.webp",
+    "st_ptext_4": "Free Nourishing Shampoo on orders above ₹1699",
+    "st_pimg_5": "shopify://shop_images/ChatGPT_Image_Apr_21_2025_11_45_18_PM.webp",
+    "st_ptext_5": "Free Dermat Consultation on orders above Rs 1999",
+    "st_pimg_6": "shopify://shop_images/ChatGPT_Image_Apr_21_2025_11_45_23_PM.webp",
+    "st_ptext_6": "Free Dermat Consultation + Signature Face Therapy on orders above Rs 3999",
+    "st_pimg_7": "shopify://shop_images/file_00000000a9b4622fbd0349c64d8aaa34_1.webp",
+    "st_ptext_7": "Flat ₹100 off for new customers on their first order above Rs 459",
+    "sticky_shop_btn": "Shop all",
+    "sticky_btn_link": "shopify://collections/shop-all",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "otp-section": {
+        "type": "otp-section",
+        "settings": {}
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "16510219240223340300": {
+        "type": "shopify://apps/whatmore-shoppable-videos/blocks/app-embed/20db8a72-315a-4364-8885-64219ee48303",
+        "disabled": true,
+        "settings": {
+          "minimized_video_position": "right",
+          "horizontal-padding": 5,
+          "vertical-padding": 150,
+          "app-size": 50,
+          "minimized_video_position_landscape": "right",
+          "horizontal-padding-landscape": 5,
+          "vertical-padding-landscape": 150,
+          "app-size-landscape": 50,
+          "video-title": "",
+          "use-variant": "false"
+        }
+      },
+      "11320579242087869063": {
+        "type": "shopify://apps/codify-order-cancel/blocks/cancel_button/f7f8a269-b6ea-461a-8e1b-d61167f44926",
+        "disabled": false,
+        "settings": {
+          "custom_class": ""
+        }
+      },
+      "17550530943902319648": {
+        "type": "shopify://apps/appikon-back-in-stock/blocks/subscribe_it_helper/eb949c69-b3e6-4216-a322-1cd63915d46d",
+        "disabled": false,
+        "settings": {}
+      },
+      "246967388992510375": {
+        "type": "shopify://apps/msg91/blocks/app-embed/a23a396c-1b96-4cfa-80d4-96656b7dcfbc",
+        "disabled": false,
+        "settings": {}
+      },
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "12314280791104830742": {
+        "type": "shopify://apps/webengage/blocks/webengage-embed/1d458caf-1d70-4697-a570-55048d495614",
+        "disabled": false,
+        "settings": {}
+      },
+      "15248664582119306304": {
+        "type": "shopify://apps/verifast-ai-sales-agent/blocks/chat_bot/e8318cdf-ff4f-416b-b090-1fb4ad1a937c",
+        "disabled": false,
+        "settings": {}
+      },
+      "1232542678405107163": {
+        "type": "shopify://apps/instafeed/blocks/head-block/c447db20-095d-4a10-9725-b5977662c9d5",
+        "disabled": true,
+        "settings": {}
+      },
+      "5946647744298494267": {
+        "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+        "disabled": true,
+        "settings": {
+          "storefront_layout_enabled": false,
+          "storefront_layout_primary_bg_color": "#000000",
+          "storefront_layout_primary_text_color": "#ffffff",
+          "storefront_layout_secondary_bg_color": "#f4f8fe",
+          "storefront_layout_secondary_text_color": "#333333",
+          "storefront_layout_ui_border_radius": 6,
+          "storefront_layout_notification_position": "left",
+          "storefront_layout_action_popup_position": "left",
+          "storefront_layout_drawer_position": "left",
+          "storefront_layout_as_section_page": ""
+        }
+      }
+    },
+    "color_schemes": {
+      "scheme-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-2": {
+        "settings": {
+          "background": "#fafafa",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#262626",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-3": {
+        "settings": {
+          "background": "#242833",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-4": {
+        "settings": {
+          "background": "#121212",
+          "background_gradient": "linear-gradient(270deg, rgba(225, 237, 240, 1) 3%, rgba(234, 220, 232, 1) 100%)",
+          "text": "#262626",
+          "button": "#ffffff",
+          "button_label": "#121212",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-5": {
+        "settings": {
+          "background": "#c3ebe6",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#ffffff",
+          "button_label": "#334fb4",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-18bccc13-b32c-4b71-b120-f96cb1a9ecd1": {
+        "settings": {
+          "background": "#262626",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-48ef665a-368c-4f1a-b853-d3862b22e100": {
+        "settings": {
+          "background": "#faeeed",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "rgba(0,0,0,0)",
+          "button_label": "#262626",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-a24c0c28-8ffe-411d-9854-c829604e0bb5": {
+        "settings": {
+          "background": "#fcf5e2",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#323232",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-39a738da-7717-40a9-98ac-65806e0b1672": {
+        "settings": {
+          "background": "rgba(0,0,0,0)",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#ffffff",
+          "button_label": "#262626",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-c73cd97e-c5a9-4470-9429-dfeca6bc795e": {
+        "settings": {
+          "background": "#f3f3f5",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "rgba(0,0,0,0)",
+          "button_label": "#262626",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-b6e1040a-b0b8-4746-ba35-5ea009db42be": {
+        "settings": {
+          "background": "#ebeeec",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#262626",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#262626",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-00ac7443-e051-4410-ac64-803edf10c731": {
+        "settings": {
+          "background": "#eff6f5",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-68497806-25de-4f1c-8fb8-8714e4e866a0": {
+        "settings": {
+          "background": "#f5faf9",
+          "background_gradient": "",
+          "text": "#262626",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "logo_width": 90,
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-2": {
+          "settings": {
+            "background": "#F3F3F3",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#F3F3F3",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-3": {
+          "settings": {
+            "background": "#242833",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#000000",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-4": {
+          "settings": {
+            "background": "#121212",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#121212",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-5": {
+          "settings": {
+            "background": "#334FB4",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#334FB4",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 0,
+      "spacing_grid_horizontal": 8,
+      "spacing_grid_vertical": 8,
+      "animations_reveal_on_scroll": true,
+      "animations_hover_elements": "none",
+      "buttons_border_thickness": 1,
+      "buttons_border_opacity": 100,
+      "buttons_radius": 0,
+      "buttons_shadow_opacity": 0,
+      "buttons_shadow_horizontal_offset": 0,
+      "buttons_shadow_vertical_offset": 4,
+      "buttons_shadow_blur": 5,
+      "variant_pills_border_thickness": 1,
+      "variant_pills_border_opacity": 55,
+      "variant_pills_radius": 40,
+      "variant_pills_shadow_opacity": 0,
+      "variant_pills_shadow_horizontal_offset": 0,
+      "variant_pills_shadow_vertical_offset": 4,
+      "variant_pills_shadow_blur": 5,
+      "inputs_border_thickness": 1,
+      "inputs_border_opacity": 55,
+      "inputs_radius": 0,
+      "inputs_shadow_opacity": 0,
+      "inputs_shadow_horizontal_offset": 0,
+      "inputs_shadow_vertical_offset": 4,
+      "inputs_shadow_blur": 5,
+      "card_style": "standard",
+      "card_image_padding": 0,
+      "card_text_alignment": "left",
+      "card_color_scheme": "scheme-2",
+      "card_border_thickness": 0,
+      "card_border_opacity": 10,
+      "card_corner_radius": 0,
+      "card_shadow_opacity": 0,
+      "card_shadow_horizontal_offset": 0,
+      "card_shadow_vertical_offset": 4,
+      "card_shadow_blur": 5,
+      "collection_card_style": "standard",
+      "collection_card_image_padding": 0,
+      "collection_card_text_alignment": "left",
+      "collection_card_color_scheme": "scheme-2",
+      "collection_card_border_thickness": 0,
+      "collection_card_border_opacity": 10,
+      "collection_card_corner_radius": 0,
+      "collection_card_shadow_opacity": 0,
+      "collection_card_shadow_horizontal_offset": 0,
+      "collection_card_shadow_vertical_offset": 4,
+      "collection_card_shadow_blur": 5,
+      "blog_card_style": "standard",
+      "blog_card_image_padding": 0,
+      "blog_card_text_alignment": "left",
+      "blog_card_color_scheme": "scheme-2",
+      "blog_card_border_thickness": 0,
+      "blog_card_border_opacity": 10,
+      "blog_card_corner_radius": 0,
+      "blog_card_shadow_opacity": 0,
+      "blog_card_shadow_horizontal_offset": 0,
+      "blog_card_shadow_vertical_offset": 4,
+      "blog_card_shadow_blur": 5,
+      "text_boxes_border_thickness": 0,
+      "text_boxes_border_opacity": 10,
+      "text_boxes_radius": 0,
+      "text_boxes_shadow_opacity": 0,
+      "text_boxes_shadow_horizontal_offset": 0,
+      "text_boxes_shadow_vertical_offset": 4,
+      "text_boxes_shadow_blur": 5,
+      "media_border_thickness": 1,
+      "media_border_opacity": 5,
+      "media_radius": 0,
+      "media_shadow_opacity": 0,
+      "media_shadow_horizontal_offset": 0,
+      "media_shadow_vertical_offset": 4,
+      "media_shadow_blur": 5,
+      "popup_border_thickness": 1,
+      "popup_border_opacity": 10,
+      "popup_corner_radius": 0,
+      "popup_shadow_opacity": 5,
+      "popup_shadow_horizontal_offset": 0,
+      "popup_shadow_vertical_offset": 4,
+      "popup_shadow_blur": 5,
+      "drawer_border_thickness": 1,
+      "drawer_border_opacity": 10,
+      "drawer_shadow_opacity": 0,
+      "drawer_shadow_horizontal_offset": 0,
+      "drawer_shadow_vertical_offset": 4,
+      "drawer_shadow_blur": 5,
+      "badge_position": "bottom left",
+      "badge_corner_radius": 40,
+      "sale_badge_color_scheme": "scheme-4",
+      "sold_out_badge_color_scheme": "scheme-3",
+      "brand_headline": "",
+      "brand_description": "<p></p>",
+      "brand_image_width": 100,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tiktok_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "currency_code_enabled": true,
+      "cart_type": "notification",
+      "show_vendor": false,
+      "show_cart_note": false,
+      "cart_drawer_collection": "",
+      "cart_color_scheme": "scheme-1",
+      "sections": {
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        }
+      }
+    }
+  }
+}

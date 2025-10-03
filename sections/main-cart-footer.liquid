@@ -1,0 +1,280 @@
+<link
+  rel="stylesheet"
+  href="{{ 'component-cart.css' | asset_url }}"
+  media="print"
+  onload="this.onload=null;this.media='all';"
+>
+<link
+  rel="stylesheet"
+  href="{{ 'component-totals.css' | asset_url }}"
+  media="print"
+  onload="this.onload=null;this.media='all';"
+>
+{{ 'component-price.css' | asset_url | stylesheet_tag: preload: true }}
+<link
+  rel="stylesheet"
+  href="{{ 'component-discounts.css' | asset_url }}"
+  media="print"
+  onload="this.onload=null;this.media='all';"
+>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
+  id="main-cart-footer"
+  data-id="{{ section.id }}"
+>
+  <div class="page-width">
+    <div class="cart__footer isolate section-{{ section.id }}-padding">
+      {%- if settings.show_cart_note -%}
+        <cart-note class="cart__note field">
+          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <textarea
+            class="text-area field__input"
+            name="note"
+            form="cart"
+            id="Cart-note"
+            placeholder="{{ 'sections.cart.note' | t }}"
+          >{{ cart.note }}</textarea>
+        </cart-note>
+      {%- endif -%}
+
+      <div class="cart__blocks">
+        {% comment %}{% render 'cart-pincode', items: cart.items %}{% endcomment %}
+        {% render 'cart-page-collection' %}
+        <div class="cart-summary-wrapper">
+          <div class="title-icon-wrap">
+            <span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.9778 20.408C19.0357 20.408 19.5646 20.408 19.9686 20.2021C20.3241 20.021 20.613 19.732 20.7941 19.3766C21 18.9726 21 18.4436 21 17.3857V11.1524C21 10.0945 21 9.56559 20.7941 9.16153C20.613 8.80612 20.3241 8.51715 19.9686 8.33606C19.5646 8.13018 19.0357 8.13018 17.9778 8.13018L7.02222 8.13018C5.96435 8.13018 5.43541 8.13018 5.03135 8.33606C4.67593 8.51715 4.38697 8.80612 4.20588 9.16153C4 9.56559 4 10.0945 4 11.1524L4 17.3857C4 18.4436 4 18.9725 4.20588 19.3766C4.38697 19.732 4.67593 20.021 5.03135 20.2021C5.43541 20.408 5.96434 20.408 7.02222 20.408H17.9778Z" fill="url(#paint0_linear_6268_14697)"></path>
+                <path d="M17.2222 14.2691C17.2222 14.5299 17.0108 14.7413 16.75 14.7413C16.4892 14.7413 16.2778 14.5299 16.2778 14.2691C16.2778 14.0083 16.4892 13.7968 16.75 13.7968C17.0108 13.7968 17.2222 14.0083 17.2222 14.2691Z" fill="url(#paint1_linear_6268_14697)"></path>
+                <path d="M16.2778 8.13018V4.82524C16.2778 4.03971 16.2778 3.64695 16.1123 3.40557C15.9677 3.19469 15.7438 3.05143 15.4918 3.00854C15.2033 2.95944 14.8467 3.12403 14.1334 3.45322L5.75574 7.31984C5.11964 7.61342 4.8016 7.76021 4.56866 7.98787C4.36272 8.18913 4.20553 8.43481 4.10909 8.70613C4 9.01304 4 9.36332 4 10.0639V14.7413M16.75 14.2691H16.7594M4 11.1524L4 17.3857C4 18.4436 4 18.9725 4.20588 19.3766C4.38697 19.732 4.67593 20.021 5.03135 20.2021C5.43541 20.408 5.96435 20.408 7.02222 20.408H17.9778C19.0357 20.408 19.5646 20.408 19.9686 20.2021C20.3241 20.021 20.613 19.732 20.7941 19.3766C21 18.9726 21 18.4436 21 17.3857V11.1524C21 10.0945 21 9.56559 20.7941 9.16153C20.613 8.80612 20.3241 8.51715 19.9686 8.33606C19.5646 8.13018 19.0357 8.13018 17.9778 8.13018L7.02222 8.13018C5.96435 8.13018 5.43541 8.13018 5.03135 8.33606C4.67593 8.51715 4.38697 8.80612 4.20588 9.16153C4 9.56559 4 10.0945 4 11.1524ZM17.2222 14.2691C17.2222 14.5299 17.0108 14.7413 16.75 14.7413C16.4892 14.7413 16.2778 14.5299 16.2778 14.2691C16.2778 14.0083 16.4892 13.7968 16.75 13.7968C17.0108 13.7968 17.2222 14.0083 17.2222 14.2691Z" stroke="#262626" stroke-width="1.4" stroke-linecap="square"></path>
+                <defs>
+                <linearGradient id="paint0_linear_6268_14697" x1="4.44736" y1="11.7037" x2="21.4471" y2="11.7037" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#DDEDEB" stop-opacity="0"></stop>
+                <stop offset="1" stop-color="#DDEDEB"></stop>
+                </linearGradient>
+                <linearGradient id="paint1_linear_6268_14697" x1="4.44736" y1="11.7037" x2="21.4471" y2="11.7037" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#DDEDEB" stop-opacity="0"></stop>
+                <stop offset="1" stop-color="#DDEDEB"></stop>
+                </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            Price Summary
+          </div>
+          <div class="summary-content-wrapp">
+            <div class="mrp-wrap">
+              <span> MRP </span>
+              <span>
+                {% assign total_compare_price = 0 %}
+                {% for item in cart.items %}
+                  {% if item.variant.compare_at_price and item.variant.compare_at_price > item.price %}
+                    {% assign ct_price = item.variant.compare_at_price | times: item.quantity %}
+                    {% assign total_compare_price = total_compare_price | plus: ct_price %}
+                  {% else %}
+                    {% assign ct_price = item.price | times: item.quantity %}
+                    {% assign total_compare_price = total_compare_price | plus: ct_price %}
+                  {% endif %}
+                {% endfor %}
+                {{ total_compare_price | money }}
+              </span>
+            </div>
+            <div class="discount-wrap">
+              <span> Discount </span>
+              <span>
+                {% for item in cart.items %}
+                  {% if item.variant.compare_at_price > item.price %}
+                    {% assign ct_price = item.variant.compare_at_price | times: item.quantity %}
+                    {% assign item_discount = item.price | times: item.quantity %}
+                    {% assign discount_amt = ct_price | minus: item_discount %}
+
+                    {% assign total_discounts = total_discounts | plus: discount_amt %}
+                  {% endif %}
+                {% endfor %}
+                {{ total_discounts | money }}
+              </span>
+            </div>
+            <div class="subtotal-wrap">
+              <span> To Pay </span>
+              <span>{{ cart.total_price | money_with_currency }}</span>
+            </div>
+          </div>
+          <div class="summary-content-wp">
+            <div class="chat_option">
+              Are you facing any issue?<a
+                href="https://wa.me/+918450966928"
+                class="whatsapp-float"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Chat with us
+                <span>
+                  <svg viewBox="0 0 32 32" class="whatsapp-ico">
+                    <path d=" M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z" fill-rule="evenodd"></path>
+                  </svg></span
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="chekout-msg">Shipping and coupon discounts calculated at checkout</div>
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'subtotal' -%}
+              <div class="js-contents" {{ block.shopify_attributes }}>
+                <div>
+                  {%- if cart.cart_level_discount_applications.size > 0 -%}
+                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      {%- for discount in cart.cart_level_discount_applications -%}
+                        <li class="discounts__discount discounts__discount--position">
+                          {{- 'icon-discount.svg' | inline_asset_content -}}
+                          {{ discount.title | escape }}
+                          (-{{ discount.total_allocated_amount | money }})
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+
+                <div class="totals">
+                  <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
+                  <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+                </div>
+                <div class="privacy_policy_wrapper">
+                {% if settings.privacy_policy != blank %}
+                  <div class="privacy_policy_wrap">{{ settings.privacy_policy }}</div>
+                {% endif %}
+                <small class="tax-note caption-large rte">
+                  {%- if cart.duties_included and cart.taxes_included -%}
+                    {%- if shop.shipping_policy.body == blank -%}
+                      {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
+                    {%- else -%}
+                      {{
+                        'sections.cart.duties_and_taxes_included_shipping_at_checkout_with_policy_html'
+                        | t: link: shop.shipping_policy.url
+                      }}
+                    {%- endif -%}
+                  {%- elsif cart.duties_included == false and cart.taxes_included -%}
+                    {%- if shop.shipping_policy.body == blank -%}
+                      {{ 'sections.cart.taxes_included_shipping_at_checkout_without_policy' | t }}
+                    {%- else -%}
+                      {{
+                        'sections.cart.taxes_included_shipping_at_checkout_with_policy_html'
+                        | t: link: shop.shipping_policy.url
+                      }}
+                    {%- endif -%}
+                  {%- elsif cart.duties_included and cart.taxes_included == false -%}
+                    {%- if shop.shipping_policy.body == blank -%}
+                      {{ 'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                    {%- else -%}
+                      {{
+                        'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                        | t: link: shop.shipping_policy.url
+                      }}
+                    {%- endif -%}
+                  {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
+                    {%- if shop.shipping_policy.body == blank -%}
+                      {{ 'sections.cart.taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                    {%- else -%}
+                      {{
+                        'sections.cart.taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                        | t: link: shop.shipping_policy.url
+                      }}
+                    {%- endif -%}
+                  {%- endif -%}
+                </small>
+                </div>
+              </div>
+            {%- else -%}
+              <div class="cart__ctas" {{ block.shopify_attributes }}>
+                <button
+                  type="submit"
+                  id="checkout"
+                  class="cart__checkout-button button"
+                  name="checkout"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                  form="cart"
+                >
+                  {{ 'sections.cart.checkout' | t }}
+                </button>
+              </div>
+
+              {%- if additional_checkout_buttons -%}
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+              {%- endif -%}
+          {%- endcase -%}
+        {% endfor %}
+
+        <div id="cart-errors"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-cart-footer.name",
+  "class": "cart__footer-wrapper",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

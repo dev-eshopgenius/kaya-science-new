@@ -1,0 +1,145 @@
+<div class="layout_secound-menu-wrap">
+  <div class="layout_mega-menu-main">
+    {% if block == blank %}
+      {% for block in section.blocks %}
+        {% if block.type == 'mega_menu_2' %}
+          {% if forloop.last %}
+          {% endif %}
+          {% assign block = block %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% style %}
+        {% if block.settings.lay_2_image != blank %}
+        .layout_secound-menu-wrap .layout-megamenu_items:before{background-image:url("{{ block.settings.lay_2_image |img_url:'original' }}")}
+      {% endif %}
+    {% endstyle %}
+
+    <div class="layout_mega-menu_items">
+      <div class="layout-megamenu_items">
+        {% if block.settings.about_menu.links.size > 0 %}
+          <div class="layout-megamenu_item menu__links">
+            <h2 class="title">{{ block.settings.about_heading }}</h2>
+            <div class="layout__links-item">
+              {% for link in block.settings.about_menu.links %}
+                <li>
+                  <a
+                    id="HeaderMenu-{{ link.handle }}"
+                    href="{{ link.url }}"
+                    class="header__menu-item list-menu__item link link--text focus-inset"
+                    {% if link.current %}
+                      aria-current="page"
+                    {% endif %}
+                  >
+                    <span
+                      {%- if link.current %}
+                        class="header__active-menu-item"
+                      {% endif %}
+                    >
+                      {{- link.title | escape -}}
+                    </span>
+                  </a>
+                </li>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if block.settings.about_menu1.links.size > 0 %}
+          <div class="layout-megamenu_item menu__links">
+            <h2 class="title">{{ block.settings.text_heading }}</h2>
+            <div class="layout__links-item">
+              {% for link in block.settings.about_menu1.links %}
+                <li>
+                  <a
+                    id="HeaderMenu-{{ link.handle }}"
+                    href="{{ link.url }}"
+                    class="header__menu-item list-menu__item link link--text focus-inset"
+                    {% if link.current %}
+                      aria-current="page"
+                    {% endif %}
+                  >
+                    <span
+                      {%- if link.current %}
+                        class="header__active-menu-item"
+                      {% endif %}
+                    >
+                      {{- link.title | escape -}}
+                    </span>
+                  </a>
+                </li>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="layout-megamenu_item menu__image">
+          {% for i in (1..6) %}
+            {% capture image %}menu2_image_{{ i }}{% endcapture %}
+            {% capture text %}menu2_text_{{ i }}{% endcapture %}
+            {% capture img_link %}img_link{{ i }}{% endcapture %}
+            {% capture url %}about_link_url_{{ i }}{% endcapture %}
+            {% capture link_text %}about_link_{{ i }}{% endcapture %}
+            {% if block.settings[text] != blank %}
+              <div class="layout-menu_item-block {{ forloop.index }}">
+                {% if block.settings[img_link] != blank %}
+                  <!-- Wrap image and text in this link -->
+                  <a href="{{ block.settings[img_link] }}" class="menu-link">
+                {% endif %}
+                <div class="layout-menu-image">
+                  {% if block.settings[image] != blank %}
+                    {{
+                      block.settings[image]
+                      | image_url: width: 1024
+                      | image_tag: loading: 'lazy', class: 'menu_image'
+                    }}
+                  {% endif %}
+                </div>
+                <p class="title">{{ block.settings[text] }}</p>
+                {% if block.settings[img_link] != blank %}
+                  </a>
+                {% endif %}
+                <!-- Separate link for button -->
+                {% if block.settings[url] != blank %}
+                  <a href="{{ block.settings[url] }}" class="button btn_view-more">
+                    {{ block.settings[link_text] }}
+                    <svg
+                      class="icon icon-caret"
+                      width="16"
+                      height="17"
+                      viewBox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.350654 5.04297L7.68278 13.1166H8.66983L16.002 5.04297H14.2008L8.1763 11.6768L2.15177 5.04297H0.350654Z" fill="#333333"></path>
+                    </svg>
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+
+       
+      </div>
+    </div>
+  </div>
+ {% if block.settings.megamenu_link != blank %}
+  <a class="mega-menu-link button btn_view-more" href="{{ block.settings.megamenu_link }}">
+    {{ block.settings.megamenu_link_label }}   
+    <svg
+      class="icon icon-caret"
+      width="16"
+      height="17"
+      viewBox="0 0 16 17"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.350654 5.04297L7.68278 13.1166H8.66983L16.002 5.04297H14.2008L8.1763 11.6768L2.15177 5.04297H0.350654Z" fill="#333333"></path>
+    </svg>
+  </a>
+{% endif %}
+
+</div>

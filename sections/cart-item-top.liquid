@@ -1,0 +1,99 @@
+{% assign tags_tocheck = '__b2g1_product2,Affiliate,B2G1+Freegift,b2g1_product,B2G2,B3G2,Buy3,buy3at799,offer 2'
+  | split: ','
+%}
+{%- for item in cart.items -%}
+{% assign has_tagg = false %}
+ {% for tag in item.product.tags %}
+    {% if tags_tocheck contains tag %}
+      {% assign has_tagg = true %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+ {%- if cart != empty -%}
+<div class="page-width" style="padding-top: 30px;">
+  <div class="cart-page-progress">
+    {% render 'progress-bar' %}
+  </div>
+   {% unless has_tagg %}
+    <div id="discount-widget-container2" class="discount-widget-container discount-widget-container--cart"></div>
+  {% endunless %}
+  <div class="saving_ammount">
+            <div class="saving_ammo-main">
+              You are saving
+              <span>
+                {% assign total_discounts1 = 0 %}
+                {% for item in cart.items %}
+                  {% if item.variant.compare_at_price > item.price %}
+                    {% assign ct_price1 = item.variant.compare_at_price | times: item.quantity %}
+                    {% assign item_discount1 = item.price | times: item.quantity %}
+                    {% assign discount_amt1 = ct_price1 | minus: item_discount1 %}
+
+                    {% assign total_discounts1 = total_discounts1 | plus: discount_amt1 %}
+                  {% endif %}
+                {% endfor %}
+                {{ total_discounts1 | money }}
+              </span>
+              on this order
+            </div>
+          </div>
+        {% assign tags_to_check = '__b2g1_product2,Affiliate,B2G1+Freegift,b2g1_product,B2G2,B3G2,offer 2'
+          | split: ','
+        %}
+
+      {% assign b3g2 = 'B3G2'%}
+         {% assign hasb3g2 = false %}
+          {% for item in cart.items %}
+          {% for tag in item.product.tags %}
+            {% if b3g2 contains tag %}
+              {% assign hasb3g2 = true %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+
+        {% assign b2g1 = 'B2G1+Freegift'%}
+         {% assign hasb2g1 = false %}
+          {% for item in cart.items %}
+          {% for tag in item.product.tags %}
+            {% if b2g1 contains tag %}
+              {% assign hasb2g1 = true %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+
+       {% assign hasItemsTag = false %}
+
+        {% for item in cart.items %}
+          {% for tag in item.product.tags %}
+            {% if tags_to_check contains tag %}
+              {% assign hasItemsTag = true %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+
+        <div class="alert-text-wrapper">
+        {% if cart != empty %}
+          {% if settings.cart_free_shipping_threshold != blank
+            or settings.discount_price_1 != blank
+            or settings.discount_price_2 != blank
+            or settings.discount_price_3 != blank
+          %}
+            {% if hasItemsTag %}
+              
+                <span class="alert-text">⚠️ {% if hasb3g2 %}B3G2{% elsif hasb2g1 %}B2G1{% else %}B2G2{% endif %} product added, free gift offer not applicable</span>
+             
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        </div>
+
+
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Cart Top Section",
+    "class":"cart-top-wrapper",
+    "settings": []
+  }
+{% endschema %}

@@ -1,0 +1,218 @@
+<link
+  rel="stylesheet"
+  href="{{ 'component-cart.css' | asset_url }}"
+  media="print"
+  onload="this.onload=null;this.media='all';"
+>
+{{ 'component-cart-items.css' | asset_url | stylesheet_tag: preload: true }}
+<link
+  rel="stylesheet"
+  href="{{ 'component-totals.css' | asset_url }}"
+  media="print"
+  onload="this.onload=null;this.media='all';"
+>
+{{ 'component-price.css' | asset_url | stylesheet_tag: preload: true }}
+<link
+  rel="stylesheet"
+  href="{{ 'component-discounts.css' | asset_url }}"
+  media="print"
+  onload="this.onload=null;this.media='all';"
+>
+<link
+  rel="stylesheet"
+  href="{{ 'quantity-popover.css' | asset_url }}"
+  media="print"
+  onload="this.onload=null;this.media='all';"
+>
+<link
+  rel="stylesheet"
+  href="{{ 'cart-page.css' | asset_url }}"
+  media="print"
+  onload="this.onload=null;this.media='all';"
+>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | timeres: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- unless settings.cart_type == 'drawer' -%}
+  <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+{%- endunless -%}
+
+{% assign free_product_count = 0 %}
+{% assign b1g1_count = 0 %}
+{%- for item in cart.items -%}
+  {% for tag in item.product.tags %}
+    {% if tag contains 'free_product' %}
+      {% assign free_product_count = free_product_count | plus: item.quantity %}
+    {% endif %}
+  {% endfor %}
+
+  {% if item.product.tags contains 'navratri-sale' %}
+    {% assign b1g1_count = b1g1_count | plus: item.quantity %}
+  {% endif %}
+{%- endfor -%}
+<script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+<div class="cart-items-coupons-wrap {{ b1g1_count }}">
+  <cart-items class="page-width gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
+    <div class="">
+      <div class="title-wrapper-with-link">
+        {% assign item_count = cart.item_count | minus: free_product_count %}
+        {% assign b1g1_count_text = b1g1_count | divided_by: 4 | times: 2  %}
+        <header class="drawer__headerr {{ b1g1_count_text }} -- {{ free_product_count }}">
+          <p class="drawer__heading h6">
+            <svg
+              focusable="false"
+              width="21"
+              height="20"
+              class="icon icon--header-shopping-cart   "
+              viewBox="0 0 21 20"
+            >
+              <path d="M0 1H4L5 11H17L19 4H8" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+              <circle cx="6" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+              <circle cx="16" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+            </svg>
+            My Cart
+            <span class="cart-sub_text">
+              {%- if b1g1_count_text > 0 %}
+                ({{ cart.item_count | minus: b1g1_count_text }} Product{% unless item_count == 1 %}s{% endunless -%}
+                | {{ b1g1_count_text }} Freebie{% unless b1g1_count == 1 %}s{% endunless -%} 
+              {%- elsif free_product_count > 0 %}
+                ({{ cart.item_count | minus: free_product_count }} Product{% unless item_count == 1 %}s{% endunless -%}
+                | {{ free_product_count }} Freebie{% unless free_product_count == 1 %}s{% endunless -%}
+              {% else %}  
+                ({{ cart.item_count }} Product{% unless item_count == 1 %}s{% endunless -%}
+              {%- endif -%}
+              )</span
+            >
+          </p>
+        </header>
+        <a href="/collections/shop-all" class="underlined-link">
+          {{- 'general.continue_shopping' | t -}}
+        </a>
+      </div>
+
+      <div class="cart__warnings">
+        <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
+        <a href="/collections/shop-all" class="button">
+          {{ 'general.continue_shopping' | t }}
+        </a>
+
+        {%- if settings.cart_drawer_collection != blank -%}
+          {% render 'empty-cart-collection' %}
+        {%- endif -%}
+
+        {%- if shop.customer_accounts_enabled and customer == null -%}
+          <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
+          <p class="cart__login-paragraph">
+            {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
+          </p>
+        {%- endif -%}
+      </div>
+
+      <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
+        <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
+          <div class="js-contents">
+            {%- if cart != empty -%}
+              <table class="cart-items">
+                <caption class="visually-hidden">
+                  {{ 'sections.cart.title' | t }}
+                </caption>
+                <thead>
+                  <tr>
+                    <th class="caption-with-letter-spacing" colspan="2" scope="col">
+                      {{ 'sections.cart.headings.product' | t }}
+                    </th>
+                    <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">
+                      {{ 'sections.cart.headings.total' | t }}
+                    </th>
+                    <th
+                      class="cart-items__heading--wide cart-items__heading--quantity small-hide caption-with-letter-spacing"
+                      colspan="1"
+                      scope="col"
+                    >
+                      {{ 'sections.cart.headings.quantity' | t }}
+                    </th>
+                    <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">
+                      {{ 'sections.cart.headings.total' | t }}
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {% render 'main-cart-items', free_items: true %}
+                  {% render 'main-cart-items', free_items: false %}
+                </tbody>
+              </table>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
+        <p
+          class="visually-hidden"
+          id="shopping-cart-line-item-status"
+          aria-live="polite"
+          aria-hidden="true"
+          role="status"
+        >
+          {{ 'accessibility.loading' | t }}
+        </p>
+      </form>
+    </div>
+  </cart-items>
+  {%- if cart != empty -%}
+    <div class="page-width">
+      {% render 'sample-products', cart: cart %}
+      {% render 'cart-coupan-code' %}
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+{
+  "name": "t:sections.main-cart-items.name",
+  "class": "main-cart-item-wrapper",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
